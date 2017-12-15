@@ -14,7 +14,6 @@ include $(OBJ:.o=.d)
 # generate dependencies
 %.d: %.cxx
 	$(CXX) $(WX_CXXFLAGS) -MM -MT '$(patsubst %.cxx,%.o,$<)' $< -MF $@
-#	./depend.sh `dirname $*.cxx` $(WX_CXXFLAGS) $*.cxx > $@
 # create objects
 %.o: %.d
 	$(CXX) $(WX_CXXFLAGS) -c $(patsubst %.o,%.cxx,$@) -o $@
