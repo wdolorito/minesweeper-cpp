@@ -9,20 +9,21 @@ SRC :=
 include $(patsubst %,%/module.mk,$(MODULES))
 OBJ := $(patsubst %.cxx,%.o,$(filter %.cxx,$(SRC)))
 minesweeper: $(OBJ)
-	$(CXX) -o bin/$@ $(OBJ) $(WX_LIBS)
+	$(CXX) $(WX_CXXFLAGS) $(WX_LIBS) -o bin/$@ $(OBJ) $(WX_LIBS)
 include $(OBJ:.o=.d)
 # generate dependencies
 %.d: %.cxx
-	./depend.sh `dirname $*.cxx` $(WX_CXXFLAGS) $*.cxx > $@
+	$(CXX) $(WX_CXXFLAGS) -MM -MT '$(patsubst %.cxx,%.o,$<)' $< -MF $@
+#	./depend.sh `dirname $*.cxx` $(WX_CXXFLAGS) $*.cxx > $@
 # create objects
 %.o: %.d
 	$(CXX) $(WX_CXXFLAGS) -c $(patsubst %.o,%.cxx,$@) -o $@
 # delete object files
 clean:
-	rm -f $(OBJ)
+	find src/ -type f -name "*.o" -exec rm -f {} \;
 # delete generated depend.sh files
 distclean: clean
-	rm -f $(OBJ:.o=.d)
+	find src/ -type f -name "*.d" -exec rm -f {} \;
 	rm -f bin/minesweeper
 
 .PHONY: clean  distclean
