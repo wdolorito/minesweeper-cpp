@@ -1,1 +1,1 @@
-SRC +=
+SRC += src/game/Game.cxx

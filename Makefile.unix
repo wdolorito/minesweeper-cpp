@@ -1,27 +1,29 @@
+$(shell if [ ! -d bin ]; then mkdir bin; fi)
 CXX = clang++
 WX_LIBS = $(shell wx-config --libs)
 WX_CXXFLAGS = $(shell wx-config --cxxflags) -Iinclude
-MODULES := src
+MODULES := src src/game
 # each module will add to this
 SRC :=
 # include the description for each module
-include $(patsubst %,\
-	%/module.mk,$(MODULES))
-# determine the object files
-OBJ := 	$(patsubst %.cxx,%.o,$(filter %.cxx,$(SRC)))
-# link the program
+include $(patsubst %,%/module.mk,$(MODULES))
+OBJ := $(patsubst %.cxx,%.o,$(filter %.cxx,$(SRC)))
 minesweeper: $(OBJ)
-	$(CXX) -o bin/$@ build/`basename $(OBJ)` $(WX_LIBS)
-# calculate dependencies
+	$(CXX) -o bin/$@ $(OBJ) $(WX_LIBS)
+include $(OBJ:.o=.d)
+# generate dependencies
 %.d: %.cxx
-	./depend.sh `dirname $*.cxx` $(WX_CXXFLAGS) $*.cxx > build/`basename $@`
-# create object files
+	./depend.sh `dirname $*.cxx` $(WX_CXXFLAGS) $*.cxx > $@
+# create objects
 %.o: %.d
-	$(CXX) $(WX_CXXFLAGS) -c $(patsubst %.o,%.cxx,$(filter %.cxx,$(SRC))) -o build/`basename $@`
+	$(CXX) $(WX_CXXFLAGS) -c $(patsubst %.o,%.cxx,$@) -o $@
 # delete object files
 clean:
-	rm -f bin/* build/*.o
+	rm -f $(OBJ)
 # delete generated depend.sh files
 distclean: clean
-	rm -f build/*.d
+	rm -f $(OBJ:.o=.d)
+	rm -f bin/minesweeper
+
 .PHONY: clean  distclean
+

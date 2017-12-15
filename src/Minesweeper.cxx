@@ -4,6 +4,8 @@
 #ifndef WX_PRECOMP
     #include <wx/wx.h>
 #endif
+#include "Minesweeper.hxx"
+#include "Game.hxx"
 class MyApp: public wxApp
 {
 public:

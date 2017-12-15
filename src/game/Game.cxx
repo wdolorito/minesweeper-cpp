@@ -1,6 +1,4 @@
-#include "Game.h"
+#include "Game.hxx"
 
 class Game {
-	public:
-	
-}
+};
