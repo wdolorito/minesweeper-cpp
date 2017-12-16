@@ -1,9 +1,14 @@
 #ifndef MINESWEEPER_HXX
 #define MINESWEEPER_HXX
 
-class Minesweeper: public wxApp
+#include <wx/wxprec.h>
+#ifndef WX_PRECOMP
+    #include <wx/wx.h>
+#endif
+
+class Minesweeper : public wxApp
 {
-public:
+  public:
     virtual bool OnInit();
 };
 

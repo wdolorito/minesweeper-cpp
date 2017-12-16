@@ -2,7 +2,7 @@ $(shell if [ ! -d bin ]; then mkdir bin; fi)
 CXX = clang++
 WX_LIBS = $(shell wx-config --libs)
 WX_CXXFLAGS = $(shell wx-config --cxxflags) -Iinclude
-MODULES := src src/game
+MODULES := src src/logic src/panels
 # each module will add to this
 SRC :=
 # include the description for each module
