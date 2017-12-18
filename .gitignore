@@ -101,4 +101,13 @@ $RECYCLE.BIN/
 *.out
 *.app
 
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+nbactions.xml
+
 # End of https://www.gitignore.io/api/macos,linux,windows,c++

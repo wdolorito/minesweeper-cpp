@@ -2,7 +2,7 @@ $(shell if [ ! -d bin ]; then mkdir bin; fi)
 CXX = clang++
 WX_LIBS = $(shell wx-config --libs)
 WX_CXXFLAGS = $(shell wx-config --cxxflags) -Iinclude
-MODULES := src src/logic src/panels
+MODULES := src src/game
 # each module will add to this
 SRC :=
 # include the description for each module
@@ -24,6 +24,5 @@ clean:
 distclean: clean
 	find src/ -type f -name "*.d" -exec rm -f {} \;
 	rm -f bin/minesweeper
-
 .PHONY: clean  distclean
 
