@@ -59,7 +59,17 @@ std::vector<int> Game::returnSolution() {
 }
 
 std::vector<int> Game::returnCheckMines(int tile) {
-    return solution;
+    std::vector<int> toReturn;
+    bool checked = false;
+
+    // Top left corner:  return 3 surrounding tiles
+    if(tile == 0) {
+        toReturn.push_back(tile + 1);
+        toReturn.push_back(tile + trc + 1);
+        toReturn.push_back(tile + trc + 2);
+        checked = true;
+    }
+    return toReturn;
 }
 
 void Game::checkTile(int tile) {
