@@ -39,7 +39,7 @@
           <buildCommandWorkingDir>.</buildCommandWorkingDir>
           <buildCommand>${MAKE} -f Makefile</buildCommand>
           <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
-          <executablePath></executablePath>
+          <executablePath>bin/minesweeper</executablePath>
           <ccTool>
             <incDir>
               <pElem>/usr/lib/arm-linux-gnueabihf/wx/include/gtk2-unicode-3.0</pElem>

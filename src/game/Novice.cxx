@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 #include "Novice.hxx"
 
 Novice::Novice() {
@@ -13,6 +7,8 @@ Novice::Novice() {
     BRC = TRC * ROWS;
     BLC = BRC - TRC + 1;
     BOARD = wxSize(TRC * 20 + 60, ROWS * 20 + 60);
+    setEdgeMines();
+    generateMines();
 }
 
 int Novice::getNumberOfMines() {

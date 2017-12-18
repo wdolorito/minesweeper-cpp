@@ -1,33 +1,75 @@
 #include "Game.hxx"
 
-std::vector<char> Game::getMines()
-{
-	return mines;
+Game::Game() {
+    solved = false;
 }
 
-void Game::resetMines()
-{
-	mines = std::vector<char>((trc + 1) * getRows());
+std::vector<char> Game::getMines() {
+    return mines;
 }
 
-void Game::setEdgeMines()
-{
+void Game::resetMines() {
+    mines = std::vector<char>((trc + 1) * getRows());
+    for(int i = 0; i < mines.size(); i++) {
+        mines[i] = '0';
+    }
 }
 
-void Game::generateMines()
-{
+void Game::setEdgeMines() {
+    trc = getTRC() - 1;
+    blc = getBLC() - 1;
+    brc = getBRC() - 1;
+
+    for(int i = 1; i < trc; i++) {
+        topMines.push_back(i);
+    }
+
+    for(int i = trc + 1; i < blc; i += trc + 1) {
+        leftMines.push_back(i);
+    }
+
+    for(int i = trc + trc + 1; i < brc - trc; i += trc + 1) {
+        rightMines.push_back(i);
+    }
+
+    for(int i = blc + 1; i < brc; i++) {
+        bottomMines.push_back(i);
+    }
 }
 
-std::vector<int> Game::returnSolution()
-{
-	return solution;
+void Game::generateMines() {
+    srand(time(NULL));
+    int rando;
+    int numMines = getNumberOfMines();
+    resetMines();
+    for(int i = 0; i < numMines; i++) {
+        rando = rand() % brc;
+        if(mines[rando] != 'm') {
+            mines[rando] = 'm';
+            solution.push_back(rando);
+        } else {
+            i--;
+        }
+    }
+    std::sort(solution.begin(), solution.end());
 }
 
-//std::vector<int> Game::returnCheckMines(int tile)
-//{
-//}
+std::vector<int> Game::returnSolution() {
+    return solution;
+}
 
-void Game::checkTile(int tile)
-{
+std::vector<int> Game::returnCheckMines(int tile) {
+    return solution;
+}
+
+void Game::checkTile(int tile) {
+}
+
+bool Game::getSolved() {
+    return solved;
+}
+
+void Game::setSolved(bool b) {
+    solved = b;
 }
 

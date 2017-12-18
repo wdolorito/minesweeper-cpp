@@ -6,8 +6,7 @@
     #include <wx/wx.h>
 #endif
 
-class Minesweeper : public wxApp
-{
+class Minesweeper : public wxApp {
   public:
     virtual bool OnInit();
 };
