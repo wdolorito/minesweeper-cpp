@@ -22,42 +22,22 @@ void Game::setEdgeMines() {
     trc = getTRC() - 1;
     blc = getBLC() - 1;
     brc = getBRC() - 1;
-    
-    std::cout << "Top left corner: 0" << std::endl;
 
-    std::cout << "topMines: ";
     for(int i = 1; i < trc; i++) {
         topMines.push_back(i);
-        std::cout << i << " ";
     }
-    std::cout << std::endl;
 
-    std::cout << "Top right corner: " << trc << std::endl;
-
-    std::cout << "leftMines: ";
     for(int i = trc + 1; i < blc; i += trc + 1) {
         leftMines.push_back(i);
-        std::cout << i << " ";
     }
-    std::cout << std::endl;
 
-    std::cout << "rightMines: ";
     for(int i = trc + trc + 1; i < brc - trc; i += trc + 1) {
         rightMines.push_back(i);
-        std::cout << i << " ";
     }
-    std::cout << std::endl;
 
-    std::cout << "Bottom left corner: " << blc << std::endl;
-
-    std::cout << "bottomMines: ";
     for(int i = blc + 1; i < brc; i++) {
         bottomMines.push_back(i);
-        std::cout << i << " ";
     }
-    std::cout << std::endl;
-
-    std::cout << "Bottom right corner: " << brc << std::endl;
 }
 
 void Game::generateMines() {
@@ -178,14 +158,19 @@ std::vector<int> Game::returnCheckMines(int tile) {
 }
 
 void Game::checkTile(int tile) {
-    if(mines[tile] != 'm') {
-        int mineCounter = 0;
+//    if(mines[tile] != 'm') {
+//        int mineCounter = 0;
         std::vector<int> toCheck = returnCheckMines(tile);
+        std::cout << tile << ": ";
         for(int i = 0; i < toCheck.size(); i++) {
-            if(mines[i] == 'm') mineCounter++;
+            std::cout << std::setw(2) << toCheck[i] << " ";
         }
-        mines[tile] = '0' + mineCounter;
-    }
+        std::cout << ": " << toCheck.size() << std::endl;
+//        for(int i = 0; i < toCheck.size(); i++) {
+//            if(mines[i] == 'm') mineCounter += 1;
+//        }
+//        mines[tile] = '0' + mineCounter;
+//    }
 }
 
 bool Game::getSolved() {
