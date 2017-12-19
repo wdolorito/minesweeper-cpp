@@ -1,5 +1,6 @@
 #include "Minesweeper.hxx"
 #include "Novice.hxx"
+#include <stdio.h>
 #include <iostream>
 #include <vector>
 
@@ -30,6 +31,10 @@ int main() {
     std::vector<int> temp2 = novice.returnSolution();
     for(int i = 0; i < temp2.size(); i++) {
         std::cout << i << ": " << temp2[i] << std::endl;
+    }
+    for(int i = 0; i < 10; i++) {
+        char temp = '0' + i;
+        std::cout << temp << std::endl;
     }
     return 0;
 //    return true;

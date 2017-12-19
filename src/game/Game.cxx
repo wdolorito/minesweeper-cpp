@@ -69,10 +69,95 @@ std::vector<int> Game::returnCheckMines(int tile) {
         toReturn.push_back(tile + trc + 2);
         checked = true;
     }
+    
+    // Top edge mines:  return 5 surrounding tiles
+    if(std::find(topMines.begin(), topMines.end(), tile) != topMines.end()) {
+        toReturn.push_back(tile - 1);
+        toReturn.push_back(tile + 1);
+        toReturn.push_back(tile + trc);
+        toReturn.push_back(tile + trc + 1);
+        toReturn.push_back(tile + trc + 2);
+        checked = true;
+    }
+    
+    // Top right corner:  return 3 surrounding tiles
+    if(tile == trc) {
+        toReturn.push_back(tile - 1);
+        toReturn.push_back(tile + trc);
+        toReturn.push_back(tile + trc + 1);
+        checked = true;
+    }
+    
+    // Left edge mines:  return 5 surrounding tiles
+    if(std::find(leftMines.begin(), leftMines.end(), tile) != leftMines.end()) {
+        toReturn.push_back(tile - trc - 1);
+        toReturn.push_back(tile - trc);
+        toReturn.push_back(tile + 1);
+        toReturn.push_back(tile + trc + 1);
+        toReturn.push_back(tile + trc + 2);
+        checked = true;
+    }
+    
+    // Bottom left corner:  return 3 surrounding tiles
+    if(tile == blc) {
+        toReturn.push_back(tile - trc - 1);
+        toReturn.push_back(tile - trc);
+        toReturn.push_back(tile + 1);
+        checked = true;
+    }
+    
+    // Bottom edge mines:  return 5 surrounding tiles
+    if(std::find(bottomMines.begin(), bottomMines.end(), tile) != bottomMines.end()) {
+        toReturn.push_back(tile - trc - 2);
+        toReturn.push_back(tile - trc - 1);
+        toReturn.push_back(tile - trc);
+        toReturn.push_back(tile - 1);
+        toReturn.push_back(tile + 1);
+        checked = true;
+    }
+    
+    // Bottom right corner:  return 3 surrounding tiles
+    if(tile == brc) {
+        toReturn.push_back(tile - trc - 2);
+        toReturn.push_back(tile - trc - 1);
+        toReturn.push_back(tile - 1);
+        checked = true;
+    }
+    
+    // Right edge mines:  return 5 surrounding tiles
+    if(std::find(rightMines.begin(), rightMines.end(), tile) != rightMines.end()) {
+        toReturn.push_back(tile - trc - 2);
+        toReturn.push_back(tile - trc - 1);
+        toReturn.push_back(tile - 1);
+        toReturn.push_back(tile + trc);
+        toReturn.push_back(tile + trc + 1);
+        checked = true;
+    }
+    
+    // Everywhere else:  return 8 surrounding tiles
+    if(!checked) {
+        toReturn.push_back(tile - trc - 2);
+        toReturn.push_back(tile - trc - 1);
+        toReturn.push_back(tile - trc);
+        toReturn.push_back(tile - 1);
+        toReturn.push_back(tile + 1);
+        toReturn.push_back(tile + trc);
+        toReturn.push_back(tile + trc + 1);
+        toReturn.push_back(tile + trc + 2);
+    }
+    
     return toReturn;
 }
 
 void Game::checkTile(int tile) {
+    if(mines[tile] == 'm') {
+        int mineCounter = 0;
+        std::vector<int> toCheck = returnCheckMines(tile);
+        for(int i = 0; i < toCheck.size(); i++) {
+            if(mines[i] == 'm') mineCounter++;
+        }
+        mines[tile] = '0' + mineCounter;
+    }
 }
 
 bool Game::getSolved() {
