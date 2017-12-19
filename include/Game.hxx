@@ -24,12 +24,15 @@ class Game {
 
         bool solved;
 
+    protected:
+        void setEdgeMines();
+        void generateMines();
+        void populateField();
+
     public:
         Game();
         std::vector<char> getMines();
         void resetMines();
-        void setEdgeMines();
-        void generateMines();
         std::vector<int> returnSolution();
         std::vector<int> returnCheckMines(int tile);
         void checkTile(int tile);

@@ -7,8 +7,7 @@ Novice::Novice() {
     BRC = TRC * ROWS;
     BLC = BRC - TRC + 1;
     BOARD = wxSize(TRC * 20 + 60, ROWS * 20 + 60);
-    setEdgeMines();
-    generateMines();
+    resetMines();
 }
 
 int Novice::getNumberOfMines() {
