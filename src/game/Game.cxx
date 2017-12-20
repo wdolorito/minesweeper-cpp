@@ -164,7 +164,7 @@ void Game::checkTile(int tile) {
         for(int i = 0; i < toCheck.size(); i++) {
             if(mines[toCheck[i]] == 'm') mineCounter += 1;
         }
-        mines[tile] = '0' +mineCounter;
+        mines[tile] = '0' + mineCounter;
     }
 }
 
