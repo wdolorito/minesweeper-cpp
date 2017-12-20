@@ -8,7 +8,6 @@
 
 #include <algorithm>
 #include <ctime>
-#include <iomanip>
 #include <vector>
 
 class Game {
@@ -48,4 +47,3 @@ class Game {
 };
 
 #endif
-

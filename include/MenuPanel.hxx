@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   MenuPanel.hxx
  * Author: d0odman
  *
@@ -14,14 +14,24 @@
 #ifndef MENUPANEL_HXX
 #define MENUPANEL_HXX
 
-class MenuPanel {
-public:
-    MenuPanel();
-    MenuPanel(const MenuPanel& orig);
-    virtual ~MenuPanel();
-private:
+#include <wx/wxprec.h>
+#ifndef WX_PRECOMP
+    #include <wx/wx.h>
+#endif
 
+#include <wx/panel.h>
+#include "MinePanel.hxx"
+
+class MinePanel;
+
+class MenuPanel: public wxPanel {
+public:
+    MenuPanel(wxPanel *parent);
+    void setMinePanel(MinePanel *minePanel);
+
+private:
+    wxPanel *topLevel;
+    MinePanel *minePanel;
 };
 
 #endif /* MENUPANEL_HXX */
-

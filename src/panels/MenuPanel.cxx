@@ -4,21 +4,20 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   MenuPanel.cxx
  * Author: d0odman
- * 
+ *
  * Created on December 19, 2017, 8:48 PM
  */
 
 #include "MenuPanel.hxx"
 
-MenuPanel::MenuPanel() {
+MenuPanel::MenuPanel(wxPanel * parent):
+        wxPanel(parent, -1, wxPoint(-1, -1), wxSize(-1, -1), wxBORDER_SUNKEN) {
+    topLevel = parent;
 }
 
-MenuPanel::MenuPanel(const MenuPanel& orig) {
+void MenuPanel::setMinePanel(MinePanel * minePanel) {
+    this->minePanel = minePanel;
 }
-
-MenuPanel::~MenuPanel() {
-}
-
