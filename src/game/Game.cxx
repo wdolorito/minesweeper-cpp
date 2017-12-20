@@ -158,19 +158,14 @@ std::vector<int> Game::returnCheckMines(int tile) {
 }
 
 void Game::checkTile(int tile) {
-//    if(mines[tile] != 'm') {
-//        int mineCounter = 0;
+    if(mines[tile] != 'm') {
+        int mineCounter = 0;
         std::vector<int> toCheck = returnCheckMines(tile);
-        std::cout << tile << ": ";
         for(int i = 0; i < toCheck.size(); i++) {
-            std::cout << std::setw(2) << toCheck[i] << " ";
+            if(mines[toCheck[i]] == 'm') mineCounter += 1;
         }
-        std::cout << ": " << toCheck.size() << std::endl;
-//        for(int i = 0; i < toCheck.size(); i++) {
-//            if(mines[i] == 'm') mineCounter += 1;
-//        }
-//        mines[tile] = '0' + mineCounter;
-//    }
+        mines[tile] = '0' +mineCounter;
+    }
 }
 
 bool Game::getSolved() {
@@ -180,4 +175,3 @@ bool Game::getSolved() {
 void Game::setSolved(bool b) {
     solved = b;
 }
-
