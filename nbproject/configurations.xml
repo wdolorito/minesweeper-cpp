@@ -2,10 +2,18 @@
 <configurationDescriptor version="97">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
+      <df name="include">
+        <in>MenuPanel.hxx</in>
+        <in>MinePanel.hxx</in>
+      </df>
       <df name="src">
         <df name="game">
           <in>Game.cxx</in>
           <in>Novice.cxx</in>
+        </df>
+        <df name="panels">
+          <in>MenuPanel.cxx</in>
+          <in>MinePanel.cxx</in>
         </df>
         <in>Minesweeper.cxx</in>
       </df>
@@ -57,11 +65,19 @@
           <preBuildCommand></preBuildCommand>
         </preBuild>
       </makefileType>
+      <item path="include/MenuPanel.hxx" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/MinePanel.hxx" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/Minesweeper.cxx" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/Game.cxx" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/game/Novice.cxx" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/panels/MenuPanel.cxx" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/panels/MinePanel.cxx" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

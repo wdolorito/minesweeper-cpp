@@ -1,1 +1,1 @@
-SRC += src/panels/LeftPanel.cxx src/panels/RightPanel.cxx
+SRC += src/panels/MenuPanel.cxx src/panels/MinePanel.cxx
