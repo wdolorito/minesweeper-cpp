@@ -20,18 +20,45 @@
 #endif
 
 #include <wx/panel.h>
+#include <vector>
 #include "MenuPanel.hxx"
+#include "Game.hxx"
+#include "Novice.hxx"
+#include "Intermediate.hxx"
+#include "Expert.hxx"
 
 class MenuPanel;
+class Game;
 
 class MinePanel: public wxPanel {
 public:
     MinePanel(wxPanel *parent);
     void setMenuPanel(MenuPanel *menuPanel);
+    int getNumMines();
+    int getUnflaggedMines();
 
 private:
     wxPanel *topLevel;
     MenuPanel *menuPanel;
+
+    Game *currentGame;
+    std::vector<int> solution,
+                     runningSolution;
+    std::vector<char> mines;
+    int unflaggedMines;
+    bool gameRunning;
+    
+    void newGame();
+    void newGame(std::string diff);
+    void initPanel();
+    void setTileIcons();
+    void setTileIcons(std::string setName);
+    void initBoard();
+    void doLeftClick(int buttonIndex);
+    void doRightClick(int buttonIndex);
+    void validateGame();
+    void endGame(int buttonIndex);
+    void winGame();
 };
 
 #endif /* MINEPANEL_HXX */
