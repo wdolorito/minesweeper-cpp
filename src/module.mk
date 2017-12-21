@@ -1,1 +1,1 @@
-SRC += src/Minesweeper.cxx
+SRC += src/Minesweeper.cxx src/MainFrame.cxx

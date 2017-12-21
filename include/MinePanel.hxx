@@ -32,14 +32,14 @@ class Game;
 
 class MinePanel: public wxPanel {
 public:
-//    MinePanel(wxPanel *parent);
+    MinePanel(wxPanel *parent);
     void setMenuPanel(MenuPanel *menuPanel);
     int getNumMines();
     int getUnflaggedMines();
     void newGame(std::string diff);
 
 private:
-    wxFrame *topLevel;
+    wxPanel *topLevel;
     MenuPanel *menuPanel;
 
     Game *currentGame;
