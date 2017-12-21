@@ -11,16 +11,15 @@ class Intermediate: public Game {
             BRC,
             BLC;
 
-        wxSize BOARD;
+        wxSize *BOARD;
 
     public:
         Intermediate();
         int getNumberOfMines();
-        wxSize getBoardSize();
+        wxSize * getBoardSize();
         int getTRC();
         int getBLC();
         int getBRC();
         int getRows();
 };
 #endif /* INTERMEDIATE_HXX */
-

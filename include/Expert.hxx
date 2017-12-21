@@ -11,16 +11,15 @@ class Expert: public Game {
             BRC,
             BLC;
 
-        wxSize BOARD;
+        wxSize *BOARD;
 
     public:
         Expert();
         int getNumberOfMines();
-        wxSize getBoardSize();
+        wxSize * getBoardSize();
         int getTRC();
         int getBLC();
         int getBRC();
         int getRows();
 };
 #endif /* EXPERT_HXX */
-

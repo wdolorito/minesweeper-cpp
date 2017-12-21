@@ -11,16 +11,15 @@ class Novice: public Game {
             BRC,
             BLC;
 
-        wxSize BOARD;
+        wxSize *BOARD;
 
     public:
         Novice();
         int getNumberOfMines();
-        wxSize getBoardSize();
+        wxSize * getBoardSize();
         int getTRC();
         int getBLC();
         int getBRC();
         int getRows();
 };
 #endif /* NOVICE_HXX */
-

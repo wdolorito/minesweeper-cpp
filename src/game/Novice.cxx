@@ -6,7 +6,7 @@ Novice::Novice() {
     ROWS = TRC;
     BRC = TRC * ROWS;
     BLC = BRC - TRC + 1;
-    BOARD = wxSize(TRC * 20 + 60, ROWS * 20 + 60);
+    BOARD = new wxSize(TRC * 20 + 60, ROWS * 20 + 60);
     resetMines();
 }
 
@@ -14,7 +14,7 @@ int Novice::getNumberOfMines() {
     return MINES;
 }
 
-wxSize Novice::getBoardSize() {
+wxSize * Novice::getBoardSize() {
     return BOARD;
 }
 
@@ -33,4 +33,3 @@ int Novice::getBRC() {
 int Novice::getRows() {
     return ROWS;
 }
-

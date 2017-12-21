@@ -12,12 +12,12 @@
 
 class Game {
     private:
-        std::vector <char> mines;
-        std::vector <int> topMines,
-                          leftMines,
-                          rightMines,
-                          bottomMines,
-                          solution;
+        std::vector <char> *mines;
+        std::vector <int> *topMines,
+                          *leftMines,
+                          *rightMines,
+                          *bottomMines,
+                          *solution;
         int trc,
             blc,
             brc;
@@ -31,15 +31,15 @@ class Game {
 
     public:
         Game();
-        std::vector<char> getMines();
+        std::vector<char> * getMines();
         void resetMines();
-        std::vector<int> returnSolution();
-        std::vector<int> returnCheckMines(int tile);
+        std::vector<int> * returnSolution();
+        std::vector<int> * returnCheckMines(int tile);
         void checkTile(int tile);
         bool getSolved();
         void setSolved(bool b);
         virtual int getNumberOfMines() = 0;
-        virtual wxSize getBoardSize() = 0;
+        virtual wxSize * getBoardSize() = 0;
         virtual int getTRC() = 0;
         virtual int getBLC() = 0;
         virtual int getBRC() = 0;

@@ -6,7 +6,7 @@ Expert::Expert() {
     ROWS = 16;
     BRC = TRC * ROWS;
     BLC = BRC - TRC + 1;
-    BOARD = wxSize(TRC * 20 + 60, ROWS * 20 + 60);
+    BOARD = new wxSize(TRC * 20 + 60, ROWS * 20 + 60);
     resetMines();
 }
 
@@ -14,7 +14,7 @@ int Expert::getNumberOfMines() {
     return MINES;
 }
 
-wxSize Expert::getBoardSize() {
+wxSize * Expert::getBoardSize() {
     return BOARD;
 }
 
@@ -33,4 +33,3 @@ int Expert::getBRC() {
 int Expert::getRows() {
     return ROWS;
 }
-

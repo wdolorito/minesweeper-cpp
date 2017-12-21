@@ -22,10 +22,22 @@ MainFrame::MainFrame(const wxString& title)
     menuPanel = new MenuPanel(topLevel);
     minePanel = new MinePanel(topLevel);
 
+    wxSize menuPanelSize = wxSize(480, 10);
+    wxSize minePanelSize = wxSize(480, 400);
+    menuPanel->SetMinSize(menuPanelSize);
+    menuPanel->SetMaxSize(menuPanelSize);
+    minePanel->SetMinSize(minePanelSize);
+    minePanel->SetMaxSize(minePanelSize);
+
     container->Add(menuPanel, 1, wxEXPAND | wxALL, 5);
     container->Add(minePanel, 9, wxEXPAND | wxALL, 5);
-    
+
     topLevel->SetSizer(container);
+
+    wxSize maxSize = wxSize(480, 410);
+    topLevel->SetMinSize(maxSize);
+    topLevel->SetMaxSize(maxSize);
+    container->SetSizeHints(this);
 
     Center();
 }
