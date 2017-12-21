@@ -6,10 +6,18 @@
     #include <wx/wx.h>
 #endif
 
+#include "MinePanel.hxx"
+
 class Minesweeper : public wxApp {
   public:
     virtual bool OnInit();
 };
 
+class MainFrame : public wxFrame
+{
+public:
+    MainFrame(const wxString& title);
+
+};
 #endif
 
