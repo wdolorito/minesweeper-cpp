@@ -43,9 +43,9 @@ private:
     wxPanel *topLevel;
     MenuPanel *menuPanel;
 
-    std::vector<int> solution,
-                     runningSolution;
-    std::vector<char> mines;
+    std::vector<int> *solution,
+                     *runningSolution;
+    std::vector<char> *mines;
     int unflaggedMines;
     bool gameRunning;
 

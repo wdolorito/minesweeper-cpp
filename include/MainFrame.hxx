@@ -32,8 +32,12 @@ class MainFrame : public wxFrame
 
     private:
         wxPanel *topLevel;
+        wxMenuBar *menuBar;
+        wxMenu *game;
         MenuPanel *menuPanel;
         MinePanel *minePanel;
+
+        void OnQuit(wxCommandEvent& event);
 };
 
 #endif /* MAINFRAME_HXX */

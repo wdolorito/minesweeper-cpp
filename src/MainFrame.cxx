@@ -32,17 +32,27 @@ MainFrame::MainFrame(const wxString& title)
     minePanel->newGame("abc");
 
     wxSize *boardSize = minePanel->currentGame->getBoardSize();
-    std::cout << boardSize->GetHeight() << " " << boardSize->GetWidth() << std::endl;
 
     container->Add(menuPanel, 1, wxEXPAND | wxALL, 5);
     container->Add(minePanel, 9, wxEXPAND | wxALL, 5);
 
     topLevel->SetSizer(container);
-
     wxSize maxSize = wxSize(480, 410);
     topLevel->SetMinSize(maxSize);
     topLevel->SetMaxSize(maxSize);
     container->SetSizeHints(this);
 
+    menuBar = new wxMenuBar;
+    game = new wxMenu;
+    game->Append(wxID_EXIT, wxT("&Quit\tCtrl-Q"));
+    SetMenuBar(menuBar);
+
+    Connect(wxID_EXIT, wxEVT_COMMAND_MENU_SELECTED,
+      wxCommandEventHandler(MainFrame::OnQuit));
     Center();
+}
+
+void MainFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
+{
+    Close(true);
 }
