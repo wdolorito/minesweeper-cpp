@@ -45,6 +45,12 @@ MainFrame::MainFrame(const wxString& title)
     menuBar = new wxMenuBar;
     game = new wxMenu;
     game->Append(wxID_EXIT, wxT("&Quit\tCtrl-Q"));
+    menuBar->Append(game, wxT("&Game"));
+
+    #ifdef __WXMAC__
+    menuBar->Remove(0);
+    #endif
+
     SetMenuBar(menuBar);
 
     Connect(wxID_EXIT, wxEVT_COMMAND_MENU_SELECTED,
