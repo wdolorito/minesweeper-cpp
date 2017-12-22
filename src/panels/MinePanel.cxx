@@ -37,10 +37,13 @@ void MinePanel::newGame() {
 void MinePanel::newGame(std::string diff) {
     if(!diff.compare("Intermediate")) {
         std::cout << "set up Intermediate" << std::endl;
+        currentGame = new Intermediate();
     } else if(!diff.compare("Expert")) {
         std::cout << "set up Expert" << std::endl;
+        currentGame = new Expert();
     } else {
         std::cout << "set up Novice" << std::endl;
+        currentGame = new Novice();
     }
 }
 

@@ -32,6 +32,7 @@ class Game;
 
 class MinePanel: public wxPanel {
 public:
+    Game *currentGame;
     MinePanel(wxPanel *parent);
     void setMenuPanel(MenuPanel *menuPanel);
     int getNumMines();
@@ -42,7 +43,6 @@ private:
     wxPanel *topLevel;
     MenuPanel *menuPanel;
 
-    Game *currentGame;
     std::vector<int> solution,
                      runningSolution;
     std::vector<char> mines;

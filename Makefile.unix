@@ -5,7 +5,7 @@ WX_CXXFLAGS = $(shell wx-config --cxxflags) -Iinclude
 RELEASE = bin/minesweeper
 RELEASE_FLAGS = -O3 -Wall -DNDEBUG
 DEBUG = bin/minesweeper-debug
-DEBUG_FLAGS = -Og
+DEBUG_FLAGS = -g
 STRIP = strip
 MODULES := src src/game src/panels
 # each module will add to this
@@ -13,8 +13,8 @@ SRC :=
 # include the description for each module
 include $(patsubst %,%/module.mk,$(MODULES))
 OBJ := $(patsubst %.cxx,%.o,$(filter %.cxx,$(SRC)))
-release: $(RELEASE)
 debug: $(DEBUG)
+release: $(RELEASE)
 $(RELEASE): $(OBJ)
 	$(CXX) $(WX_CXXFLAGS) $(RELEASE_FLAGS) $(WX_LIBS) -o $@ $(OBJ) $(WX_LIBS)
 	$(STRIP) $@

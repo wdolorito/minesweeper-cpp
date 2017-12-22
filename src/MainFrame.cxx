@@ -29,6 +29,11 @@ MainFrame::MainFrame(const wxString& title)
     minePanel->SetMinSize(minePanelSize);
     minePanel->SetMaxSize(minePanelSize);
 
+    minePanel->newGame("abc");
+
+    wxSize *boardSize = minePanel->currentGame->getBoardSize();
+    std::cout << boardSize->GetHeight() << " " << boardSize->GetWidth() << std::endl;
+
     container->Add(menuPanel, 1, wxEXPAND | wxALL, 5);
     container->Add(minePanel, 9, wxEXPAND | wxALL, 5);
 
