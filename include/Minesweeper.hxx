@@ -20,5 +20,5 @@ class Minesweeper : public wxApp {
 
 };
 
-#endif
+#endif /* MINESWEEPER_HXX */
 

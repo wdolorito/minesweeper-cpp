@@ -37,7 +37,10 @@ class MainFrame : public wxFrame
         MenuPanel *menuPanel;
         MinePanel *minePanel;
 
+        void OnAbout(wxCommandEvent& event);
         void OnQuit(wxCommandEvent& event);
+
+        wxDECLARE_EVENT_TABLE();
 };
 
 #endif /* MAINFRAME_HXX */

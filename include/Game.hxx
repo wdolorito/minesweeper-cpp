@@ -46,4 +46,4 @@ class Game {
         virtual int getRows() = 0;
 };
 
-#endif
+#endif /* GAME_HXX */

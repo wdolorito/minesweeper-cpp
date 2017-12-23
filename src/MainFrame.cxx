@@ -1,16 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * File:   MainFrame.cxx
- * Author: d0odman
- *
- * Created on December 20, 2017, 10:25 PM
- */
-
 #include "MainFrame.hxx"
 
 MainFrame::MainFrame(const wxString& title)
@@ -44,21 +31,31 @@ MainFrame::MainFrame(const wxString& title)
 
     menuBar = new wxMenuBar;
     game = new wxMenu;
-    game->Append(wxID_EXIT, wxT("&Quit\tCtrl-Q"));
+    game->Append(wxID_ABOUT);
+    game->Append(wxID_EXIT);
     menuBar->Append(game, wxT("&Game"));
 
     #ifdef __WXMAC__
-    menuBar->Remove(0);
+//    menuBar->Remove(0);
     #endif
 
     SetMenuBar(menuBar);
 
-    Connect(wxID_EXIT, wxEVT_COMMAND_MENU_SELECTED,
-      wxCommandEventHandler(MainFrame::OnQuit));
     Center();
+}
+
+void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
+{
+    wxMessageBox( "wdolorito@gmail.com",
+                  "About Minesweeper", wxOK | wxICON_INFORMATION );
 }
 
 void MainFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
 {
     Close(true);
 }
+
+wxBEGIN_EVENT_TABLE(MainFrame, wxFrame)
+    EVT_MENU(wxID_EXIT,  MainFrame::OnQuit)
+    EVT_MENU(wxID_ABOUT, MainFrame::OnAbout)
+wxEND_EVENT_TABLE()

@@ -28,10 +28,23 @@ class MenuPanel: public wxPanel {
 public:
     MenuPanel(wxPanel *parent);
     void setMinePanel(MinePanel *minePanel);
+    void setMinesRem(int i);
+    void resetTimer();
+    void startTimer();
+    void stopTimer();
 
 private:
+    wxArrayString *gameDiff;
+    wxBoxSizer *container;
     wxPanel *topLevel;
     MinePanel *minePanel;
+    wxComboBox *diff;
+    wxStaticText *minesRem;
+    wxStaticText *timer;
+    wxTimer *gameTimer;
+
+    void doSetup();
+    void restartGame(std::string difficulty);
 };
 
 #endif /* MENUPANEL_HXX */
