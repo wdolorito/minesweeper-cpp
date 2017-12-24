@@ -1,24 +1,48 @@
 #include "MenuPanel.hxx"
 
 MenuPanel::MenuPanel(wxPanel * parent):
-        wxPanel(parent, -1, wxPoint(-1, -1), wxSize(-1, -1), wxBORDER_SUNKEN) {
+        wxPanel(parent,
+                wxID_ANY,
+                wxDefaultPosition,
+                wxDefaultSize) {
     topLevel = parent;
     container = new wxBoxSizer(wxHORIZONTAL);
+
+    SetSizer(container);
 
     doSetup();
 }
 
 void MenuPanel::doSetup() {
     gameDiff = new wxArrayString();
-    gameDiff->Add(wxT("Novice"));
-    gameDiff->Add(wxT("Intermediate"));
-    gameDiff->Add(wxT("Expert"));
+    gameDiff->Add("Novice");
+    gameDiff->Add("Intermediate");
+    gameDiff->Add("Expert");
 
-    diff = new wxComboBox();
-//    diff->Set(*gameDiff);
+    minesRem = new wxStaticText(this,
+                                wxID_ANY,
+                                "0",
+                                wxDefaultPosition,
+                                wxDefaultSize);
 
-//    container->Add(diff, 1, wxEXPAND | wxALL, 5);
-    SetSizer(container);
+    diff = new wxComboBox(this,
+                          wxID_ANY,
+                          "",
+                          wxDefaultPosition,
+                          wxDefaultSize,
+                          *gameDiff);
+
+    timer = new wxStaticText(this,
+                             wxID_ANY,
+                             "0",
+                             wxDefaultPosition,
+                             wxDefaultSize);
+
+    container->Add(minesRem, 0, wxCENTER);
+    container->AddSpacer(20);
+    container->Add(diff, 0, wxCENTER);
+    container->AddSpacer(20);
+    container->Add(timer, 0, wxCENTER);
 
 /*    wxStaticText *minesRem;
     wxStaticText *timer;

@@ -1,7 +1,7 @@
 #include "MainFrame.hxx"
 
 MainFrame::MainFrame(const wxString& title)
-       : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(250, 150)) {
+       : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxDefaultSize) {
     topLevel = new wxPanel(this, wxID_ANY);
 
     wxBoxSizer *container = new wxBoxSizer(wxVERTICAL);
@@ -9,7 +9,7 @@ MainFrame::MainFrame(const wxString& title)
     menuPanel = new MenuPanel(topLevel);
     minePanel = new MinePanel(topLevel);
 
-    wxSize menuPanelSize = wxSize(480, 10);
+    wxSize menuPanelSize = wxSize(480, 200);
     wxSize minePanelSize = wxSize(480, 400);
     menuPanel->SetMinSize(menuPanelSize);
     menuPanel->SetMaxSize(menuPanelSize);
