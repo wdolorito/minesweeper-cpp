@@ -32,7 +32,6 @@ class Game;
 
 class MinePanel: public wxPanel {
 public:
-    Game *currentGame;
     MinePanel(wxPanel *parent);
     void setMenuPanel(MenuPanel *menuPanel);
     int getNumMines();
@@ -40,6 +39,7 @@ public:
     void newGame(std::string diff);
 
 private:
+    Game *currentGame;
     wxBoxSizer *container;
     wxGridSizer *mineField;
     wxPanel *topLevel;

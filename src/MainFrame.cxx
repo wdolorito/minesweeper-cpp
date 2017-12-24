@@ -12,7 +12,6 @@ MainFrame::MainFrame(const wxString& title)
     menuPanel->setMinePanel(minePanel);
     minePanel->setMenuPanel(menuPanel);
 
-
     container->Add(menuPanel, 1, wxEXPAND);
     container->Add(minePanel, 9, wxEXPAND);
 
@@ -20,9 +19,9 @@ MainFrame::MainFrame(const wxString& title)
 
     menuBar = new wxMenuBar;
     game = new wxMenu;
-    game->Append(wxID_ABOUT);
-    game->Append(wxID_EXIT);
-    menuBar->Append(game, wxT("&Game"));
+    game->Append(wxID_ABOUT, "&About Minesweeper\tCTRL+A");
+    game->Append(wxID_EXIT, "&Quit Minesweeper\tCTRL+Q");
+    menuBar->Append(game, "&Game");
 
     #ifdef __WXMAC__
 //    menuBar->Remove(0);

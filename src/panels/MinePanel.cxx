@@ -13,7 +13,9 @@ void MinePanel::setMenuPanel(MenuPanel * menuPanel) {
 }
 
 int MinePanel::getNumMines() {
-    return currentGame->getNumberOfMines();
+    currentGame->getNumberOfMines();
+    return 100;
+//    return currentGame->getNumberOfMines();
 }
 
 int MinePanel::getUnflaggedMines() {
