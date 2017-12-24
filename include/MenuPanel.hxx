@@ -46,6 +46,7 @@ private:
 
     void doSetup();
     void restartGame(std::string difficulty);
+    void handleTimer(wxTimerEvent& event);
 };
 
 #endif /* MENUPANEL_HXX */

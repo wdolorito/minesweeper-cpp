@@ -10,6 +10,9 @@ MenuPanel::MenuPanel(wxPanel * parent):
     container = new wxBoxSizer(wxHORIZONTAL);
     verticalSizer = new wxBoxSizer(wxVERTICAL);
 
+    gameTimer = new wxTimer();
+    gameTimer->Bind(wxEVT_TIMER, &MenuPanel::handleTimer, this, gameTimer->GetId());
+
     doSetup();
 }
 
@@ -41,11 +44,11 @@ void MenuPanel::doSetup() {
 
     verticalSizer->Add(container, wxCENTER);
     container->AddStretchSpacer(5);
-    container->Add(minesRem, 2, wxCENTER);
-    container->AddStretchSpacer(5);
-    container->Add(diff, 2, wxCENTER);
-    container->AddStretchSpacer(5);
     container->Add(timer, 2, wxCENTER);
+    container->AddSpacer(20);
+    container->Add(diff, 2, wxCENTER);
+    container->AddSpacer(20);
+    container->Add(minesRem, 2, wxCENTER);
     container->AddStretchSpacer(5);
 
     SetSizer(verticalSizer);
@@ -57,6 +60,13 @@ void MenuPanel::doSetup() {
 void MenuPanel::restartGame(std::string difficulty) {
 }
 
+void MenuPanel::handleTimer(wxTimerEvent& event) {
+    wxString prevStr = timer->GetLabel();
+    int prevInt = wxAtoi(prevStr);
+    prevInt += 1;
+    timer->SetLabelText(wxString::Format(wxT("%i"), prevInt));
+}
+
 void MenuPanel::setMinePanel(MinePanel * minePanel) {
     this->minePanel = minePanel;
 }
@@ -65,10 +75,13 @@ void MenuPanel::setMinesRem(int i) {
 }
 
 void MenuPanel::resetTimer() {
+    timer->SetLabelText("0");
 }
 
 void MenuPanel::startTimer() {
+    gameTimer->Start(1000);
 }
 
 void MenuPanel::stopTimer() {
+    gameTimer->Stop();
 }

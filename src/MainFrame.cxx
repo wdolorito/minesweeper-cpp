@@ -9,10 +9,12 @@ MainFrame::MainFrame(const wxString& title)
     menuPanel = new MenuPanel(topLevel);
     minePanel = new MinePanel(topLevel);
 
+    menuPanel->setMinePanel(minePanel);
     minePanel->setMenuPanel(menuPanel);
 
-    container->Add(menuPanel, 1, wxEXPAND, 5);
-    container->Add(minePanel, 9, wxEXPAND, 5);
+
+    container->Add(menuPanel, 1, wxEXPAND);
+    container->Add(minePanel, 9, wxEXPAND);
 
     topLevel->SetSizer(container);
 

@@ -46,12 +46,18 @@ void MinePanel::initPanel() {
     mineField = new wxGridSizer(9, 9, 0, 0);
 
     for(int i = 0; i < 81; i++) {
-        mineField->Add(new wxStaticText(this, wxID_ANY, "0"), 0, wxCENTER);
+        mineField->Add(new wxStaticText(this,
+                                    wxID_ANY,
+                                    "0",
+                                    wxDefaultPosition,
+                                    wxDefaultSize,
+                                    wxALIGN_CENTER));
     }
 
-    container->Add(mineField, 1, wxEXPAND);
+    container->Add(mineField, 0, wxEXPAND);
     SetSizer(container);
     Center();
+    menuPanel->startTimer();
 }
 
 void MinePanel::setTileIcons() {
