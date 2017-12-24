@@ -9,25 +9,12 @@ MainFrame::MainFrame(const wxString& title)
     menuPanel = new MenuPanel(topLevel);
     minePanel = new MinePanel(topLevel);
 
-    wxSize menuPanelSize = wxSize(480, 200);
-    wxSize minePanelSize = wxSize(480, 400);
-    menuPanel->SetMinSize(menuPanelSize);
-    menuPanel->SetMaxSize(menuPanelSize);
-    minePanel->SetMinSize(minePanelSize);
-    minePanel->SetMaxSize(minePanelSize);
+    minePanel->setMenuPanel(menuPanel);
 
-    minePanel->newGame("abc");
-
-    wxSize *boardSize = minePanel->currentGame->getBoardSize();
-
-    container->Add(menuPanel, 1, wxEXPAND | wxALL, 5);
-    container->Add(minePanel, 9, wxEXPAND | wxALL, 5);
+    container->Add(menuPanel, 1, wxEXPAND, 5);
+    container->Add(minePanel, 9, wxEXPAND, 5);
 
     topLevel->SetSizer(container);
-    wxSize maxSize = wxSize(480, 410);
-    topLevel->SetMinSize(maxSize);
-    topLevel->SetMaxSize(maxSize);
-    container->SetSizeHints(this);
 
     menuBar = new wxMenuBar;
     game = new wxMenu;

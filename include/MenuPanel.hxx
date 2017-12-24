@@ -35,6 +35,7 @@ public:
 
 private:
     wxArrayString *gameDiff;
+    wxBoxSizer *verticalSizer;
     wxBoxSizer *container;
     wxPanel *topLevel;
     MinePanel *minePanel;

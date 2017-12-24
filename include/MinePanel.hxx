@@ -40,6 +40,8 @@ public:
     void newGame(std::string diff);
 
 private:
+    wxBoxSizer *container;
+    wxGridSizer *mineField;
     wxPanel *topLevel;
     MenuPanel *menuPanel;
 

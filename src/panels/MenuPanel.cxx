@@ -6,9 +6,9 @@ MenuPanel::MenuPanel(wxPanel * parent):
                 wxDefaultPosition,
                 wxDefaultSize) {
     topLevel = parent;
-    container = new wxBoxSizer(wxHORIZONTAL);
 
-    SetSizer(container);
+    container = new wxBoxSizer(wxHORIZONTAL);
+    verticalSizer = new wxBoxSizer(wxVERTICAL);
 
     doSetup();
 }
@@ -23,7 +23,8 @@ void MenuPanel::doSetup() {
                                 wxID_ANY,
                                 "0",
                                 wxDefaultPosition,
-                                wxDefaultSize);
+                                wxDefaultSize,
+                                wxALIGN_RIGHT);
 
     diff = new wxComboBox(this,
                           wxID_ANY,
@@ -38,12 +39,16 @@ void MenuPanel::doSetup() {
                              wxDefaultPosition,
                              wxDefaultSize);
 
-    container->Add(minesRem, 0, wxCENTER);
-    container->AddSpacer(20);
-    container->Add(diff, 0, wxCENTER);
-    container->AddSpacer(20);
-    container->Add(timer, 0, wxCENTER);
+    verticalSizer->Add(container, wxCENTER);
+    container->AddStretchSpacer(5);
+    container->Add(minesRem, 2, wxCENTER);
+    container->AddStretchSpacer(5);
+    container->Add(diff, 2, wxCENTER);
+    container->AddStretchSpacer(5);
+    container->Add(timer, 2, wxCENTER);
+    container->AddStretchSpacer(5);
 
+    SetSizer(verticalSizer);
 /*    wxStaticText *minesRem;
     wxStaticText *timer;
     wxTimer *gameTimer;*/
