@@ -29,13 +29,10 @@ include $(OBJ:.o=.d)
 	$(CXX) $(WX_CXXFLAGS) -c $(patsubst %.o,%.cxx,$@) -o $@
 # delete object files
 clean:
-#	find src/ -type f -name "*.o" -exec rm -f {} \;
 	rm -f $(OBJ)
 # delete generated depend.sh files
 distclean: clean
-#	find src/ -type f -name "*.d" -exec rm -f {} \;
 	rm -f $(OBJ:.o=.d)
 	rm -f $(RELEASE)
 	rm -f $(DEBUG)
 .PHONY: clean  distclean
-

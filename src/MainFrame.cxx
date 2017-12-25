@@ -32,14 +32,12 @@ MainFrame::MainFrame(const wxString& title)
     Center();
 }
 
-void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
-{
+void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
     wxMessageBox( "wdolorito@gmail.com",
                   "About Minesweeper", wxOK | wxICON_INFORMATION );
 }
 
-void MainFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
-{
+void MainFrame::OnQuit(wxCommandEvent& WXUNUSED(event)) {
     Close(true);
 }
 

@@ -6,7 +6,7 @@ MenuPanel::MenuPanel(wxPanel * parent):
                 wxDefaultPosition,
                 wxDefaultSize) {
     topLevel = parent;
-    
+
     doSetup();
 }
 
@@ -51,7 +51,7 @@ void MenuPanel::setupStaticText() {
 void MenuPanel::setupPanel() {
     container = new wxBoxSizer(wxHORIZONTAL);
     verticalSizer = new wxBoxSizer(wxVERTICAL);
-    
+
     verticalSizer->Add(container, wxCENTER);
     container->AddStretchSpacer(5);
     container->Add(timer, 2, wxCENTER);

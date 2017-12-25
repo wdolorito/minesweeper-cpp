@@ -1,15 +1,16 @@
 #include "MinePanel.hxx"
 
 MinePanel::MinePanel(wxPanel * parent):
-        wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize) {
+        wxPanel(parent,
+                wxID_ANY,
+                wxDefaultPosition,
+                wxDefaultSize) {
     topLevel = parent;
 }
 
 void MinePanel::setMenuPanel(MenuPanel * menuPanel) {
     this->menuPanel = menuPanel;
-//    runningSolution = new std::vector<int>();
-//    newGame();
-//    initPanel();
+    runningSolution = new std::vector<int>();
 }
 
 int MinePanel::getNumMines() {
@@ -38,10 +39,9 @@ void MinePanel::newGame(std::string diff) {
 
     gameRunning = false;
     solution = currentGame->returnSolution();
-    initBoard();
 }
 
-void MinePanel::initPanel() {
+void MinePanel::setupPanel() {
     container = new wxBoxSizer(wxVERTICAL);
     mineField = new wxGridSizer(9, 9, 0, 0);
 
@@ -66,7 +66,7 @@ void MinePanel::setTileIcons() {
 void MinePanel::setTileIcons(std::string setName) {
 }
 
-void MinePanel::initBoard() {
+void MinePanel::setupBoard() {
 }
 
 void MinePanel::doLeftClick(int buttonIndex) {

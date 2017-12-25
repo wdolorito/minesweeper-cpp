@@ -52,15 +52,16 @@ private:
     bool gameRunning;
 
     void newGame();
-    void initPanel();
+    void setupPanel();
     void setTileIcons();
     void setTileIcons(std::string setName);
-    void initBoard();
+    void setupBoard();
     void doLeftClick(int buttonIndex);
     void doRightClick(int buttonIndex);
     void validateGame();
     void endGame(int buttonIndex);
     void winGame();
+    void handleButtonClick(wxCommandEvent& event);
 };
 
 #endif /* MINEPANEL_HXX */
