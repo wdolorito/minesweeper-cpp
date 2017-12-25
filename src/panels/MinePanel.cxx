@@ -7,15 +7,13 @@ MinePanel::MinePanel(wxPanel * parent):
 
 void MinePanel::setMenuPanel(MenuPanel * menuPanel) {
     this->menuPanel = menuPanel;
-    runningSolution = new std::vector<int>();
-    newGame();
-    initPanel();
+//    runningSolution = new std::vector<int>();
+//    newGame();
+//    initPanel();
 }
 
 int MinePanel::getNumMines() {
-    currentGame->getNumberOfMines();
-    return 100;
-//    return currentGame->getNumberOfMines();
+    return currentGame->getNumberOfMines();
 }
 
 int MinePanel::getUnflaggedMines() {

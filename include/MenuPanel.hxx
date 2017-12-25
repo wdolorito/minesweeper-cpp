@@ -45,6 +45,9 @@ private:
     wxTimer *gameTimer;
 
     void doSetup();
+    void setupComboBox();
+    void setupStaticText();
+    void setupPanel();
     void restartGame(std::string difficulty);
     void handleTimer(wxTimerEvent& event);
     void handleComboBox(wxCommandEvent& event);

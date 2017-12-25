@@ -6,20 +6,21 @@ MenuPanel::MenuPanel(wxPanel * parent):
                 wxDefaultPosition,
                 wxDefaultSize) {
     topLevel = parent;
+    
+    doSetup();
 }
 
 void MenuPanel::doSetup() {
+    setupComboBox();
+    setupStaticText();
+    setupPanel();
+}
+
+void MenuPanel::setupComboBox() {
     gameDiff = new wxArrayString();
     gameDiff->Add("Novice");
     gameDiff->Add("Intermediate");
     gameDiff->Add("Expert");
-
-    minesRem = new wxStaticText(this,
-                                wxID_ANY,
-                                "0",
-                                wxDefaultPosition,
-                                wxDefaultSize,
-                                wxALIGN_RIGHT);
 
     diff = new wxComboBox(this,
                           wxID_ANY,
@@ -29,13 +30,28 @@ void MenuPanel::doSetup() {
                           *gameDiff);
 
     diff->Bind(wxEVT_COMMAND_COMBOBOX_SELECTED, &MenuPanel::handleComboBox, this, diff->GetId());
+}
 
+void MenuPanel::setupStaticText() {
     timer = new wxStaticText(this,
                              wxID_ANY,
                              "0",
                              wxDefaultPosition,
-                             wxDefaultSize);
+                             wxDefaultSize,
+                             wxALIGN_RIGHT);
 
+    minesRem = new wxStaticText(this,
+                                wxID_ANY,
+                                "0",
+                                wxDefaultPosition,
+                                wxDefaultSize,
+                                wxALIGN_LEFT);
+}
+
+void MenuPanel::setupPanel() {
+    container = new wxBoxSizer(wxHORIZONTAL);
+    verticalSizer = new wxBoxSizer(wxVERTICAL);
+    
     verticalSizer->Add(container, wxCENTER);
     container->AddStretchSpacer(5);
     container->Add(timer, 2, wxCENTER);
@@ -62,13 +78,14 @@ void MenuPanel::handleTimer(wxTimerEvent& event) {
 
 void MenuPanel::setMinePanel(MinePanel * minePanel) {
     this->minePanel = minePanel;
-    setMinesRem(minePanel->getNumMines());
+
+//    setMinesRem(minePanel->getNumMines());
     container = new wxBoxSizer(wxHORIZONTAL);
     verticalSizer = new wxBoxSizer(wxVERTICAL);
 
     gameTimer = new wxTimer();
     gameTimer->Bind(wxEVT_TIMER, &MenuPanel::handleTimer, this, gameTimer->GetId());
-    doSetup();
+//    doSetup();
 }
 
 void MenuPanel::setMinesRem(int i) {
