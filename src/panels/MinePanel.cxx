@@ -6,11 +6,42 @@ MinePanel::MinePanel(wxPanel * parent):
                 wxDefaultPosition,
                 wxDefaultSize) {
     topLevel = parent;
+
+    setupHandler();
+    setTileIcons();
+    setupBoard();
+    setupPanel();
 }
 
 void MinePanel::setMenuPanel(MenuPanel * menuPanel) {
     this->menuPanel = menuPanel;
     runningSolution = new std::vector<int>();
+}
+
+void MinePanel::setupHandler() {
+    wxImage::AddHandler(new wxPNGHandler);
+}
+
+void MinePanel::setTileIcons() {
+    setTileIcons("set1/");
+}
+
+void MinePanel::setTileIcons(std::string setName) {
+    std::string path = "assets/" + setName;
+
+    initial  = new wxImage(path + "default.png", wxBITMAP_TYPE_PNG);
+    empty    = new wxImage(path + "empty.png", wxBITMAP_TYPE_PNG);
+    one      = new wxImage(path + "1.png", wxBITMAP_TYPE_PNG);
+    two      = new wxImage(path + "2.png", wxBITMAP_TYPE_PNG);
+    three    = new wxImage(path + "3.png", wxBITMAP_TYPE_PNG);
+    four     = new wxImage(path + "4.png", wxBITMAP_TYPE_PNG);
+    five     = new wxImage(path + "5.png", wxBITMAP_TYPE_PNG);
+    six      = new wxImage(path + "6.png", wxBITMAP_TYPE_PNG);
+    seven    = new wxImage(path + "7.png", wxBITMAP_TYPE_PNG);
+    eight    = new wxImage(path + "8.png", wxBITMAP_TYPE_PNG);
+    flag     = new wxImage(path + "flag.png", wxBITMAP_TYPE_PNG);
+    bomb     = new wxImage(path + "bomb.png", wxBITMAP_TYPE_PNG);
+    exploded = new wxImage(path + "exploded.png", wxBITMAP_TYPE_PNG);
 }
 
 int MinePanel::getNumMines() {
@@ -43,30 +74,24 @@ void MinePanel::newGame(std::string diff) {
 
 void MinePanel::setupPanel() {
     container = new wxBoxSizer(wxVERTICAL);
-    mineField = new wxGridSizer(9, 9, 0, 0);
-
-    for(int i = 0; i < 81; i++) {
-        mineField->Add(new wxStaticText(this,
-                                    wxID_ANY,
-                                    "0",
-                                    wxDefaultPosition,
-                                    wxDefaultSize,
-                                    wxALIGN_CENTER));
-    }
-
     container->Add(mineField, 0, wxEXPAND);
     SetSizer(container);
     Center();
-    menuPanel->startTimer();
-}
-
-void MinePanel::setTileIcons() {
-}
-
-void MinePanel::setTileIcons(std::string setName) {
+//    menuPanel->startTimer();
 }
 
 void MinePanel::setupBoard() {
+    mineField = new wxGridSizer(9, 9, 0, 0);
+    for(int i = 0; i < 81; i++) {
+        wxButton *temp = new wxButton(this,
+                                    wxID_ANY,
+                                    wxEmptyString,
+                                    wxDefaultPosition,
+                                    wxDefaultSize,
+                                    wxBU_NOTEXT);
+        if(initial->IsOk()) temp->SetBitmap(*initial);
+        mineField->Add(temp);
+    }
 }
 
 void MinePanel::doLeftClick(int buttonIndex) {

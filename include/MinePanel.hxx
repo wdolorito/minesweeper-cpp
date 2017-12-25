@@ -37,6 +37,7 @@ public:
     int getNumMines();
     int getUnflaggedMines();
     void newGame(std::string diff);
+    void setTileIcons(std::string setName);
 
 private:
     Game *currentGame;
@@ -51,16 +52,33 @@ private:
     int unflaggedMines;
     bool gameRunning;
 
+    wxImage *initial,
+            *empty,
+            *one,
+            *two,
+            *three,
+            *four,
+            *five,
+            *six,
+            *seven,
+            *eight,
+            *flag,
+            *bomb,
+            *exploded;
+
     void newGame();
-    void setupPanel();
+    void setupHandler();
     void setTileIcons();
-    void setTileIcons(std::string setName);
     void setupBoard();
+    void setupPanel();
+
     void doLeftClick(int buttonIndex);
     void doRightClick(int buttonIndex);
+
     void validateGame();
     void endGame(int buttonIndex);
     void winGame();
+
     void handleButtonClick(wxCommandEvent& event);
 };
 
