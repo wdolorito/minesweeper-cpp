@@ -6,16 +6,47 @@ MinePanel::MinePanel(wxPanel * parent):
                 wxDefaultPosition,
                 wxDefaultSize) {
     topLevel = parent;
+    runningSolution = new std::vector<int>();
+    mineField = new wxGridSizer(0, 0, 0, 0);
 
+    newGame();
     setupHandler();
     setTileIcons();
-    setupBoard();
     setupPanel();
 }
 
 void MinePanel::setMenuPanel(MenuPanel * menuPanel) {
     this->menuPanel = menuPanel;
-    runningSolution = new std::vector<int>();
+}
+
+void MinePanel::newGame() {
+    newGame("Novice");
+}
+
+void MinePanel::newGame(std::string diff) {
+    if(!diff.compare("Intermediate")) {
+        std::cout << "set up Intermediate" << std::endl;
+        currentGame = new Intermediate();
+    } else if(!diff.compare("Expert")) {
+        std::cout << "set up Expert" << std::endl;
+        currentGame = new Expert();
+    } else {
+        std::cout << "set up Novice" << std::endl;
+        currentGame = new Novice();
+    }
+
+    if(!mineField->IsEmpty()) {
+        std::cout << "remove all elements" << std::endl;
+        mineField->Clear(true);
+    }
+
+    mineField->SetRows(currentGame->getRows());
+    mineField->SetCols(currentGame->getTRC());
+
+    gameRunning = false;
+    solution = currentGame->returnSolution();
+    setTileIcons();
+    setupBoard();
 }
 
 void MinePanel::setupHandler() {
@@ -44,32 +75,20 @@ void MinePanel::setTileIcons(std::string setName) {
     exploded = new wxImage(path + "exploded.png", wxBITMAP_TYPE_PNG);
 }
 
-int MinePanel::getNumMines() {
-    return currentGame->getNumberOfMines();
-}
-
-int MinePanel::getUnflaggedMines() {
-    return 0;
-}
-
-void MinePanel::newGame() {
-    newGame("Novice");
-}
-
-void MinePanel::newGame(std::string diff) {
-    if(!diff.compare("Intermediate")) {
-        std::cout << "set up Intermediate" << std::endl;
-        currentGame = new Intermediate();
-    } else if(!diff.compare("Expert")) {
-        std::cout << "set up Expert" << std::endl;
-        currentGame = new Expert();
-    } else {
-        std::cout << "set up Novice" << std::endl;
-        currentGame = new Novice();
+void MinePanel::setupBoard() {
+    for(int i = 0; i < currentGame->getBRC(); i++) {
+        wxButton *temp = new wxButton(this,
+                                    wxID_ANY,
+                                    wxEmptyString,
+                                    wxDefaultPosition,
+                                    wxDefaultSize,
+                                    wxBU_NOTEXT);
+        if(initial->IsOk()) temp->SetBitmap(*initial);
+        mineField->Add(temp);
     }
-
-    gameRunning = false;
-    solution = currentGame->returnSolution();
+    SetBackgroundColour(wxColour(* wxWHITE));
+    mineField->Layout();
+    Refresh();
 }
 
 void MinePanel::setupPanel() {
@@ -80,18 +99,12 @@ void MinePanel::setupPanel() {
 //    menuPanel->startTimer();
 }
 
-void MinePanel::setupBoard() {
-    mineField = new wxGridSizer(9, 9, 0, 0);
-    for(int i = 0; i < 81; i++) {
-        wxButton *temp = new wxButton(this,
-                                    wxID_ANY,
-                                    wxEmptyString,
-                                    wxDefaultPosition,
-                                    wxDefaultSize,
-                                    wxBU_NOTEXT);
-        if(initial->IsOk()) temp->SetBitmap(*initial);
-        mineField->Add(temp);
-    }
+int MinePanel::getNumMines() {
+    return currentGame->getNumberOfMines();
+}
+
+int MinePanel::getUnflaggedMines() {
+    return 0;
 }
 
 void MinePanel::doLeftClick(int buttonIndex) {
