@@ -24,7 +24,7 @@ MainFrame::MainFrame(const wxString& title)
     menuBar->Append(game, "&Game");
 
     #ifdef __WXMAC__
-    menuBar->Remove(0);
+//    menuBar->Remove(0);
     #endif
 
     SetMenuBar(menuBar);

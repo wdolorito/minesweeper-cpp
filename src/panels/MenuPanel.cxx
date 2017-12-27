@@ -65,7 +65,7 @@ void MenuPanel::setupPanel() {
 }
 
 void MenuPanel::restartGame(std::string difficulty) {
-    minePanel->newGame(difficulty);
+    minePanel->newGame(difficulty, false);
     setMinesRem(minePanel->getNumMines());
 }
 

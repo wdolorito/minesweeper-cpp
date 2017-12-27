@@ -36,7 +36,7 @@ public:
     void setMenuPanel(MenuPanel *menuPanel);
     int getNumMines();
     int getUnflaggedMines();
-    void newGame(std::string diff);
+    void newGame(std::string diff, bool firstRun = true);
     void setTileIcons(std::string setName);
 
 private:
@@ -67,7 +67,6 @@ private:
             *exploded;
 
     void newGame();
-    void setupImages();
     void setTileIcons();
     void setupBoard();
     void setupPanel();
