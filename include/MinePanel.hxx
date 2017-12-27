@@ -67,7 +67,7 @@ private:
             *exploded;
 
     void newGame();
-    void setupHandler();
+    void setupImages();
     void setTileIcons();
     void setupBoard();
     void setupPanel();
