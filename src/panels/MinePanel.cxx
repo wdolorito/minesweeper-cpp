@@ -45,7 +45,6 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
 
     gameRunning = false;
     solution = currentGame->returnSolution();
-    std::cout << "firstRun: " << firstRun << std::endl;
     if(!firstRun) setupBoard();
 }
 
@@ -92,17 +91,22 @@ void MinePanel::setupBoard() {
                                     wxEmptyString,
                                     wxDefaultPosition,
                                     wxDefaultSize,
-                                    wxBU_NOTEXT);
-        if(initial->IsOk()) temp->SetBitmap(*initial);
-        mineField->Add(temp);
+                                    wxBU_EXACTFIT | wxBU_NOTEXT | wxBORDER_NONE);
+        temp->SetBitmap(*initial);
+        mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }
+
+    SetSize(*currentGame->getBoardSize());
+    topLevel->SetMinSize(topLevel->GetMinClientSize());
+    topLevel->SetMaxSize(topLevel->GetMinClientSize());
+    topLevel->SetSize(topLevel->GetMinClientSize());
     topLevel->Layout();
-    topLevel->Refresh();
+//    topLevel->Refresh();
 }
 
 void MinePanel::setupPanel() {
     container = new wxBoxSizer(wxVERTICAL);
-    container->Add(mineField, 0, wxEXPAND);
+    container->Add(mineField, wxALIGN_CENTER);
     SetSizer(container);
     Center();
 }

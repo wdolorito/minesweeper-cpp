@@ -79,13 +79,11 @@ void MenuPanel::handleTimer(wxTimerEvent& event) {
 void MenuPanel::setMinePanel(MinePanel * minePanel) {
     this->minePanel = minePanel;
 
-//    setMinesRem(minePanel->getNumMines());
     container = new wxBoxSizer(wxHORIZONTAL);
     verticalSizer = new wxBoxSizer(wxVERTICAL);
 
     gameTimer = new wxTimer();
     gameTimer->Bind(wxEVT_TIMER, &MenuPanel::handleTimer, this, gameTimer->GetId());
-//    doSetup();
 }
 
 void MenuPanel::setMinesRem(int i) {

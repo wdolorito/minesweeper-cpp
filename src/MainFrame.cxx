@@ -29,6 +29,15 @@ MainFrame::MainFrame(const wxString& title)
 
     SetMenuBar(menuBar);
 
+    wxSize initMenuSize = menuPanel->GetEffectiveMinSize();
+    wxSize initMineSize = minePanel->GetEffectiveMinSize();
+    wxSize *minSize = new wxSize(initMineSize.GetWidth(),
+                                 initMenuSize.GetHeight() + initMineSize.GetHeight());
+    SetInitialSize(*minSize);
+
+    std::cout << initMenuSize.GetHeight() << " " << initMenuSize.GetWidth() << std::endl;
+    std::cout << initMineSize.GetHeight() << " " << initMineSize.GetWidth() << std::endl;
+
     Center();
 }
 
