@@ -5,18 +5,21 @@ MinePanel::MinePanel(wxPanel * parent):
                 wxID_ANY,
                 wxDefaultPosition,
                 wxDefaultSize) {
-    topLevel = parent;
     runningSolution = new std::vector<int>();
     mineField = new wxGridSizer(0, 0, 0, 0);
+}
+
+void MinePanel::setMenuPanel(MenuPanel * menuPanel) {
+    this->menuPanel = menuPanel;
+}
+
+void MinePanel::setMainFrame(MainFrame *mainFrame) {
+    topLevel = mainFrame;
 
     newGame();
     setTileIcons();
     setupBoard();
     setupPanel();
-}
-
-void MinePanel::setMenuPanel(MenuPanel * menuPanel) {
-    this->menuPanel = menuPanel;
 }
 
 void MinePanel::newGame() {
@@ -25,18 +28,14 @@ void MinePanel::newGame() {
 
 void MinePanel::newGame(std::string diff, bool firstRun) {
     if(!diff.compare("Intermediate")) {
-        std::cout << "set up Intermediate" << std::endl;
         currentGame = new Intermediate();
     } else if(!diff.compare("Expert")) {
-        std::cout << "set up Expert" << std::endl;
         currentGame = new Expert();
     } else {
-        std::cout << "set up Novice" << std::endl;
         currentGame = new Novice();
     }
 
     if(!mineField->IsEmpty()) {
-        std::cout << "remove all elements" << std::endl;
         mineField->Clear(true);
     }
 
@@ -95,13 +94,10 @@ void MinePanel::setupBoard() {
         temp->SetBitmap(*initial);
         mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }
-
-    SetSize(*currentGame->getBoardSize());
-    topLevel->SetMinSize(topLevel->GetMinClientSize());
-    topLevel->SetMaxSize(topLevel->GetMinClientSize());
-    topLevel->SetSize(topLevel->GetMinClientSize());
-    topLevel->Layout();
-//    topLevel->Refresh();
+    SetMinSize(*currentGame->getBoardSize());
+    SetMaxSize(*currentGame->getBoardSize());
+    Center();
+    topLevel->redrawAll();
 }
 
 void MinePanel::setupPanel() {

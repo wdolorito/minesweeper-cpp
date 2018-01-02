@@ -20,24 +20,28 @@
 #endif
 
 #include <wx/panel.h>
+#include "MainFrame.hxx"
 #include "MinePanel.hxx"
 
+class MainFrame;
 class MinePanel;
 
 class MenuPanel: public wxPanel {
 public:
     MenuPanel(wxPanel *parent);
     void setMinePanel(MinePanel *minePanel);
+    void setMainFrame(MainFrame *mainFrame);
     void setMinesRem(int i);
     void resetTimer();
     void startTimer();
     void stopTimer();
 
 private:
+    int padding;
     wxArrayString *gameDiff;
-    wxBoxSizer *verticalSizer;
-    wxBoxSizer *container;
-    wxPanel *topLevel;
+    wxBoxSizer *hSizer;
+    wxBoxSizer *vSizer;
+    MainFrame *topLevel;
     MinePanel *minePanel;
     wxComboBox *diff;
     wxStaticText *minesRem;

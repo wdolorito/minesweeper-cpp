@@ -27,6 +27,7 @@
 #include "Intermediate.hxx"
 #include "Expert.hxx"
 
+class MainFrame;
 class MenuPanel;
 class Game;
 
@@ -34,6 +35,7 @@ class MinePanel: public wxPanel {
 public:
     MinePanel(wxPanel *parent);
     void setMenuPanel(MenuPanel *menuPanel);
+    void setMainFrame(MainFrame *mainFrame);
     int getNumMines();
     int getUnflaggedMines();
     void newGame(std::string diff, bool firstRun = true);
@@ -43,7 +45,7 @@ private:
     Game *currentGame;
     wxBoxSizer *container;
     wxGridSizer *mineField;
-    wxPanel *topLevel;
+    MainFrame *topLevel;
     MenuPanel *menuPanel;
 
     std::vector<int> *solution,

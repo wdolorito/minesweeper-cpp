@@ -5,8 +5,6 @@ MenuPanel::MenuPanel(wxPanel * parent):
                 wxID_ANY,
                 wxDefaultPosition,
                 wxDefaultSize) {
-    topLevel = parent;
-
     doSetup();
 }
 
@@ -49,19 +47,21 @@ void MenuPanel::setupStaticText() {
 }
 
 void MenuPanel::setupPanel() {
-    container = new wxBoxSizer(wxHORIZONTAL);
-    verticalSizer = new wxBoxSizer(wxVERTICAL);
+    padding = 5;
+    int quadPad = 4 * padding;
+    hSizer = new wxBoxSizer(wxHORIZONTAL);
+    vSizer = new wxBoxSizer(wxVERTICAL);
 
-    verticalSizer->Add(container, wxCENTER);
-    container->AddStretchSpacer(5);
-    container->Add(timer, 2, wxCENTER);
-    container->AddSpacer(20);
-    container->Add(diff, 2, wxCENTER);
-    container->AddSpacer(20);
-    container->Add(minesRem, 2, wxCENTER);
-    container->AddStretchSpacer(5);
+    vSizer->Add(hSizer, wxALIGN_CENTER);
+    hSizer->AddStretchSpacer(padding);
+    hSizer->Add(timer, 2, wxALIGN_CENTER);
+    hSizer->AddSpacer(quadPad);
+    hSizer->Add(diff, 2, wxALIGN_CENTER);
+    hSizer->AddSpacer(quadPad);
+    hSizer->Add(minesRem, 2, wxALIGN_CENTER);
+    hSizer->AddStretchSpacer(padding);
 
-    SetSizer(verticalSizer);
+    SetSizer(vSizer);
 }
 
 void MenuPanel::restartGame(std::string difficulty) {
@@ -79,11 +79,15 @@ void MenuPanel::handleTimer(wxTimerEvent& event) {
 void MenuPanel::setMinePanel(MinePanel * minePanel) {
     this->minePanel = minePanel;
 
-    container = new wxBoxSizer(wxHORIZONTAL);
-    verticalSizer = new wxBoxSizer(wxVERTICAL);
+    hSizer = new wxBoxSizer(wxHORIZONTAL);
+    vSizer = new wxBoxSizer(wxVERTICAL);
 
     gameTimer = new wxTimer();
     gameTimer->Bind(wxEVT_TIMER, &MenuPanel::handleTimer, this, gameTimer->GetId());
+}
+
+void MenuPanel::setMainFrame(MainFrame *mainFrame) {
+    topLevel = mainFrame;
 }
 
 void MenuPanel::setMinesRem(int i) {

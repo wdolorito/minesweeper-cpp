@@ -1,10 +1,16 @@
 #include "MainFrame.hxx"
 
-MainFrame::MainFrame(const wxString& title)
-       : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxDefaultSize) {
+MainFrame::MainFrame(const wxString& title):
+        wxFrame(NULL,
+                wxID_ANY,
+                title,
+                wxDefaultPosition,
+                wxDefaultSize) {
     topLevel = new wxPanel(this, wxID_ANY);
 
-    wxBoxSizer *container = new wxBoxSizer(wxVERTICAL);
+    padding = 10;
+    hSizer = new wxBoxSizer(wxHORIZONTAL);
+    vSizer = new wxBoxSizer(wxVERTICAL);
 
     menuPanel = new MenuPanel(topLevel);
     minePanel = new MinePanel(topLevel);
@@ -12,10 +18,20 @@ MainFrame::MainFrame(const wxString& title)
     menuPanel->setMinePanel(minePanel);
     minePanel->setMenuPanel(menuPanel);
 
-    container->Add(menuPanel, 1, wxEXPAND);
-    container->Add(minePanel, 9, wxEXPAND);
+    menuPanel->setMainFrame(this);
+    minePanel->setMainFrame(this);
 
-    topLevel->SetSizer(container);
+    vSizer->AddSpacer(padding);
+    vSizer->Add(menuPanel, 1, wxALIGN_CENTER);
+    vSizer->AddSpacer(padding);
+    vSizer->Add(minePanel, 9, wxALIGN_CENTER);
+    vSizer->AddSpacer(padding);
+
+    hSizer->AddSpacer(padding);
+    hSizer->Add(vSizer);
+    hSizer->AddSpacer(padding);
+
+    topLevel->SetSizer(hSizer);
 
     menuBar = new wxMenuBar;
     game = new wxMenu;
@@ -33,12 +49,25 @@ MainFrame::MainFrame(const wxString& title)
     wxSize initMineSize = minePanel->GetEffectiveMinSize();
     wxSize *minSize = new wxSize(initMineSize.GetWidth(),
                                  initMenuSize.GetHeight() + initMineSize.GetHeight());
-    SetInitialSize(*minSize);
-
-    std::cout << initMenuSize.GetHeight() << " " << initMenuSize.GetWidth() << std::endl;
-    std::cout << initMineSize.GetHeight() << " " << initMineSize.GetWidth() << std::endl;
+    SetSize(*minSize);
+    DoGetBestSize();
 
     Center();
+}
+
+void MainFrame::redrawAll() {
+    wxSize menuSize = menuPanel->GetEffectiveMinSize();
+    wxSize mineSize = minePanel->GetEffectiveMinSize();
+
+    int width = mineSize.GetWidth();
+    int height = menuSize.GetHeight() + mineSize.GetHeight();
+
+    wxSize minSize = wxSize(width, height);
+
+    SetSize(minSize);
+/*    SetMinSize(minSize);
+    SetMaxSize(minSize);*/
+    Layout();
 }
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {

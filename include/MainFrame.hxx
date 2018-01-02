@@ -29,8 +29,12 @@ class MainFrame : public wxFrame
 {
     public:
         MainFrame(const wxString& title);
+        void redrawAll();
 
     private:
+        int padding;
+        wxBoxSizer *hSizer;
+        wxBoxSizer *vSizer;
         wxPanel *topLevel;
         wxMenuBar *menuBar;
         wxMenu *game;
