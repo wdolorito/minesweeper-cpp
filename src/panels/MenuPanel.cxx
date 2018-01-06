@@ -62,6 +62,7 @@ void MenuPanel::setupPanel() {
     hSizer->AddStretchSpacer(padding);
 
     SetSizer(vSizer);
+    Show();
 }
 
 void MenuPanel::restartGame(std::string difficulty) {
@@ -78,9 +79,6 @@ void MenuPanel::handleTimer(wxTimerEvent& event) {
 
 void MenuPanel::setMinePanel(MinePanel * minePanel) {
     this->minePanel = minePanel;
-
-    hSizer = new wxBoxSizer(wxHORIZONTAL);
-    vSizer = new wxBoxSizer(wxVERTICAL);
 
     gameTimer = new wxTimer();
     gameTimer->Bind(wxEVT_TIMER, &MenuPanel::handleTimer, this, gameTimer->GetId());

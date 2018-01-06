@@ -95,8 +95,7 @@ void MinePanel::setupBoard() {
         mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }
     SetMinSize(*currentGame->getBoardSize());
-    SetMaxSize(*currentGame->getBoardSize());
-    Center();
+    InvalidateBestSize();
     topLevel->redrawAll();
 }
 
@@ -104,7 +103,7 @@ void MinePanel::setupPanel() {
     container = new wxBoxSizer(wxVERTICAL);
     container->Add(mineField, wxALIGN_CENTER);
     SetSizer(container);
-    Center();
+    Show();
 }
 
 int MinePanel::getNumMines() {

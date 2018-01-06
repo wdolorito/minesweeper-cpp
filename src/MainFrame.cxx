@@ -45,29 +45,32 @@ MainFrame::MainFrame(const wxString& title):
 
     SetMenuBar(menuBar);
 
-    wxSize initMenuSize = menuPanel->GetEffectiveMinSize();
-    wxSize initMineSize = minePanel->GetEffectiveMinSize();
-    wxSize *minSize = new wxSize(initMineSize.GetWidth(),
-                                 initMenuSize.GetHeight() + initMineSize.GetHeight());
-    SetSize(*minSize);
-    DoGetBestSize();
-
-    Center();
+//    redrawAll();
 }
 
 void MainFrame::redrawAll() {
-    wxSize menuSize = menuPanel->GetEffectiveMinSize();
-    wxSize mineSize = minePanel->GetEffectiveMinSize();
+    wxSize currentSize = GetSize();
+    wxSize menuSize = menuPanel->GetBestSize();
+    wxSize mineSize = minePanel->GetBestSize();
 
     int width = mineSize.GetWidth();
     int height = menuSize.GetHeight() + mineSize.GetHeight();
 
     wxSize minSize = wxSize(width, height);
 
+    std::cout << width << " " << height << std::endl;
+
+    if(currentSize.GetWidth() < width) {
+        SetMaxSize(minSize);
+        SetMinSize(minSize);
+    } else {
+        SetMinSize(minSize);
+        SetMaxSize(minSize);
+    }
     SetSize(minSize);
-/*    SetMinSize(minSize);
-    SetMaxSize(minSize);*/
     Layout();
+    Refresh();
+    Update();
 }
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
