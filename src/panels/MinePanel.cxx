@@ -86,11 +86,13 @@ void MinePanel::setTileIcons(std::string setName) {
 void MinePanel::setupBoard() {
     for(int i = 0; i < currentGame->getBRC(); i++) {
         wxButton *temp = new wxButton(this,
-                                    wxID_ANY,
-                                    wxEmptyString,
-                                    wxDefaultPosition,
-                                    wxDefaultSize,
-                                    wxBU_EXACTFIT | wxBU_NOTEXT | wxBORDER_NONE);
+                                      wxID_ANY,
+                                      wxEmptyString,
+                                      wxDefaultPosition,
+                                      wxDefaultSize,
+                                      wxBU_EXACTFIT |
+                                      wxBU_NOTEXT |
+                                      wxBORDER_NONE);
         temp->SetBitmap(*initial);
         mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }

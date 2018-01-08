@@ -74,8 +74,8 @@ void MainFrame::redrawAll() {
 }
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
-    wxMessageBox( "wdolorito@gmail.com",
-                  "About Minesweeper", wxOK | wxICON_INFORMATION );
+    wxMessageBox("wdolorito@gmail.com",
+                 "About Minesweeper", wxOK | wxICON_INFORMATION );
 }
 
 void MainFrame::OnQuit(wxCommandEvent& WXUNUSED(event)) {

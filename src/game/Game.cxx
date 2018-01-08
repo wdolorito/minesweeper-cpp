@@ -85,7 +85,9 @@ std::vector<int> * Game::returnCheckMines(int tile) {
     }
 
     // Top edge mines:  return 5 surrounding tiles
-    if(std::find(topMines->begin(), topMines->end(), tile) != topMines->end()) {
+    if(std::find(topMines->begin(),
+                 topMines->end(),
+                 tile) != topMines->end()) {
         toReturn->push_back(tile - 1);
         toReturn->push_back(tile + 1);
         toReturn->push_back(tile + trc);
@@ -103,7 +105,9 @@ std::vector<int> * Game::returnCheckMines(int tile) {
     }
 
     // Left edge mines:  return 5 surrounding tiles
-    if(std::find(leftMines->begin(), leftMines->end(), tile) != leftMines->end()) {
+    if(std::find(leftMines->begin(),
+                 leftMines->end(),
+                 tile) != leftMines->end()) {
         toReturn->push_back(tile - trc - 1);
         toReturn->push_back(tile - trc);
         toReturn->push_back(tile + 1);
@@ -121,7 +125,9 @@ std::vector<int> * Game::returnCheckMines(int tile) {
     }
 
     // Bottom edge mines:  return 5 surrounding tiles
-    if(std::find(bottomMines->begin(), bottomMines->end(), tile) != bottomMines->end()) {
+    if(std::find(bottomMines->begin(),
+                 bottomMines->end(),
+                 tile) != bottomMines->end()) {
         toReturn->push_back(tile - trc - 2);
         toReturn->push_back(tile - trc - 1);
         toReturn->push_back(tile - trc);
@@ -139,7 +145,9 @@ std::vector<int> * Game::returnCheckMines(int tile) {
     }
 
     // Right edge mines:  return 5 surrounding tiles
-    if(std::find(rightMines->begin(), rightMines->end(), tile) != rightMines->end()) {
+    if(std::find(rightMines->begin(),
+                 rightMines->end(),
+                 tile) != rightMines->end()) {
         toReturn->push_back(tile - trc - 2);
         toReturn->push_back(tile - trc - 1);
         toReturn->push_back(tile - 1);

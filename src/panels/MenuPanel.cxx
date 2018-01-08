@@ -27,7 +27,10 @@ void MenuPanel::setupComboBox() {
                           wxDefaultSize,
                           *gameDiff);
 
-    diff->Bind(wxEVT_COMMAND_COMBOBOX_SELECTED, &MenuPanel::handleComboBox, this, diff->GetId());
+    diff->Bind(wxEVT_COMMAND_COMBOBOX_SELECTED,
+               &MenuPanel::handleComboBox,
+               this,
+               diff->GetId());
 }
 
 void MenuPanel::setupStaticText() {
@@ -81,7 +84,10 @@ void MenuPanel::setMinePanel(MinePanel * minePanel) {
     this->minePanel = minePanel;
 
     gameTimer = new wxTimer();
-    gameTimer->Bind(wxEVT_TIMER, &MenuPanel::handleTimer, this, gameTimer->GetId());
+    gameTimer->Bind(wxEVT_TIMER,
+                    &MenuPanel::handleTimer,
+                    this,
+                    gameTimer->GetId());
 }
 
 void MenuPanel::setMainFrame(MainFrame *mainFrame) {
