@@ -103,7 +103,7 @@ void MinePanel::setupBoard() {
 
 void MinePanel::setupPanel() {
     container = new wxBoxSizer(wxVERTICAL);
-    container->Add(mineField, wxALIGN_CENTER);
+    container->Add(mineField, wxCENTER);
     SetSizer(container);
     Show();
 }

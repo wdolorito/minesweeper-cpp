@@ -55,7 +55,6 @@ void MenuPanel::setupPanel() {
     hSizer = new wxBoxSizer(wxHORIZONTAL);
     vSizer = new wxBoxSizer(wxVERTICAL);
 
-    vSizer->Add(hSizer, wxALIGN_CENTER);
     hSizer->AddStretchSpacer(padding);
     hSizer->Add(timer, 2, wxALIGN_CENTER);
     hSizer->AddSpacer(quadPad);
@@ -63,6 +62,7 @@ void MenuPanel::setupPanel() {
     hSizer->AddSpacer(quadPad);
     hSizer->Add(minesRem, 2, wxALIGN_CENTER);
     hSizer->AddStretchSpacer(padding);
+    vSizer->Add(hSizer, wxALIGN_CENTER);
 
     SetSizer(vSizer);
     Show();
