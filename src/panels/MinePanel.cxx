@@ -92,7 +92,7 @@ void MinePanel::setupBoard() {
                                       wxDefaultSize,
                                       wxBU_EXACTFIT |
                                       wxBU_NOTEXT |
-                                      wxBORDER_NONE);
+                                      wxNO_BORDER);
         temp->SetBitmap(*initial);
         mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }
@@ -102,8 +102,9 @@ void MinePanel::setupBoard() {
 }
 
 void MinePanel::setupPanel() {
-    container = new wxBoxSizer(wxVERTICAL);
+    container = new wxBoxSizer(wxHORIZONTAL);
     container->Add(mineField, wxCENTER);
+
     SetSizer(container);
     Show();
 }

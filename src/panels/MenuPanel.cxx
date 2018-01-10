@@ -22,10 +22,11 @@ void MenuPanel::setupComboBox() {
 
     diff = new wxComboBox(this,
                           wxID_ANY,
-                          "",
+                          "Novice",
                           wxDefaultPosition,
                           wxDefaultSize,
-                          *gameDiff);
+                          *gameDiff,
+                          wxCB_READONLY);
 
     diff->Bind(wxEVT_COMMAND_COMBOBOX_SELECTED,
                &MenuPanel::handleComboBox,
@@ -63,6 +64,8 @@ void MenuPanel::setupPanel() {
     hSizer->Add(minesRem, 2, wxALIGN_CENTER);
     hSizer->AddStretchSpacer(padding);
     vSizer->Add(hSizer, wxALIGN_CENTER);
+
+    setMinesRem(10);
 
     SetSizer(vSizer);
     Show();

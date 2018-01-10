@@ -44,8 +44,6 @@ MainFrame::MainFrame(const wxString& title):
     #endif
 
     SetMenuBar(menuBar);
-
-//    redrawAll();
 }
 
 void MainFrame::redrawAll() {
