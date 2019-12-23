@@ -60,14 +60,12 @@ private:
     void setupBoard();
     void setupPanel();
 
-    void doLeftClick(int buttonIndex);
-    void doRightClick(int buttonIndex);
+    void doLeftClick(wxMouseEvent& event);
+    void doRightClick(wxMouseEvent& event);
 
     void validateGame();
     void endGame(int buttonIndex);
     void winGame();
-
-    void handleButtonClick(wxCommandEvent& event);
 };
 
 #endif /* MINEPANEL_HXX */

@@ -92,8 +92,11 @@ void MinePanel::setupBoard() {
                                       wxDefaultSize,
                                       wxBU_EXACTFIT |
                                       wxBU_NOTEXT |
-                                      wxNO_BORDER);
+                                      wxBORDER_NONE);
         temp->SetBitmap(*initial);
+        temp->SetLabel(wxString::Format(wxT("%i"), i));
+        temp->Bind(wxEVT_LEFT_UP, &MinePanel::doLeftClick, this);
+        temp->Bind(wxEVT_RIGHT_UP, &MinePanel::doRightClick, this);
         mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }
     SetMinSize(*currentGame->getBoardSize());
@@ -117,17 +120,26 @@ int MinePanel::getUnflaggedMines() {
     return 0;
 }
 
-void MinePanel::doLeftClick(int buttonIndex) {
+void MinePanel::doLeftClick(wxMouseEvent& event) {
+    wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
+    std::cout << "left click" << std::endl;
+    std::cout << button->GetLabel() << std::endl;
 }
 
-void MinePanel::doRightClick(int buttonIndex) {
+void MinePanel::doRightClick(wxMouseEvent& event) {
+    wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
+    std::cout << "right click" << std::endl;
+    std::cout << button->GetLabel() << std::endl;
 }
 
 void MinePanel::validateGame() {
+    std::cout << "validating game" << std::endl;
 }
 
 void MinePanel::endGame(int buttonIndex) {
+    std::cout << "ending game" << std::endl;
 }
 
 void MinePanel::winGame() {
+    std::cout << "winning game" << std::endl;
 }

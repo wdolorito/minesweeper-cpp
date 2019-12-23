@@ -1,10 +1,10 @@
 #include "MenuPanel.hxx"
 
 MenuPanel::MenuPanel(wxPanel * parent):
-        wxPanel(parent,
-                wxID_ANY,
-                wxDefaultPosition,
-                wxDefaultSize) {
+    wxPanel(parent,
+            wxID_ANY,
+            wxDefaultPosition,
+            wxDefaultSize) {
     doSetup();
 }
 
@@ -51,7 +51,6 @@ void MenuPanel::setupStaticText() {
 }
 
 void MenuPanel::setupPanel() {
-    padding = 5;
     int quadPad = 4 * padding;
     hSizer = new wxBoxSizer(wxHORIZONTAL);
     vSizer = new wxBoxSizer(wxVERTICAL);
