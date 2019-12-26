@@ -39,6 +39,8 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
         mineField->Clear(true);
     }
 
+    mines = currentGame->getMinefield();
+
     mineField->SetRows(currentGame->getRows());
     mineField->SetCols(currentGame->getTRC());
 
@@ -133,10 +135,9 @@ void MinePanel::doLeftClick(wxMouseEvent& event) {
     // std::cout << "left click" << std::endl;
     // std::cout << button->GetLabel() << std::endl;
 
-    std::vector<char> *sol = currentGame->getMinefield();
-    int size = sol->size();
+    int size = mines->size();
     for(int i = 0; i < size; i++) {
-        std::cout << sol->at(i) << ' ';
+        std::cout << mines->at(i) << ' ';
     }
     std::cout << std::endl;
 }
