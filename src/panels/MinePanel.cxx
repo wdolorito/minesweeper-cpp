@@ -1,12 +1,12 @@
 #include "MinePanel.hxx"
 
 MinePanel::MinePanel(wxPanel * parent):
-        wxPanel(parent,
-                wxID_ANY,
-                wxDefaultPosition,
-                wxDefaultSize) {
-    runningSolution = new std::vector<int>();
-    mineField = new wxGridSizer(0, 0, 0, 0);
+    wxPanel(parent,
+            wxID_ANY,
+            wxDefaultPosition,
+            wxDefaultSize) {
+    runningGame = new std::vector<int>();
+    mineField = new wxGridSizer(0, 0, 0);
 }
 
 void MinePanel::setMenuPanel(MenuPanel * menuPanel) {
@@ -43,7 +43,6 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
     mineField->SetCols(currentGame->getTRC());
 
     gameRunning = false;
-    solution = currentGame->returnSolution();
     if(!firstRun) setupBoard();
 }
 
@@ -85,23 +84,29 @@ void MinePanel::setTileIcons(std::string setName) {
 
 void MinePanel::setupBoard() {
     for(int i = 0; i < currentGame->getBRC(); i++) {
-        wxButton *temp = new wxButton(this,
-                                      wxID_ANY,
-                                      wxEmptyString,
-                                      wxDefaultPosition,
-                                      wxDefaultSize,
-                                      wxBU_EXACTFIT |
-                                      wxBU_NOTEXT |
-                                      wxBORDER_NONE);
-        temp->SetBitmap(*initial);
-        temp->SetLabel(wxString::Format(wxT("%i"), i));
-        temp->Bind(wxEVT_LEFT_UP, &MinePanel::doLeftClick, this);
-        temp->Bind(wxEVT_RIGHT_UP, &MinePanel::doRightClick, this);
+        wxButton *temp = getMineButton(i);
         mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }
     SetMinSize(*currentGame->getBoardSize());
     InvalidateBestSize();
     topLevel->redrawAll();
+}
+
+wxButton* MinePanel::getMineButton(int pos) {
+    wxButton *newButton = new wxButton(this,
+                                       wxID_ANY,
+                                       wxEmptyString,
+                                       wxDefaultPosition,
+                                       wxDefaultSize,
+                                       wxBU_EXACTFIT |
+                                       wxBU_NOTEXT |
+                                       wxBORDER_NONE);
+    newButton->SetBitmap(*initial);
+    newButton->SetLabel(wxString::Format(wxT("%i"), pos));
+    newButton->Bind(wxEVT_LEFT_UP, &MinePanel::doLeftClick, this);
+    newButton->Bind(wxEVT_RIGHT_UP, &MinePanel::doRightClick, this);
+
+    return newButton;
 }
 
 void MinePanel::setupPanel() {
@@ -122,8 +127,18 @@ int MinePanel::getUnflaggedMines() {
 
 void MinePanel::doLeftClick(wxMouseEvent& event) {
     wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
-    std::cout << "left click" << std::endl;
-    std::cout << button->GetLabel() << std::endl;
+    // int pos = wxAtoi(button->GetLabel());
+    // std::cout << pos << std::endl;
+    // currentGame->checkTile(pos);
+    // std::cout << "left click" << std::endl;
+    // std::cout << button->GetLabel() << std::endl;
+
+    std::vector<char> *sol = currentGame->getMinefield();
+    int size = sol->size();
+    for(int i = 0; i < size; i++) {
+        std::cout << sol->at(i) << ' ';
+    }
+    std::cout << std::endl;
 }
 
 void MinePanel::doRightClick(wxMouseEvent& event) {

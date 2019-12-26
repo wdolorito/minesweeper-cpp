@@ -56,8 +56,6 @@ void MainFrame::redrawAll() {
 
     wxSize minSize = wxSize(width, height);
 
-    std::cout << width << " " << height << std::endl;
-
     if(currentSize.GetWidth() < width) {
         SetMaxSize(minSize);
         SetMinSize(minSize);

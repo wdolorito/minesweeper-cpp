@@ -4,7 +4,7 @@ Game::Game() {
     solved = false;
 }
 
-std::vector<char> * Game::getMines() {
+std::vector<char> * Game::getMinefield() {
     return mines;
 }
 
@@ -15,7 +15,7 @@ void Game::resetMines() {
         mines->at(i) = '0';
     }
     generateMines();
-/*    populateField();*/
+    populateField();
 }
 
 void Game::setEdgeMines() {
@@ -59,6 +59,7 @@ void Game::generateMines() {
             i--;
         }
     }
+
     std::sort(solution->begin(), solution->end());
 }
 
@@ -68,12 +69,8 @@ void Game::populateField() {
     }
 }
 
-std::vector<int> * Game::returnSolution() {
-    return solution;
-}
-
 std::vector<int> * Game::returnCheckMines(int tile) {
-    std::vector<int> *toReturn;
+    std::vector<int> *toReturn = new std::vector<int>();
     bool checked = false;
 
     // Top left corner:  return 3 surrounding tiles
@@ -175,6 +172,7 @@ void Game::checkTile(int tile) {
     if(mines->at(tile) != 'm') {
         int mineCounter = 0;
         std::vector<int> *toCheck = returnCheckMines(tile);
+
         for(int i = 0; i < toCheck->size(); i++) {
             if(mines->at(toCheck->at(i)) == 'm') mineCounter += 1;
         }

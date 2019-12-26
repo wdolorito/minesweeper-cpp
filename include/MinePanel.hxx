@@ -35,8 +35,7 @@ private:
     MainFrame *topLevel;
     MenuPanel *menuPanel;
 
-    std::vector<int> *solution,
-                     *runningSolution;
+    std::vector<int> *runningGame;
     std::vector<char> *mines;
     int unflaggedMines;
     bool gameRunning;
@@ -60,6 +59,7 @@ private:
     void setupBoard();
     void setupPanel();
 
+    wxButton* getMineButton(int pos);
     void doLeftClick(wxMouseEvent& event);
     void doRightClick(wxMouseEvent& event);
 
