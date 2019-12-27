@@ -10,6 +10,7 @@ MenuPanel::MenuPanel(wxPanel * parent):
 }
 
 void MenuPanel::doSetup() {
+    padding = 10;
     setupComboBox();
     setupStaticText();
     setupPanel();
