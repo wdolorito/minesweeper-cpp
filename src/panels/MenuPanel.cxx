@@ -81,7 +81,7 @@ void MenuPanel::handleTimer(wxTimerEvent& event) {
     wxString prevStr = timer->GetLabel();
     int prevInt = wxAtoi(prevStr);
     prevInt += 1;
-    timer->SetLabelText(wxString::Format(wxT("%i"), prevInt));
+    timer->SetLabelText(wxString::Format("%i", prevInt));
 }
 
 void MenuPanel::setMinePanel(MinePanel * minePanel) {
@@ -99,7 +99,7 @@ void MenuPanel::setMainFrame(MainFrame *mainFrame) {
 }
 
 void MenuPanel::setMinesRem(int i) {
-    minesRem->SetLabelText(wxString::Format(wxT("%i"), i));
+    minesRem->SetLabelText(wxString::Format("%i", i));
 }
 
 void MenuPanel::resetTimer() {

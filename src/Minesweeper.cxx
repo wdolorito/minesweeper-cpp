@@ -4,7 +4,7 @@
 IMPLEMENT_APP(Minesweeper)
 
 bool Minesweeper::OnInit() {
-    mainFrame = new MainFrame(wxT("Minesweeper!!!!!"));
+    mainFrame = new MainFrame("Minesweeper!!!!!");
     mainFrame->Show(true);
 
     return true;

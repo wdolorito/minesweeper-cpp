@@ -105,7 +105,7 @@ wxButton* MinePanel::getMineButton(int pos) {
                                        wxBU_NOTEXT |
                                        wxBORDER_NONE);
     newButton->SetBitmap(*initial);
-    newButton->SetLabel(wxString::Format(wxT("%i"), pos));
+    newButton->SetLabel(wxString::Format("%i", pos));
     newButton->Bind(wxEVT_LEFT_UP, &MinePanel::doLeftClick, this);
     newButton->Bind(wxEVT_RIGHT_UP, &MinePanel::doRightClick, this);
 
