@@ -1,3 +1,4 @@
+/* Novice.hxx */
 #ifndef NOVICE_HXX
 #define NOVICE_HXX
 

@@ -1,3 +1,4 @@
+/* Minesweeper.hxx */
 #ifndef MINESWEEPER_HXX
 #define MINESWEEPER_HXX
 
@@ -21,4 +22,3 @@ class Minesweeper : public wxApp {
 };
 
 #endif /* MINESWEEPER_HXX */
-

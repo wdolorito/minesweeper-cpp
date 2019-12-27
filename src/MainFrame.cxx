@@ -1,3 +1,4 @@
+/* MainFrame.cxx */
 #include "MainFrame.hxx"
 
 MainFrame::MainFrame(const wxString& title):
@@ -22,9 +23,9 @@ MainFrame::MainFrame(const wxString& title):
     minePanel->setMainFrame(this);
 
     vSizer->AddSpacer(padding);
-    vSizer->Add(menuPanel, 1, wxALIGN_CENTER);
+    vSizer->Add(menuPanel, 2, wxALIGN_CENTER);
     vSizer->AddSpacer(padding);
-    vSizer->Add(minePanel, 9, wxALIGN_CENTER);
+    vSizer->Add(minePanel, 8, wxALIGN_CENTER);
     vSizer->AddSpacer(padding);
 
     hSizer->AddSpacer(padding);
@@ -40,7 +41,7 @@ MainFrame::MainFrame(const wxString& title):
     menuBar->Append(game, "&Game");
 
     #ifdef __WXMAC__
-//    menuBar->Remove(0);
+    menuBar->Remove(0);
     #endif
 
     SetMenuBar(menuBar);

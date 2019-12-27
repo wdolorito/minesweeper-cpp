@@ -1,3 +1,4 @@
+/* Game.hxx */
 #ifndef GAME_HXX
 #define GAME_HXX
 

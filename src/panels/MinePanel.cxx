@@ -1,3 +1,4 @@
+/* MinePanel.cxx */
 #include "MinePanel.hxx"
 
 MinePanel::MinePanel(wxPanel * parent):

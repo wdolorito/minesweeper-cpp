@@ -1,3 +1,4 @@
+/* MenuPanel.cxx */
 #include "MenuPanel.hxx"
 
 MenuPanel::MenuPanel(wxPanel * parent):

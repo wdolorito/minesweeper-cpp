@@ -1,3 +1,4 @@
+/* Intermediate.cxx */
 #include "Intermediate.hxx"
 
 Intermediate::Intermediate() {

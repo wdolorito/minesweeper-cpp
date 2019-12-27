@@ -1,3 +1,4 @@
+/* Minesweeper.cxx */
 #include "Minesweeper.hxx"
 
 IMPLEMENT_APP(Minesweeper)

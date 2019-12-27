@@ -1,3 +1,4 @@
+/* Novice.cxx */
 #include "Novice.hxx"
 
 Novice::Novice() {

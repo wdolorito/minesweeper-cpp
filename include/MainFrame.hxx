@@ -1,3 +1,4 @@
+/* MainFrame.hxx */
 #ifndef MAINFRAME_HXX
 #define MAINFRAME_HXX
 
@@ -12,8 +13,7 @@
 class MinePanel;
 class MenuPanel;
 
-class MainFrame : public wxFrame
-{
+class MainFrame: public wxFrame {
     public:
         MainFrame(const wxString& title);
         void redrawAll();

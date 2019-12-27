@@ -1,3 +1,4 @@
+/* MenuPanel.hxx */
 #ifndef MENUPANEL_HXX
 #define MENUPANEL_HXX
 
@@ -14,34 +15,34 @@ class MainFrame;
 class MinePanel;
 
 class MenuPanel: public wxPanel {
-public:
-    MenuPanel(wxPanel *parent);
-    void setMinePanel(MinePanel *minePanel);
-    void setMainFrame(MainFrame *mainFrame);
-    void setMinesRem(int i);
-    void resetTimer();
-    void startTimer();
-    void stopTimer();
+    public:
+        MenuPanel(wxPanel *parent);
+        void setMinePanel(MinePanel *minePanel);
+        void setMainFrame(MainFrame *mainFrame);
+        void setMinesRem(int i);
+        void resetTimer();
+        void startTimer();
+        void stopTimer();
 
-private:
-    int padding;
-    wxArrayString *gameDiff;
-    wxBoxSizer *hSizer;
-    wxBoxSizer *vSizer;
-    MainFrame *topLevel;
-    MinePanel *minePanel;
-    wxComboBox *diff;
-    wxStaticText *minesRem;
-    wxStaticText *timer;
-    wxTimer *gameTimer;
+    private:
+        int padding;
+        wxArrayString *gameDiff;
+        wxBoxSizer *hSizer;
+        wxBoxSizer *vSizer;
+        MainFrame *topLevel;
+        MinePanel *minePanel;
+        wxComboBox *diff;
+        wxStaticText *minesRem;
+        wxStaticText *timer;
+        wxTimer *gameTimer;
 
-    void doSetup();
-    void setupComboBox();
-    void setupStaticText();
-    void setupPanel();
-    void restartGame(std::string difficulty);
-    void handleTimer(wxTimerEvent& event);
-    void handleComboBox(wxCommandEvent& event);
+        void doSetup();
+        void setupComboBox();
+        void setupStaticText();
+        void setupPanel();
+        void restartGame(std::string difficulty);
+        void handleTimer(wxTimerEvent& event);
+        void handleComboBox(wxCommandEvent& event);
 };
 
 #endif /* MENUPANEL_HXX */

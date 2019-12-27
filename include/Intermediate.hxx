@@ -1,3 +1,4 @@
+/* Intermediate.hxx */
 #ifndef INTERMEDIATE_HXX
 #define INTERMEDIATE_HXX
 
