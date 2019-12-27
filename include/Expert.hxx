@@ -4,7 +4,7 @@
 
 #include "Game.hxx"
 
-class Expert: public Game {
+class Expert : public Game {
     private:
         int MINES,
             TRC,

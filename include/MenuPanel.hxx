@@ -14,7 +14,7 @@
 class MainFrame;
 class MinePanel;
 
-class MenuPanel: public wxPanel {
+class MenuPanel : public wxPanel {
     public:
         MenuPanel(wxPanel *parent);
         void setMinePanel(MinePanel *minePanel);

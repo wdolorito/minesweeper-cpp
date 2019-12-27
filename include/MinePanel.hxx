@@ -19,7 +19,7 @@ class MainFrame;
 class MenuPanel;
 class Game;
 
-class MinePanel: public wxPanel {
+class MinePanel : public wxPanel {
     public:
         MinePanel(wxPanel *parent);
         void setMenuPanel(MenuPanel *menuPanel);

@@ -13,7 +13,7 @@
 class MinePanel;
 class MenuPanel;
 
-class MainFrame: public wxFrame {
+class MainFrame : public wxFrame {
     public:
         MainFrame(const wxString& title);
         void redrawAll();
