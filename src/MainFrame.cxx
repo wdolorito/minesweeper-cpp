@@ -2,11 +2,11 @@
 #include "MainFrame.hxx"
 
 MainFrame::MainFrame(const wxString& title):
-        wxFrame(NULL,
-                wxID_ANY,
-                title,
-                wxDefaultPosition,
-                wxDefaultSize) {
+    wxFrame(NULL,
+            wxID_ANY,
+            title,
+            wxDefaultPosition,
+            wxDefaultSize) {
     topLevel = new wxPanel(this, wxID_ANY);
 
     padding = 10;
@@ -41,7 +41,8 @@ MainFrame::MainFrame(const wxString& title):
     menuBar->Append(game, "&Game");
 
     #ifdef __WXMAC__
-    menuBar->Remove(0);
+    // menuBar->Remove(0);
+    // delete game;
     #endif
 
     SetMenuBar(menuBar);
