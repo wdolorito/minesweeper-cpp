@@ -40,6 +40,10 @@ MainFrame::MainFrame(const wxString& title):
     game->Append(wxID_EXIT, "&Quit Minesweeper\tCTRL+Q");
     menuBar->Append(game, "&Game");
 
+    help = new wxMenu;
+    help->Append(wxID_HELP, "Minesweeper Help");
+    menuBar->Append(help, "Help");
+
     #ifdef __WXMAC__
     // menuBar->Remove(0);
     // delete game;
@@ -76,11 +80,17 @@ void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
                  "About Minesweeper", wxOK | wxICON_INFORMATION );
 }
 
+void MainFrame::OnHelp(wxCommandEvent& WXUNUSED(event)) {
+    wxMessageBox("Reveal tiles with left click\nMark mines with right click",
+                 "Help", wxOK | wxICON_INFORMATION );
+}
+
 void MainFrame::OnQuit(wxCommandEvent& WXUNUSED(event)) {
     Close(true);
 }
 
 wxBEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_MENU(wxID_EXIT,  MainFrame::OnQuit)
+    EVT_MENU(wxID_HELP,  MainFrame::OnHelp)
     EVT_MENU(wxID_ABOUT, MainFrame::OnAbout)
 wxEND_EVENT_TABLE()

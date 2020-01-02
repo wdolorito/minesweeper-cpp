@@ -25,10 +25,12 @@ class MainFrame : public wxFrame {
         wxPanel *topLevel;
         wxMenuBar *menuBar;
         wxMenu *game;
+        wxMenu *help;
         MenuPanel *menuPanel;
         MinePanel *minePanel;
 
         void OnAbout(wxCommandEvent& event);
+        void OnHelp(wxCommandEvent& event);
         void OnQuit(wxCommandEvent& event);
 
         wxDECLARE_EVENT_TABLE();
