@@ -27,7 +27,7 @@ class Game {
 
         bool solved;
 
-        void checkTile(int tile);
+        void checkTile(int tile, std::vector <char> *board);
         std::vector<int> * returnCheckMines(int tile);
 
     protected:

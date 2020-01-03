@@ -1,16 +1,16 @@
 /* Game.cxx */
 #include "Game.hxx"
 
-void Game::checkTile(int tile) {
-    if(mines->at(tile) != 'm') {
+void Game::checkTile(int tile, std::vector <char> *board) {
+    if(board->at(tile) != 'm') {
         int mineCounter = 0;
         std::vector<int> *toCheck = returnCheckMines(tile);
 
         int checkSize = toCheck->size();
         for(int i = 0; i < checkSize; i++) {
-            if(mines->at(toCheck->at(i)) == 'm') mineCounter += 1;
+            if(board->at(toCheck->at(i)) == 'm') mineCounter += 1;
         }
-        mines->at(tile) = '0' + mineCounter;
+        board->at(tile) = '0' + mineCounter;
     }
 }
 
@@ -130,7 +130,7 @@ void Game::generateMines() {
 
 void Game::populateField() {
     for(int i = 0; i < mines->size(); i++) {
-        checkTile(i);
+        checkTile(i, mines);
     }
 }
 
@@ -166,6 +166,7 @@ Game::Game() {
 }
 
 std::vector<char> * Game::checkPos(int i) {
+    checkTile(i, runningGame);
     return runningGame;
 }
 
