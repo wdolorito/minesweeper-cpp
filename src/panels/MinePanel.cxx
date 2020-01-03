@@ -24,7 +24,7 @@ void MinePanel::setMainFrame(MainFrame *mainFrame) {
 }
 
 void MinePanel::newGame() {
-    currentGame = new Novice();
+    currentGame = new Intermediate();
     std::cout << currentGame->getTRC() << std::endl;
     std::cout << currentGame->getBLC() << std::endl;
     std::cout << currentGame->getBRC() << std::endl;
