@@ -24,35 +24,40 @@ void MinePanel::setMainFrame(MainFrame *mainFrame) {
 }
 
 void MinePanel::newGame() {
-    currentGame = new Expert();
+    newGame("Novice", true);
+}
+
+void MinePanel::newGame(std::string diff, bool firstRun) {
+    if(firstRun) {
+        std::cout << "First run" << std::endl;
+    } else {
+        std::cout << "Subsequent run" << std::endl;
+    }
+
+    if(!diff.compare("Intermediate")) {
+        currentGame = new Intermediate();
+    } else if(!diff.compare("Expert")) {
+        currentGame = new Expert();
+    } else {
+        currentGame = new Novice();
+    }
     std::cout << currentGame->getTRC() << std::endl;
     std::cout << currentGame->getBLC() << std::endl;
     std::cout << currentGame->getBRC() << std::endl;
     std::cout << currentGame->getRows() << std::endl;
     std::cout << currentGame->getNumberOfMines() << std::endl;
-    // newGame("Novice");
-}
-
-void MinePanel::newGame(std::string diff, bool firstRun) {
-    if(!diff.compare("Intermediate")) {
-        // currentGame = new Intermediate();
-    } else if(!diff.compare("Expert")) {
-        // currentGame = new Expert();
-    } else {
-        currentGame = new Novice();
-    }
-
-    if(!mineField->IsEmpty()) {
-        mineField->Clear(true);
-    }
-
-    mines = currentGame->getMinefield();
-
-    mineField->SetRows(currentGame->getRows());
-    mineField->SetCols(currentGame->getTRC());
-
-    gameRunning = false;
-    if(!firstRun) setupBoard();
+    //
+    // if(!mineField->IsEmpty()) {
+    //     mineField->Clear(true);
+    // }
+    //
+    // mines = currentGame->getMinefield();
+    //
+    // mineField->SetRows(currentGame->getRows());
+    // mineField->SetCols(currentGame->getTRC());
+    //
+    // gameRunning = false;
+    // if(!firstRun) setupBoard();
 }
 
 void MinePanel::setTileIcons() {

@@ -13,12 +13,11 @@
 class MainFrame;
 
 class Minesweeper : public wxApp {
-    public:
-        virtual bool OnInit();
-
     private:
         MainFrame *mainFrame;
 
+    public:
+        virtual bool OnInit();
 };
 
 #endif /* MINESWEEPER_HXX */

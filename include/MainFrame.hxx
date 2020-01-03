@@ -14,10 +14,6 @@ class MinePanel;
 class MenuPanel;
 
 class MainFrame : public wxFrame {
-    public:
-        MainFrame(const wxString& title);
-        void redrawAll();
-
     private:
         int padding;
         wxBoxSizer *hSizer;
@@ -34,6 +30,10 @@ class MainFrame : public wxFrame {
         void OnQuit(wxCommandEvent& event);
 
         wxDECLARE_EVENT_TABLE();
+
+    public:
+        MainFrame(const wxString& title);
+        void redrawAll();
 };
 
 #endif /* MAINFRAME_HXX */

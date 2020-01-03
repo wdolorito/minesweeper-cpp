@@ -20,15 +20,6 @@ class MenuPanel;
 class Game;
 
 class MinePanel : public wxPanel {
-    public:
-        MinePanel(wxPanel *parent);
-        void setMenuPanel(MenuPanel *menuPanel);
-        void setMainFrame(MainFrame *mainFrame);
-        int getNumMines();
-        int getUnflaggedMines();
-        void newGame(std::string diff, bool firstRun = true);
-        void setTileIcons(std::string setName);
-
     private:
         Game *currentGame;
         wxBoxSizer *container;
@@ -67,6 +58,15 @@ class MinePanel : public wxPanel {
         void validateGame();
         void endGame(int buttonIndex);
         void winGame();
+
+    public:
+        MinePanel(wxPanel *parent);
+        void setMenuPanel(MenuPanel *menuPanel);
+        void setMainFrame(MainFrame *mainFrame);
+        int getNumMines();
+        int getUnflaggedMines();
+        void newGame(std::string diff, bool firstRun = true);
+        void setTileIcons(std::string setName);
 };
 
 #endif /* MINEPANEL_HXX */

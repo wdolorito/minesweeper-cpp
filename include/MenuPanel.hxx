@@ -15,15 +15,6 @@ class MainFrame;
 class MinePanel;
 
 class MenuPanel : public wxPanel {
-    public:
-        MenuPanel(wxPanel *parent);
-        void setMinePanel(MinePanel *minePanel);
-        void setMainFrame(MainFrame *mainFrame);
-        void setMinesRem(int i);
-        void resetTimer();
-        void startTimer();
-        void stopTimer();
-
     private:
         int padding;
         wxArrayString *gameDiff;
@@ -43,6 +34,15 @@ class MenuPanel : public wxPanel {
         void restartGame(std::string difficulty);
         void handleTimer(wxTimerEvent& event);
         void handleComboBox(wxCommandEvent& event);
+
+    public:
+        MenuPanel(wxPanel *parent);
+        void setMinePanel(MinePanel *minePanel);
+        void setMainFrame(MainFrame *mainFrame);
+        void setMinesRem(int i);
+        void resetTimer();
+        void startTimer();
+        void stopTimer();
 };
 
 #endif /* MENUPANEL_HXX */
