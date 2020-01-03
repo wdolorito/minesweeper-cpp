@@ -13,7 +13,7 @@
 #include "Game.hxx"
 #include "Novice.hxx"
 #include "Intermediate.hxx"
-// #include "Expert.hxx"
+#include "Expert.hxx"
 
 class MainFrame;
 class MenuPanel;
