@@ -1,72 +1,16 @@
 /* Game.cxx */
 #include "Game.hxx"
 
-Game::Game() {
-    solved = false;
-}
+void Game::checkTile(int tile) {
+    if(mines->at(tile) != 'm') {
+        int mineCounter = 0;
+        std::vector<int> *toCheck = returnCheckMines(tile);
 
-std::vector<char> * Game::getMinefield() {
-    return mines;
-}
-
-void Game::resetMines() {
-    setEdgeMines();
-    mines = new std::vector<char>(((trc + 1) * getRows()));
-    for(int i = 0; i < mines->size(); i++) {
-        mines->at(i) = '0';
-    }
-    generateMines();
-    populateField();
-}
-
-void Game::setEdgeMines() {
-    trc = getTRC() - 1;
-    blc = getBLC() - 1;
-    brc = getBRC() - 1;
-
-    topMines = new std::vector<int>();
-    leftMines = new std::vector<int>();
-    rightMines = new std::vector<int>();
-    bottomMines = new std::vector<int>();
-
-    for(int i = 1; i < trc; i++) {
-        topMines->push_back(i);
-    }
-
-    for(int i = trc + 1; i < blc; i += trc + 1) {
-        leftMines->push_back(i);
-    }
-
-    for(int i = trc + trc + 1; i < brc - trc; i += trc + 1) {
-        rightMines->push_back(i);
-    }
-
-    for(int i = blc + 1; i < brc; i++) {
-        bottomMines->push_back(i);
-    }
-}
-
-void Game::generateMines() {
-    srand(time(NULL));
-    int rando;
-    int numMines = getNumberOfMines();
-    solution = new std::vector<int>();
-    for(int i = 0; i < numMines; i++) {
-        rando = rand() % brc;
-        if(mines->at(rando) != 'm') {
-            mines->at(rando) = 'm';
-            solution->push_back(rando);
-        } else {
-            i--;
+        int checkSize = toCheck->size();
+        for(int i = 0; i < checkSize; i++) {
+            if(mines->at(toCheck->at(i)) == 'm') mineCounter += 1;
         }
-    }
-
-    std::sort(solution->begin(), solution->end());
-}
-
-void Game::populateField() {
-    for(int i = 0; i < mines->size(); i++) {
-        checkTile(i);
+        mines->at(tile) = '0' + mineCounter;
     }
 }
 
@@ -169,22 +113,81 @@ std::vector<int> * Game::returnCheckMines(int tile) {
     return toReturn;
 }
 
-void Game::checkTile(int tile) {
-    if(mines->at(tile) != 'm') {
-        int mineCounter = 0;
-        std::vector<int> *toCheck = returnCheckMines(tile);
+void Game::generateMines() {
+    srand(time(NULL));
+    int rando;
+    int numMines = getNumberOfMines();
 
-        for(int i = 0; i < toCheck->size(); i++) {
-            if(mines->at(toCheck->at(i)) == 'm') mineCounter += 1;
+    for(int i = 0; i < numMines; i++) {
+        rando = rand() % brc;
+        if(mines->at(rando) != 'm') {
+            mines->at(rando) = 'm';
+        } else {
+            i--;
         }
-        mines->at(tile) = '0' + mineCounter;
     }
+}
+
+void Game::populateField() {
+    for(int i = 0; i < mines->size(); i++) {
+        checkTile(i);
+    }
+}
+
+void Game::setEdgeMines() {
+    trc = getTRC() - 1;
+    blc = getBLC() - 1;
+    brc = getBRC() - 1;
+
+    topMines = new std::vector<int>();
+    leftMines = new std::vector<int>();
+    rightMines = new std::vector<int>();
+    bottomMines = new std::vector<int>();
+
+    for(int i = 1; i < trc; i++) {
+        topMines->push_back(i);
+    }
+
+    for(int i = trc + 1; i < blc; i += trc + 1) {
+        leftMines->push_back(i);
+    }
+
+    for(int i = trc + trc + 1; i < brc - trc; i += trc + 1) {
+        rightMines->push_back(i);
+    }
+
+    for(int i = blc + 1; i < brc; i++) {
+        bottomMines->push_back(i);
+    }
+}
+
+Game::Game() {
+    solved = false;
+}
+
+std::vector<char> * Game::checkPos(int i) {
+    return runningGame;
+}
+
+std::vector<char> * Game::getRunningGame() {
+    return runningGame;
 }
 
 bool Game::getSolved() {
     return solved;
 }
 
-void Game::setSolved(bool b) {
-    solved = b;
+void Game::resetMines() {
+    setEdgeMines();
+
+    int vSize = ((trc + 1) * getRows());
+    mines = new std::vector<char>(vSize);
+    runningGame = new std::vector<char>(vSize);
+    for(int i = 0; i < vSize; i++) {
+        mines->at(i) = '.';
+        runningGame->at(i) = '.';
+    }
+
+    generateMines();
+    populateField();
 }

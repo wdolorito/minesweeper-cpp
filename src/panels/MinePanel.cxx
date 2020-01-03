@@ -46,6 +46,13 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
     std::cout << currentGame->getBRC() << std::endl;
     std::cout << currentGame->getRows() << std::endl;
     std::cout << currentGame->getNumberOfMines() << std::endl;
+
+    std::vector<char> *test = currentGame->getRunningGame();
+    int tSize = test->size();
+    for(int i = 0; i < tSize; i++) {
+        std::cout << test->at(i) << " ";
+    }
+    std::cout << std::endl;
     //
     // if(!mineField->IsEmpty()) {
     //     mineField->Clear(true);

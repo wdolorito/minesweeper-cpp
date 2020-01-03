@@ -13,31 +13,35 @@
 
 class Game {
     private:
-        std::vector <char> *mines;
+        std::vector <char> *mines,
+                           *runningGame;
+
         std::vector <int> *topMines,
                           *leftMines,
                           *rightMines,
-                          *bottomMines,
-                          *solution;
+                          *bottomMines;
+
         int trc,
             blc,
             brc;
 
         bool solved;
-        void setSolved(bool b);
+
+        void checkTile(int tile);
         std::vector<int> * returnCheckMines(int tile);
 
     protected:
-        void setEdgeMines();
         void generateMines();
         void populateField();
+        void setEdgeMines();
 
     public:
         Game();
-        std::vector<char> * getMinefield();
-        void resetMines();
-        void checkTile(int tile);
+        std::vector<char> * checkPos(int i);
+        std::vector<char> * getRunningGame();
         bool getSolved();
+        void resetMines();
+
         virtual int getNumberOfMines() = 0;
         virtual const wxSize * getBoardSize() = 0;
         virtual int getTRC() = 0;
