@@ -20,9 +20,9 @@ void Game::resetMines() {
 }
 
 void Game::setEdgeMines() {
-    trc = this->getTRC() - 1;
-    blc = this->getBLC() - 1;
-    brc = this->getBRC() - 1;
+    trc = getTRC() - 1;
+    blc = getBLC() - 1;
+    brc = getBRC() - 1;
 
     topMines = new std::vector<int>();
     leftMines = new std::vector<int>();
@@ -49,7 +49,7 @@ void Game::setEdgeMines() {
 void Game::generateMines() {
     srand(time(NULL));
     int rando;
-    int numMines = this->getNumberOfMines();
+    int numMines = getNumberOfMines();
     solution = new std::vector<int>();
     for(int i = 0; i < numMines; i++) {
         rando = rand() % brc;

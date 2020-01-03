@@ -6,18 +6,18 @@
 
 class Novice : public Game {
     private:
-        int MINES,
-            TRC,
-            ROWS,
-            BRC,
-            BLC;
+        static const int MINES;
+        static const int TRC;
+        static const int ROWS;
+        static const int BRC;
+        static const int BLC;
 
-        wxSize *BOARD;
+        static const wxSize *BOARD;
 
     public:
         Novice();
         int getNumberOfMines();
-        wxSize * getBoardSize();
+        const wxSize * getBoardSize();
         int getTRC();
         int getBLC();
         int getBRC();

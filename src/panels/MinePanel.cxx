@@ -18,20 +18,26 @@ void MinePanel::setMainFrame(MainFrame *mainFrame) {
     topLevel = mainFrame;
 
     newGame();
-    setTileIcons();
-    setupBoard();
-    setupPanel();
+    // setTileIcons();
+    // setupBoard();
+    // setupPanel();
 }
 
 void MinePanel::newGame() {
-    newGame("Novice");
+    currentGame = new Novice();
+    std::cout << currentGame->getTRC() << std::endl;
+    std::cout << currentGame->getBLC() << std::endl;
+    std::cout << currentGame->getBRC() << std::endl;
+    std::cout << currentGame->getRows() << std::endl;
+    std::cout << currentGame->getNumberOfMines() << std::endl;
+    // newGame("Novice");
 }
 
 void MinePanel::newGame(std::string diff, bool firstRun) {
     if(!diff.compare("Intermediate")) {
-        currentGame = new Intermediate();
+        // currentGame = new Intermediate();
     } else if(!diff.compare("Expert")) {
-        currentGame = new Expert();
+        // currentGame = new Expert();
     } else {
         currentGame = new Novice();
     }

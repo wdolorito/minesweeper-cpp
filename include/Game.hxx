@@ -39,7 +39,7 @@ class Game {
         void checkTile(int tile);
         bool getSolved();
         virtual int getNumberOfMines() = 0;
-        virtual wxSize * getBoardSize() = 0;
+        virtual const wxSize * getBoardSize() = 0;
         virtual int getTRC() = 0;
         virtual int getBLC() = 0;
         virtual int getBRC() = 0;
