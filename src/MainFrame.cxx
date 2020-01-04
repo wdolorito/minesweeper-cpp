@@ -53,30 +53,38 @@ MainFrame::MainFrame(const wxString& title):
 }
 
 void MainFrame::redrawAll() {
-    wxSize currentSize = GetSize();
+    int screenWidth = wxSystemSettings::GetMetric ( wxSYS_SCREEN_X );
+    int screenHeight = wxSystemSettings::GetMetric ( wxSYS_SCREEN_Y );
+
+    // wxSize currentSize = GetSize();
     wxSize menuSize = menuPanel->GetBestSize();
-    wxSize mineSize = minePanel->GetBestSize();
+    wxSize mineSize = minePanel->GetSize();
 
     int width = mineSize.GetWidth();
     int height = menuSize.GetHeight() + mineSize.GetHeight();
 
     wxSize minSize = wxSize(width, height);
 
-    if(currentSize.GetWidth() < width) {
-        SetMaxSize(minSize);
+    // if(currentSize.GetWidth() < width) {
+    //     SetMaxSize(minSize);
+    //     SetMinSize(minSize);
+    // } else {
         SetMinSize(minSize);
-    } else {
-        SetMinSize(minSize);
         SetMaxSize(minSize);
-    }
-    SetSize(minSize);
+    // }
+    SetSize(20, 20, width, height, wxSIZE_FORCE);
     // Layout();
-    // menuPanel->Refresh();
-    // menuPanel->Update();
-    // minePanel->Refresh();
-    // minePanel->Update();
-    Refresh();
+    // Refresh();
     // Update();
+
+
+    std::cout << "screen\theight:\t" << screenHeight << std::endl;
+    std::cout << "screen\twidth:\t" << screenWidth << std::endl;
+
+    std::cout << "mine\theight:\t" << minePanel->GetSize().GetHeight() << std::endl;
+    std::cout << "mine\twidth:\t" << minePanel->GetSize().GetWidth() << std::endl;
+    std::cout << "menu\theight:\t" << menuPanel->GetSize().GetHeight() << std::endl;
+    std::cout << "menu\twidth:\t" << menuPanel->GetSize().GetWidth() << std::endl;
 }
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {

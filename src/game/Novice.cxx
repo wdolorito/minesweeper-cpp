@@ -7,7 +7,7 @@ const int Novice::ROWS = Novice::TRC;
 const int Novice::BRC = Novice::TRC * Novice::ROWS;
 const int Novice::BLC = Novice::BRC - Novice::TRC + 1;
 
-const wxSize * Novice::BOARD = new wxSize(Novice::TRC * 40, Novice::ROWS * 40);
+const wxSize * Novice::BOARD = new wxSize(Novice::TRC * 20, Novice::ROWS * 20);
 
 Novice::Novice() {
     resetMines();

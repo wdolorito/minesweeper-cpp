@@ -18,9 +18,9 @@ void MinePanel::setMainFrame(MainFrame *mainFrame) {
     topLevel = mainFrame;
 
     newGame();
-    // setTileIcons();
-    // setupBoard();
-    // setupPanel();
+    setTileIcons();
+    setupBoard();
+    setupPanel();
 }
 
 void MinePanel::newGame() {
@@ -64,11 +64,6 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
     mineField->SetCols(currentGame->getTRC());
 
     gameRunning = currentGame->getRunning();
-
-    if(firstRun) setTileIcons();
-
-    setupPanel();
-    setupBoard();
 }
 
 void MinePanel::setTileIcons() {
@@ -112,12 +107,12 @@ void MinePanel::setupBoard() {
         wxButton *temp = getMineButton(i);
         mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }
-    wxSize test = *currentGame->getBoardSize();
-    int h = test.GetHeight();
-    int w = test.GetWidth();
+    wxSize boardSize = *currentGame->getBoardSize();
+    int h = boardSize.GetHeight();
+    int w = boardSize.GetWidth();
     std::cout << "board h: " << h << "\tboard w: " << w << std::endl;
-    SetMinSize(test);
-    // topLevel->redrawAll();
+    SetClientSize(boardSize);
+    topLevel->redrawAll();
 }
 
 wxButton* MinePanel::getMineButton(int pos) {
