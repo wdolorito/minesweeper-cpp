@@ -47,7 +47,7 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
     std::cout << currentGame->getRows() << std::endl;
     std::cout << currentGame->getNumberOfMines() << std::endl;
 
-    std::vector<char> *test = currentGame->getRunningGame();
+    std::vector<char> *test = currentGame->checkPos(0);
     int tSize = test->size();
     for(int i = 0; i < tSize; i++) {
         std::cout << test->at(i) << " ";

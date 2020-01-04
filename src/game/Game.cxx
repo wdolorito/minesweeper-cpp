@@ -163,15 +163,37 @@ void Game::setEdgeMines() {
 
 Game::Game() {
     solved = false;
+    gameRunning = true;
 }
 
 std::vector<char> * Game::checkPos(int i) {
-    checkTile(i, runningGame);
+    if(runningGame->at(i) == '.' && mines->at(i) != 'm') {
+        runningGame->at(i) = mines->at(i);
+        if(mines->at(i) == '0') {
+            std::vector<int> *toCheck = returnCheckMines(i);
+            int cSize = toCheck->size();
+            for(int j = 0; j < cSize; j++) {
+                int newPos = toCheck->at(j);
+                if(mines->at(newPos) == '0') checkPos(newPos);
+            }
+        }
+
+        solved = std::equal(mines->begin(), mines->end(), runningGame->begin());
+        if(solved) gameRunning = false;
+    } else {
+        runningGame->at(i) = mines->at(i);
+        gameRunning = false;
+    }
+
     return runningGame;
 }
 
 std::vector<char> * Game::getRunningGame() {
     return runningGame;
+}
+
+bool Game::getRunning() {
+    return gameRunning;
 }
 
 bool Game::getSolved() {

@@ -25,7 +25,8 @@ class Game {
             blc,
             brc;
 
-        bool solved;
+        bool solved,
+             gameRunning;
 
         void checkTile(int tile, std::vector <char> *board);
         std::vector<int> * returnCheckMines(int tile);
@@ -39,6 +40,7 @@ class Game {
         Game();
         std::vector<char> * checkPos(int i);
         std::vector<char> * getRunningGame();
+        bool getRunning();
         bool getSolved();
         void resetMines();
 
