@@ -70,9 +70,13 @@ void MainFrame::redrawAll() {
         SetMaxSize(minSize);
     }
     SetSize(minSize);
-    Layout();
+    // Layout();
+    // menuPanel->Refresh();
+    // menuPanel->Update();
+    // minePanel->Refresh();
+    // minePanel->Update();
     Refresh();
-    Update();
+    // Update();
 }
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {

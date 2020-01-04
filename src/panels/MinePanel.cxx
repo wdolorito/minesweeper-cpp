@@ -41,30 +41,34 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
     } else {
         currentGame = new Novice();
     }
-    std::cout << currentGame->getTRC() << std::endl;
-    std::cout << currentGame->getBLC() << std::endl;
-    std::cout << currentGame->getBRC() << std::endl;
-    std::cout << currentGame->getRows() << std::endl;
-    std::cout << currentGame->getNumberOfMines() << std::endl;
-
-    std::vector<char> *test = currentGame->checkPos(0);
-    int tSize = test->size();
-    for(int i = 0; i < tSize; i++) {
-        std::cout << test->at(i) << " ";
-    }
-    std::cout << std::endl;
+    // std::cout << currentGame->getTRC() << std::endl;
+    // std::cout << currentGame->getBLC() << std::endl;
+    // std::cout << currentGame->getBRC() << std::endl;
+    // std::cout << currentGame->getRows() << std::endl;
+    // std::cout << currentGame->getNumberOfMines() << std::endl;
     //
-    // if(!mineField->IsEmpty()) {
-    //     mineField->Clear(true);
+    // std::vector<char> *test = currentGame->checkPos(0);
+    // int tSize = test->size();
+    // for(int i = 0; i < tSize; i++) {
+    //     std::cout << test->at(i) << " ";
     // }
-    //
-    // mines = currentGame->getMinefield();
-    //
-    // mineField->SetRows(currentGame->getRows());
-    // mineField->SetCols(currentGame->getTRC());
-    //
-    // gameRunning = false;
-    // if(!firstRun) setupBoard();
+    // std::cout << std::endl;
+
+    if(!mineField->IsEmpty()) {
+        mineField->Clear(true);
+    }
+
+    mines = currentGame->getRunningGame();
+
+    mineField->SetRows(currentGame->getRows());
+    mineField->SetCols(currentGame->getTRC());
+
+    gameRunning = currentGame->getRunning();
+
+    if(firstRun) setTileIcons();
+
+    setupPanel();
+    setupBoard();
 }
 
 void MinePanel::setTileIcons() {
@@ -108,9 +112,12 @@ void MinePanel::setupBoard() {
         wxButton *temp = getMineButton(i);
         mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }
-    SetMinSize(*currentGame->getBoardSize());
-    InvalidateBestSize();
-    topLevel->redrawAll();
+    wxSize test = *currentGame->getBoardSize();
+    int h = test.GetHeight();
+    int w = test.GetWidth();
+    std::cout << "board h: " << h << "\tboard w: " << w << std::endl;
+    SetMinSize(test);
+    // topLevel->redrawAll();
 }
 
 wxButton* MinePanel::getMineButton(int pos) {
