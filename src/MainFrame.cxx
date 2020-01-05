@@ -43,7 +43,7 @@ void MainFrame::setupMenus() {
 
     tileSet = new wxMenu();
     tileSet->Append(set1ID, "set1");
-    tileSet->Append(set2ID, "set1");
+    tileSet->Append(set2ID, "set2");
 
     game = new wxMenu;
     game->Append(wxID_ABOUT, "&About Minesweeper\tCTRL+A");
