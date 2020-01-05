@@ -40,6 +40,7 @@ class MenuPanel : public wxPanel {
         void setMinePanel(MinePanel *minePanel);
         void setMainFrame(MainFrame *mainFrame);
         void setMinesRem(int i);
+        int getTime();
         void resetTimer();
         void startTimer();
         void stopTimer();

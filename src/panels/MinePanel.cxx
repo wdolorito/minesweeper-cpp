@@ -23,6 +23,8 @@ void MinePanel::setMainFrame(MainFrame *mainFrame) {
 }
 
 void MinePanel::newGame() {
+    menuPanel->resetTimer();
+    menuPanel->startTimer();
     newGame("Novice", true);
 }
 
@@ -123,13 +125,14 @@ int MinePanel::getUnflaggedMines() {
 }
 
 void MinePanel::doLeftClick(wxMouseEvent& event) {
-    wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
-
-    int size = mines->size();
-    for(int i = 0; i < size; i++) {
-        std::cout << mines->at(i) << ' ';
-    }
-    std::cout << std::endl;
+    std::cout << menuPanel->getTime() << std::endl;
+    // wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
+    //
+    // int size = mines->size();
+    // for(int i = 0; i < size; i++) {
+    //     std::cout << mines->at(i) << ' ';
+    // }
+    // std::cout << std::endl;
 }
 
 void MinePanel::doRightClick(wxMouseEvent& event) {

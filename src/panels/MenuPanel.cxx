@@ -102,6 +102,14 @@ void MenuPanel::setMinesRem(int i) {
     minesRem->SetLabelText(wxString::Format("%i", i));
 }
 
+int MenuPanel::getTime() {
+    stopTimer();
+    wxString time = timer->GetLabel();
+    int currTime = wxAtoi(time);
+    gameTimer->Start();
+    return currTime;
+}
+
 void MenuPanel::resetTimer() {
     timer->SetLabelText("0");
 }
