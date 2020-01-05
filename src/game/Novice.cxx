@@ -1,15 +1,14 @@
 /* Novice.cxx */
 #include "Novice.hxx"
 
-const int Novice::MINES = 10;
-const int Novice::TRC = 9;
-const int Novice::ROWS = Novice::TRC;
-const int Novice::BRC = Novice::TRC * Novice::ROWS;
-const int Novice::BLC = Novice::BRC - Novice::TRC + 1;
-
-const wxSize * Novice::BOARD = new wxSize(Novice::TRC * 20, Novice::ROWS * 20);
-
 Novice::Novice() {
+    MINES = 10;
+    TRC = 9;
+    ROWS = TRC;
+    BRC = TRC * ROWS;
+    BLC = BRC - TRC + 1;
+    BOARD = new wxSize(TRC * 40, ROWS * 40);
+
     resetMines();
 }
 

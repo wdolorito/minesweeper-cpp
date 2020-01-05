@@ -15,6 +15,9 @@ class MenuPanel;
 
 class MainFrame : public wxFrame {
     private:
+        static const int nID;
+        static const int iID;
+        static const int eID;
         int padding;
         wxBoxSizer *hSizer;
         wxBoxSizer *vSizer;
@@ -25,7 +28,12 @@ class MainFrame : public wxFrame {
         MenuPanel *menuPanel;
         MinePanel *minePanel;
 
+        void setupFrame();
+        void setupMenus();
+        void setupPanels();
         void OnAbout(wxCommandEvent& event);
+        void OnGame(wxCommandEvent& event);
+        void OnGame(std::string difficulty);
         void OnHelp(wxCommandEvent& event);
         void OnQuit(wxCommandEvent& event);
 

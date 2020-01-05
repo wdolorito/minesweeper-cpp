@@ -69,7 +69,6 @@ void MenuPanel::setupPanel() {
     setMinesRem(10);
 
     SetSizer(vSizer);
-    Fit();
     Show();
 }
 

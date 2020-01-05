@@ -75,7 +75,7 @@ void MinePanel::setTileIcons(std::string setName) {
     std::string path = "assets/" + setName;
 
     initial = new wxImage(path + "default.png", wxBITMAP_TYPE_PNG);
-    initial->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    // initial->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
     empty = new wxImage(path + "empty.png", wxBITMAP_TYPE_PNG);
     empty->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
     one = new wxImage(path + "1.png", wxBITMAP_TYPE_PNG);
