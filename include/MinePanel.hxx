@@ -27,7 +27,6 @@ class MinePanel : public wxPanel {
         MainFrame *topLevel;
         MenuPanel *menuPanel;
 
-        std::vector<int> *runningGame;
         std::vector<char> *mines;
         int unflaggedMines;
         bool gameRunning;

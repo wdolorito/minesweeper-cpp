@@ -6,7 +6,6 @@ MinePanel::MinePanel(wxPanel * parent):
             wxID_ANY,
             wxDefaultPosition,
             wxDefaultSize) {
-    runningGame = new std::vector<int>();
     mineField = new wxGridSizer(0, 0, 0);
 }
 
@@ -41,18 +40,6 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
     } else {
         currentGame = new Novice();
     }
-    // std::cout << currentGame->getTRC() << std::endl;
-    // std::cout << currentGame->getBLC() << std::endl;
-    // std::cout << currentGame->getBRC() << std::endl;
-    // std::cout << currentGame->getRows() << std::endl;
-    // std::cout << currentGame->getNumberOfMines() << std::endl;
-    //
-    // std::vector<char> *test = currentGame->checkPos(0);
-    // int tSize = test->size();
-    // for(int i = 0; i < tSize; i++) {
-    //     std::cout << test->at(i) << " ";
-    // }
-    // std::cout << std::endl;
 
     if(!mineField->IsEmpty()) {
         mineField->Clear(true);
@@ -137,11 +124,6 @@ int MinePanel::getUnflaggedMines() {
 
 void MinePanel::doLeftClick(wxMouseEvent& event) {
     wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
-    // int pos = wxAtoi(button->GetLabel());
-    // std::cout << pos << std::endl;
-    // currentGame->checkTile(pos);
-    // std::cout << "left click" << std::endl;
-    // std::cout << button->GetLabel() << std::endl;
 
     int size = mines->size();
     for(int i = 0; i < size; i++) {
