@@ -1,15 +1,14 @@
 /* Intermediate.cxx */
 #include "Intermediate.hxx"
 
-const int Intermediate::MINES = 40;
-const int Intermediate::TRC = 16;
-const int Intermediate::ROWS = Intermediate::TRC;
-const int Intermediate::BRC = Intermediate::TRC * Intermediate::ROWS;
-const int Intermediate::BLC = Intermediate::BRC - Intermediate::TRC + 1;
-
-const wxSize * Intermediate::BOARD = new wxSize(Intermediate::TRC * 40, Intermediate::ROWS * 40);
-
 Intermediate::Intermediate() {
+    MINES = 40;
+    TRC = 16;
+    ROWS = TRC;
+    BRC = TRC * ROWS;
+    BLC = BRC - TRC + 1;
+    BOARD = new wxSize(TRC * 40, ROWS * 40);
+
     resetMines();
 }
 

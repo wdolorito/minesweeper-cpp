@@ -6,13 +6,13 @@
 
 class Expert : public Game {
     private:
-        static const int MINES;
-        static const int TRC;
-        static const int ROWS;
-        static const int BRC;
-        static const int BLC;
+        int MINES;
+        int TRC;
+        int ROWS;
+        int BRC;
+        int BLC;
 
-        static const wxSize *BOARD;
+        wxSize *BOARD;
 
     public:
         Expert();
