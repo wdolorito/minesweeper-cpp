@@ -4,6 +4,8 @@
 const int MainFrame::nID = wxNewId();
 const int MainFrame::iID = wxNewId();
 const int MainFrame::eID = wxNewId();
+const int MainFrame::set1ID = wxNewId();
+const int MainFrame::set2ID = wxNewId();
 
 MainFrame::MainFrame(const wxString& title):
     wxFrame(NULL,
@@ -38,12 +40,19 @@ void MainFrame::setupFrame() {
 
 void MainFrame::setupMenus() {
     menuBar = new wxMenuBar;
+
+    tileSet = new wxMenu();
+    tileSet->Append(set1ID, "set1");
+    tileSet->Append(set2ID, "set1");
+
     game = new wxMenu;
     game->Append(wxID_ABOUT, "&About Minesweeper\tCTRL+A");
     game->Append(nID, "Novice");
     game->Append(iID, "Intermediate");
     game->Append(eID, "Expert");
+    game->Append(-1, "Tile Set", tileSet);
     game->Append(wxID_EXIT, "&Quit Minesweeper\tCTRL+Q");
+
     menuBar->Append(game, "&Game");
 
     help = new wxMenu;
@@ -120,6 +129,19 @@ void MainFrame::OnGame(std::string difficulty) {
     wxMessageBox(msg, difficulty, wxOK | wxICON_INFORMATION );
 }
 
+void MainFrame::OnTile(wxCommandEvent& event) {
+    int id = event.GetId();
+    std::cout << id << std::endl;
+
+    if(id == set1ID) OnTile("set1");
+    if(id == set2ID) OnTile("set2");
+}
+
+void MainFrame::OnTile(std::string set) {
+    std::string msg = set + " tile set";
+    wxMessageBox(msg, set, wxOK | wxICON_INFORMATION );
+}
+
 void MainFrame::OnHelp(wxCommandEvent& WXUNUSED(event)) {
     wxMessageBox("Reveal tiles with left click\nMark mines with right click",
                  "Help", wxOK | wxICON_INFORMATION );
@@ -136,4 +158,6 @@ wxBEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_MENU(nID, MainFrame::OnGame)
     EVT_MENU(iID, MainFrame::OnGame)
     EVT_MENU(eID, MainFrame::OnGame)
+    EVT_MENU(set1ID, MainFrame::OnTile)
+    EVT_MENU(set2ID, MainFrame::OnTile)
 wxEND_EVENT_TABLE()
