@@ -39,6 +39,7 @@ class MenuPanel : public wxPanel {
         MenuPanel(wxPanel *parent);
         void setMinePanel(MinePanel *minePanel);
         void setMainFrame(MainFrame *mainFrame);
+        int getMinesRem();
         void setMinesRem(int i);
         int getTime();
         void resetTimer();

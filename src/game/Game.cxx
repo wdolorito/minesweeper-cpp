@@ -168,8 +168,9 @@ Game::Game() {
 
 std::vector<char> * Game::checkPos(int i) {
     if(runningGame->at(i) == '.' && mines->at(i) != 'm') {
-        runningGame->at(i) = mines->at(i);
-        if(mines->at(i) == '0') {
+        char currTile = mines->at(i);
+        runningGame->at(i) = currTile;
+        if(currTile != 'm') {
             std::vector<int> *toCheck = returnCheckMines(i);
             int cSize = toCheck->size();
             for(int j = 0; j < cSize; j++) {

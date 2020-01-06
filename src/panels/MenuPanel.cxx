@@ -98,6 +98,11 @@ void MenuPanel::setMainFrame(MainFrame *mainFrame) {
     topLevel = mainFrame;
 }
 
+int MenuPanel::getMinesRem() {
+    wxString rem = minesRem->GetLabelText();
+    return wxAtoi(rem);
+}
+
 void MenuPanel::setMinesRem(int i) {
     minesRem->SetLabelText(wxString::Format("%i", i));
 }

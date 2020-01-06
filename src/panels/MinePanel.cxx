@@ -139,33 +139,39 @@ void MinePanel::doLeftClick(wxMouseEvent& event) {
 void MinePanel::doRightClick(wxMouseEvent& event) {
     wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
     if(button->IsEnabled()) {
-        std::cout << "right click" << std::endl;
-
+        int minesRem = menuPanel->getMinesRem();
         wxString label = button->GetLabel();
         wxArrayString labelTokens = wxStringTokenize(label, delimiter);
         wxString pos = labelTokens.Item(0);
         wxString type = labelTokens.Item(1);
+
+        std::cout << "right click " << pos << std::endl;
 
         wxString rename = pos + delimiter;
         wxSizerItem* item = mineField->GetItem(wxAtoi(pos));
         wxButton* button = dynamic_cast<wxButton*>(item->GetWindow());
 
         if(type == "initial") {
-            button->SetBitmap(*flag);
-            rename += "flag";
-            button->SetLabel(rename);
+            if(minesRem > 0) {
+                button->SetBitmap(*flag);
+                rename += "flag";
+                button->SetLabel(rename);
+                --minesRem;
+            }
         } else {
             button->SetBitmap(*initial);
             rename += "initial";
             button->SetLabel(rename);
+            ++minesRem;
         }
+
+        menuPanel->setMinesRem(minesRem);
     }
 }
 
 void MinePanel::drawBoard() {
     std::cout << "drawing board" << std::endl;
     int size = mineField->GetItemCount();
-    std::cout << size << std::endl;
 
     for(int i = 0; i < size; i++) {
         wxSizerItem* item = mineField->GetItem(i);
@@ -177,8 +183,6 @@ void MinePanel::drawBoard() {
 void MinePanel::updateButton(wxButton* button, int pos) {
     char currTile = mines->at(pos);
     wxString label = wxString::Format("%i", pos) + delimiter;
-
-    std::cout << button->GetLabel() << " ";
 
     switch(currTile) {
         case '.':
