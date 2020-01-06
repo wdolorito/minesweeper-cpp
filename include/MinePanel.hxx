@@ -8,6 +8,7 @@
 #endif
 
 #include <wx/panel.h>
+#include <wx/tokenzr.h>
 #include <vector>
 #include "MenuPanel.hxx"
 #include "Game.hxx"
@@ -26,6 +27,7 @@ class MinePanel : public wxPanel {
         wxGridSizer *mineField;
         MainFrame *topLevel;
         MenuPanel *menuPanel;
+        wxString delimiter;
 
         std::vector<char> *mines;
         int unflaggedMines;
