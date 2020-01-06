@@ -132,7 +132,14 @@ void MinePanel::doLeftClick(wxMouseEvent& event) {
         wxString pos = labelTokens.Item(0);
         wxString type = labelTokens.Item(1);
         mines = currentGame->checkPos(wxAtoi(pos));
+
+        bool isRunning = currentGame->getRunning();
+        bool isSolved = currentGame->getSolved();
+        bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
+        if(!isRunning && isSolved) endGame(wxAtoi(pos), loss);
+
         drawBoard();
+        if(currentGame->getRunning()) menuPanel->startTimer();
     }
 }
 
@@ -189,65 +196,80 @@ void MinePanel::updateButton(wxButton* button, int pos) {
             break;
         case '0':
             button->SetBitmap(*empty);
+            button->SetBitmapDisabled(*empty);
             label += "empty";
             button->SetLabel(label);
             button->Enable(false);
             break;
         case '1':
             button->SetBitmap(*one);
+            button->SetBitmapDisabled(*one);
             label += "one";
             button->SetLabel(label);
             button->Enable(false);
             break;
         case '2':
             button->SetBitmap(*two);
+            button->SetBitmapDisabled(*two);
             label += "two";
             button->SetLabel(label);
             button->Enable(false);
             break;
         case '3':
             button->SetBitmap(*three);
+            button->SetBitmapDisabled(*three);
             label += "three";
             button->SetLabel(label);
             button->Enable(false);
             break;
         case '4':
             button->SetBitmap(*four);
+            button->SetBitmapDisabled(*four);
             label += "four";
             button->SetLabel(label);
             button->Enable(false);
             break;
         case '5':
             button->SetBitmap(*five);
+            button->SetBitmapDisabled(*five);
             label += "five";
             button->SetLabel(label);
             button->Enable(false);
             break;
         case '6':
             button->SetBitmap(*six);
+            button->SetBitmapDisabled(*six);
             label += "six";
             button->SetLabel(label);
             button->Enable(false);
             break;
         case '7':
             button->SetBitmap(*seven);
+            button->SetBitmapDisabled(*seven);
             label += "seven";
             button->SetLabel(label);
             button->Enable(false);
             break;
         case '8':
             button->SetBitmap(*eight);
+            button->SetBitmapDisabled(*eight);
             label += "eight";
             button->SetLabel(label);
             break;
             button->Enable(false);
-        case 'm':
+        case 'x':
             button->SetBitmap(*exploded);
+            button->SetBitmapDisabled(*exploded);
             label += "exploded";
             button->SetLabel(label);
             button->Enable(false);
             break;
         default:
+            button->SetBitmap(*bomb);
+            button->SetBitmapDisabled(*bomb);
+            label += "bomb";
+            button->SetLabel(label);
+            button->Enable(false);
             break;
     }
 }
@@ -256,8 +278,14 @@ void MinePanel::validateGame() {
     std::cout << "validating game" << std::endl;
 }
 
-void MinePanel::endGame(int buttonIndex) {
+void MinePanel::endGame(int buttonIndex, bool loss) {
     std::cout << "ending game" << std::endl;
+    if(loss) {
+        std::cout << "you lose" << std::endl;
+    } else {
+        std::cout << "you win" << std::endl;
+    }
+    menuPanel->stopTimer();
 }
 
 void MinePanel::winGame() {

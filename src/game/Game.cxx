@@ -163,28 +163,35 @@ void Game::setEdgeMines() {
 
 Game::Game() {
     solved = false;
-    gameRunning = true;
+    gameRunning = false;
 }
 
 std::vector<char> * Game::checkPos(int i) {
-    if(runningGame->at(i) == '.' && mines->at(i) != 'm') {
+    if(!gameRunning && !solved) gameRunning = true;
+    if(runningGame->at(i) == '.') {
         char currTile = mines->at(i);
-        runningGame->at(i) = currTile;
-        std::cout << currTile << std::endl;
-        if(currTile == '0') {
-            std::vector<int> *toCheck = returnCheckMines(i);
-            int cSize = toCheck->size();
-            for(int j = 0; j < cSize; j++) {
-                int newPos = toCheck->at(j);
-                if(mines->at(newPos) != 'm') checkPos(newPos);
+        if(currTile != 'm') {
+            runningGame->at(i) = currTile;
+            if(currTile == '0') {
+                std::vector<int> *toCheck = returnCheckMines(i);
+                int cSize = toCheck->size();
+                for(int j = 0; j < cSize; j++) {
+                    int newPos = toCheck->at(j);
+                    if(mines->at(newPos) != 'm') checkPos(newPos);
+                }
             }
+
+            solved = std::equal(mines->begin(), mines->end(), runningGame->begin());
+            if(solved) gameRunning = false;
         }
 
-        solved = std::equal(mines->begin(), mines->end(), runningGame->begin());
-        if(solved) gameRunning = false;
-    } else {
-        runningGame->at(i) = mines->at(i);
-        gameRunning = false;
+        if(currTile == 'm') {
+            std::cout << "bombed! " << i << std::endl;
+            solved = true;
+            gameRunning = false;
+            runningGame = mines;
+            runningGame->at(i) = 'x';
+        }
     }
 
     return runningGame;
