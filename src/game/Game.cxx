@@ -181,7 +181,15 @@ std::vector<char> * Game::checkPos(int i) {
                 }
             }
 
-            solved = std::equal(mines->begin(), mines->end(), runningGame->begin());
+            std::vector<char> *mineTester = new std::vector<char>;
+            int size = mines->size();
+            for(int i = 0; i < size; i++) {
+                mineTester->push_back(mines->at(i));
+            }
+
+            std::replace(mineTester->begin(), mineTester->end(), 'm', '.');
+            solved = std::equal(mineTester->begin(), mineTester->end(), runningGame->begin());
+
             if(solved) gameRunning = false;
         }
 
