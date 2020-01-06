@@ -170,12 +170,13 @@ std::vector<char> * Game::checkPos(int i) {
     if(runningGame->at(i) == '.' && mines->at(i) != 'm') {
         char currTile = mines->at(i);
         runningGame->at(i) = currTile;
-        if(currTile != 'm') {
+        std::cout << currTile << std::endl;
+        if(currTile == '0') {
             std::vector<int> *toCheck = returnCheckMines(i);
             int cSize = toCheck->size();
             for(int j = 0; j < cSize; j++) {
                 int newPos = toCheck->at(j);
-                if(mines->at(newPos) == '0') checkPos(newPos);
+                if(mines->at(newPos) != 'm') checkPos(newPos);
             }
         }
 
