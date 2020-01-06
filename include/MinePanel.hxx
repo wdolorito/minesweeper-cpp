@@ -54,6 +54,8 @@ class MinePanel : public wxPanel {
         void doLeftClick(wxMouseEvent& event);
         void doRightClick(wxMouseEvent& event);
 
+        void drawBoard();
+        void updateButton(wxButton* button, int pos);
         void validateGame();
         void endGame(int buttonIndex);
         void winGame();

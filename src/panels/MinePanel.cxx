@@ -23,8 +23,6 @@ void MinePanel::setMainFrame(MainFrame *mainFrame) {
 }
 
 void MinePanel::newGame() {
-    menuPanel->resetTimer();
-    menuPanel->startTimer();
     newGame("Novice", true);
 }
 
@@ -125,20 +123,74 @@ int MinePanel::getUnflaggedMines() {
 }
 
 void MinePanel::doLeftClick(wxMouseEvent& event) {
-    std::cout << menuPanel->getTime() << std::endl;
-    // wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
-    //
-    // int size = mines->size();
-    // for(int i = 0; i < size; i++) {
-    //     std::cout << mines->at(i) << ' ';
-    // }
-    // std::cout << std::endl;
+    wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
+    button->Enable(false);
+    wxString pos = button->GetLabel();
+    mines = currentGame->checkPos(wxAtoi(pos));
+    std::cout << "button " << pos << " clicked" << std::endl;
+    drawBoard();
 }
 
 void MinePanel::doRightClick(wxMouseEvent& event) {
     wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
     std::cout << "right click" << std::endl;
     std::cout << button->GetLabel() << std::endl;
+}
+
+void MinePanel::drawBoard() {
+    std::cout << "drawing board" << std::endl;
+    int size = mineField->GetItemCount();
+    std::cout << size << std::endl;
+
+    for(int i = 0; i < size; i++) {
+        wxSizerItem* item = mineField->GetItem(i);
+        wxButton* button = dynamic_cast<wxButton*>(item->GetWindow());
+        updateButton(button, i);
+    }
+}
+
+void MinePanel::updateButton(wxButton* button, int pos) {
+    char currTile = mines->at(pos);
+
+    std::cout << button->GetLabel() << " ";
+
+    switch(currTile) {
+        case '.':
+            button->SetBitmap(*initial);
+            break;
+        case '0':
+            button->SetBitmap(*empty);
+            break;
+        case '1':
+            button->SetBitmap(*one);
+            break;
+        case '2':
+            button->SetBitmap(*two);
+            break;
+        case '3':
+            button->SetBitmap(*three);
+            break;
+        case '4':
+            button->SetBitmap(*four);
+            break;
+        case '5':
+            button->SetBitmap(*five);
+            break;
+        case '6':
+            button->SetBitmap(*six);
+            break;
+        case '7':
+            button->SetBitmap(*seven);
+            break;
+        case '8':
+            button->SetBitmap(*eight);
+            break;
+        case 'm':
+            button->SetBitmap(*exploded);
+            break;
+        default:
+            break;
+    }
 }
 
 void MinePanel::validateGame() {
