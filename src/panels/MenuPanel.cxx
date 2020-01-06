@@ -108,10 +108,11 @@ void MenuPanel::setMinesRem(int i) {
 }
 
 int MenuPanel::getTime() {
+    bool wasRunning = gameTimer->IsRunning();
     stopTimer();
     wxString time = timer->GetLabel();
     int currTime = wxAtoi(time);
-    gameTimer->Start();
+    if(wasRunning) gameTimer->Start();
     return currTime;
 }
 

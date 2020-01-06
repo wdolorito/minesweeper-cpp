@@ -133,13 +133,16 @@ void MinePanel::doLeftClick(wxMouseEvent& event) {
         wxString type = labelTokens.Item(1);
         mines = currentGame->checkPos(wxAtoi(pos));
         drawBoard();
-        if(currentGame->getRunning()) menuPanel->startTimer();
+        if(currentGame->getRunning()) {
+            menuPanel->startTimer();
+        } else {
+            menuPanel->stopTimer();
+        }
 
         bool isRunning = currentGame->getRunning();
         bool isSolved = currentGame->getSolved();
         bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
         if(!isRunning && isSolved) {
-            menuPanel->stopTimer();
             endGame(wxAtoi(pos), loss);
         }
     }
