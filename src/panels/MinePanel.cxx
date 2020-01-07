@@ -18,9 +18,6 @@ void MinePanel::setMainFrame(MainFrame *mainFrame) {
     topLevel = mainFrame;
 
     newGame();
-    setTileIcons();
-    setupBoard();
-    setupPanel();
 }
 
 void MinePanel::newGame() {
@@ -30,6 +27,7 @@ void MinePanel::newGame() {
 void MinePanel::newGame(std::string diff, bool firstRun) {
     if(firstRun) {
         std::cout << "First run" << std::endl;
+        setTileIcons();
     } else {
         std::cout << "Subsequent run" << std::endl;
     }
@@ -52,6 +50,9 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
     mineField->SetCols(currentGame->getTRC());
 
     gameRunning = currentGame->getRunning();
+
+    setupBoard();
+    setupPanel();
 }
 
 void MinePanel::setTileIcons() {
