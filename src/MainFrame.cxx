@@ -37,7 +37,7 @@ void MainFrame::setupFrame() {
     hSizer->AddSpacer(padding);
 
     topLevel->SetSizer(hSizer);
-    hSizer->SetSizeHints(this);
+    hSizer->SetSizeHints(topLevel);
 }
 
 void MainFrame::setupMenus() {
@@ -80,11 +80,12 @@ void MainFrame::redrawAll() {
     wxSize menuSize = menuPanel->GetClientSize();
     wxSize mineSize = minePanel->GetClientSize();
 
-    int width = mineSize.GetWidth();
-    int height = menuSize.GetHeight() + mineSize.GetHeight();
+    int width = mineSize.GetWidth() + 25;
+    int height = menuSize.GetHeight() + mineSize.GetHeight() + 25;
 
     wxSize minSize = wxSize(width, height);
 
+    SetMinSize(minSize);
     SetSize(minSize);
 
     std::cout << "mine\theight:\t" << minePanel->GetSize().GetHeight() << std::endl;

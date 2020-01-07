@@ -10,7 +10,7 @@ MenuPanel::MenuPanel(wxPanel * parent):
 }
 
 void MenuPanel::doSetup() {
-    padding = 10;
+    padding = 2;
     setupComboBox();
     setupStaticText();
     setupPanel();
@@ -69,7 +69,6 @@ void MenuPanel::setupPanel() {
     setMinesRem(10);
 
     SetSizer(vSizer);
-    Fit();
     Show();
 }
 
