@@ -25,6 +25,8 @@ void MinePanel::newGame() {
 }
 
 void MinePanel::newGame(std::string diff, bool firstRun) {
+    menuPanel->stopTimer();
+    menuPanel->resetTimer();
     if(firstRun) {
         std::cout << "First run" << std::endl;
         setTileIcons();
@@ -52,7 +54,7 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
     gameRunning = currentGame->getRunning();
 
     setupBoard();
-    setupPanel();
+    if(firstRun) setupPanel();
 }
 
 void MinePanel::setTileIcons() {
