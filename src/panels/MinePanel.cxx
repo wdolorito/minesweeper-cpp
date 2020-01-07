@@ -8,6 +8,7 @@ MinePanel::MinePanel(wxPanel * parent):
             wxDefaultSize) {
     mineField = new wxGridSizer(0, 0, 0);
     delimiter = ",";
+    imageScale = 24;
 }
 
 void MinePanel::setMenuPanel(MenuPanel * menuPanel) {
@@ -66,31 +67,31 @@ void MinePanel::setTileIcons(std::string setName) {
     std::string path = "assets/" + setName;
 
     initial = new wxImage(path + "default.png", wxBITMAP_TYPE_PNG);
-    initial->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    initial->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     empty = new wxImage(path + "empty.png", wxBITMAP_TYPE_PNG);
-    empty->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    empty->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     one = new wxImage(path + "1.png", wxBITMAP_TYPE_PNG);
-    one->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    one->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     two = new wxImage(path + "2.png", wxBITMAP_TYPE_PNG);
-    two->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    two->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     three = new wxImage(path + "3.png", wxBITMAP_TYPE_PNG);
-    three->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    three->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     four = new wxImage(path + "4.png", wxBITMAP_TYPE_PNG);
-    four->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    four->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     five = new wxImage(path + "5.png", wxBITMAP_TYPE_PNG);
-    five->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    five->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     six = new wxImage(path + "6.png", wxBITMAP_TYPE_PNG);
-    six->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    six->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     seven = new wxImage(path + "7.png", wxBITMAP_TYPE_PNG);
-    seven->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    seven->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     eight = new wxImage(path + "8.png", wxBITMAP_TYPE_PNG);
-    eight->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    eight->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     flag = new wxImage(path + "flag.png", wxBITMAP_TYPE_PNG);
-    flag->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    flag->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     bomb = new wxImage(path + "bomb.png", wxBITMAP_TYPE_PNG);
-    bomb->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    bomb->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     exploded = new wxImage(path + "exploded.png", wxBITMAP_TYPE_PNG);
-    exploded->Rescale(20, 20, wxIMAGE_QUALITY_HIGH);
+    exploded->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
 }
 
 void MinePanel::setupBoard() {
@@ -115,6 +116,7 @@ wxButton* MinePanel::getMineButton(int pos) {
                                        wxBU_EXACTFIT |
                                        wxBU_NOTEXT |
                                        wxBORDER_NONE);
+
     newButton->SetBitmap(*initial);
     wxString label = wxString::Format("%i", pos) + delimiter + "initial";
     newButton->SetLabel(label);
@@ -136,65 +138,57 @@ int MinePanel::getNumMines() {
     return currentGame->getNumberOfMines();
 }
 
-int MinePanel::getUnflaggedMines() {
-    return 0;
-}
-
 void MinePanel::doLeftClick(wxMouseEvent& event) {
     wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
-    if(button->IsEnabled()) {
-        wxString label = button->GetLabel();
-        wxArrayString labelTokens = wxStringTokenize(label, delimiter);
-        wxString pos = labelTokens.Item(0);
-        wxString type = labelTokens.Item(1);
-        mines = currentGame->checkPos(wxAtoi(pos));
-        drawBoard();
-        if(currentGame->getRunning()) {
-            menuPanel->startTimer();
-        } else {
-            menuPanel->stopTimer();
-        }
+    wxString label = button->GetLabel();
+    wxArrayString labelTokens = wxStringTokenize(label, delimiter);
+    wxString pos = labelTokens.Item(0);
+    wxString type = labelTokens.Item(1);
+    mines = currentGame->checkPos(wxAtoi(pos));
+    drawBoard();
+    if(currentGame->getRunning()) {
+        menuPanel->startTimer();
+    } else {
+        menuPanel->stopTimer();
+    }
 
-        bool isRunning = currentGame->getRunning();
-        bool isSolved = currentGame->getSolved();
-        bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
-        if(!isRunning && isSolved) {
-            endGame(wxAtoi(pos), loss);
-        }
+    bool isRunning = currentGame->getRunning();
+    bool isSolved = currentGame->getSolved();
+    bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
+    if(!isRunning && isSolved) {
+        endGame(wxAtoi(pos), loss);
     }
 }
 
 void MinePanel::doRightClick(wxMouseEvent& event) {
     wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
-    if(button->IsEnabled()) {
-        int minesRem = menuPanel->getMinesRem();
-        wxString label = button->GetLabel();
-        wxArrayString labelTokens = wxStringTokenize(label, delimiter);
-        wxString pos = labelTokens.Item(0);
-        wxString type = labelTokens.Item(1);
+    int minesRem = menuPanel->getMinesRem();
+    wxString label = button->GetLabel();
+    wxArrayString labelTokens = wxStringTokenize(label, delimiter);
+    wxString pos = labelTokens.Item(0);
+    wxString type = labelTokens.Item(1);
 
-        std::cout << "right click " << pos << std::endl;
+    std::cout << "right click " << pos << std::endl;
 
-        wxString rename = pos + delimiter;
-        wxSizerItem* item = mineField->GetItem(wxAtoi(pos));
-        wxButton* button = dynamic_cast<wxButton*>(item->GetWindow());
+    wxString rename = pos + delimiter;
+    wxSizerItem *item = mineField->GetItem(wxAtoi(pos));
+    wxButton *cbutton = dynamic_cast<wxButton*>(item->GetWindow());
 
-        if(type == "initial") {
-            if(minesRem > 0) {
-                button->SetBitmap(*flag);
-                rename += "flag";
-                button->SetLabel(rename);
-                --minesRem;
-            }
-        } else {
-            button->SetBitmap(*initial);
-            rename += "initial";
-            button->SetLabel(rename);
-            ++minesRem;
+    if(type == "initial") {
+        if(minesRem > 0) {
+            cbutton->SetBitmap(*flag);
+            rename += "flag";
+            cbutton->SetLabel(rename);
+            --minesRem;
         }
-
-        menuPanel->setMinesRem(minesRem);
+    } else {
+        cbutton->SetBitmap(*initial);
+        rename += "initial";
+        cbutton->SetLabel(rename);
+        ++minesRem;
     }
+
+    menuPanel->setMinesRem(minesRem);
 }
 
 void MinePanel::drawBoard() {
@@ -210,89 +204,68 @@ void MinePanel::drawBoard() {
 
 void MinePanel::updateButton(wxButton* button, int pos) {
     char currTile = mines->at(pos);
-    wxString label = wxString::Format("%i", pos) + delimiter;
+    wxStaticBitmap *temp = new wxStaticBitmap(this, wxID_ANY, *initial);
 
     switch(currTile) {
-        case '.':
-            break;
         case '0':
-            button->SetBitmap(*empty);
-            button->SetBitmapDisabled(*empty);
-            label += "empty";
-            button->SetLabel(label);
-            button->Enable(false);
+            mineField->Remove(pos);
+            temp->SetBitmap(*empty);
+            mineField->Insert(pos, temp);
             break;
         case '1':
-            button->SetBitmap(*one);
-            button->SetBitmapDisabled(*one);
-            label += "one";
-            button->SetLabel(label);
-            button->Enable(false);
+            mineField->Remove(pos);
+            temp->SetBitmap(*one);
+            mineField->Insert(pos, temp);
             break;
         case '2':
-            button->SetBitmap(*two);
-            button->SetBitmapDisabled(*two);
-            label += "two";
-            button->SetLabel(label);
-            button->Enable(false);
+            mineField->Remove(pos);
+            temp->SetBitmap(*two);
+            mineField->Insert(pos, temp);
             break;
         case '3':
-            button->SetBitmap(*three);
-            button->SetBitmapDisabled(*three);
-            label += "three";
-            button->SetLabel(label);
-            button->Enable(false);
+            mineField->Remove(pos);
+            temp->SetBitmap(*three);
+            mineField->Insert(pos, temp);
             break;
         case '4':
-            button->SetBitmap(*four);
-            button->SetBitmapDisabled(*four);
-            label += "four";
-            button->SetLabel(label);
-            button->Enable(false);
+            mineField->Remove(pos);
+            temp->SetBitmap(*four);
+            mineField->Insert(pos, temp);
             break;
         case '5':
-            button->SetBitmap(*five);
-            button->SetBitmapDisabled(*five);
-            label += "five";
-            button->SetLabel(label);
-            button->Enable(false);
+            mineField->Remove(pos);
+            temp->SetBitmap(*five);
+            mineField->Insert(pos, temp);
             break;
         case '6':
-            button->SetBitmap(*six);
-            button->SetBitmapDisabled(*six);
-            label += "six";
-            button->SetLabel(label);
-            button->Enable(false);
+            mineField->Remove(pos);
+            temp->SetBitmap(*six);
+            mineField->Insert(pos, temp);
             break;
         case '7':
-            button->SetBitmap(*seven);
-            button->SetBitmapDisabled(*seven);
-            label += "seven";
-            button->SetLabel(label);
-            button->Enable(false);
+            mineField->Remove(pos);
+            temp->SetBitmap(*seven);
+            mineField->Insert(pos, temp);
             break;
         case '8':
-            button->SetBitmap(*eight);
-            button->SetBitmapDisabled(*eight);
-            label += "eight";
-            button->SetLabel(label);
+            mineField->Remove(pos);
+            temp->SetBitmap(*eight);
+            mineField->Insert(pos, temp);
             break;
-            button->Enable(false);
         case 'x':
-            button->SetBitmap(*exploded);
-            button->SetBitmapDisabled(*exploded);
-            label += "exploded";
-            button->SetLabel(label);
-            button->Enable(false);
+            mineField->Remove(pos);
+            temp->SetBitmap(*exploded);
+            mineField->Insert(pos, temp);
+            break;
+        case 'm':
+            mineField->Remove(pos);
+            temp->SetBitmap(*bomb);
+            mineField->Insert(pos, temp);
             break;
         default:
-            button->SetBitmap(*bomb);
-            button->SetBitmapDisabled(*bomb);
-            label += "bomb";
-            button->SetLabel(label);
-            button->Enable(false);
             break;
     }
+    Layout();
 }
 
 void MinePanel::validateGame() {

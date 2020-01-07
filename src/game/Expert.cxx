@@ -7,7 +7,7 @@ Expert::Expert() {
     ROWS = 16;
     BRC = TRC * ROWS;
     BLC = BRC - TRC + 1;
-    BOARD = new wxSize(TRC * 20, ROWS * 20);
+    BOARD = new wxSize(TRC * imageScale, ROWS * imageScale);
 
     resetMines();
 }

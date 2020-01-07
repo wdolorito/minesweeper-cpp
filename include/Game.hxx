@@ -32,6 +32,8 @@ class Game {
         std::vector<int> * returnCheckMines(int tile);
 
     protected:
+        int imageScale;
+
         void generateMines();
         void populateField();
         void setEdgeMines();

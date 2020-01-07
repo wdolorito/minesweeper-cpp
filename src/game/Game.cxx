@@ -164,6 +164,7 @@ void Game::setEdgeMines() {
 Game::Game() {
     solved = false;
     gameRunning = false;
+    imageScale = 24;
 }
 
 std::vector<char> * Game::checkPos(int i) {

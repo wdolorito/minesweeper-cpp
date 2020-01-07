@@ -30,7 +30,7 @@ class MinePanel : public wxPanel {
         wxString delimiter;
 
         std::vector<char> *mines;
-        int unflaggedMines;
+        int imageScale;
         bool gameRunning;
 
         wxImage *initial,
@@ -67,7 +67,6 @@ class MinePanel : public wxPanel {
         void setMenuPanel(MenuPanel *menuPanel);
         void setMainFrame(MainFrame *mainFrame);
         int getNumMines();
-        int getUnflaggedMines();
         void newGame(std::string diff, bool firstRun = true);
         void setTileIcons(std::string setName);
 };
