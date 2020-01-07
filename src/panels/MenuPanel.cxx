@@ -42,33 +42,34 @@ void MenuPanel::setupStaticText() {
                              "0",
                              wxDefaultPosition,
                              wxDefaultSize,
-                             wxALIGN_RIGHT);
+                             wxALIGN_RIGHT | wxST_NO_AUTORESIZE);
 
     minesRem = new wxStaticText(this,
                                 wxID_ANY,
                                 "0",
                                 wxDefaultPosition,
                                 wxDefaultSize,
-                                wxALIGN_LEFT);
+                                wxALIGN_LEFT | wxST_NO_AUTORESIZE);
 }
 
 void MenuPanel::setupPanel() {
-    int quadPad = 4 * padding;
+    int quadPadding = 4 * padding;
     hSizer = new wxBoxSizer(wxHORIZONTAL);
     vSizer = new wxBoxSizer(wxVERTICAL);
 
-    hSizer->AddStretchSpacer(padding);
+    hSizer->AddSpacer(padding);
     hSizer->Add(timer, 2, wxALIGN_CENTER);
-    hSizer->AddSpacer(quadPad);
+    hSizer->AddSpacer(quadPadding);
     hSizer->Add(diff, 2, wxALIGN_CENTER);
-    hSizer->AddSpacer(quadPad);
+    hSizer->AddSpacer(quadPadding);
     hSizer->Add(minesRem, 2, wxALIGN_CENTER);
-    hSizer->AddStretchSpacer(padding);
+    hSizer->AddSpacer(padding);
     vSizer->Add(hSizer, wxALIGN_CENTER);
 
     setMinesRem(10);
 
     SetSizer(vSizer);
+    Fit();
     Show();
 }
 
@@ -92,6 +93,13 @@ void MenuPanel::setMinePanel(MinePanel * minePanel) {
                     &MenuPanel::handleTimer,
                     this,
                     gameTimer->GetId());
+
+    wxSize mpSize = minePanel->GetSize();
+    int height = mpSize.GetHeight();
+    int width = mpSize.GetWidth();
+
+    std::cout << "mpSize height:\t" << height;
+    std::cout << "\twidth:\t" << width << std::endl;
 }
 
 void MenuPanel::setMainFrame(MainFrame *mainFrame) {

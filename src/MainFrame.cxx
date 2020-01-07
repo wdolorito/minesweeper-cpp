@@ -12,7 +12,9 @@ MainFrame::MainFrame(const wxString& title):
             wxID_ANY,
             title,
             wxDefaultPosition,
-            wxDefaultSize) {
+            wxDefaultSize,
+            wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX)) {
+    Refresh();
     padding = 10;
 
     setupMenus();
@@ -31,11 +33,11 @@ void MainFrame::setupFrame() {
     vSizer->AddSpacer(padding);
 
     hSizer->AddSpacer(padding);
-    hSizer->Add(vSizer);
+    hSizer->Add(vSizer, wxALIGN_CENTER);
     hSizer->AddSpacer(padding);
 
     topLevel->SetSizer(hSizer);
-    // hSizer->SetSizeHints(this);
+    hSizer->SetSizeHints(this);
 }
 
 void MainFrame::setupMenus() {
@@ -75,39 +77,22 @@ void MainFrame::setupPanels() {
 }
 
 void MainFrame::redrawAll() {
-    int screenWidth = wxSystemSettings::GetMetric ( wxSYS_SCREEN_X );
-    int screenHeight = wxSystemSettings::GetMetric ( wxSYS_SCREEN_Y );
-
-    wxSize currentSize = GetSize();
-    wxSize menuSize = menuPanel->GetSize();
-    wxSize mineSize = minePanel->GetSize();
+    wxSize menuSize = menuPanel->GetClientSize();
+    wxSize mineSize = minePanel->GetClientSize();
 
     int width = mineSize.GetWidth();
     int height = menuSize.GetHeight() + mineSize.GetHeight();
 
     wxSize minSize = wxSize(width, height);
-    wxSize maxSize = wxSize(width + 1, height + 1);
 
-    // if(currentSize.GetWidth() < width) {
-    //     SetMaxSize(minSize);
-    //     SetMinSize(minSize);
-    // } else {
-        SetMinSize(minSize);
-        SetMaxSize(maxSize);
-    // }
-    // SetSize(minSize);
-    // Layout();
-    // Refresh();
-    // Update();
-
-
-    std::cout << "screen\theight:\t" << screenHeight << std::endl;
-    std::cout << "screen\twidth:\t" << screenWidth << std::endl;
+    SetSize(minSize);
 
     std::cout << "mine\theight:\t" << minePanel->GetSize().GetHeight() << std::endl;
     std::cout << "mine\twidth:\t" << minePanel->GetSize().GetWidth() << std::endl;
     std::cout << "menu\theight:\t" << menuPanel->GetSize().GetHeight() << std::endl;
     std::cout << "menu\twidth:\t" << menuPanel->GetSize().GetWidth() << std::endl;
+    std::cout << "new\theight:\t" << height << std::endl;
+    std::cout << "new\twidth:\t" << width << std::endl;
 }
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
