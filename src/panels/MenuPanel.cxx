@@ -43,6 +43,9 @@ void MenuPanel::setupComboBox() {
 }
 
 void MenuPanel::setupStaticText() {
+    gameTimer = new wxTimer();
+    gameTimer->Bind(wxEVT_TIMER, &MenuPanel::handleTimer, this);
+
     timer = new wxStaticText(this,
                              wxID_ANY,
                              "0",
@@ -108,6 +111,7 @@ int MenuPanel::getTime() {
 }
 
 void MenuPanel::resetTimer() {
+    stopTimer();
     timer->SetLabelText("0");
 }
 

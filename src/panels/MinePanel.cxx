@@ -13,7 +13,7 @@ MinePanel::MinePanel(wxFrame * parent):
 }
 
 void MinePanel::newGame() {
-    newGame("Novice", true);
+    newGame("Novice");
 }
 
 void MinePanel::setTileIcons() {
@@ -28,7 +28,6 @@ void MinePanel::setupBoard() {
     wxSize boardSize = *currentGame->getBoardSize();
     int h = boardSize.GetHeight();
     int w = boardSize.GetWidth();
-    std::cout << "board h: " << h << "\tboard w: " << w << std::endl;
     SetClientSize(boardSize);
 }
 
@@ -151,23 +150,18 @@ void MinePanel::winGame() {
  *
  */
 
-void MinePanel::setMenuPanel(MenuPanel * menuPanel) {
+void MinePanel::setMenuPanel(MenuPanel *menuPanel) {
     this->menuPanel = menuPanel;
+    newGame();
 }
 
 int MinePanel::getNumMines() {
     return currentGame->getNumberOfMines();
 }
 
-void MinePanel::newGame(std::string diff, bool firstRun) {
-    menuPanel->stopTimer();
+void MinePanel::newGame(std::string diff) {
     menuPanel->resetTimer();
-    if(firstRun) {
-        std::cout << "First run" << std::endl;
-        setTileIcons();
-    } else {
-        std::cout << "Subsequent run" << std::endl;
-    }
+    setTileIcons();
 
     if(!diff.compare("Intermediate")) {
         currentGame = new Intermediate();
@@ -175,10 +169,6 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
         currentGame = new Expert();
     } else {
         currentGame = new Novice();
-    }
-
-    if(!mineField->IsEmpty()) {
-        mineField->Clear(true);
     }
 
     mines = currentGame->getRunningGame();
@@ -189,7 +179,7 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
     gameRunning = currentGame->getRunning();
 
     setupBoard();
-    if(firstRun) setupPanel();
+    setupPanel();
 }
 
 void MinePanel::setTileIcons(std::string setName, bool firstRun) {

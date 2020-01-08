@@ -44,7 +44,6 @@ class MinePanel : public wxPanel {
         wxImage *bomb;
         wxImage *exploded;
 
-        void newGame();
         void setTileIcons();
         void setupBoard();
         void setupPanel();
@@ -64,7 +63,8 @@ class MinePanel : public wxPanel {
         MinePanel(wxFrame *parent);
         void setMenuPanel(MenuPanel *menuPanel);
         int getNumMines();
-        void newGame(std::string diff, bool firstRun);
+        void newGame();
+        void newGame(std::string diff);
         void setTileIcons(std::string setName, bool firstRun);
 };
 
