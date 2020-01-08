@@ -1,7 +1,10 @@
 /* MenuPanel.cxx */
 #include "MenuPanel.hxx"
 
-MenuPanel::MenuPanel(wxPanel * parent):
+const int MenuPanel::padding = 10;
+wxArrayString *MenuPanel::gameDiff = new wxArrayString();
+
+MenuPanel::MenuPanel(wxFrame * parent):
     wxPanel(parent,
             wxID_ANY,
             wxDefaultPosition,
@@ -9,15 +12,18 @@ MenuPanel::MenuPanel(wxPanel * parent):
     doSetup();
 }
 
+/*
+ *  Setup fns
+ *
+ */
+
 void MenuPanel::doSetup() {
-    padding = 2;
     setupComboBox();
     setupStaticText();
     setupPanel();
 }
 
 void MenuPanel::setupComboBox() {
-    gameDiff = new wxArrayString();
     gameDiff->Add("Novice");
     gameDiff->Add("Intermediate");
     gameDiff->Add("Expert");
@@ -72,37 +78,15 @@ void MenuPanel::setupPanel() {
     Show();
 }
 
+/*
+ *  Public fns
+ *
+ */
+
 void MenuPanel::restartGame(std::string difficulty) {
-    minePanel->newGame(difficulty, false);
-    setMinesRem(minePanel->getNumMines());
-}
-
-void MenuPanel::handleTimer(wxTimerEvent& event) {
-    wxString prevStr = timer->GetLabel();
-    int prevInt = wxAtoi(prevStr);
-    prevInt += 1;
-    timer->SetLabelText(wxString::Format("%i", prevInt));
-}
-
-void MenuPanel::setMinePanel(MinePanel * minePanel) {
-    this->minePanel = minePanel;
-
-    gameTimer = new wxTimer();
-    gameTimer->Bind(wxEVT_TIMER,
-                    &MenuPanel::handleTimer,
-                    this,
-                    gameTimer->GetId());
-
-    wxSize mpSize = minePanel->GetSize();
-    int height = mpSize.GetHeight();
-    int width = mpSize.GetWidth();
-
-    std::cout << "mpSize height:\t" << height;
-    std::cout << "\twidth:\t" << width << std::endl;
-}
-
-void MenuPanel::setMainFrame(MainFrame *mainFrame) {
-    topLevel = mainFrame;
+    std::cout << difficulty << std::endl;
+    // minePanel->newGame(difficulty, false);
+    // setMinesRem(minePanel->getNumMines());
 }
 
 int MenuPanel::getMinesRem() {
@@ -135,6 +119,18 @@ void MenuPanel::stopTimer() {
     gameTimer->Stop();
 }
 
+/*
+ *  Event Handlers
+ *
+ */
+
 void MenuPanel::handleComboBox(wxCommandEvent& event) {
-    restartGame(event.GetString().ToStdString());
+    // restartGame(event.GetString().ToStdString());
+}
+
+void MenuPanel::handleTimer(wxTimerEvent& event) {
+    wxString prevStr = timer->GetLabel();
+    int prevInt = wxAtoi(prevStr);
+    prevInt += 1;
+    timer->SetLabelText(wxString::Format("%i", prevInt));
 }

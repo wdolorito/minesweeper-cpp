@@ -6,6 +6,11 @@ const int MainFrame::iID = wxNewId();
 const int MainFrame::eID = wxNewId();
 const int MainFrame::set1ID = wxNewId();
 const int MainFrame::set2ID = wxNewId();
+const int MainFrame::padding = 10;
+wxMenuBar *MainFrame::menuBar = new wxMenuBar;
+wxMenu *MainFrame::tileSet = new wxMenu();
+wxMenu *MainFrame::game = new wxMenu();
+wxMenu *MainFrame::help = new wxMenu();
 
 MainFrame::MainFrame(const wxString& title):
     wxFrame(NULL,
@@ -14,17 +19,54 @@ MainFrame::MainFrame(const wxString& title):
             wxDefaultPosition,
             wxDefaultSize,
             wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX)) {
-    Refresh();
-    padding = 10;
-
-    setupMenus();
-    setupPanels();
-    setupFrame();
+    doSetup();
 }
 
-void MainFrame::setupFrame() {
-    hSizer = new wxBoxSizer(wxHORIZONTAL);
-    vSizer = new wxBoxSizer(wxVERTICAL);
+/*
+ *  Setup fns
+ *
+ */
+
+void MainFrame::doSetup() {
+    menuPanel = new MenuPanel(this);
+
+    setupMenus();
+    setupMinePanel();
+    setupFrame(true);
+}
+
+void MainFrame::setupMenus() {
+    tileSet->Append(set1ID, "Set 1");
+    tileSet->Append(set2ID, "Set 2");
+
+    game->Append(wxID_ABOUT, "&About Minesweeper\tCTRL+A");
+    game->Append(nID, "Novice");
+    game->Append(iID, "Intermediate");
+    game->Append(eID, "Expert");
+    game->Append(-1, "Tile Set", tileSet);
+    game->Append(wxID_EXIT, "&Quit Minesweeper\tCTRL+Q");
+    menuBar->Append(game, "&Game");
+
+    help = new wxMenu();
+    help->Append(wxID_HELP, "Minesweeper Help");
+    menuBar->Append(help, "Help");
+
+    SetMenuBar(menuBar);
+}
+
+void MainFrame::setupMinePanel() {
+    minePanel = new MinePanel(this);
+    minePanel->setMenuPanel(menuPanel);
+}
+
+void MainFrame::setupFrame(bool firstRun) {
+    if(firstRun) {
+        hSizer = new wxBoxSizer(wxHORIZONTAL);
+        vSizer = new wxBoxSizer(wxVERTICAL);
+    } else {
+        hSizer->Clear();
+        vSizer->Clear();
+    }
 
     vSizer->AddSpacer(padding);
     vSizer->Add(menuPanel, 2, wxALIGN_CENTER);
@@ -36,45 +78,14 @@ void MainFrame::setupFrame() {
     hSizer->Add(vSizer, wxALIGN_CENTER);
     hSizer->AddSpacer(padding);
 
-    topLevel->SetSizer(hSizer);
-    hSizer->SetSizeHints(topLevel);
+    SetSizer(hSizer);
+    hSizer->SetSizeHints(this);
 }
 
-void MainFrame::setupMenus() {
-    menuBar = new wxMenuBar;
-
-    tileSet = new wxMenu();
-    tileSet->Append(set1ID, "Set 1");
-    tileSet->Append(set2ID, "Set 2");
-
-    game = new wxMenu;
-    game->Append(wxID_ABOUT, "&About Minesweeper\tCTRL+A");
-    game->Append(nID, "Novice");
-    game->Append(iID, "Intermediate");
-    game->Append(eID, "Expert");
-    game->Append(-1, "Tile Set", tileSet);
-    game->Append(wxID_EXIT, "&Quit Minesweeper\tCTRL+Q");
-
-    menuBar->Append(game, "&Game");
-
-    help = new wxMenu;
-    help->Append(wxID_HELP, "Minesweeper Help");
-    menuBar->Append(help, "Help");
-
-    SetMenuBar(menuBar);
-}
-
-void MainFrame::setupPanels() {
-    topLevel = new wxPanel(this, wxID_ANY);
-    menuPanel = new MenuPanel(topLevel);
-    minePanel = new MinePanel(topLevel);
-
-    menuPanel->setMinePanel(minePanel);
-    minePanel->setMenuPanel(menuPanel);
-
-    menuPanel->setMainFrame(this);
-    minePanel->setMainFrame(this);
-}
+/*
+ *  Public fns
+ *
+ */
 
 void MainFrame::redrawAll() {
     menuPanel->Fit();
@@ -89,6 +100,11 @@ void MainFrame::redrawAll() {
     SetSize(minSize);
 }
 
+/*
+ *  Event Handlers
+ *
+ */
+
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
     wxMessageBox("wdolorito@gmail.com",
                  "About Minesweeper", wxOK | wxICON_INFORMATION );
@@ -96,7 +112,6 @@ void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
 
 void MainFrame::OnGame(wxCommandEvent& event) {
     int id = event.GetId();
-    std::cout << id << std::endl;
 
     if(id == nID) OnGame("Novice");
     if(id == iID) OnGame("Intermediate");
@@ -104,8 +119,9 @@ void MainFrame::OnGame(wxCommandEvent& event) {
 }
 
 void MainFrame::OnGame(std::string difficulty) {
-    std::string msg = difficulty + " game";
-    wxMessageBox(msg, difficulty, wxOK | wxICON_INFORMATION );
+    menuPanel->restartGame(difficulty);
+    // std::string msg = difficulty + " game";
+    // wxMessageBox(msg, difficulty, wxOK | wxICON_INFORMATION );
 }
 
 void MainFrame::OnTile(wxCommandEvent& event) {
@@ -127,6 +143,11 @@ void MainFrame::OnHelp(wxCommandEvent& WXUNUSED(event)) {
 void MainFrame::OnQuit(wxCommandEvent& WXUNUSED(event)) {
     Close(true);
 }
+
+/*
+ *  Event Table
+ *
+ */
 
 wxBEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_MENU(wxID_EXIT,  MainFrame::OnQuit)

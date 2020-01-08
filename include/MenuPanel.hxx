@@ -8,20 +8,14 @@
 #endif
 
 #include <wx/panel.h>
-#include "MainFrame.hxx"
-#include "MinePanel.hxx"
-
-class MainFrame;
-class MinePanel;
 
 class MenuPanel : public wxPanel {
     private:
-        int padding;
-        wxArrayString *gameDiff;
+        static const int padding;
+        static wxArrayString *gameDiff;
+
         wxBoxSizer *hSizer;
         wxBoxSizer *vSizer;
-        MainFrame *topLevel;
-        MinePanel *minePanel;
         wxComboBox *diff;
         wxStaticText *minesRem;
         wxStaticText *timer;
@@ -31,14 +25,13 @@ class MenuPanel : public wxPanel {
         void setupComboBox();
         void setupStaticText();
         void setupPanel();
-        void restartGame(std::string difficulty);
-        void handleTimer(wxTimerEvent& event);
+
         void handleComboBox(wxCommandEvent& event);
+        void handleTimer(wxTimerEvent& event);
 
     public:
-        MenuPanel(wxPanel *parent);
-        void setMinePanel(MinePanel *minePanel);
-        void setMainFrame(MainFrame *mainFrame);
+        MenuPanel(wxFrame *parent);
+        void restartGame(std::string difficulty);
         int getMinesRem();
         void setMinesRem(int i);
         int getTime();

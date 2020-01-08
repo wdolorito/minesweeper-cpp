@@ -16,36 +16,33 @@
 #include "Intermediate.hxx"
 #include "Expert.hxx"
 
-class MainFrame;
-class MenuPanel;
 class Game;
+class MenuPanel;
 
 class MinePanel : public wxPanel {
     private:
+        static const int imageScale;
+        static const wxString delimiter;
+
         Game *currentGame;
+        MenuPanel *menuPanel;
+        bool gameRunning;
+        std::vector<char> *mines;
         wxBoxSizer *container;
         wxGridSizer *mineField;
-        MainFrame *topLevel;
-        MenuPanel *menuPanel;
-        wxString delimiter;
-
-        std::vector<char> *mines;
-        int imageScale;
-        bool gameRunning;
-
-        wxImage *initial,
-                *empty,
-                *one,
-                *two,
-                *three,
-                *four,
-                *five,
-                *six,
-                *seven,
-                *eight,
-                *flag,
-                *bomb,
-                *exploded;
+        wxImage *initial;
+        wxImage *empty;
+        wxImage *one;
+        wxImage *two;
+        wxImage *three;
+        wxImage *four;
+        wxImage *five;
+        wxImage *six;
+        wxImage *seven;
+        wxImage *eight;
+        wxImage *flag;
+        wxImage *bomb;
+        wxImage *exploded;
 
         void newGame();
         void setTileIcons();
@@ -54,6 +51,7 @@ class MinePanel : public wxPanel {
 
         wxButton* getMineButton(int pos);
         wxStaticBitmap* getStaticBitmap(wxImage *image);
+
         void doLeftClick(wxMouseEvent& event);
         void doRightClick(wxMouseEvent& event);
 
@@ -64,9 +62,8 @@ class MinePanel : public wxPanel {
         void winGame();
 
     public:
-        MinePanel(wxPanel *parent);
+        MinePanel(wxFrame *parent);
         void setMenuPanel(MenuPanel *menuPanel);
-        void setMainFrame(MainFrame *mainFrame);
         int getNumMines();
         void newGame(std::string diff, bool firstRun);
         void setTileIcons(std::string setName, bool firstRun);

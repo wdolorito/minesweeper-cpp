@@ -7,11 +7,11 @@
     #include <wx/wx.h>
 #endif
 
-#include "MinePanel.hxx"
 #include "MenuPanel.hxx"
+#include "MinePanel.hxx"
 
-class MinePanel;
 class MenuPanel;
+class MinePanel;
 
 class MainFrame : public wxFrame {
     private:
@@ -20,20 +20,22 @@ class MainFrame : public wxFrame {
         static const int eID;
         static const int set1ID;
         static const int set2ID;
-        int padding;
+        static const int padding;
+        static wxMenuBar *menuBar;
+        static wxMenu *tileSet;
+        static wxMenu *game;
+        static wxMenu *help;
+
+        MenuPanel *menuPanel;
         wxBoxSizer *hSizer;
         wxBoxSizer *vSizer;
-        wxPanel *topLevel;
-        wxMenuBar *menuBar;
-        wxMenu *game;
-        wxMenu *help;
-        wxMenu *tileSet;
-        MenuPanel *menuPanel;
         MinePanel *minePanel;
 
-        void setupFrame();
+        void doSetup();
         void setupMenus();
-        void setupPanels();
+        void setupMinePanel();
+        void setupFrame(bool firstRun);
+
         void OnAbout(wxCommandEvent& event);
         void OnGame(wxCommandEvent& event);
         void OnGame(std::string difficulty);
