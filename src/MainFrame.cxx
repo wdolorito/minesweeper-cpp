@@ -77,7 +77,8 @@ void MainFrame::setupPanels() {
 }
 
 void MainFrame::redrawAll() {
-    wxSize menuSize = menuPanel->GetClientSize();
+    menuPanel->Fit();
+    wxSize menuSize = menuPanel->GetBestSize();
     wxSize mineSize = minePanel->GetClientSize();
 
     int width = mineSize.GetWidth() + 25;
@@ -116,15 +117,13 @@ void MainFrame::OnGame(std::string difficulty) {
 
 void MainFrame::OnTile(wxCommandEvent& event) {
     int id = event.GetId();
-    std::cout << id << std::endl;
 
-    if(id == set1ID) OnTile("set1");
-    if(id == set2ID) OnTile("set2");
+    if(id == set1ID) OnTile("set1/");
+    if(id == set2ID) OnTile("set2/");
 }
 
 void MainFrame::OnTile(std::string set) {
-    std::string msg = set + " tile set";
-    wxMessageBox(msg, set, wxOK | wxICON_INFORMATION );
+    minePanel->setTileIcons(set, false);
 }
 
 void MainFrame::OnHelp(wxCommandEvent& WXUNUSED(event)) {

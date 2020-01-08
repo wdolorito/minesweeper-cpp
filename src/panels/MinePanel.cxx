@@ -59,11 +59,12 @@ void MinePanel::newGame(std::string diff, bool firstRun) {
 }
 
 void MinePanel::setTileIcons() {
-    setTileIcons("set1/");
+    setTileIcons("set1/", true);
 }
 
-void MinePanel::setTileIcons(std::string setName) {
-    wxImage::AddHandler(new wxPNGHandler);
+void MinePanel::setTileIcons(std::string setName, bool firstRun) {
+    if(firstRun) wxImage::AddHandler(new wxPNGHandler);
+    wxLogNull suppressor;
     std::string path = "assets/" + setName;
 
     initial = new wxImage(path + "default.png", wxBITMAP_TYPE_PNG);
@@ -92,6 +93,8 @@ void MinePanel::setTileIcons(std::string setName) {
     bomb->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
     exploded = new wxImage(path + "exploded.png", wxBITMAP_TYPE_PNG);
     exploded->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
+
+    if(!firstRun) drawBoard();
 }
 
 void MinePanel::setupBoard() {
