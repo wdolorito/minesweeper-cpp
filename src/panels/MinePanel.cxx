@@ -129,10 +129,6 @@ wxStaticBitmap* MinePanel::getStaticBitmap(wxImage* image) {
     return newSBM;
 }
 
-void MinePanel::validateGame() {
-    std::cout << "validating game" << std::endl;
-}
-
 void MinePanel::endGame(int buttonIndex, bool loss) {
     std::cout << "ending game" << std::endl;
     wxString msg = "Final time: ";
