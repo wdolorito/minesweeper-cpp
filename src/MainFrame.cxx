@@ -87,13 +87,6 @@ void MainFrame::redrawAll() {
     wxSize minSize = wxSize(width, height);
 
     SetSize(minSize);
-
-    std::cout << "mine\theight:\t" << minePanel->GetSize().GetHeight() << std::endl;
-    std::cout << "mine\twidth:\t" << minePanel->GetSize().GetWidth() << std::endl;
-    std::cout << "menu\theight:\t" << menuPanel->GetSize().GetHeight() << std::endl;
-    std::cout << "menu\twidth:\t" << menuPanel->GetSize().GetWidth() << std::endl;
-    std::cout << "new\theight:\t" << height << std::endl;
-    std::cout << "new\twidth:\t" << width << std::endl;
 }
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
