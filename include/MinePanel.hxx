@@ -53,6 +53,7 @@ class MinePanel : public wxPanel {
         void setupPanel();
 
         wxButton* getMineButton(int pos);
+        wxStaticBitmap* getStaticBitmap(wxImage *image);
         void doLeftClick(wxMouseEvent& event);
         void doRightClick(wxMouseEvent& event);
 

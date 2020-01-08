@@ -204,68 +204,61 @@ void MinePanel::drawBoard() {
 
 void MinePanel::updateButton(wxButton* button, int pos) {
     char currTile = mines->at(pos);
-    wxStaticBitmap *temp = new wxStaticBitmap(this, wxID_ANY, *initial);
 
     switch(currTile) {
         case '0':
             mineField->Remove(pos);
-            temp->SetBitmap(*empty);
-            mineField->Insert(pos, temp);
+            mineField->Insert(pos, getStaticBitmap(empty));
             break;
         case '1':
             mineField->Remove(pos);
-            temp->SetBitmap(*one);
-            mineField->Insert(pos, temp);
+            mineField->Insert(pos, getStaticBitmap(one));
             break;
         case '2':
             mineField->Remove(pos);
-            temp->SetBitmap(*two);
-            mineField->Insert(pos, temp);
+            mineField->Insert(pos, getStaticBitmap(two));
             break;
         case '3':
             mineField->Remove(pos);
-            temp->SetBitmap(*three);
-            mineField->Insert(pos, temp);
+            mineField->Insert(pos, getStaticBitmap(three));
             break;
         case '4':
             mineField->Remove(pos);
-            temp->SetBitmap(*four);
-            mineField->Insert(pos, temp);
+            mineField->Insert(pos, getStaticBitmap(four));
             break;
         case '5':
             mineField->Remove(pos);
-            temp->SetBitmap(*five);
-            mineField->Insert(pos, temp);
+            mineField->Insert(pos, getStaticBitmap(five));
             break;
         case '6':
             mineField->Remove(pos);
-            temp->SetBitmap(*six);
-            mineField->Insert(pos, temp);
+            mineField->Insert(pos, getStaticBitmap(six));
             break;
         case '7':
             mineField->Remove(pos);
-            temp->SetBitmap(*seven);
-            mineField->Insert(pos, temp);
+            mineField->Insert(pos, getStaticBitmap(seven));
             break;
         case '8':
             mineField->Remove(pos);
-            temp->SetBitmap(*eight);
-            mineField->Insert(pos, temp);
+            mineField->Insert(pos, getStaticBitmap(eight));
             break;
         case 'x':
             mineField->Remove(pos);
-            temp->SetBitmap(*exploded);
-            mineField->Insert(pos, temp);
+            mineField->Insert(pos, getStaticBitmap(exploded));
             break;
         case 'm':
             mineField->Remove(pos);
-            temp->SetBitmap(*bomb);
-            mineField->Insert(pos, temp);
+            mineField->Insert(pos, getStaticBitmap(bomb));
             break;
         default:
             break;
     }
     Layout();
+}
+
+wxStaticBitmap* MinePanel::getStaticBitmap(wxImage* image) {
+    wxStaticBitmap *newSBM = new wxStaticBitmap(this, wxID_ANY, *image);
+    return newSBM;
 }
 
 void MinePanel::validateGame() {
