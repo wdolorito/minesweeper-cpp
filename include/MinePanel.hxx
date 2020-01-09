@@ -61,7 +61,6 @@ class MinePanel : public wxPanel {
     public:
         MinePanel(wxFrame *parent);
         void setMenuPanel(MenuPanel *menuPanel);
-        int getNumMines();
         void newGame(std::string diff);
         void setTileIcons(std::string setName, bool firstRun);
 };

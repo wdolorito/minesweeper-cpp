@@ -142,10 +142,6 @@ void MinePanel::setMenuPanel(MenuPanel *menuPanel) {
     this->menuPanel = menuPanel;
 }
 
-int MinePanel::getNumMines() {
-    return currentGame->getNumberOfMines();
-}
-
 void MinePanel::newGame(std::string diff) {
     menuPanel->resetTimer();
     setTileIcons();
@@ -158,6 +154,7 @@ void MinePanel::newGame(std::string diff) {
         currentGame = new Novice();
     }
 
+    menuPanel->setMinesRem(currentGame->getNumberOfMines());
     mines = currentGame->getRunningGame();
 
     mineField->SetRows(currentGame->getRows());
