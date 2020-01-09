@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>NSPrincipalClass</key>
+	<string>wxNSApplication</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.wxwindows.wxWidgets-3.0.3.samples.statbar</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>minesweeper</string>
+	<key>CFBundleIconFile</key>
+	<string>minesweep.icns</string>
+	<key>CFBundleName</key>
+	<string>minesweeper</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleGetInfoString</key>
+	<string>minesweeper version 1.0, (c) 2017-2020 Wiliam Dolorito</string>
+	<key>CFBundleLongVersionString</key>
+	<string>1.0, (c) 2017-2020 Wiliam Dolorito</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright 2017-2020 Wiliam Dolorito</string>
+	<key>LSRequiresCarbon</key>
+	<true/>
+	<key>CSResourcesFileMapped</key>
+	<true/>
+</dict>
+</plist>
