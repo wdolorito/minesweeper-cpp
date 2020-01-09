@@ -4,7 +4,7 @@
 const int MenuPanel::padding = 20;
 wxArrayString *MenuPanel::gameDiff = new wxArrayString();
 
-MenuPanel::MenuPanel(wxFrame * parent):
+MenuPanel::MenuPanel(wxFrame * parent) :
     wxPanel(parent,
             wxID_ANY,
             wxDefaultPosition,

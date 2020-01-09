@@ -4,13 +4,18 @@
 const int MinePanel::imageScale = 24;
 const wxString MinePanel::delimiter = ",";
 
-MinePanel::MinePanel(wxFrame * parent):
+MinePanel::MinePanel(wxFrame * parent) :
     wxPanel(parent,
             wxID_ANY,
             wxDefaultPosition,
             wxDefaultSize) {
     mineField = new wxGridSizer(0, 0, 0);
 }
+
+/*
+ *  Setup fns
+ *
+ */
 
 void MinePanel::setTileIcons() {
     setTileIcons("set1/", true);
@@ -54,17 +59,22 @@ void MinePanel::setupPanel() {
     Show();
 }
 
+/*
+ *  Private fns
+ *
+ */
+
 void MinePanel::drawBoard() {
     int size = mineField->GetItemCount();
 
     for(int i = 0; i < size; i++) {
         wxSizerItem* item = mineField->GetItem(i);
-        wxButton* button = dynamic_cast<wxButton*>(item->GetWindow());
-        updateButton(button, i);
+        wxWindow* window = item->GetWindow();
+        updateTile(window, i);
     }
 }
 
-void MinePanel::updateButton(wxButton* button, int pos) {
+void MinePanel::updateTile(wxWindow* window, int pos) {
     char currTile = mines->at(pos);
 
     switch(currTile) {

@@ -12,7 +12,7 @@ wxMenu *MainFrame::tileSet = new wxMenu();
 wxMenu *MainFrame::game = new wxMenu();
 wxMenu *MainFrame::help = new wxMenu();
 
-MainFrame::MainFrame(const wxString& title):
+MainFrame::MainFrame(const wxString& title) :
     wxFrame(NULL,
             wxID_ANY,
             title,
@@ -85,6 +85,11 @@ void MainFrame::setupFrame(bool firstRun) {
     hSizer->SetSizeHints(this);
 }
 
+/*
+ *  Private fns
+ *
+ */
+
 void MainFrame::redrawAll() {
     menuPanel->Fit();
     wxSize menuSize = menuPanel->GetBestSize();
@@ -113,8 +118,12 @@ void MainFrame::redrawAll() {
  */
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
-    wxMessageBox("wdolorito@gmail.com",
-                 "About Minesweeper", wxOK | wxICON_INFORMATION );
+    wxString msg = "wdolorito@gmail.com";
+    msg += "\n\nIcons made by Freepik";
+    msg += "\n\thttps://www.flaticon.com/authors/freepik";
+    msg += "\n\nfrom Flaticon";
+    msg += "\n\thttps://www.flaticon.com/";
+    wxMessageBox(msg, "About Minesweeper", wxOK | wxICON_INFORMATION );
 }
 
 void MainFrame::OnGame(wxCommandEvent& event) {

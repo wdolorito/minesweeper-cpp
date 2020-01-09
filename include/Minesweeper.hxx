@@ -8,7 +8,6 @@
 #endif
 
 #include "MainFrame.hxx"
-#include "MinePanel.hxx"
 
 class MainFrame;
 
