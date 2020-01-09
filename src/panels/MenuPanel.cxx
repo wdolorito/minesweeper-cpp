@@ -86,9 +86,9 @@ void MenuPanel::setupPanel() {
  */
 
 void MenuPanel::restartGame(std::string difficulty) {
-    std::cout << difficulty << std::endl;
-    // minePanel->newGame(difficulty, false);
-    // setMinesRem(minePanel->getNumMines());
+    MainFrame *parent = dynamic_cast<MainFrame*>(GetParent());
+
+    parent->newGameFromCombo(difficulty);
 }
 
 int MenuPanel::getMinesRem() {
@@ -98,6 +98,16 @@ int MenuPanel::getMinesRem() {
 
 void MenuPanel::setMinesRem(int i) {
     minesRem->SetLabelText(wxString::Format("%i", i));
+}
+
+void MenuPanel::setDiff(std::string difficulty) {
+    if(!difficulty.compare("Intermediate")) {
+        diff->SetSelection(1);
+    } else if(!difficulty.compare("Expert")) {
+        diff->SetSelection(2);
+    } else {
+        diff->SetSelection(0);
+    }
 }
 
 int MenuPanel::getTime() {
@@ -128,7 +138,7 @@ void MenuPanel::stopTimer() {
  */
 
 void MenuPanel::handleComboBox(wxCommandEvent& event) {
-    // restartGame(event.GetString().ToStdString());
+    restartGame(event.GetString().ToStdString());
 }
 
 void MenuPanel::handleTimer(wxTimerEvent& event) {

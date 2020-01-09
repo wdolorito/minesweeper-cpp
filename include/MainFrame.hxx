@@ -35,6 +35,7 @@ class MainFrame : public wxFrame {
         void setupMenus();
         void setupMinePanel();
         void setupFrame(bool firstRun);
+        void redrawAll();
 
         void OnAbout(wxCommandEvent& event);
         void OnGame(wxCommandEvent& event);
@@ -48,7 +49,7 @@ class MainFrame : public wxFrame {
 
     public:
         MainFrame(const wxString& title);
-        void redrawAll();
+        void newGameFromCombo(std::string difficulty);
 };
 
 #endif /* MAINFRAME_HXX */

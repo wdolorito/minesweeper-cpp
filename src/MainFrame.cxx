@@ -85,11 +85,6 @@ void MainFrame::setupFrame(bool firstRun) {
     hSizer->SetSizeHints(this);
 }
 
-/*
- *  Public fns
- *
- */
-
 void MainFrame::redrawAll() {
     menuPanel->Fit();
     wxSize menuSize = menuPanel->GetBestSize();
@@ -102,6 +97,15 @@ void MainFrame::redrawAll() {
 
     SetSize(minSize);
 }
+
+/*
+ *  Public fns
+ *
+ */
+
+ void MainFrame::newGameFromCombo(std::string difficulty) {
+     OnGame(difficulty);
+ }
 
 /*
  *  Event Handlers
@@ -122,6 +126,7 @@ void MainFrame::OnGame(wxCommandEvent& event) {
 }
 
 void MainFrame::OnGame(std::string difficulty) {
+    menuPanel->setDiff(difficulty);
     minePanel->Destroy();
     setupMinePanel();
     minePanel->newGame(difficulty);

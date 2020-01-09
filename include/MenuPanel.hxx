@@ -9,6 +9,8 @@
 
 #include <wx/panel.h>
 
+#include "MainFrame.hxx"
+
 class MenuPanel : public wxPanel {
     private:
         static const int padding;
@@ -34,6 +36,7 @@ class MenuPanel : public wxPanel {
         void restartGame(std::string difficulty);
         int getMinesRem();
         void setMinesRem(int i);
+        void setDiff(std::string difficulty);
         int getTime();
         void resetTimer();
         void startTimer();
