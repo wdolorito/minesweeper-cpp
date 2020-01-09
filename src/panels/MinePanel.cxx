@@ -12,10 +12,6 @@ MinePanel::MinePanel(wxFrame * parent):
     mineField = new wxGridSizer(0, 0, 0);
 }
 
-void MinePanel::newGame() {
-    newGame("Novice");
-}
-
 void MinePanel::setTileIcons() {
     setTileIcons("set1/", true);
 }
@@ -152,7 +148,6 @@ void MinePanel::winGame() {
 
 void MinePanel::setMenuPanel(MenuPanel *menuPanel) {
     this->menuPanel = menuPanel;
-    newGame();
 }
 
 int MinePanel::getNumMines() {
@@ -183,7 +178,6 @@ void MinePanel::newGame(std::string diff) {
 }
 
 void MinePanel::setTileIcons(std::string setName, bool firstRun) {
-    if(firstRun) wxImage::AddHandler(new wxPNGHandler);
     wxLogNull suppressor;
     std::string path = "assets/" + setName;
 

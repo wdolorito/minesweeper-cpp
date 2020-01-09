@@ -1,7 +1,7 @@
 /* MenuPanel.cxx */
 #include "MenuPanel.hxx"
 
-const int MenuPanel::padding = 10;
+const int MenuPanel::padding = 20;
 wxArrayString *MenuPanel::gameDiff = new wxArrayString();
 
 MenuPanel::MenuPanel(wxFrame * parent):
@@ -62,17 +62,16 @@ void MenuPanel::setupStaticText() {
 }
 
 void MenuPanel::setupPanel() {
-    int quadPadding = 4 * padding;
     hSizer = new wxBoxSizer(wxHORIZONTAL);
     vSizer = new wxBoxSizer(wxVERTICAL);
 
+    hSizer->AddStretchSpacer();
+    hSizer->Add(timer, 1, wxALIGN_CENTER);
     hSizer->AddSpacer(padding);
-    hSizer->Add(timer, 2, wxALIGN_CENTER);
-    hSizer->AddSpacer(quadPadding);
-    hSizer->Add(diff, 2, wxALIGN_CENTER);
-    hSizer->AddSpacer(quadPadding);
-    hSizer->Add(minesRem, 2, wxALIGN_CENTER);
+    hSizer->Add(diff, 1, wxALIGN_CENTER);
     hSizer->AddSpacer(padding);
+    hSizer->Add(minesRem, 1, wxALIGN_CENTER);
+    hSizer->AddStretchSpacer();
     vSizer->Add(hSizer, wxALIGN_CENTER);
 
     setMinesRem(10);

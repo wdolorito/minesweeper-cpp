@@ -28,11 +28,14 @@ MainFrame::MainFrame(const wxString& title):
  */
 
 void MainFrame::doSetup() {
+    wxImage::AddHandler(new wxPNGHandler);
     menuPanel = new MenuPanel(this);
 
     setupMenus();
     setupMinePanel();
+    minePanel->newGame("Novice");
     setupFrame(true);
+    redrawAll();
 }
 
 void MainFrame::setupMenus() {
@@ -119,9 +122,11 @@ void MainFrame::OnGame(wxCommandEvent& event) {
 }
 
 void MainFrame::OnGame(std::string difficulty) {
-    menuPanel->restartGame(difficulty);
-    // std::string msg = difficulty + " game";
-    // wxMessageBox(msg, difficulty, wxOK | wxICON_INFORMATION );
+    minePanel->Destroy();
+    setupMinePanel();
+    minePanel->newGame(difficulty);
+    setupFrame(true);
+    redrawAll();
 }
 
 void MainFrame::OnTile(wxCommandEvent& event) {
