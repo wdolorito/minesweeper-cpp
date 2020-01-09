@@ -57,7 +57,6 @@ class MinePanel : public wxPanel {
         void drawBoard();
         void updateButton(wxButton* button, int pos);
         void endGame(int buttonIndex, bool loss);
-        void winGame();
 
     public:
         MinePanel(wxFrame *parent);

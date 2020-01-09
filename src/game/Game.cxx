@@ -195,7 +195,6 @@ std::vector<char> * Game::checkPos(int i) {
         }
 
         if(currTile == 'm') {
-            std::cout << "bombed! " << i << std::endl;
             solved = true;
             gameRunning = false;
             runningGame = mines;

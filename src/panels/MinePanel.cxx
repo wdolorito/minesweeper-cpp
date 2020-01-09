@@ -55,7 +55,6 @@ void MinePanel::setupPanel() {
 }
 
 void MinePanel::drawBoard() {
-    std::cout << "drawing board" << std::endl;
     int size = mineField->GetItemCount();
 
     for(int i = 0; i < size; i++) {
@@ -125,20 +124,13 @@ wxStaticBitmap* MinePanel::getStaticBitmap(wxImage* image) {
 }
 
 void MinePanel::endGame(int buttonIndex, bool loss) {
-    std::cout << "ending game" << std::endl;
     wxString msg = "Final time: ";
     msg << menuPanel->getTime();
     if(loss) {
-        std::cout << "you lose" << std::endl;
         wxMessageBox(msg, "You Lost :(", wxOK | wxICON_INFORMATION );
     } else {
-        std::cout << "you win" << std::endl;
         wxMessageBox(msg, "You Won!", wxOK | wxICON_INFORMATION );
     }
-}
-
-void MinePanel::winGame() {
-    std::cout << "winning game" << std::endl;
 }
 
 /*
@@ -245,8 +237,6 @@ void MinePanel::doRightClick(wxMouseEvent& event) {
     wxArrayString labelTokens = wxStringTokenize(label, delimiter);
     wxString pos = labelTokens.Item(0);
     wxString type = labelTokens.Item(1);
-
-    std::cout << "right click " << pos << std::endl;
 
     wxString rename = pos + delimiter;
     wxSizerItem *item = mineField->GetItem(wxAtoi(pos));
