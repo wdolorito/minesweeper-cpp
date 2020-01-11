@@ -1,7 +1,11 @@
 $(shell if [ ! -d bin ]; then mkdir bin; fi)
+UNAME := $(shell uname)
 CXX = clang++
 WX_LIBS = $(shell wx-config --libs)
 WX_CXXFLAGS = $(shell wx-config --cxxflags) -Iinclude
+ifeq ($(UNAME), Darwin)
+   WX_CXXFLAGS += -mmacosx-version-min=10.10
+endif
 RELEASE = bin/minesweeper
 RELEASE_FLAGS = -O3 -Wall -DNDEBUG
 DEBUG = bin/minesweeper-debug

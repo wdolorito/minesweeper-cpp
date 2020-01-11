@@ -179,6 +179,9 @@ void MinePanel::newGame(std::string diff) {
 void MinePanel::setTileIcons(std::string setName, bool firstRun) {
     wxLogNull suppressor;
     std::string path = "assets/" + setName;
+    #if __WXOSX__
+        path = wxStandardPaths::Get().GetResourcesDir().ToStdString() + "/assets/" + setName;
+    #endif
 
     initial = new wxImage(path + "default.png", wxBITMAP_TYPE_PNG);
     initial->Rescale(imageScale, imageScale, wxIMAGE_QUALITY_HIGH);
