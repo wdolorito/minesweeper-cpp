@@ -39,7 +39,16 @@ cp $BINDIR/$EXE $APPBINDIR
 echo "Copying dynamic libraries"
 for file in $WXLIBS
 do
-	cp $file $FRAMEDIR
+	cp -fRP $file $FRAMEDIR
+	echo -e "\tCopying $(basename $file) dependencies"
+	LIBWXDEPS=`otool -L $file | grep libwx | grep -v -e ":" | cut -d " " -f 1 | cut -d $'\t' -f 2`
+	for libfile in $LIBWXDEPS
+	do
+		echo -e "\t\t$libfile"
+		if [ ! -f $FRAMEDIR/$(basename $libfile) ]; then
+			cp -RP $libfile $FRAMEDIR 2> /dev/null
+		fi
+	done
 done
 
 echo "Patching executable"
@@ -48,20 +57,27 @@ do
 	install_name_tool -change $LIBDEFDIR/$(basename $libfile)  "@executable_path/../Frameworks/$(basename $libfile)" $APPBINDIR/$EXE
 done
 
-# echo "Patching dylibs"
-# for libfile in `ls $FRAMEDIR`
-# do
-# 	echo -e "Patching $libfile"
-# 	DYNAME=`otool -D $FRAMEDIR/$libfile | grep -e "libwx" | grep -v -e ":" | cut -d " " -f 1 | cut -d $'\t' -f 2`
-# 	DYLIBS=`otool -L $FRAMEDIR/$libfile | grep -e "libwx" | grep -v -e ":" | cut -d " " -f 1 | cut -d $'\t' -f 2`
-#
-# 	# echo $DYNAME
-# 	# install_name_tool -id "../Frameworks/$(basename $DYNAME)" $DYNAME
-#
-# 	for dylib in $DYLIBS
-# 	do
-# 		echo -e "\twith @executable_path/../Frameworks/$(basename $dylib)"
-# 		install_name_tool -change $dylib "@executable_path/../Frameworks/$(basename $dylib)" $FRAMEDIR/$libfile
-# 	done
-#
-# done
+echo "Patching dylibs"
+for libfile in $FRAMEDIR/*
+do
+	if [ ! -L $libfile ]; then
+		echo -e "Patching $libfile"
+		DYNAME=`otool -D $FRAMEDIR/$libfile | grep -e "libwx" | grep -v -e ":" | cut -d " " -f 1 | cut -d $'\t' -f 2`
+		DYLIBS=`otool -L $FRAMEDIR/$libfile | grep -e "libwx" | grep -v -e ":" | cut -d " " -f 1 | cut -d $'\t' -f 2`
+		echo $DYLIBS
+
+		TMP=${PWD}
+		cd $FRAMEDIR
+		DPATH="@executable_path"
+		echo -e "\twith ID $DPATH/$(basename $DYNAME)"
+		install_name_tool -change $DPATH/$(basename $DYNAME) @loader_path/../Frameworks/$(basename $DYNAME) "../MacOS/$EXE"
+		cd $TMP
+
+		for dylib in $DYLIBS
+		do
+			LPATH="@executable_path/../Frameworks"
+			echo -e "\twith $LPATH/$(basename $dylib)"
+				install_name_tool -change $dylib "$LPATH/$(basename $dylib)" $FRAMEDIR/$(basename $dylib)
+		done
+	fi
+done
