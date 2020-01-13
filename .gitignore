@@ -110,3 +110,5 @@ nbdist/
 nbactions.xml
 
 # End of https://www.gitignore.io/api/macos,linux,windows,c++
+
+!Minesweep.app

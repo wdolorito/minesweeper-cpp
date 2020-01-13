@@ -4,12 +4,17 @@ BINDIR=../../bin
 EXE=minesweeper
 ASSETDIR=../../assets
 ICON=Minesweep.icns
+FIND=find
 
 if [ ! -f "$BINDIR/$EXE" ]; then
 	echo -e "\t$BINDIR/$EXE doesn't exist!"
 	echo -e "\tPlease run \`make release\` first"
 	echo -e "\texiting"
 	exit
+fi
+
+if [ -d ./$APP.app ]; then
+	rm -rf ./$APP.app
 fi
 
 if [ ! -f $ICON ]; then
@@ -37,47 +42,48 @@ echo "Copying executable"
 cp $BINDIR/$EXE $APPBINDIR
 
 echo "Copying dynamic libraries"
-for file in $WXLIBS
+for lib in $WXLIBS
 do
-	cp -fRP $file $FRAMEDIR
-	echo -e "\tCopying $(basename $file) dependencies"
-	LIBWXDEPS=`otool -L $file | grep libwx | grep -v -e ":" | cut -d " " -f 1 | cut -d $'\t' -f 2`
-	for libfile in $LIBWXDEPS
-	do
-		echo -e "\t\t$libfile"
-		if [ ! -f $FRAMEDIR/$(basename $libfile) ]; then
-			cp -RP $libfile $FRAMEDIR 2> /dev/null
-		fi
-	done
+	cp -fRP ${lib%.dylib}* $FRAMEDIR
 done
 
 echo "Patching executable"
+echo -e "\tPatching $APPBINDIR/$EXE"
+EFILE="@executable_path/../Frameworks"
 for libfile in $WXLIBS
 do
-	install_name_tool -change $LIBDEFDIR/$(basename $libfile)  "@executable_path/../Frameworks/$(basename $libfile)" $APPBINDIR/$EXE
+	echo -e "\t\twith $EFILE/$(basename $libfile)"
+	install_name_tool -change $LIBDEFDIR/$(basename $libfile)  "$EFILE/$(basename $libfile)" $APPBINDIR/$EXE
 done
 
 echo "Patching dylibs"
-for libfile in $FRAMEDIR/*
+IFS=' '
+LIBFILES=`$FIND ./$APP.app -type f -name "*dylib"`
+unset IFS
+
+NPATH="@executable_path/../Frameworks"
+
+for libfile in $LIBFILES
 do
-	if [ ! -L $libfile ]; then
-		echo -e "Patching $libfile"
-		DYNAME=`otool -D $FRAMEDIR/$libfile | grep -e "libwx" | grep -v -e ":" | cut -d " " -f 1 | cut -d $'\t' -f 2`
-		DYLIBS=`otool -L $FRAMEDIR/$libfile | grep -e "libwx" | grep -v -e ":" | cut -d " " -f 1 | cut -d $'\t' -f 2`
-		echo $DYLIBS
 
-		TMP=${PWD}
-		cd $FRAMEDIR
-		DPATH="@executable_path"
-		echo -e "\twith ID $DPATH/$(basename $DYNAME)"
-		install_name_tool -change $DPATH/$(basename $DYNAME) @loader_path/../Frameworks/$(basename $DYNAME) "../MacOS/$EXE"
-		cd $TMP
+	echo -e "\r\n\tPatching $(basename $libfile)"
 
-		for dylib in $DYLIBS
-		do
-			LPATH="@executable_path/../Frameworks"
-			echo -e "\twith $LPATH/$(basename $dylib)"
-				install_name_tool -change $dylib "$LPATH/$(basename $dylib)" $FRAMEDIR/$(basename $dylib)
-		done
-	fi
+	DYLIBS=`otool -L $libfile | grep -e "libwx" | grep -v -e ":" | cut -d " " -f 1 | cut -d $'\t' -f 2`
+	echo $libfile
+	echo -e "\t$DYLIBS"
+
+	for dylib in $DYLIBS
+	do
+		echo -e "\t\twith dependency $NPATH/$(basename $dylib)"
+		install_name_tool -change $dylib $NPATH/$(basename $dylib) $FRAMEDIR/$(basename $libfile)
+	done
+
+	TMP=${PWD}
+	cd $FRAMEDIR
+
+	DYNAME=`otool -D $(basename $libfile) | grep -e "libwx" | grep -v -e ":" | cut -d " " -f 1 | cut -d $'\t' -f 2`
+	echo -e "\t\twith ID $NPATH/$(basename $DYNAME)"
+	install_name_tool -id $NPATH/$(basename $DYNAME) ../Frameworks/$(basename $DYNAME)
+
+	cd $TMP
 done
