@@ -1,0 +1,10 @@
+Deb/Ubun:
+  install gtk3 dev e.g. `apt install libgtk-3-dev` <== for Ubuntu
+
+Lib 3.0.3:
+CC=clang CXX=clang++ ../wxWidgets-3.0.3/configure --enable-stl --prefix=$HOME/local
+make BUILD=debug
+make
+
+Building project:
+PATH=$HOME/local/bin:$PATH make
