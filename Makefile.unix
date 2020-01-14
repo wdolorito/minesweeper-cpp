@@ -9,7 +9,7 @@ endif
 RELEASE = bin/minesweeper
 RELEASE_FLAGS = -O3 -Wall -DNDEBUG
 DEBUG = bin/minesweeper-debug
-DEBUG_FLAGS = -g
+DEBUG_FLAGS = -g -glldb
 STRIP = strip
 MODULES := src src/game src/panels
 # each module will add to this
