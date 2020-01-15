@@ -6,3 +6,6 @@ msys2 <== update pacman -Syuu until nothing to be done
 configure:
 ../wxWidgets-3.0.3/configure --prefix=$HOME/local --enable-stl
 make
+
+building project:
+make -f Makefile.unix

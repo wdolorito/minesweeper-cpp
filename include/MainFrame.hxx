@@ -39,9 +39,9 @@ class MainFrame : public wxFrame {
 
         void OnAbout(wxCommandEvent& event);
         void OnGame(wxCommandEvent& event);
-        void OnGame(std::string difficulty);
+        void OnGame(wxString difficulty);
         void OnTile(wxCommandEvent& event);
-        void OnTile(std::string set);
+        void OnTile(wxString set);
         void OnHelp(wxCommandEvent& event);
         void OnQuit(wxCommandEvent& event);
 
@@ -49,7 +49,7 @@ class MainFrame : public wxFrame {
 
     public:
         MainFrame(const wxString& title);
-        void newGameFromCombo(std::string difficulty);
+        void newGameFromCombo(wxString difficulty);
 };
 
 #endif /* MAINFRAME_HXX */

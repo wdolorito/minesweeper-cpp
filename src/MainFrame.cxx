@@ -108,7 +108,7 @@ void MainFrame::redrawAll() {
  *
  */
 
- void MainFrame::newGameFromCombo(std::string difficulty) {
+ void MainFrame::newGameFromCombo(wxString difficulty) {
      OnGame(difficulty);
  }
 
@@ -134,7 +134,7 @@ void MainFrame::OnGame(wxCommandEvent& event) {
     if(id == eID) OnGame("Expert");
 }
 
-void MainFrame::OnGame(std::string difficulty) {
+void MainFrame::OnGame(wxString difficulty) {
     menuPanel->setDiff(difficulty);
     minePanel->Destroy();
     setupMinePanel();
@@ -150,7 +150,7 @@ void MainFrame::OnTile(wxCommandEvent& event) {
     if(id == set2ID) OnTile("set2/");
 }
 
-void MainFrame::OnTile(std::string set) {
+void MainFrame::OnTile(wxString set) {
     minePanel->setTileIcons(set, false);
 }
 

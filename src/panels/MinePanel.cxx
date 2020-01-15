@@ -152,13 +152,13 @@ void MinePanel::setMenuPanel(MenuPanel *menuPanel) {
     this->menuPanel = menuPanel;
 }
 
-void MinePanel::newGame(std::string diff) {
+void MinePanel::newGame(wxString diff) {
     menuPanel->resetTimer();
     setTileIcons();
 
-    if(!diff.compare("Intermediate")) {
+    if(!diff.Cmp("Intermediate")) {
         currentGame = new Intermediate();
-    } else if(!diff.compare("Expert")) {
+    } else if(!diff.Cmp("Expert")) {
         currentGame = new Expert();
     } else {
         currentGame = new Novice();
@@ -176,9 +176,9 @@ void MinePanel::newGame(std::string diff) {
     setupPanel();
 }
 
-void MinePanel::setTileIcons(std::string setName, bool firstRun) {
+void MinePanel::setTileIcons(wxString setName, bool firstRun) {
     wxLogNull suppressor;
-    std::string path = "assets/" + setName;
+    wxString path = "assets/" + setName;
     #if __WXOSX__
         path = wxStandardPaths::Get().GetResourcesDir().ToStdString() + "/assets/" + setName;
     #endif

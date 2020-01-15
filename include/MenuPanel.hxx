@@ -33,10 +33,10 @@ class MenuPanel : public wxPanel {
 
     public:
         MenuPanel(wxFrame *parent);
-        void restartGame(std::string difficulty);
+        void restartGame(wxString difficulty);
         int getMinesRem();
         void setMinesRem(int i);
-        void setDiff(std::string difficulty);
+        void setDiff(wxString difficulty);
         int getTime();
         void resetTimer();
         void startTimer();
