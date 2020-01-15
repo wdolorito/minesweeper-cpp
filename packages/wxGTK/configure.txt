@@ -8,3 +8,7 @@ make
 
 Building project:
 PATH=$HOME/local/bin:$PATH make
+
+
+Running project:
+LD_LIBRARY_PATH=$HOME/local/bin ./bin/minesweeper*
