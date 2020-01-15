@@ -1,0 +1,8 @@
+msys2 <== update pacman -Syuu until nothing to be done
+  nano
+  pacman -S mingw-w64-x86_64-gcc
+  git
+
+configure:
+../wxWidgets-3.0.3/configure --prefix=$HOME/local --enable-stl
+make

@@ -1,6 +1,9 @@
 $(shell if [ ! -d bin ]; then mkdir bin; fi)
 UNAME := $(shell uname)
 CXX = clang++
+ifeq ($(OS),Windows_NT)
+	CXX = g++
+endif
 WX_LIBS = $(shell wx-config --libs)
 WX_CXXFLAGS = $(shell wx-config --cxxflags) -Iinclude
 ifeq ($(UNAME), Linux)
