@@ -14,8 +14,8 @@
 class MenuPanel : public wxPanel {
     private:
         static const int padding;
-        static wxArrayString *gameDiff;
 
+        wxArrayString *gameDiff;
         wxBoxSizer *hSizer;
         wxBoxSizer *vSizer;
         wxComboBox *diff;

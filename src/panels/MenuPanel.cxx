@@ -2,7 +2,6 @@
 #include "MenuPanel.hxx"
 
 const int MenuPanel::padding = 20;
-wxArrayString *MenuPanel::gameDiff = new wxArrayString();
 
 MenuPanel::MenuPanel(wxFrame * parent) :
     wxPanel(parent,
@@ -18,6 +17,7 @@ MenuPanel::MenuPanel(wxFrame * parent) :
  */
 
 void MenuPanel::doSetup() {
+    gameDiff = new wxArrayString();
     setupComboBox();
     setupStaticText();
     setupPanel();
