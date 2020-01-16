@@ -1,2 +1,32 @@
+configure:
 CC=clang CXX=clang++ ../wxWidgets-3.0.3/configure --enable-stl --with-macosx-version-min=10.10 --prefix=$HOME/local
 make BUILD=debug
+
+build project:
+add ~/local/bin to .profile path (PATH=~/local/bin:$PATH)
+make {release}
+
+run project:
+cd packages/wxMac
+./package_mac.sh
+open Minesweep.app
+
+bash --version
+GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin15)
+Copyright (C) 2007 Free Software Foundation, Inc.
+
+git --version
+git version 2.10.1 (Apple Git-78
+
+make --version
+GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+clang++ --version
+Apple LLVM version 8.0.0 (clang-800.0.42.1)
+Target: x86_64-apple-darwin15.6.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
