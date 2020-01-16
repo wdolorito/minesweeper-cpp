@@ -128,8 +128,9 @@ void MinePanel::updateTile(wxWindow* window, int pos) {
     Layout();
 }
 
-wxStaticBitmap* MinePanel::getStaticBitmap(wxImage* image) {
-    wxStaticBitmap *newSBM = new wxStaticBitmap(this, wxID_ANY, *image);
+wxStaticBitmap* MinePanel::getStaticBitmap(wxImage *image) {
+    wxBitmap *temp = new wxBitmap(*image);
+    wxStaticBitmap *newSBM = new wxStaticBitmap(this, wxID_ANY, *temp);
     return newSBM;
 }
 

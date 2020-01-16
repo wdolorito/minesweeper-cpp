@@ -1,11 +1,17 @@
-msys2 <== update pacman -Syuu until nothing to be done
-  nano
+https://www.msys2.org/
+  msys2 <== update pacman -Syuu until nothing to be done
+  pacman -S nano
+  pacman -S git
   pacman -S mingw-w64-x86_64-gcc
-  git
+  pacman -S mingw-w64-x86_64-ntldd-git
+  pacman -S gdb
+
+git config --global core.editor "nano"
 
 configure:
 ../wxWidgets-3.0.3/configure --prefix=$HOME/local --enable-stl
-make
+make BUILD=debug
 
 building project:
+add ~/local/bin to .bashrc path (PATH=~/local/bin:$PATH)
 make -f Makefile.unix

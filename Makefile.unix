@@ -1,22 +1,23 @@
 $(shell if [ ! -d bin ]; then mkdir bin; fi)
 UNAME := $(shell uname)
 CXX = clang++
+DEBUG_FLAGS = -g -glldb
 ifeq ($(OS),Windows_NT)
 	CXX = g++
+	DEBUG_FLAGS = -g
 endif
 WX_LIBS = $(shell wx-config --libs)
 WX_CXXFLAGS = $(shell wx-config --cxxflags) -Iinclude
-ifeq ($(UNAME), Linux)
-endif
+ifeq ($(UNAME),Linux)
 	WX_LIBS = $(shell ~/local/bin/wx-config --libs)
 	WX_CXXFLAGS = $(shell ~/local/bin/wx-config --cxxflags) -Iinclude
-ifeq ($(UNAME), Darwin)
+endif
+ifeq ($(UNAME),Darwin)
 	WX_CXXFLAGS += -mmacosx-version-min=10.10
 endif
 RELEASE = bin/minesweeper
 RELEASE_FLAGS = -O3 -Wall -DNDEBUG
 DEBUG = bin/minesweeper-debug
-DEBUG_FLAGS = -g -glldb
 STRIP = strip
 MODULES := src src/game src/panels
 # each module will add to this
@@ -28,7 +29,11 @@ debug: $(DEBUG)
 release: $(RELEASE)
 $(RELEASE): $(OBJ)
 	$(CXX) $(WX_CXXFLAGS) $(RELEASE_FLAGS) $(WX_LIBS) -o $@ $(OBJ) $(WX_LIBS)
+ifeq (,$(wildcard $(RELEASE).exe))
+	$(STRIP) $@.exe
+else
 	$(STRIP) $@
+endif
 $(DEBUG): $(OBJ)
 	$(CXX) $(WX_CXXFLAGS) $(DEBUG_FLAGS) $(WX_LIBS) -o $@ $(OBJ) $(WX_LIBS)
 include $(OBJ:.o=.d)

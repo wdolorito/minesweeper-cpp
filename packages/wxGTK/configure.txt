@@ -12,3 +12,6 @@ Running project:
 LD_LIBRARY_PATH=$HOME/local/bin GTK_CSD=0 ./bin/minesweeper*
                                 ^^^^^^^^^
                              needed for eOS
+
+For distribution agnostic packaging:
+  https://docs.appimage.org/index.html
