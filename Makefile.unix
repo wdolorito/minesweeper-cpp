@@ -29,7 +29,7 @@ debug: $(DEBUG)
 release: $(RELEASE)
 $(RELEASE): $(OBJ)
 	$(CXX) $(WX_CXXFLAGS) $(RELEASE_FLAGS) $(WX_LIBS) -o $@ $(OBJ) $(WX_LIBS)
-ifeq (,$(wildcard $(RELEASE).exe))
+ifneq ($(wildcard $(RELEASE).exe),)
 	$(STRIP) $@.exe
 else
 	$(STRIP) $@
