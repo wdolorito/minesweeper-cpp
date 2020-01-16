@@ -15,16 +15,18 @@ class MinePanel;
 
 class MainFrame : public wxFrame {
     private:
-        static const int nID;
-        static const int iID;
-        static const int eID;
-        static const int set1ID;
-        static const int set2ID;
         static const int padding;
-        static wxMenuBar *menuBar;
-        static wxMenu *tileSet;
-        static wxMenu *game;
-        static wxMenu *help;
+
+        static int nID;
+        static int iID;
+        static int eID;
+        static int set1ID;
+        static int set2ID;
+
+        wxMenuBar *menuBar;
+        wxMenu *tileSet;
+        wxMenu *game;
+        wxMenu *help;
 
         MenuPanel *menuPanel;
         wxBoxSizer *hSizer;

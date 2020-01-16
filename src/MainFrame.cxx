@@ -1,16 +1,12 @@
 /* MainFrame.cxx */
 #include "MainFrame.hxx"
 
-const int MainFrame::nID = wxNewId();
-const int MainFrame::iID = wxNewId();
-const int MainFrame::eID = wxNewId();
-const int MainFrame::set1ID = wxNewId();
-const int MainFrame::set2ID = wxNewId();
 const int MainFrame::padding = 10;
-wxMenuBar *MainFrame::menuBar = new wxMenuBar();
-wxMenu *MainFrame::tileSet = new wxMenu();
-wxMenu *MainFrame::game = new wxMenu();
-wxMenu *MainFrame::help = new wxMenu();
+int MainFrame::nID = wxNewId();
+int MainFrame::iID = wxNewId();
+int MainFrame::eID = wxNewId();
+int MainFrame::set1ID = wxNewId();
+int MainFrame::set2ID = wxNewId();
 
 MainFrame::MainFrame(const wxString& title) :
     wxFrame(NULL,
@@ -39,6 +35,11 @@ void MainFrame::doSetup() {
 }
 
 void MainFrame::setupMenus() {
+    menuBar = new wxMenuBar();
+    tileSet = new wxMenu();
+    game = new wxMenu();
+    help = new wxMenu();
+
     tileSet->Append(set1ID, "Set 1");
     tileSet->Append(set2ID, "Set 2");
 
@@ -118,8 +119,8 @@ void MainFrame::redrawAll() {
  */
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
-    wxString msg = "wdolorito@gmail.com";
-    msg += "\n\nIcons made by Freepik";
+    wxString msg = "Contact me!!\nwdolorito@gmail.com";
+    msg += "\n\nApp Icon made by Freepik";
     msg += "\n\thttps://www.flaticon.com/authors/freepik";
     msg += "\n\nfrom Flaticon";
     msg += "\n\thttps://www.flaticon.com/";
