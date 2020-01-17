@@ -5,6 +5,7 @@ https://www.msys2.org/
   pacman -S mingw-w64-x86_64-gcc
   pacman -S mingw-w64-x86_64-ntldd-git
   pacman -S gdb
+  pacman -S p7zip
 
 git config --global core.editor "nano"
 
@@ -70,3 +71,6 @@ gdb --version
  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
  This is free software: you are free to change and redistribute it.
  There is NO WARRANTY, to the extent permitted by law.
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+p7zip Version 16.02
