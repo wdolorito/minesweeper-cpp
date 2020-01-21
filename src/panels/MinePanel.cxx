@@ -22,7 +22,8 @@ void MinePanel::setTileIcons() {
 }
 
 void MinePanel::setupBoard() {
-    for(int i = 0; i < currentGame->getBRC(); i++) {
+    int size = currentGame->getBRC();
+    for(int i = 0; i < size; i++) {
         wxStaticBitmap *temp = getBitmapTile(i);
         mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }
@@ -57,15 +58,11 @@ void MinePanel::setupPanel() {
 
 void MinePanel::drawBoard() {
     int size = mineField->GetItemCount();
-
     for(int i = 0; i < size; i++) {
         wxSizerItem* item = mineField->GetItem(i);
         wxWindow* window = item->GetWindow();
         updateTile(window, i);
     }
-    // Layout();
-    // Refresh();
-    // Update();
 }
 
 void MinePanel::updateTile(wxWindow* window, int pos) {
@@ -112,6 +109,15 @@ void MinePanel::updateTile(wxWindow* window, int pos) {
 }
 
 void MinePanel::endGame(bool loss) {
+    int size = mineField->GetItemCount();
+    for(int i = 0; i < size; i++) {
+        wxSizerItem* item = mineField->GetItem(i);
+        wxWindow* window = item->GetWindow();
+        wxStaticBitmap* tile = dynamic_cast<wxStaticBitmap*>(window);
+        tile->SetEvtHandlerEnabled(false);
+        tile->SetEvtHandlerEnabled(false);
+    }
+
     wxString msg = "Final time: ";
     msg << menuPanel->getTime();
     if(loss) {
@@ -202,6 +208,9 @@ void MinePanel::doLeftClick(wxMouseEvent& event) {
     wxArrayString labelTokens = wxStringTokenize(label, delimiter);
     wxString pos = labelTokens.Item(0);
     wxString type = labelTokens.Item(1);
+
+    tile->SetEvtHandlerEnabled(false);
+    tile->SetEvtHandlerEnabled(false);
 
     mines = currentGame->checkPos(wxAtoi(pos));
     drawBoard();
