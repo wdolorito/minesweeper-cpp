@@ -215,20 +215,22 @@ void MinePanel::doLeftClick(wxMouseEvent& event) {
     wxArrayString labelTokens = wxStringTokenize(label, delimiter);
     wxString pos = labelTokens.Item(0);
     wxString type = labelTokens.Item(1);
-    mines = currentGame->checkPos(wxAtoi(pos));
-    drawBoard();
-    if(currentGame->getRunning()) {
-        menuPanel->startTimer();
-    } else {
-        menuPanel->stopTimer();
-    }
 
-    bool isRunning = currentGame->getRunning();
-    bool isSolved = currentGame->getSolved();
-    bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
-    if(!isRunning && isSolved) {
-        endGame(wxAtoi(pos), loss);
-    }
+    std::cout << "pos:\t" << pos << "\ttype:\t" << type << std::endl;
+    // mines = currentGame->checkPos(wxAtoi(pos));
+    // drawBoard();
+    // if(currentGame->getRunning()) {
+    //     menuPanel->startTimer();
+    // } else {
+    //     menuPanel->stopTimer();
+    // }
+    //
+    // bool isRunning = currentGame->getRunning();
+    // bool isSolved = currentGame->getSolved();
+    // bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
+    // if(!isRunning && isSolved) {
+    //     endGame(wxAtoi(pos), loss);
+    // }
 }
 
 void MinePanel::doRightClick(wxMouseEvent& event) {
@@ -239,23 +241,24 @@ void MinePanel::doRightClick(wxMouseEvent& event) {
     wxString pos = labelTokens.Item(0);
     wxString type = labelTokens.Item(1);
 
-    wxString rename = pos + delimiter;
-    wxSizerItem *item = mineField->GetItem(wxAtoi(pos));
-    wxStaticBitmap *cbutton = dynamic_cast<wxStaticBitmap*>(item->GetWindow());
-
-    if(type == "initial") {
-        if(minesRem > 0) {
-            cbutton->SetBitmap(*flag);
-            rename += "flag";
-            cbutton->SetLabel(rename);
-            --minesRem;
-        }
-    } else {
-        cbutton->SetBitmap(*initial);
-        rename += "initial";
-        cbutton->SetLabel(rename);
-        ++minesRem;
-    }
-
-    menuPanel->setMinesRem(minesRem);
+    std::cout << "pos:\t" << pos << "\ttype:\t" << type << std::endl;
+    // wxString rename = pos + delimiter;
+    // wxSizerItem *item = mineField->GetItem(wxAtoi(pos));
+    // wxStaticBitmap *cbutton = dynamic_cast<wxStaticBitmap*>(item->GetWindow());
+    //
+    // if(type == "initial") {
+    //     if(minesRem > 0) {
+    //         cbutton->SetBitmap(*flag);
+    //         rename += "flag";
+    //         cbutton->SetLabel(rename);
+    //         --minesRem;
+    //     }
+    // } else {
+    //     cbutton->SetBitmap(*initial);
+    //     rename += "initial";
+    //     cbutton->SetLabel(rename);
+    //     ++minesRem;
+    // }
+    //
+    // menuPanel->setMinesRem(minesRem);
 }
