@@ -23,7 +23,7 @@ void MinePanel::setTileIcons() {
 
 void MinePanel::setupBoard() {
     for(int i = 0; i < currentGame->getBRC(); i++) {
-        wxStaticBitmap *temp = getBitmapButton(i);
+        wxStaticBitmap *temp = getBitmapTile(i);
         mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }
     wxSize boardSize = *currentGame->getBoardSize();
@@ -32,7 +32,7 @@ void MinePanel::setupBoard() {
     SetClientSize(boardSize);
 }
 
-wxStaticBitmap* MinePanel::getBitmapButton(int pos) {
+wxStaticBitmap* MinePanel::getBitmapTile(int pos) {
     wxBitmap *temp = new wxBitmap(*initial);
     wxStaticBitmap *newSBBM = new wxStaticBitmap(this, wxID_ANY, *temp);
     wxString label = wxString::Format("%i", pos) + delimiter + "initial";
@@ -111,7 +111,7 @@ void MinePanel::updateTile(wxWindow* window, int pos) {
     }
 }
 
-void MinePanel::endGame(int buttonIndex, bool loss) {
+void MinePanel::endGame(bool loss) {
     wxString msg = "Final time: ";
     msg << menuPanel->getTime();
     if(loss) {
@@ -197,8 +197,8 @@ void MinePanel::setTileIcons(wxString setName, bool firstRun) {
  */
 
 void MinePanel::doLeftClick(wxMouseEvent& event) {
-    wxStaticBitmap* button = dynamic_cast<wxStaticBitmap*>(event.GetEventObject());
-    wxString label = button->GetLabel();
+    wxStaticBitmap* tile = dynamic_cast<wxStaticBitmap*>(event.GetEventObject());
+    wxString label = tile->GetLabel();
     wxArrayString labelTokens = wxStringTokenize(label, delimiter);
     wxString pos = labelTokens.Item(0);
     wxString type = labelTokens.Item(1);
@@ -215,33 +215,33 @@ void MinePanel::doLeftClick(wxMouseEvent& event) {
     bool isSolved = currentGame->getSolved();
     bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
     if(!isRunning && isSolved) {
-        endGame(wxAtoi(pos), loss);
+        endGame(loss);
     }
 }
 
 void MinePanel::doRightClick(wxMouseEvent& event) {
-    wxStaticBitmap* button = dynamic_cast<wxStaticBitmap*>(event.GetEventObject());
+    wxStaticBitmap* tile = dynamic_cast<wxStaticBitmap*>(event.GetEventObject());
     int minesRem = menuPanel->getMinesRem();
-    wxString label = button->GetLabel();
+    wxString label = tile->GetLabel();
     wxArrayString labelTokens = wxStringTokenize(label, delimiter);
     wxString pos = labelTokens.Item(0);
     wxString type = labelTokens.Item(1);
 
     wxString rename = pos + delimiter;
     wxSizerItem *item = mineField->GetItem(wxAtoi(pos));
-    wxStaticBitmap *cbutton = dynamic_cast<wxStaticBitmap*>(item->GetWindow());
+    wxStaticBitmap *ctile = dynamic_cast<wxStaticBitmap*>(item->GetWindow());
 
     if(type == "initial") {
         if(minesRem > 0) {
-            cbutton->SetBitmap(*flag);
+            ctile->SetBitmap(*flag);
             rename += "flag";
-            cbutton->SetLabel(rename);
+            ctile->SetLabel(rename);
             --minesRem;
         }
     } else {
-        cbutton->SetBitmap(*initial);
+        ctile->SetBitmap(*initial);
         rename += "initial";
-        cbutton->SetLabel(rename);
+        ctile->SetLabel(rename);
         ++minesRem;
     }
 

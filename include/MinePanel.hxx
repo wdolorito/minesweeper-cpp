@@ -49,14 +49,14 @@ class MinePanel : public wxPanel {
         void setupBoard();
         void setupPanel();
 
-        wxStaticBitmap* getBitmapButton(int pos);
+        wxStaticBitmap* getBitmapTile(int pos);
 
         void doLeftClick(wxMouseEvent& event);
         void doRightClick(wxMouseEvent& event);
 
         void drawBoard();
         void updateTile(wxWindow* window, int pos);
-        void endGame(int buttonIndex, bool loss);
+        void endGame(bool loss);
 
     public:
         MinePanel(wxFrame *parent);
