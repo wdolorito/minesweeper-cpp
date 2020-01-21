@@ -32,14 +32,9 @@ void MinePanel::setupBoard() {
     SetClientSize(boardSize);
 }
 
-wxStaticBitmap* MinePanel::getStaticBitmap(wxImage *image) {
-    wxBitmap *temp = new wxBitmap(*image);
-    wxStaticBitmap *newSBM = new wxStaticBitmap(this, wxID_ANY, *temp);
-    return newSBM;
-}
-
 wxStaticBitmap* MinePanel::getBitmapButton(int pos) {
-    wxStaticBitmap *newSBBM  = getStaticBitmap(initial);
+    wxBitmap *temp = new wxBitmap(*initial);
+    wxStaticBitmap *newSBBM = new wxStaticBitmap(this, wxID_ANY, *temp);
     wxString label = wxString::Format("%i", pos) + delimiter + "initial";
     newSBBM->SetLabel(label);
     newSBBM->Bind(wxEVT_LEFT_UP, &MinePanel::doLeftClick, this);
@@ -68,60 +63,52 @@ void MinePanel::drawBoard() {
         wxWindow* window = item->GetWindow();
         updateTile(window, i);
     }
+    // Layout();
+    // Refresh();
+    // Update();
 }
 
 void MinePanel::updateTile(wxWindow* window, int pos) {
     char currTile = mines->at(pos);
+    wxStaticBitmap* tile = dynamic_cast<wxStaticBitmap*>(window);
 
     switch(currTile) {
         case '0':
-            mineField->Remove(pos);
-            mineField->Insert(pos, getStaticBitmap(empty), wxALL | wxEXPAND);
+            tile->SetBitmap(*empty);
             break;
         case '1':
-            mineField->Remove(pos);
-            mineField->Insert(pos, getStaticBitmap(one), wxALL | wxEXPAND);
+            tile->SetBitmap(*one);
             break;
         case '2':
-            mineField->Remove(pos);
-            mineField->Insert(pos, getStaticBitmap(two), wxALL | wxEXPAND);
+            tile->SetBitmap(*two);
             break;
         case '3':
-            mineField->Remove(pos);
-            mineField->Insert(pos, getStaticBitmap(three), wxALL | wxEXPAND);
+            tile->SetBitmap(*three);
             break;
         case '4':
-            mineField->Remove(pos);
-            mineField->Insert(pos, getStaticBitmap(four), wxALL | wxEXPAND);
+            tile->SetBitmap(*four);
             break;
         case '5':
-            mineField->Remove(pos);
-            mineField->Insert(pos, getStaticBitmap(five), wxALL | wxEXPAND);
+            tile->SetBitmap(*five);
             break;
         case '6':
-            mineField->Remove(pos);
-            mineField->Insert(pos, getStaticBitmap(six), wxALL | wxEXPAND);
+            tile->SetBitmap(*six);
             break;
         case '7':
-            mineField->Remove(pos);
-            mineField->Insert(pos, getStaticBitmap(seven), wxALL | wxEXPAND);
+            tile->SetBitmap(*seven);
             break;
         case '8':
-            mineField->Remove(pos);
-            mineField->Insert(pos, getStaticBitmap(eight), wxALL | wxEXPAND);
+            tile->SetBitmap(*eight);
             break;
         case 'x':
-            mineField->Remove(pos);
-            mineField->Insert(pos, getStaticBitmap(exploded), wxALL | wxEXPAND);
+            tile->SetBitmap(*exploded);
             break;
         case 'm':
-            mineField->Remove(pos);
-            mineField->Insert(pos, getStaticBitmap(bomb), wxALL | wxEXPAND);
+            tile->SetBitmap(*bomb);
             break;
         default:
             break;
     }
-    Layout();
 }
 
 void MinePanel::endGame(int buttonIndex, bool loss) {
@@ -216,21 +203,20 @@ void MinePanel::doLeftClick(wxMouseEvent& event) {
     wxString pos = labelTokens.Item(0);
     wxString type = labelTokens.Item(1);
 
-    std::cout << "pos:\t" << pos << "\ttype:\t" << type << std::endl;
-    // mines = currentGame->checkPos(wxAtoi(pos));
-    // drawBoard();
-    // if(currentGame->getRunning()) {
-    //     menuPanel->startTimer();
-    // } else {
-    //     menuPanel->stopTimer();
-    // }
-    //
-    // bool isRunning = currentGame->getRunning();
-    // bool isSolved = currentGame->getSolved();
-    // bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
-    // if(!isRunning && isSolved) {
-    //     endGame(wxAtoi(pos), loss);
-    // }
+    mines = currentGame->checkPos(wxAtoi(pos));
+    drawBoard();
+    if(currentGame->getRunning()) {
+        menuPanel->startTimer();
+    } else {
+        menuPanel->stopTimer();
+    }
+
+    bool isRunning = currentGame->getRunning();
+    bool isSolved = currentGame->getSolved();
+    bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
+    if(!isRunning && isSolved) {
+        endGame(wxAtoi(pos), loss);
+    }
 }
 
 void MinePanel::doRightClick(wxMouseEvent& event) {
@@ -241,24 +227,23 @@ void MinePanel::doRightClick(wxMouseEvent& event) {
     wxString pos = labelTokens.Item(0);
     wxString type = labelTokens.Item(1);
 
-    std::cout << "pos:\t" << pos << "\ttype:\t" << type << std::endl;
-    // wxString rename = pos + delimiter;
-    // wxSizerItem *item = mineField->GetItem(wxAtoi(pos));
-    // wxStaticBitmap *cbutton = dynamic_cast<wxStaticBitmap*>(item->GetWindow());
-    //
-    // if(type == "initial") {
-    //     if(minesRem > 0) {
-    //         cbutton->SetBitmap(*flag);
-    //         rename += "flag";
-    //         cbutton->SetLabel(rename);
-    //         --minesRem;
-    //     }
-    // } else {
-    //     cbutton->SetBitmap(*initial);
-    //     rename += "initial";
-    //     cbutton->SetLabel(rename);
-    //     ++minesRem;
-    // }
-    //
-    // menuPanel->setMinesRem(minesRem);
+    wxString rename = pos + delimiter;
+    wxSizerItem *item = mineField->GetItem(wxAtoi(pos));
+    wxStaticBitmap *cbutton = dynamic_cast<wxStaticBitmap*>(item->GetWindow());
+
+    if(type == "initial") {
+        if(minesRem > 0) {
+            cbutton->SetBitmap(*flag);
+            rename += "flag";
+            cbutton->SetLabel(rename);
+            --minesRem;
+        }
+    } else {
+        cbutton->SetBitmap(*initial);
+        rename += "initial";
+        cbutton->SetLabel(rename);
+        ++minesRem;
+    }
+
+    menuPanel->setMinesRem(minesRem);
 }
