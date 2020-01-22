@@ -71,13 +71,12 @@ void MainFrame::setupFrame(bool firstRun) {
         wxColour panelBG = menuPanel->GetBackgroundColour();
         SetBackgroundColour(panelBG);
     } else {
-        hSizer->Clear();
-        vSizer->Clear();
+        hSizer->Clear(true);
+        vSizer->Clear(true);
+        SetSizer(NULL, true);
     }
 
-    vSizer->AddSpacer(padding);
     vSizer->Add(menuPanel, 2, wxALIGN_CENTER);
-    vSizer->AddSpacer(padding);
     vSizer->Add(minePanel, 8, wxALIGN_CENTER);
     vSizer->AddSpacer(padding);
 
@@ -95,12 +94,11 @@ void MainFrame::setupFrame(bool firstRun) {
  */
 
 void MainFrame::redrawAll() {
-    menuPanel->Fit();
-    wxSize menuSize = menuPanel->GetBestSize();
+    wxSize menuSize = menuPanel->GetSize();
     wxSize mineSize = minePanel->GetClientSize();
 
-    int width = mineSize.GetWidth() + 25;
-    int height = menuSize.GetHeight() + mineSize.GetHeight() + 25;
+    int width = mineSize.GetWidth();
+    int height = menuSize.GetHeight() + mineSize.GetHeight();
 
     wxSize minSize = wxSize(width, height);
 

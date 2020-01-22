@@ -1,7 +1,7 @@
 /* MenuPanel.cxx */
 #include "MenuPanel.hxx"
 
-const int MenuPanel::padding = 20;
+const int MenuPanel::padding = 10;
 
 MenuPanel::MenuPanel(wxFrame * parent) :
     wxPanel(parent,
@@ -65,13 +65,11 @@ void MenuPanel::setupPanel() {
     hSizer = new wxBoxSizer(wxHORIZONTAL);
     vSizer = new wxBoxSizer(wxVERTICAL);
 
-    hSizer->AddStretchSpacer();
     hSizer->Add(timer, 1, wxALIGN_CENTER);
     hSizer->AddSpacer(padding);
     hSizer->Add(diff, 1, wxALIGN_CENTER);
     hSizer->AddSpacer(padding);
     hSizer->Add(minesRem, 1, wxALIGN_CENTER);
-    hSizer->AddStretchSpacer();
     vSizer->Add(hSizer, wxALIGN_CENTER);
 
     setMinesRem(10);
