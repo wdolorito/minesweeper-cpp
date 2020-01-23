@@ -11,6 +11,13 @@ cd packages/wxMac
 ./package_mac.sh
 open Minesweep.app
 
+creating dmg:
+https://apple.stackexchange.com/questions/48414/how-do-i-create-a-dmg-file-from-a-directory
+
+creating icon for dmg:
+https://stackoverflow.com/questions/45381740/how-to-programmatically-preferably-bash-add-icon-to-dmg
+https://apple.stackexchange.com/questions/216085/changing-icon-of-a-mounted-disk-image
+
 bash --version
 GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin15)
 Copyright (C) 2007 Free Software Foundation, Inc.

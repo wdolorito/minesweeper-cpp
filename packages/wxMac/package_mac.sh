@@ -1,5 +1,7 @@
 #!/bin/bash
 APP=Minesweep
+APPD=dmg
+APPTEMP=$APPD/$APP.app
 BINDIR=../../bin
 EXE=minesweeper
 ASSETDIR=../../assets
@@ -13,26 +15,24 @@ if [ ! -f "$BINDIR/$EXE" ]; then
 	exit
 fi
 
-if [ -d ./$APP.app ]; then
-	rm -rf ./$APP.app
+if [ -d ./$APPD ]; then
+	rm -rf ./$APPD
 fi
 
-if [ ! -f $ICON ]; then
-	iconutil -c icns Minesweep.iconset
-fi
+iconutil -c icns Minesweep.iconset
 
 WXLIBS=`otool -L $BINDIR/minesweeper | grep libwx | cut -d " " -f 1 | cut -d $'\t' -f 2`
-APPBINDIR=./$APP.app/Contents/MacOS
-APPRSRCDIR=./$APP.app/Contents/Resources
+APPBINDIR=./$APPTEMP/Contents/MacOS
+APPRSRCDIR=./$APPTEMP/Contents/Resources
 LIBDEFDIR=`wx-config --libs | cut -d " " -f 1 | cut -d "L" -f 2`
-FRAMEDIR=./$APP.app/Contents/Frameworks
+FRAMEDIR=./$APPTEMP/Contents/Frameworks
 
 mkdir -p $APPBINDIR
 mkdir -p $APPRSRCDIR
 mkdir -p $FRAMEDIR
 
 echo "Copying bundle Info"
-cp Info.plist PkgInfo ./$APP.app/Contents
+cp Info.plist PkgInfo ./$APPTEMP/Contents
 
 echo "Copying resources"
 cp -r $ASSETDIR $APPRSRCDIR
@@ -58,7 +58,7 @@ done
 
 echo "Patching dylibs"
 IFS=' '
-LIBFILES=`$FIND ./$APP.app -type f -name "*dylib"`
+LIBFILES=`$FIND ./$APPTEMP -type f -name "*dylib"`
 unset IFS
 
 NPATH="@executable_path/../Frameworks"
@@ -69,8 +69,6 @@ do
 	echo -e "\r\n\tPatching $(basename $libfile)"
 
 	DYLIBS=`otool -L $libfile | grep -e "libwx" | grep -v -e ":" | cut -d " " -f 1 | cut -d $'\t' -f 2`
-	echo $libfile
-	echo -e "\t$DYLIBS"
 
 	for dylib in $DYLIBS
 	do
@@ -87,3 +85,19 @@ do
 
 	cd $TMP
 done
+
+echo "Creating DMG"
+if [ -f "$APP.dmg" ]; then
+	diskutil unmount $APP > /dev/null 2>&1
+	rm -f $APP.dmg
+fi
+hdiutil create -fs HFS+ -volname $APP -srcfolder $APPD -format UDBZ $APP.dmg
+cp $ICON icns.icns
+sips -i icns.icns
+DeRez -only icns icns.icns > icns.rsrc
+Rez -a icns.rsrc -o $APP.dmg
+SetFile -a C $APP.dmg
+rm icns.icns icns.rsrc
+
+echo "Removing temporary files"
+rm -rf $APPD
