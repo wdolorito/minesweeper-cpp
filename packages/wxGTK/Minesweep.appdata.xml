@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+​<!-- Copyright 2020 William Dolorito <wdolorito@gmail.com> -->
+​<component type="desktop-application">
+​  <id>com.dot.gmail.at.wdolorito.minesweep</id>
+​  <metadata_license>MIT</metadata_license>
+​  <project_license>MIT</project_license>
+​  <name>Minesweep</name>
+​  <summary>Waste a few minutes sweeping mines</summary>
+​
+​  <description>
+​    <p>
+        Help!  I've time to waste!  Said no one out loud to anyone in particular.
+​    </p>
+​    <p>
+        Sink that time here by playing a classic game.  Right click to mark a
+        mine, left click to check.  Don't get blowed up!
+​    </p>
+​  </description>
+​
+​  <launchable type="desktop-id">Minesweep.desktop</launchable>
+</component>

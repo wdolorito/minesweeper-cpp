@@ -164,7 +164,12 @@ void MinePanel::setTileIcons(wxString setName, bool firstRun) {
     wxLogNull suppressor;
     wxString path = "assets/" + setName;
     #if __WXOSX__
-        path = wxStandardPaths::Get().GetResourcesDir().ToStdString() + "/assets/" + setName;
+        path = wxStandardPaths::Get().GetResourcesDir() + "/assets/" + setName;
+    #endif
+
+    #if __WXGTK__
+        wxFileName dirname(wxStandardPaths::Get().GetExecutablePath());
+        path = dirname.GetPath() + "/../../assets/" + setName;
     #endif
 
     initial = new wxImage(path + "default.png", wxBITMAP_TYPE_PNG);

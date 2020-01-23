@@ -20,12 +20,14 @@ fi
 
 APPBINDIR=$APPDIR/usr/bin
 APPLIBDIR=$APPDIR/usr/lib
-
+APPMETDIR=$APPDIR/usr/share/metainfo
 mkdir -p $APPBINDIR
 mkdir -p $APPLIBDIR
+mkdir -p $APPMETDIR
 
-echo "Copying bundle Info"
+echo "Copying AppImage Info"
 cp AppRun Minesweep.desktop $APPDIR
+# cp Minesweep.appdata.xml $APPMETDIR
 
 echo "Copying resources"
 cp -r $ASSETDIR $APPDIR
@@ -40,3 +42,9 @@ for lib in $WXLIBS
 do
 	cp $lib $APPLIBDIR
 done
+
+echo "Creating AppImage"
+${APPIMAGE} $APPDIR
+
+echo "Removing temporary files"
+rm -rf $APPDIR

@@ -9,6 +9,7 @@
 
 #include <wx/panel.h>
 #include <wx/stdpaths.h>
+#include <wx/filename.h>
 #include <wx/tokenzr.h>
 #include <vector>
 #include "MenuPanel.hxx"
