@@ -1,19 +1,12 @@
 $(shell if [ ! -d bin ]; then mkdir bin; fi)
-UNAME := $(shell uname)
-CXX = clang++
-DEBUG_FLAGS = -g -glldb
+CXX = g++
+WINDRES = windres
+DEBUG_FLAGS = -g
 WX_LIBS = $(shell wx-config --libs)
 WX_CXXFLAGS = $(shell wx-config --cxxflags) -Iinclude
-ifeq ($(UNAME),Linux)
-	WX_LIBS = $(shell ~/local/bin/wx-config --libs)
-	WX_CXXFLAGS = $(shell ~/local/bin/wx-config --cxxflags) -Iinclude
-endif
-ifeq ($(UNAME),Darwin)
-	WX_CXXFLAGS += -mmacosx-version-min=10.10
-endif
-RELEASE = bin/minesweeper
+RELEASE = bin/minesweeper.exe
 RELEASE_FLAGS = -O3 -Wall -DNDEBUG
-DEBUG = bin/minesweeper-debug
+DEBUG = bin/minesweeper-debug.exe
 STRIP = strip
 MODULES := src src/game src/panels
 # each module will add to this
@@ -23,11 +16,11 @@ include $(patsubst %,%/module.mk,$(MODULES))
 OBJ := $(patsubst %.cxx,%.o,$(filter %.cxx,$(SRC)))
 debug: $(DEBUG)
 release: $(RELEASE)
-$(RELEASE): $(OBJ)
-	$(CXX) $(WX_CXXFLAGS) $(RELEASE_FLAGS) $(WX_LIBS) -o $@ $(OBJ) $(WX_LIBS)
+$(RELEASE): $(OBJ) minesweep.res
+	$(CXX) $(WX_CXXFLAGS) $(RELEASE_FLAGS) $(WX_LIBS) -o $@ $(OBJ) minesweep.res $(WX_LIBS)
 	$(STRIP) $@
-$(DEBUG): $(OBJ)
-	$(CXX) $(WX_CXXFLAGS) $(DEBUG_FLAGS) $(WX_LIBS) -o $@ $(OBJ) $(WX_LIBS)
+$(DEBUG): $(OBJ) minesweep.res
+	$(CXX) $(WX_CXXFLAGS) $(DEBUG_FLAGS) $(WX_LIBS) -o $@ $(OBJ) minesweep.res $(WX_LIBS)
 include $(OBJ:.o=.d)
 # generate dependencies
 %.d: %.cxx
@@ -35,9 +28,11 @@ include $(OBJ:.o=.d)
 # create objects
 %.o: %.d
 	$(CXX) $(WX_CXXFLAGS) -c $(patsubst %.o,%.cxx,$@) -o $@
+minesweep.res: minesweep.rc
+	$(WINDRES) $(WX_CXXFLAGS) --input-format=rc -i$< -o$@ -O coff
 # delete object files
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) minesweep.res
 # delete generated depend.sh files
 distclean: clean
 	rm -f $(OBJ:.o=.d)

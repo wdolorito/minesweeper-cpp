@@ -9,6 +9,9 @@ https://www.msys2.org/
 
 git config --global core.editor "nano"
 
+windres icon sizes:
+  https://www.creativefreedom.co.uk/icon-designers-blog/windows-7-icon-sizes/
+
 configure:
 ../wxWidgets-3.0.3/configure --prefix=$HOME/local --enable-stl
 make BUILD=debug

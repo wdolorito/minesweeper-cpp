@@ -69,6 +69,7 @@ $RECYCLE.BIN/
 ### C++ ###
 # Prerequisites
 *.d
+*.res
 
 # Compiled Object files
 *.slo
@@ -113,3 +114,4 @@ nbactions.xml
 
 !packages/wxMac/Minesweep.app
 !packages/wxMac/Minesweep.app/Contents/Frameworks/*.dylib
+!packages/wxMSW/Minesweep/minesweeper.exe

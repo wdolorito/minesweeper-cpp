@@ -1,0 +1,4 @@
+aaaaaaaa ICON "packages/wxMSW/minesweep.ico"
+sample ICON "packages/wxMSW/minesweep.ico"
+#define wxUSE_NO_MANIFEST 0
+#include "wx/msw/wx.rc"
