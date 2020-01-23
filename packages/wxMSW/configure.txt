@@ -20,7 +20,7 @@ building project:
 add ~/local/bin to .bashrc path (PATH=~/local/bin:$PATH)
 add ~/local/lib to .bashrc path (PATH=~/local/lib:$PATH)
   one line (PATH=~/local/bin:~/local/lib:$PATH)
-make -f Makefile.unix
+make -f Makefile.msw
 
 nano --version
  GNU nano, version 4.6

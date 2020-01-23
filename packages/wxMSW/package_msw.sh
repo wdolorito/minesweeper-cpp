@@ -4,6 +4,7 @@ BINDIR=../../bin
 EXE=minesweeper.exe
 ASSETDIR=../../assets
 FIND=find
+ZIP=7z
 
 if [ ! -f "$BINDIR/$EXE" ]; then
 	echo -e "\t$BINDIR/$EXE doesn't exist!"
@@ -31,13 +32,17 @@ CMP="*wx*"
 for lib in $WXLIBS
 do
     DLL=`which $lib`
+	echo -e "\t=>  $(basename $DLL)"
 	cp -f $DLL $APP/
 
     LIBDLLS=`ntldd $DLL | grep -v -i "windows" | cut -d " " -f 1 | cut -d $'\t' -f 2`
 
     for libdll in $LIBDLLS
     do
-        echo $libdll
+        echo -e "\t\t$libdll"
         cp -f `which $libdll` $APP/
     done
 done
+
+echo "Creating zip archive"
+${ZIP} a -sdel -tzip $APP.zip $APP/
