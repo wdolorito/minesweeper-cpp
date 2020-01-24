@@ -18,28 +18,32 @@ MenuPanel::MenuPanel(wxFrame * parent) :
 
 void MenuPanel::doSetup() {
     gameDiff = new wxArrayString();
-    setupComboBox();
+    setupChoice();
     setupStaticText();
     setupPanel();
 }
 
-void MenuPanel::setupComboBox() {
+void MenuPanel::setupChoice() {
     gameDiff->Add("Novice");
     gameDiff->Add("Intermediate");
     gameDiff->Add("Expert");
 
-    diff = new wxComboBox(this,
-                          wxID_ANY,
-                          "Novice",
-                          wxDefaultPosition,
-                          wxDefaultSize,
-                          *gameDiff,
-                          wxCB_READONLY);
+    wxCArrayString helper(*gameDiff);
+    diff = new wxChoice(this,
+                        wxID_ANY,
+                        wxDefaultPosition,
+                        wxDefaultSize,
+                        gameDiff->GetCount(),
+                        helper.GetStrings(),
+                        wxCB_READONLY,
+                        wxDefaultValidator);
 
-    diff->Bind(wxEVT_COMMAND_COMBOBOX_SELECTED,
-               &MenuPanel::handleComboBox,
+    diff->Bind(wxEVT_CHOICE,
+               &MenuPanel::handleChoice,
                this,
                diff->GetId());
+
+   diff->SetSelection(0);
 }
 
 void MenuPanel::setupStaticText() {
@@ -86,7 +90,7 @@ void MenuPanel::setupPanel() {
 void MenuPanel::restartGame(wxString difficulty) {
     MainFrame *parent = dynamic_cast<MainFrame*>(GetParent());
 
-    parent->newGameFromCombo(difficulty);
+    parent->newGameFromChoice(difficulty);
 }
 
 int MenuPanel::getMinesRem() {
@@ -135,7 +139,7 @@ void MenuPanel::stopTimer() {
  *
  */
 
-void MenuPanel::handleComboBox(wxCommandEvent& event) {
+void MenuPanel::handleChoice(wxCommandEvent& event) {
     restartGame(event.GetString());
 }
 

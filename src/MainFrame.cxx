@@ -107,7 +107,7 @@ void MainFrame::redrawAll() {
  *
  */
 
- void MainFrame::newGameFromCombo(wxString difficulty) {
+ void MainFrame::newGameFromChoice(wxString difficulty) {
      OnGame(difficulty);
  }
 

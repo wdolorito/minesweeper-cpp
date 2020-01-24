@@ -51,7 +51,7 @@ class MainFrame : public wxFrame {
 
     public:
         MainFrame(const wxString& title);
-        void newGameFromCombo(wxString difficulty);
+        void newGameFromChoice(wxString difficulty);
 };
 
 #endif /* MAINFRAME_HXX */

@@ -18,17 +18,17 @@ class MenuPanel : public wxPanel {
         wxArrayString *gameDiff;
         wxBoxSizer *hSizer;
         wxBoxSizer *vSizer;
-        wxComboBox *diff;
+        wxChoice *diff;
         wxStaticText *minesRem;
         wxStaticText *timer;
         wxTimer *gameTimer;
 
         void doSetup();
-        void setupComboBox();
+        void setupChoice();
         void setupStaticText();
         void setupPanel();
 
-        void handleComboBox(wxCommandEvent& event);
+        void handleChoice(wxCommandEvent& event);
         void handleTimer(wxTimerEvent& event);
 
     public:
