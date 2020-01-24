@@ -67,9 +67,6 @@ void MainFrame::setupFrame(bool firstRun) {
     if(firstRun) {
         hSizer = new wxBoxSizer(wxHORIZONTAL);
         vSizer = new wxBoxSizer(wxVERTICAL);
-
-        wxColour panelBG = menuPanel->GetBackgroundColour();
-        SetBackgroundColour(panelBG);
     } else {
         hSizer->Clear(true);
         vSizer->Clear(true);

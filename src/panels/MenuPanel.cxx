@@ -136,7 +136,7 @@ void MenuPanel::stopTimer() {
  */
 
 void MenuPanel::handleComboBox(wxCommandEvent& event) {
-    restartGame(event.GetString().ToStdString());
+    restartGame(event.GetString());
 }
 
 void MenuPanel::handleTimer(wxTimerEvent& event) {
