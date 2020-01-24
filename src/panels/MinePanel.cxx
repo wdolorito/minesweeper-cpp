@@ -28,8 +28,6 @@ void MinePanel::setupBoard() {
         mineField->Add(temp, 0, wxALL | wxEXPAND, 0);
     }
     wxSize boardSize = *currentGame->getBoardSize();
-    int h = boardSize.GetHeight();
-    int w = boardSize.GetWidth();
     SetClientSize(boardSize);
 }
 
@@ -68,56 +66,61 @@ void MinePanel::drawBoard() {
 void MinePanel::updateTile(wxWindow* window, int pos) {
     char currTile = mines->at(pos);
     wxStaticBitmap* tile = dynamic_cast<wxStaticBitmap*>(window);
+    wxString rename = wxString::Format("%i", pos) + delimiter;
 
     switch(currTile) {
         case '0':
             tile->SetBitmap(*empty);
+            rename += "empty";
             break;
         case '1':
             tile->SetBitmap(*one);
+            rename += "one";
             break;
         case '2':
             tile->SetBitmap(*two);
+            rename += "two";
             break;
         case '3':
             tile->SetBitmap(*three);
+            rename += "three";
             break;
         case '4':
             tile->SetBitmap(*four);
+            rename += "four";
             break;
         case '5':
             tile->SetBitmap(*five);
+            rename += "five";
             break;
         case '6':
             tile->SetBitmap(*six);
+            rename += "six";
             break;
         case '7':
             tile->SetBitmap(*seven);
+            rename += "seven";
             break;
         case '8':
             tile->SetBitmap(*eight);
+            rename += "eight";
             break;
         case 'x':
             tile->SetBitmap(*exploded);
+            rename += "exploded";
             break;
         case 'm':
             tile->SetBitmap(*bomb);
+            rename += "bomb";
             break;
         default:
+            rename += "initial";
             break;
     }
+    tile->SetLabel(rename);
 }
 
 void MinePanel::endGame(bool loss) {
-    int size = mineField->GetItemCount();
-    for(int i = 0; i < size; i++) {
-        wxSizerItem* item = mineField->GetItem(i);
-        wxWindow* window = item->GetWindow();
-        wxStaticBitmap* tile = dynamic_cast<wxStaticBitmap*>(window);
-        tile->SetEvtHandlerEnabled(false);
-        tile->SetEvtHandlerEnabled(false);
-    }
-
     wxString msg = "Final time: ";
     msg << menuPanel->getTime();
     if(loss) {
@@ -214,22 +217,22 @@ void MinePanel::doLeftClick(wxMouseEvent& event) {
     wxString pos = labelTokens.Item(0);
     wxString type = labelTokens.Item(1);
 
-    tile->SetEvtHandlerEnabled(false);
-    tile->SetEvtHandlerEnabled(false);
+    if(!type.Cmp("initial")) {
+        mines = currentGame->checkPos(wxAtoi(pos));
 
-    mines = currentGame->checkPos(wxAtoi(pos));
-    drawBoard();
-    if(currentGame->getRunning()) {
-        menuPanel->startTimer();
-    } else {
-        menuPanel->stopTimer();
-    }
+        drawBoard();
+        if(currentGame->getRunning()) {
+            menuPanel->startTimer();
+        } else {
+            menuPanel->stopTimer();
+        }
 
-    bool isRunning = currentGame->getRunning();
-    bool isSolved = currentGame->getSolved();
-    bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
-    if(!isRunning && isSolved) {
-        endGame(loss);
+        bool isRunning = currentGame->getRunning();
+        bool isSolved = currentGame->getSolved();
+        bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
+        if(!isRunning && isSolved) {
+            endGame(loss);
+        }
     }
 }
 
@@ -241,18 +244,18 @@ void MinePanel::doRightClick(wxMouseEvent& event) {
     wxString pos = labelTokens.Item(0);
     wxString type = labelTokens.Item(1);
 
-    wxString rename = pos + delimiter;
     wxSizerItem *item = mineField->GetItem(wxAtoi(pos));
+    wxString rename = pos + delimiter;
     wxStaticBitmap *ctile = dynamic_cast<wxStaticBitmap*>(item->GetWindow());
 
-    if(type == "initial") {
+    if(currentGame->getRunning() && !type.Cmp("initial")) {
         if(minesRem > 0) {
             ctile->SetBitmap(*flag);
             rename += "flag";
             ctile->SetLabel(rename);
             --minesRem;
         }
-    } else {
+    } else if(!type.Cmp("flag")){
         ctile->SetBitmap(*initial);
         rename += "initial";
         ctile->SetLabel(rename);

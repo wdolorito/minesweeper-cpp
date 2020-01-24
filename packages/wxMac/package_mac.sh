@@ -97,7 +97,7 @@ sips -i icns.icns
 DeRez -only icns icns.icns > icns.rsrc
 Rez -a icns.rsrc -o $APP.dmg
 SetFile -a C $APP.dmg
-rm icns.icns icns.rsrc
+rm icns.icns icns.rsrc $ICON
 
 echo "Removing temporary files"
 rm -rf $APPD
