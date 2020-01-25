@@ -30,7 +30,7 @@ void MainFrame::doSetup() {
     setupMenus();
     setupMinePanel();
     minePanel->newGame("Novice");
-    setupFrame(true);
+    setupFrame();
     redrawAll();
 }
 
@@ -63,26 +63,23 @@ void MainFrame::setupMinePanel() {
     minePanel->setMenuPanel(menuPanel);
 }
 
-void MainFrame::setupFrame(bool firstRun) {
-    if(firstRun) {
-        hSizer = new wxBoxSizer(wxHORIZONTAL);
-        vSizer = new wxBoxSizer(wxVERTICAL);
-    } else {
-        hSizer->Clear(true);
-        vSizer->Clear(true);
-        SetSizer(NULL, true);
-    }
+void MainFrame::setupFrame() {
+    hSizer = new wxBoxSizer(wxHORIZONTAL);
+    vSizer = new wxBoxSizer(wxVERTICAL);
 
-    vSizer->Add(menuPanel, 2, wxALIGN_CENTER);
-    vSizer->Add(minePanel, 8, wxALIGN_CENTER);
+    vSizer->Add(menuPanel, 1, wxALIGN_CENTER);
+    vSizer->Add(minePanel, 4, wxALIGN_CENTER);
     vSizer->AddSpacer(padding);
 
     hSizer->AddSpacer(padding);
-    hSizer->Add(vSizer, wxALIGN_CENTER);
+    hSizer->Add(vSizer, 1, wxALIGN_CENTER);
     hSizer->AddSpacer(padding);
 
     SetSizer(hSizer);
     hSizer->SetSizeHints(this);
+
+    Hide();
+    Show();
 }
 
 /*
@@ -100,6 +97,9 @@ void MainFrame::redrawAll() {
     wxSize minSize = wxSize(width, height);
 
     SetSize(minSize);
+    Layout();
+    Update();
+    Refresh();
 }
 
 /*
@@ -138,7 +138,7 @@ void MainFrame::OnGame(wxString difficulty) {
     minePanel->Destroy();
     setupMinePanel();
     minePanel->newGame(difficulty);
-    setupFrame(true);
+    setupFrame();
     redrawAll();
 }
 

@@ -36,7 +36,7 @@ class MainFrame : public wxFrame {
         void doSetup();
         void setupMenus();
         void setupMinePanel();
-        void setupFrame(bool firstRun);
+        void setupFrame();
         void redrawAll();
 
         void OnAbout(wxCommandEvent& event);
