@@ -10,6 +10,8 @@ MinePanel::MinePanel(wxFrame * parent) :
             wxDefaultPosition,
             wxDefaultSize) {
     mineField = new wxGridSizer(0, 0, 0);
+    firstClick = true;
+    didMessage = false;
 }
 
 /*
@@ -114,7 +116,7 @@ void MinePanel::updateTile(wxWindow* window, int pos) {
             rename += "bomb";
             break;
         default:
-            rename += "initial";
+            rename = tile->GetLabel();
             break;
     }
     tile->SetLabel(rename);
@@ -122,12 +124,14 @@ void MinePanel::updateTile(wxWindow* window, int pos) {
 
 void MinePanel::endGame(bool loss) {
     wxString msg = "Final time: ";
+    menuPanel->stopTimer();
     msg << menuPanel->getTime();
     if(loss) {
         wxMessageBox(msg, "You Lost :(", wxOK | wxICON_INFORMATION );
     } else {
         wxMessageBox(msg, "You Won!", wxOK | wxICON_INFORMATION );
     }
+    didMessage = true;
 }
 
 /*
@@ -217,20 +221,27 @@ void MinePanel::doLeftClick(wxMouseEvent& event) {
     wxString pos = labelTokens.Item(0);
     wxString type = labelTokens.Item(1);
 
-    if(!type.Cmp("initial")) {
-        mines = currentGame->checkPos(wxAtoi(pos));
-
-        drawBoard();
-        if(currentGame->getRunning()) {
-            menuPanel->startTimer();
-        } else {
-            menuPanel->stopTimer();
-        }
-
+    if(!type.Cmp("initial") || !type.Cmp("flag")) {
         bool isRunning = currentGame->getRunning();
         bool isSolved = currentGame->getSolved();
+
+        if(!isRunning) {
+            if(!isSolved && firstClick) {
+                menuPanel->startTimer();
+                firstClick = false;
+            }
+        }
+
+        if(!isSolved) {
+            mines = currentGame->checkPos(wxAtoi(pos));
+            drawBoard();
+        }
+
+        isRunning = currentGame->getRunning();
+        isSolved = currentGame->getSolved();
+
         bool loss = std::find(mines->begin(), mines->end(), 'x') != mines->end();
-        if(!isRunning && isSolved) {
+        if(!isRunning && isSolved && !didMessage) {
             endGame(loss);
         }
     }
@@ -248,19 +259,20 @@ void MinePanel::doRightClick(wxMouseEvent& event) {
     wxString rename = pos + delimiter;
     wxStaticBitmap *ctile = dynamic_cast<wxStaticBitmap*>(item->GetWindow());
 
-    if(currentGame->getRunning() && !type.Cmp("initial")) {
-        if(minesRem > 0) {
+    if(currentGame->getRunning()) {
+        if(!type.Cmp("initial")) {
             ctile->SetBitmap(*flag);
             rename += "flag";
-            ctile->SetLabel(rename);
-            --minesRem;
+            if(minesRem > 0) {
+                --minesRem;
+            }
+        } else if(!type.Cmp("flag")){
+            ctile->SetBitmap(*initial);
+            rename += "initial";
+            ++minesRem;
         }
-    } else if(!type.Cmp("flag")){
-        ctile->SetBitmap(*initial);
-        rename += "initial";
-        ctile->SetLabel(rename);
-        ++minesRem;
-    }
 
-    menuPanel->setMinesRem(minesRem);
+        ctile->SetLabel(rename);
+        menuPanel->setMinesRem(minesRem);
+    }
 }

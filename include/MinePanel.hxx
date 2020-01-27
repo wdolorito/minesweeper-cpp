@@ -29,6 +29,8 @@ class MinePanel : public wxPanel {
         Game *currentGame;
         MenuPanel *menuPanel;
         bool gameRunning;
+        bool firstClick;
+        bool didMessage;
         std::vector<char> *mines;
         wxBoxSizer *container;
         wxGridSizer *mineField;
