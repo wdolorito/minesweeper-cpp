@@ -1,6 +1,22 @@
 eOS/Ubuntu bionic:
   install gtk3 dev e.g. `apt install libgtk-3-dev` <== for eOS/Ubuntu
 
+Arch Linux Arm:
+  Samsung arm chromebook, install armv7:
+    https://archlinuxarm.org/platforms/armv7/samsung/samsung-chromebook 
+  install plasma-meta
+  install konsole
+  install base-devel
+  install gtk3
+  install exfat-utils (for fuse, not really needed if don't use exfat)
+    alternatively fuse-common and fuse2
+  install llvm
+  install clang
+  add --with-gtk=3 to configure
+  
+  `pacman -S plasma-meta konsole base-devel gtk3 exfat-utils llvm clang`
+  
+  
 Lib 3.0.3:
 CC=clang CXX=clang++ ../wxWidgets-3.0.3/configure --enable-stl --prefix=$HOME/local
 make BUILD=debug

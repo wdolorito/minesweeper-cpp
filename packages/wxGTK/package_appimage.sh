@@ -2,6 +2,10 @@
 APP=Minesweep
 APPDIR=./$APP.AppDir
 APPIMAGE=./appimagetool-x86_64.AppImage
+UNAME_M=`uname -m`
+if [ $UNAME_M == 'armv7l' ]; then
+  APPIMAGE=./appimagetool-armhf.AppImage
+fi
 BINDIR=../../bin
 EXE=minesweeper
 ASSETDIR=../../assets
