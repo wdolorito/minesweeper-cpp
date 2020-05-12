@@ -34,9 +34,7 @@ void MenuPanel::setupChoice() {
                         wxDefaultPosition,
                         wxDefaultSize,
                         gameDiff->GetCount(),
-                        helper.GetStrings(),
-                        wxCB_READONLY,
-                        wxDefaultValidator);
+                        helper.GetStrings());
 
     diff->Bind(wxEVT_CHOICE,
                &MenuPanel::handleChoice,

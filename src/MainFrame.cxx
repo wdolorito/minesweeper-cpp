@@ -2,6 +2,8 @@
 #include "MainFrame.hxx"
 
 const int MainFrame::padding = 10;
+const wxColour *MainFrame::BACKGROUND = new wxColour(0xE5, 0xE5, 0xE5);
+
 int MainFrame::nID = wxNewId();
 int MainFrame::iID = wxNewId();
 int MainFrame::eID = wxNewId();
@@ -52,8 +54,8 @@ void MainFrame::setupMenus() {
     menuBar->Append(game, "&Game");
 
     help = new wxMenu();
-    help->Append(wxID_HELP, "Minesweeper Help");
-    menuBar->Append(help, "Help");
+    help->Append(wxID_HELP, "Minesweeper Help\tF1");
+    menuBar->Append(help, "&Help");
 
     SetMenuBar(menuBar);
 }
@@ -75,6 +77,7 @@ void MainFrame::setupFrame() {
     hSizer->Add(vSizer, 1, wxALIGN_CENTER);
     hSizer->AddSpacer(padding);
 
+    this->SetBackgroundColour(BACKGROUND->GetRGB());
     SetSizer(hSizer);
     hSizer->SetSizeHints(this);
 

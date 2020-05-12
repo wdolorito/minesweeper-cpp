@@ -7,8 +7,6 @@
     #include <wx/wx.h>
 #endif
 
-#include <wx/panel.h>
-
 #include "MainFrame.hxx"
 
 class MenuPanel : public wxPanel {

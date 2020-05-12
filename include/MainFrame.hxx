@@ -16,6 +16,7 @@ class MinePanel;
 class MainFrame : public wxFrame {
     private:
         static const int padding;
+        static const wxColour *BACKGROUND;
 
         static int nID;
         static int iID;

@@ -2,9 +2,11 @@ https://www.msys2.org/
   msys2 <== update pacman -Syuu until nothing to be done
   pacman -S nano
   pacman -S git
-  pacman -S mingw-w64-x86_64-gcc
+  pacman -S base-devel
+  pacman -S mingw-w64-x86_64-toolchain (64 bit)
+  pacman -S mingw-w64-i686-toolchain (32 bit)
   pacman -S mingw-w64-x86_64-ntldd-git
-  pacman -S gdb
+  pacman -S mingw-i686-ntldd-git
   pacman -S p7zip
 
 git config --global core.editor "nano"
@@ -13,67 +15,42 @@ windres icon sizes:
   https://www.creativefreedom.co.uk/icon-designers-blog/windows-7-icon-sizes/
 
 configure:
-../wxWidgets-3.0.3/configure --prefix=$HOME/local --enable-stl
+~/local/wxWidgets-3.0.3/configure --prefix=$HOME/local{32,64} --enable-stl --disable-threads
 make BUILD=debug
 
 building project:
-add ~/local/bin to .bashrc path (PATH=~/local/bin:$PATH)
-add ~/local/lib to .bashrc path (PATH=~/local/lib:$PATH)
-  one line (PATH=~/local/bin:~/local/lib:$PATH)
+add to .bash_profile:
+//begin
+case "$MSYSTEM" in
+"MINGW32")
+    LOCAL=local32
+    ;;
+"MINGW64")
+    LOCAL=local64
+    ;;
+*)
+    LOCAL=local
+    ;;
+esac
+
+# Set PATH so it includes user's local private bin if it exists
+if [ -d "${HOME}/${LOCAL}/bin" ] ; then
+  PATH="${HOME}/${LOCAL}/bin:${PATH}"
+fi
+
+# Set PATH so it includes user's local private lib if it exists
+if [ -d "${HOME}/${LOCAL}/lib" ] ; then
+  PATH="${HOME}/${LOCAL}/lib:${PATH}"
+fi
+
+# Set MANPATH so it includes users' local private man if it exists
+if [ -d "${HOME}/${LOCAL}/man" ]; then
+  MANPATH="${HOME}/${LOCAL}/man:${MANPATH}"
+fi
+
+# Set INFOPATH so it includes users' local private info if it exists
+if [ -d "${HOME}/${LOCAL}/info" ]; then
+  INFOPATH="${HOME}/${LOCAL}/info:${INFOPATH}"
+fi
+//end
 make -f Makefile.msw
-
-nano --version
- GNU nano, version 4.6
- (C) 1999-2011, 2013-2019 Free Software Foundation, Inc.
- (C) 2014-2019 the contributors to nano
- Email: nano@nano-editor.org    Web: https://nano-editor.org/
- Compiled options: --enable-utf8
-
-bash --version
- GNU bash, version 4.4.23(1)-release (x86_64-pc-msys)
- Copyright (C) 2016 Free Software Foundation, Inc.
- License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-
- This is free software; you are free to change and redistribute it.
- There is NO WARRANTY, to the extent permitted by law.
-
-git --version
- git version 2.24.1
-
-make --version
- GNU Make 4.2.1
- Built for x86_64-pc-msys
- Copyright (C) 1988-2016 Free Software Foundation, Inc.
- License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- This is free software: you are free to change and redistribute it.
- There is NO WARRANTY, to the extent permitted by law.
-
-g++ --version
- g++.exe (Rev2, Built by MSYS2 project) 9.2.0
- Copyright (C) 2019 Free Software Foundation, Inc.
- This is free software; see the source for copying conditions.  There is NO
- warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-windres.exe --version
- GNU windres (GNU Binutils) 2.33.1
- Copyright (C) 2019 Free Software Foundation, Inc.
- This program is free software; you may redistribute it under the terms of
- the GNU General Public License version 3 or (at your option) any later version.
- This program has absolutely no warranty.
-
-ntldd --version
- ntldd 0.2
- Copyright (C) 2010-2015 LRN
- This is free software; see the source for conditions. There is NO
- warranty; not event for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- Written by LRN.
-
-gdb --version
- GNU gdb (GDB) 8.2.1
- Copyright (C) 2018 Free Software Foundation, Inc.
- License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- This is free software: you are free to change and redistribute it.
- There is NO WARRANTY, to the extent permitted by law.
-
-7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
-p7zip Version 16.02

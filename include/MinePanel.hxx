@@ -7,7 +7,6 @@
     #include <wx/wx.h>
 #endif
 
-#include <wx/panel.h>
 #include <wx/stdpaths.h>
 #include <wx/filename.h>
 #include <wx/tokenzr.h>

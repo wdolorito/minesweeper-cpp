@@ -1,5 +1,5 @@
 #!/bin/bash
-APP=Minesweep
+APP=Minesweep.$MSYSTEM
 BINDIR=../../bin
 EXE=minesweeper.exe
 ASSETDIR=../../assets
@@ -8,7 +8,7 @@ ZIP=7z
 
 if [ ! -f "$BINDIR/$EXE" ]; then
 	echo -e "\t$BINDIR/$EXE doesn't exist!"
-	echo -e "\tPlease run \`make release\` first"
+	echo -e "\tPlease run \`make -f Makefile.msw release\` first"
 	echo -e "\texiting"
 	exit
 fi
