@@ -6,16 +6,22 @@ https://www.msys2.org/
   pacman -S mingw-w64-x86_64-toolchain (64 bit)
   pacman -S mingw-w64-i686-toolchain (32 bit)
   pacman -S mingw-w64-x86_64-ntldd-git
-  pacman -S mingw-i686-ntldd-git
+  pacman -S mingw-w64-i686-ntldd-git
   pacman -S p7zip
 
 git config --global core.editor "nano"
+
+MSYS2 gcc  9.3.0 successful
+MSYS2 gcc 10.1.0 UNSUCCESSFUL (narrorwing error)
+
+for gcc 10.1.0 add CXXFLAGS=-Wno-narrowing to configure:
+CXXFLAGS=-Wno-narrowing ~/local/src/wxWidgets-3.0.3/configure --prefix=$HOME/local{32,64} --enable-stl --disable-threads
 
 windres icon sizes:
   https://www.creativefreedom.co.uk/icon-designers-blog/windows-7-icon-sizes/
 
 configure:
-~/local/wxWidgets-3.0.3/configure --prefix=$HOME/local{32,64} --enable-stl --disable-threads
+~/local/src/wxWidgets-3.0.3/configure --prefix=$HOME/local{32,64} --enable-stl --disable-threads
 make BUILD=debug
 
 building project:
