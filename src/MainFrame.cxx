@@ -81,6 +81,11 @@ void MainFrame::setupFrame() {
     SetSizer(hSizer);
     hSizer->SetSizeHints(this);
 
+    #ifdef __WXMSW__
+    	wxIcon	icon;
+    	icon.LoadFile (wxT("aaaaaaaa"), wxBITMAP_TYPE_ICO_RESOURCE);
+    	SetIcon(icon);
+    #endif
     Hide();
     Show();
 }

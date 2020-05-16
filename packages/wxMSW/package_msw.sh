@@ -45,4 +45,5 @@ do
 done
 
 echo "Creating zip archive"
+touch $APP/built-on-$(date +%s)
 ${ZIP} a -sdel -tzip $APP.zip $APP/
