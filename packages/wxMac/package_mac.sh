@@ -91,6 +91,7 @@ if [ -f "$APP.dmg" ]; then
 	diskutil unmount $APP > /dev/null 2>&1
 	rm -f $APP.dmg
 fi
+touch $APPD/built-on-$(date +%s)
 hdiutil create -fs HFS+ -volname $APP -srcfolder $APPD -format UDBZ $APP.dmg
 cp $ICON icns.icns
 sips -i icns.icns
