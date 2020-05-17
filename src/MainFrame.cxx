@@ -81,11 +81,20 @@ void MainFrame::setupFrame() {
     SetSizer(hSizer);
     hSizer->SetSizeHints(this);
 
-    #ifdef __WXMSW__
-    	wxIcon	icon;
-    	icon.LoadFile (wxT("aaaaaaaa"), wxBITMAP_TYPE_ICO_RESOURCE);
-    	SetIcon(icon);
+    wxString path = "assets/";
+
+    #if __WXOSX__
+        path = wxStandardPaths::Get().GetResourcesDir() + "/assets/";
     #endif
+
+    #if __WXGTK__
+        wxFileName dirname(wxStandardPaths::Get().GetExecutablePath());
+        path = dirname.GetPath() + "/../../assets/";
+    #endif
+
+    icon.LoadFile(path + "appicon.png", wxBITMAP_TYPE_PNG);
+  	SetIcon(icon);
+
     Hide();
     Show();
 }

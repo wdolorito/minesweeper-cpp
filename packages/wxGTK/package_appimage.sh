@@ -48,6 +48,7 @@ do
 done
 
 echo "Creating AppImage"
+touch $APPDIR/built-on-$(date +%s)
 ${APPIMAGE} $APPDIR
 
 echo "Removing temporary files"

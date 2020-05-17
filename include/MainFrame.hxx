@@ -28,6 +28,7 @@ class MainFrame : public wxFrame {
         wxMenu *tileSet;
         wxMenu *game;
         wxMenu *help;
+        wxIcon icon;
 
         MenuPanel *menuPanel;
         wxBoxSizer *hSizer;
