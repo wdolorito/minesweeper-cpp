@@ -1,33 +1,41 @@
 $(shell if [ ! -d bin ]; then mkdir bin; fi)
-UNAME := $(shell uname)
-CXX = clang++
-DEBUG_FLAGS = -g -glldb
-WX_LIBS = $(shell wx-config --libs)
-WX_CXXFLAGS = $(shell wx-config --cxxflags) -Iinclude
-ifeq ($(UNAME),Linux)
-	WX_LIBS = $(shell ~/local/bin/wx-config --libs)
-	WX_CXXFLAGS = $(shell ~/local/bin/wx-config --cxxflags) -Iinclude
-endif
+CXX := $(if $(shell which clang++),clang++,$(error No clang++ available))
+$(info $(shell $(CXX) --version | grep version)in use)
+DEBUG_FLAGS := -g -glldb
+WXCONF = $(if $(shell which wx-config),wx-config,$(error Please install wxWidgets v3.0.3 or higher))
+$(info WX $(shell $(WXCONF) --version) in use)
+WX_LIBS = $(shell $(WXCONF) --libs)
+WX_CXXFLAGS = $(shell $(WXCONF) --cxxflags) -Iinclude
+LDFLAGS = -fuse-ld=lld
+UNAME = $(shell uname)
 ifeq ($(UNAME),Darwin)
+  $(info Adding minimum version flag to WX)
 	WX_CXXFLAGS += -mmacosx-version-min=10.10
 endif
 RELEASE = bin/minesweeper
 RELEASE_FLAGS = -O3 -Wall -DNDEBUG
 DEBUG = bin/minesweeper-debug
-STRIP = strip
+STRIP = $(shell which strip)
 MODULES := src src/game src/panels
 # each module will add to this
 SRC :=
-# include the description for each module
-include $(patsubst %,%/module.mk,$(MODULES))
-OBJ := $(patsubst %.cxx,%.o,$(filter %.cxx,$(SRC)))
+ifeq ($(CXX),)
+	$(error Compiler not available)
+else
+	# include the description for each module
+	include $(patsubst %,%/module.mk,$(MODULES))
+	OBJ := $(patsubst %.cxx,%.o,$(filter %.cxx,$(SRC)))
+endif
+help:
+	@echo 'Please run `make debug` to create a stripped executable'
+	@echo '  or `make release` for a stripped executable'
 debug: $(DEBUG)
 release: $(RELEASE)
 $(RELEASE): $(OBJ)
-	$(CXX) $(WX_CXXFLAGS) $(RELEASE_FLAGS) $(WX_LIBS) -o $@ $(OBJ) $(WX_LIBS)
+	$(CXX) $(WX_CXXFLAGS) $(RELEASE_FLAGS) $(WX_LIBS) -o $@ $(OBJ) $(WX_LIBS) $(LDFLAGS)
 	$(STRIP) $@
 $(DEBUG): $(OBJ)
-	$(CXX) $(WX_CXXFLAGS) $(DEBUG_FLAGS) $(WX_LIBS) -o $@ $(OBJ) $(WX_LIBS)
+	$(CXX) $(WX_CXXFLAGS) $(DEBUG_FLAGS) $(WX_LIBS) -o $@ $(OBJ) $(WX_LIBS) $(LDFLAGS)
 include $(OBJ:.o=.d)
 # generate dependencies
 %.d: %.cxx
@@ -43,4 +51,4 @@ distclean: clean
 	rm -f $(OBJ:.o=.d)
 	rm -f $(RELEASE)
 	rm -f $(DEBUG)
-.PHONY: clean  distclean
+.PHONY: help clean distclean help
