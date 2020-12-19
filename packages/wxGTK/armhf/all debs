@@ -1,0 +1,550 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+less is already the newest version (487-0.1).
+libfuse2 is already the newest version (2.9.7-1ubuntu1).
+libfuse2 set to manually installed.
+The following additional packages will be installed:
+  adwaita-icon-theme at-spi2-core autoconf automake autopoint autotools-dev
+  binfmt-support binutils binutils-common binutils-x86-64-linux-gnu
+  bsdmainutils build-essential clang-6.0 cpp cpp-7 curl
+  dconf-gsettings-backend dconf-service debhelper dh-autoreconf
+  dh-strip-nondeterminism dirmngr dpkg-dev fakeroot fontconfig
+  fontconfig-config fonts-dejavu-core g++ g++-7 gcc gcc-6-base gcc-7
+  gcc-7-base gettext gettext-base gir1.2-atk-1.0 gir1.2-atspi-2.0
+  gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-harfbuzz-0.0
+  gir1.2-pango-1.0 glib-networking glib-networking-common
+  glib-networking-services gnupg gnupg-l10n gnupg-utils gpg gpg-agent
+  gpg-wks-client gpg-wks-server gpgconf gpgsm groff-base
+  gsettings-desktop-schemas gtk-update-icon-cache hicolor-icon-theme
+  humanity-icon-theme icu-devtools intltool-debian lib32gcc1 lib32stdc++6
+  libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl
+  libarchive-cpio-perl libarchive-zip-perl libasan3 libasan4 libasn1-8-heimdal
+  libassuan0 libatk-bridge2.0-0 libatk-bridge2.0-dev libatk1.0-0
+  libatk1.0-data libatk1.0-dev libatomic1 libatspi2.0-0 libatspi2.0-dev
+  libavahi-client3 libavahi-common-data libavahi-common3 libbinutils
+  libc-dev-bin libc6-dev libc6-i386 libcairo-gobject2
+  libcairo-script-interpreter2 libcairo2 libcairo2-dev libcc1-0 libcilkrts5
+  libclang-common-6.0-dev libclang1-6.0 libcolord2 libcroco3 libcups2 libcurl4
+  libdatrie1 libdbus-1-dev libdconf1 libdpkg-perl libdrm-amdgpu1 libdrm-common
+  libdrm-dev libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libdrm2 libegl-mesa0
+  libegl1 libegl1-mesa-dev libepoxy-dev libepoxy0 libexpat1-dev libfakeroot
+  libffi-dev libfile-fcntllock-perl libfile-stripnondeterminism-perl
+  libfontconfig1 libfontconfig1-dev libfreetype6 libfreetype6-dev
+  libgail-common libgail18 libgbm1 libgc1c2 libgcc-6-dev libgcc-7-dev
+  libgdbm-compat4 libgdbm5 libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-bin
+  libgdk-pixbuf2.0-common libgl1 libgl1-mesa-dev libgl1-mesa-dri libglapi-mesa
+  libgles1 libgles2 libglib2.0-bin libglib2.0-dev libglib2.0-dev-bin
+  libglu1-mesa libglu1-mesa-dev libglvnd-core-dev libglvnd-dev libglvnd0
+  libglx-mesa0 libglx0 libgomp1 libgraphite2-3 libgraphite2-dev
+  libgssapi3-heimdal libgtk-3-0 libgtk-3-bin libgtk-3-common libgtk2.0-0
+  libgtk2.0-bin libgtk2.0-common libharfbuzz-dev libharfbuzz-gobject0
+  libharfbuzz-icu0 libharfbuzz0b libhcrypto4-heimdal libheimbase1-heimdal
+  libheimntlm0-heimdal libhx509-5-heimdal libice-dev libice6 libicu-dev
+  libicu-le-hb-dev libicu-le-hb0 libiculx60 libisl19 libitm1 libjbig0
+  libjpeg-turbo8 libjpeg8 libjson-glib-1.0-0 libjson-glib-1.0-common
+  libjsoncpp1 libkrb5-26-heimdal libksba8 liblcms2-2 libldap-2.4-2
+  libldap-common libllvm10 libllvm6.0 liblsan0 libltdl-dev libltdl7 liblzo2-2
+  libmail-sendmail-perl libmpc3 libmpfr6 libmpx2 libnghttp2-14 libnotify4
+  libnpth0 libobjc-7-dev libobjc4 libomp-dev libomp5 libopengl0 libpango-1.0-0
+  libpango1.0-dev libpangocairo-1.0-0 libpangoft2-1.0-0 libpangoxft-1.0-0
+  libpciaccess0 libpcre16-3 libpcre3-dev libpcre32-3 libpcrecpp0v5 libperl5.26
+  libpipeline1 libpixman-1-0 libpixman-1-dev libpng-dev libpng-tools
+  libpng16-16 libproxy1v5 libpsl5 libpthread-stubs0-dev libpython-stdlib
+  libpython2.7-minimal libpython2.7-stdlib libquadmath0 librest-0.7-0
+  libroken18-heimdal librsvg2-2 librsvg2-common librtmp1 libsasl2-2
+  libsasl2-modules libsasl2-modules-db libsensors4 libsigsegv2 libsm-dev
+  libsm6 libsoup-gnome2.4-1 libsoup2.4-1 libstdc++-6-dev libstdc++-7-dev
+  libsys-hostname-long-perl libthai-data libthai0 libtiff5 libtimedate-perl
+  libtinfo-dev libtool libtsan0 libubsan0 libwayland-bin libwayland-client0
+  libwayland-cursor0 libwayland-dev libwayland-egl1 libwayland-server0
+  libwind0-heimdal libwxbase3.0-0v5 libwxbase3.0-dev libwxgtk3.0-0v5
+  libx11-dev libx11-doc libx11-xcb-dev libx11-xcb1 libxau-dev libxcb-dri2-0
+  libxcb-dri2-0-dev libxcb-dri3-0 libxcb-dri3-dev libxcb-glx0 libxcb-glx0-dev
+  libxcb-present-dev libxcb-present0 libxcb-randr0 libxcb-randr0-dev
+  libxcb-render0 libxcb-render0-dev libxcb-shape0 libxcb-shape0-dev
+  libxcb-shm0 libxcb-shm0-dev libxcb-sync-dev libxcb-sync1 libxcb-xfixes0
+  libxcb-xfixes0-dev libxcb1-dev libxcomposite-dev libxcomposite1
+  libxcursor-dev libxcursor1 libxdamage-dev libxdamage1 libxdmcp-dev
+  libxext-dev libxfixes-dev libxfixes3 libxft-dev libxft2 libxi-dev libxi6
+  libxinerama-dev libxinerama1 libxkbcommon-dev libxkbcommon0 libxrandr-dev
+  libxrandr2 libxrender-dev libxrender1 libxshmfence-dev libxshmfence1
+  libxtst-dev libxtst6 libxxf86vm-dev libxxf86vm1 linux-libc-dev lld-6.0
+  llvm-6.0 llvm-6.0-dev llvm-6.0-runtime m4 man-db manpages manpages-dev
+  mesa-common-dev notification-daemon perl perl-modules-5.26 pinentry-curses
+  po-debconf publicsuffix python python-minimal python2.7 python2.7-minimal
+  python3-distutils python3-lib2to3 ubuntu-mono unzip wayland-protocols
+  wx-common wx3.0-headers x11-common x11proto-composite-dev x11proto-core-dev
+  x11proto-damage-dev x11proto-dev x11proto-fixes-dev x11proto-input-dev
+  x11proto-randr-dev x11proto-record-dev x11proto-xext-dev
+  x11proto-xf86vidmode-dev x11proto-xinerama-dev xorg-sgml-doctools xtrans-dev
+  zip zlib1g-dev
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc binutils-doc wamerican
+  | wordlist whois vacation gnustep gnustep-devel clang-6.0-doc cpp-doc
+  gcc-7-locales dh-make dwz dbus-user-session pinentry-gnome3 tor
+  debian-keyring g++-multilib g++-7-multilib gcc-7-doc libstdc++6-7-dbg
+  gcc-multilib flex bison gdb gcc-doc gcc-7-multilib libgcc1-dbg libgomp1-dbg
+  libitm1-dbg libatomic1-dbg libasan4-dbg liblsan0-dbg libtsan0-dbg
+  libubsan0-dbg libcilkrts5-dbg libmpx2-dbg libquadmath0-dbg gettext-doc
+  libasprintf-dev libgettextpo-dev parcimonie xloadimage scdaemon groff
+  glibc-doc libcairo2-doc colord cups-common git bzr gdbm-l10n libglib2.0-doc
+  libgraphite2-utils gvfs libgtk-3-doc libice-doc icu-doc liblcms2-utils
+  libtool-doc libomp-doc imagemagick libpango1.0-doc pciutils librsvg2-bin
+  libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal
+  libsasl2-modules-ldap libsasl2-modules-otp libsasl2-modules-sql lm-sensors
+  libsm-doc libstdc++-6-doc libstdc++-7-doc gfortran | fortran95-compiler
+  gcj-jdk libwayland-doc wx3.0-doc libxcb-doc libxext-doc llvm-6.0-doc m4-doc
+  make-doc apparmor www-browser spell ed diffutils-doc perl-doc
+  libterm-readline-gnu-perl | libterm-readline-perl-perl pinentry-doc
+  libmail-box-perl python-doc python-tk python2.7-doc
+The following NEW packages will be installed:
+  adwaita-icon-theme at-spi2-core autoconf automake autopoint autotools-dev
+  binfmt-support binutils binutils-common binutils-x86-64-linux-gnu
+  bsdmainutils build-essential clang clang-6.0 cpp cpp-7 curl
+  dconf-gsettings-backend dconf-service debhelper dh-autoreconf
+  dh-strip-nondeterminism dirmngr dpkg-dev fakeroot fontconfig
+  fontconfig-config fonts-dejavu-core g++ g++-7 gcc gcc-6-base gcc-7
+  gcc-7-base gettext gettext-base gir1.2-atk-1.0 gir1.2-atspi-2.0
+  gir1.2-freedesktop gir1.2-gdkpixbuf-2.0 gir1.2-gtk-3.0 gir1.2-harfbuzz-0.0
+  gir1.2-pango-1.0 glib-networking glib-networking-common
+  glib-networking-services gnupg gnupg-l10n gnupg-utils gpg gpg-agent
+  gpg-wks-client gpg-wks-server gpgconf gpgsm groff-base
+  gsettings-desktop-schemas gtk-update-icon-cache hicolor-icon-theme
+  humanity-icon-theme icu-devtools intltool-debian lib32gcc1 lib32stdc++6
+  libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl
+  libarchive-cpio-perl libarchive-zip-perl libasan3 libasan4 libasn1-8-heimdal
+  libassuan0 libatk-bridge2.0-0 libatk-bridge2.0-dev libatk1.0-0
+  libatk1.0-data libatk1.0-dev libatomic1 libatspi2.0-0 libatspi2.0-dev
+  libavahi-client3 libavahi-common-data libavahi-common3 libbinutils
+  libc-dev-bin libc6-dev libc6-i386 libcairo-gobject2
+  libcairo-script-interpreter2 libcairo2 libcairo2-dev libcc1-0 libcilkrts5
+  libclang-common-6.0-dev libclang1-6.0 libcolord2 libcroco3 libcups2 libcurl4
+  libdatrie1 libdbus-1-dev libdconf1 libdpkg-perl libdrm-amdgpu1 libdrm-common
+  libdrm-dev libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libdrm2 libegl-mesa0
+  libegl1 libegl1-mesa-dev libepoxy-dev libepoxy0 libexpat1-dev libfakeroot
+  libffi-dev libfile-fcntllock-perl libfile-stripnondeterminism-perl
+  libfontconfig1 libfontconfig1-dev libfreetype6 libfreetype6-dev
+  libgail-common libgail18 libgbm1 libgc1c2 libgcc-6-dev libgcc-7-dev
+  libgdbm-compat4 libgdbm5 libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-bin
+  libgdk-pixbuf2.0-common libgdk-pixbuf2.0-dev libgl1 libgl1-mesa-dev
+  libgl1-mesa-dri libglapi-mesa libgles1 libgles2 libglib2.0-bin
+  libglib2.0-dev libglib2.0-dev-bin libglu1-mesa libglu1-mesa-dev
+  libglvnd-core-dev libglvnd-dev libglvnd0 libglx-mesa0 libglx0 libgomp1
+  libgraphite2-3 libgraphite2-dev libgssapi3-heimdal libgtk-3-0 libgtk-3-bin
+  libgtk-3-common libgtk-3-dev libgtk2.0-0 libgtk2.0-bin libgtk2.0-common
+  libharfbuzz-dev libharfbuzz-gobject0 libharfbuzz-icu0 libharfbuzz0b
+  libhcrypto4-heimdal libheimbase1-heimdal libheimntlm0-heimdal
+  libhx509-5-heimdal libice-dev libice6 libicu-dev libicu-le-hb-dev
+  libicu-le-hb0 libiculx60 libisl19 libitm1 libjbig0 libjpeg-turbo8 libjpeg8
+  libjson-glib-1.0-0 libjson-glib-1.0-common libjsoncpp1 libkrb5-26-heimdal
+  libksba8 liblcms2-2 libldap-2.4-2 libldap-common libllvm10 libllvm6.0
+  liblsan0 libltdl-dev libltdl7 liblzo2-2 libmail-sendmail-perl libmpc3
+  libmpfr6 libmpx2 libnghttp2-14 libnotify4 libnpth0 libobjc-7-dev libobjc4
+  libomp-dev libomp5 libopengl0 libpango-1.0-0 libpango1.0-dev
+  libpangocairo-1.0-0 libpangoft2-1.0-0 libpangoxft-1.0-0 libpciaccess0
+  libpcre16-3 libpcre3-dev libpcre32-3 libpcrecpp0v5 libperl5.26 libpipeline1
+  libpixman-1-0 libpixman-1-dev libpng-dev libpng-tools libpng16-16
+  libproxy1v5 libpsl5 libpthread-stubs0-dev libpython-stdlib
+  libpython2.7-minimal libpython2.7-stdlib libquadmath0 librest-0.7-0
+  libroken18-heimdal librsvg2-2 librsvg2-common librtmp1 libsasl2-2
+  libsasl2-modules libsasl2-modules-db libsensors4 libsigsegv2 libsm-dev
+  libsm6 libsoup-gnome2.4-1 libsoup2.4-1 libstdc++-6-dev libstdc++-7-dev
+  libsys-hostname-long-perl libthai-data libthai0 libtiff5 libtimedate-perl
+  libtinfo-dev libtool libtsan0 libubsan0 libwayland-bin libwayland-client0
+  libwayland-cursor0 libwayland-dev libwayland-egl1 libwayland-server0
+  libwind0-heimdal libwxbase3.0-0v5 libwxbase3.0-dev libwxgtk3.0-0v5
+  libwxgtk3.0-dev libx11-dev libx11-doc libx11-xcb-dev libx11-xcb1 libxau-dev
+  libxcb-dri2-0 libxcb-dri2-0-dev libxcb-dri3-0 libxcb-dri3-dev libxcb-glx0
+  libxcb-glx0-dev libxcb-present-dev libxcb-present0 libxcb-randr0
+  libxcb-randr0-dev libxcb-render0 libxcb-render0-dev libxcb-shape0
+  libxcb-shape0-dev libxcb-shm0 libxcb-shm0-dev libxcb-sync-dev libxcb-sync1
+  libxcb-xfixes0 libxcb-xfixes0-dev libxcb1-dev libxcomposite-dev
+  libxcomposite1 libxcursor-dev libxcursor1 libxdamage-dev libxdamage1
+  libxdmcp-dev libxext-dev libxfixes-dev libxfixes3 libxft-dev libxft2
+  libxi-dev libxi6 libxinerama-dev libxinerama1 libxkbcommon-dev libxkbcommon0
+  libxrandr-dev libxrandr2 libxrender-dev libxrender1 libxshmfence-dev
+  libxshmfence1 libxtst-dev libxtst6 libxxf86vm-dev libxxf86vm1 linux-libc-dev
+  lld lld-6.0 llvm-6.0 llvm-6.0-dev llvm-6.0-runtime m4 make man-db manpages
+  manpages-dev mesa-common-dev nano notification-daemon patch perl
+  perl-modules-5.26 pinentry-curses pkgconf po-debconf publicsuffix python
+  python-minimal python2.7 python2.7-minimal python3-distutils python3-lib2to3
+  ubuntu-mono unzip wayland-protocols wx-common wx3.0-headers x11-common
+  x11proto-composite-dev x11proto-core-dev x11proto-damage-dev x11proto-dev
+  x11proto-fixes-dev x11proto-input-dev x11proto-randr-dev x11proto-record-dev
+  x11proto-xext-dev x11proto-xf86vidmode-dev x11proto-xinerama-dev
+  xorg-sgml-doctools xtrans-dev zip zlib1g-dev
+0 upgraded, 371 newly installed, 0 to remove and 0 not upgraded.
+Need to get 209 MB of archives.
+After this operation, 1,214 MB of additional disk space will be used.
+'http://archive.ubuntu.com/ubuntu/pool/main/b/bsdmainutils/bsdmainutils_11.1.2ubuntu1_amd64.deb' bsdmainutils_11.1.2ubuntu1_amd64.deb 181460 MD5Sum:e551c903d0c72c58cf8ab3c457879d9c
+'http://archive.ubuntu.com/ubuntu/pool/main/g/groff/groff-base_1.22.3-10_amd64.deb' groff-base_1.22.3-10_amd64.deb 1152504 MD5Sum:06d3b8c21021f27b634fa8f6629879b1
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gdbm/libgdbm5_1.14.1-6_amd64.deb' libgdbm5_1.14.1-6_amd64.deb 26040 MD5Sum:99523c29e5ed1272dff7abc066eec3f9
+'http://archive.ubuntu.com/ubuntu/pool/main/libp/libpipeline/libpipeline1_1.5.0-1_amd64.deb' libpipeline1_1.5.0-1_amd64.deb 25256 MD5Sum:5d548455002c55e5675b19b60d7801c5
+'http://archive.ubuntu.com/ubuntu/pool/main/m/man-db/man-db_2.8.3-2ubuntu0.1_amd64.deb' man-db_2.8.3-2ubuntu0.1_amd64.deb 1018996 MD5Sum:20eeb937c59da39c29fce90f5c6e49ac
+'http://archive.ubuntu.com/ubuntu/pool/main/libp/libpng1.6/libpng16-16_1.6.34-1ubuntu0.18.04.2_amd64.deb' libpng16-16_1.6.34-1ubuntu0.18.04.2_amd64.deb 175920 MD5Sum:2a587a77f7822832cce00e912f024b13
+'http://archive.ubuntu.com/ubuntu/pool/main/f/freetype/libfreetype6_2.8.1-2ubuntu2.1_amd64.deb' libfreetype6_2.8.1-2ubuntu2.1_amd64.deb 334916 MD5Sum:fc58e570b3ba0280713d57edd437eb94
+'http://archive.ubuntu.com/ubuntu/pool/main/f/fonts-dejavu/fonts-dejavu-core_2.37-1_all.deb' fonts-dejavu-core_2.37-1_all.deb 1040712 MD5Sum:be036b423d84ce26700dacdbdcddf7b5
+'http://archive.ubuntu.com/ubuntu/pool/main/f/fontconfig/fontconfig-config_2.12.6-0ubuntu2_all.deb' fontconfig-config_2.12.6-0ubuntu2_all.deb 55792 MD5Sum:e70f6633b3b1abf983a5186b543b07d0
+'http://archive.ubuntu.com/ubuntu/pool/main/f/fontconfig/libfontconfig1_2.12.6-0ubuntu2_amd64.deb' libfontconfig1_2.12.6-0ubuntu2_amd64.deb 136732 MD5Sum:a4776c6c1e71389a66a716acd63ef7ff
+'http://archive.ubuntu.com/ubuntu/pool/main/f/fontconfig/fontconfig_2.12.6-0ubuntu2_amd64.deb' fontconfig_2.12.6-0ubuntu2_amd64.deb 168636 MD5Sum:9e7919b0a0b9401b5732cede09514f35
+'http://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg-turbo/libjpeg-turbo8_1.5.2-0ubuntu5.18.04.4_amd64.deb' libjpeg-turbo8_1.5.2-0ubuntu5.18.04.4_amd64.deb 110392 MD5Sum:c79245b83562a8f7a0b5f88701519d92
+'http://archive.ubuntu.com/ubuntu/pool/main/l/lzo2/liblzo2-2_2.08-1.2_amd64.deb' liblzo2-2_2.08-1.2_amd64.deb 48716 MD5Sum:a42f8dbd37e7aacf1889bd47a8dcf9aa
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorg/x11-common_7.7+19ubuntu7.1_all.deb' x11-common_1%3a7.7+19ubuntu7.1_all.deb 22520 MD5Sum:073b2d9bcf001c6f52213513b7e294b3
+'http://archive.ubuntu.com/ubuntu/pool/main/libi/libice/libice6_1.0.9-2_amd64.deb' libice6_2%3a1.0.9-2_amd64.deb 40234 MD5Sum:e701c0c6dfce0b2be454d5415600bce9
+'http://archive.ubuntu.com/ubuntu/pool/main/libs/libsm/libsm6_1.2.2-1_amd64.deb' libsm6_2%3a1.2.2-1_amd64.deb 15816 MD5Sum:5ed650e070b0c0e64bdab7d1e6271ab8
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxrender/libxrender1_0.9.10-1_amd64.deb' libxrender1_1%3a0.9.10-1_amd64.deb 18706 MD5Sum:bd39c1a169760fd389510eebcc0f8c4c
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xft/libxft2_2.3.2-1_amd64.deb' libxft2_2.3.2-1_amd64.deb 36120 MD5Sum:e45fdf6ee9df169ba8e3430ea4087b81
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxinerama/libxinerama1_1.1.3-1_amd64.deb' libxinerama1_2%3a1.1.3-1_amd64.deb 7908 MD5Sum:721170a8943d91f9f2f7fd91b9bb9508
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxxf86vm/libxxf86vm1_1.1.4-1_amd64.deb' libxxf86vm1_1%3a1.1.4-1_amd64.deb 10562 MD5Sum:acde226c3bad0c48b8b79251074c474c
+'http://archive.ubuntu.com/ubuntu/pool/main/p/perl/perl-modules-5.26_5.26.1-6ubuntu0.5_all.deb' perl-modules-5.26_5.26.1-6ubuntu0.5_all.deb 2762420 MD5Sum:1f5ba6c9fa74dddcf8105469c3475b29
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gdbm/libgdbm-compat4_1.14.1-6_amd64.deb' libgdbm-compat4_1.14.1-6_amd64.deb 6084 MD5Sum:2cfc190ba1ac4223fe4a494b25045f8a
+'http://archive.ubuntu.com/ubuntu/pool/main/p/perl/libperl5.26_5.26.1-6ubuntu0.5_amd64.deb' libperl5.26_5.26.1-6ubuntu0.5_amd64.deb 3533684 MD5Sum:ffed2bcc1ba1199d7069c160f5daad07
+'http://archive.ubuntu.com/ubuntu/pool/main/p/perl/perl_5.26.1-6ubuntu0.5_amd64.deb' perl_5.26.1-6ubuntu0.5_amd64.deb 201488 MD5Sum:19366e2a6d8257073343cbff0a3faff3
+'http://archive.ubuntu.com/ubuntu/pool/main/p/python2.7/libpython2.7-minimal_2.7.17-1~18.04ubuntu1.2_amd64.deb' libpython2.7-minimal_2.7.17-1~18.04ubuntu1.2_amd64.deb 335324 MD5Sum:407cfe50314ae99430971bae7c987ce3
+'http://archive.ubuntu.com/ubuntu/pool/main/p/python2.7/python2.7-minimal_2.7.17-1~18.04ubuntu1.2_amd64.deb' python2.7-minimal_2.7.17-1~18.04ubuntu1.2_amd64.deb 1289692 MD5Sum:3761ca0e0ddeae6505cd0972885e4144
+'http://archive.ubuntu.com/ubuntu/pool/main/p/python-defaults/python-minimal_2.7.15~rc1-1_amd64.deb' python-minimal_2.7.15~rc1-1_amd64.deb 28068 MD5Sum:aab12c847956500ef798ac63f760ac15
+'http://archive.ubuntu.com/ubuntu/pool/main/p/python2.7/libpython2.7-stdlib_2.7.17-1~18.04ubuntu1.2_amd64.deb' libpython2.7-stdlib_2.7.17-1~18.04ubuntu1.2_amd64.deb 1916480 MD5Sum:b53508732cc215e9f777b65033dac337
+'http://archive.ubuntu.com/ubuntu/pool/main/p/python2.7/python2.7_2.7.17-1~18.04ubuntu1.2_amd64.deb' python2.7_2.7.17-1~18.04ubuntu1.2_amd64.deb 247776 MD5Sum:9cc3d897a0b1fb1421cd39bafc34e0c8
+'http://archive.ubuntu.com/ubuntu/pool/main/p/python-defaults/libpython-stdlib_2.7.15~rc1-1_amd64.deb' libpython-stdlib_2.7.15~rc1-1_amd64.deb 7620 MD5Sum:a91890e37c5c7e2c268882fa48e4aeab
+'http://archive.ubuntu.com/ubuntu/pool/main/p/python-defaults/python_2.7.15~rc1-1_amd64.deb' python_2.7.15~rc1-1_amd64.deb 139968 MD5Sum:a1a78eb8ba15cbb31d13be407f7b5f20
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gettext/gettext-base_0.19.8.1-6ubuntu0.3_amd64.deb' gettext-base_0.19.8.1-6ubuntu0.3_amd64.deb 113036 MD5Sum:edd7410552136e04ed7371326042d234
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-common_2.4.101-2~18.04.1_all.deb' libdrm-common_2.4.101-2~18.04.1_all.deb 5560 MD5Sum:1021b89c8c8abdf433318d1addfa8a69
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm2_2.4.101-2~18.04.1_amd64.deb' libdrm2_2.4.101-2~18.04.1_amd64.deb 32260 MD5Sum:89e349d9e110bb82701f5beba3568af9
+'http://archive.ubuntu.com/ubuntu/pool/main/libp/libpsl/libpsl5_0.19.1-5build1_amd64.deb' libpsl5_0.19.1-5build1_amd64.deb 41772 MD5Sum:e9be036e1298b13e6745e3ba4d15daac
+'http://archive.ubuntu.com/ubuntu/pool/main/m/manpages/manpages_4.15-1_all.deb' manpages_4.15-1_all.deb 1233600 MD5Sum:9c76200ef7989362ea451c396943fb9e
+'http://archive.ubuntu.com/ubuntu/pool/main/n/nano/nano_2.9.3-2_amd64.deb' nano_2.9.3-2_amd64.deb 231376 MD5Sum:32bee634c017cea43988687d6e0a1942
+'http://archive.ubuntu.com/ubuntu/pool/main/p/publicsuffix/publicsuffix_20180223.1310-1_all.deb' publicsuffix_20180223.1310-1_all.deb 97576 MD5Sum:5097826b020b34935420c982ead1e767
+'http://archive.ubuntu.com/ubuntu/pool/main/h/hicolor-icon-theme/hicolor-icon-theme_0.17-2_all.deb' hicolor-icon-theme_0.17-2_all.deb 9976 MD5Sum:bce9c3148337fb38d245922e12007e44
+'http://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg8-empty/libjpeg8_8c-2ubuntu8_amd64.deb' libjpeg8_8c-2ubuntu8_amd64.deb 2194 MD5Sum:e0f16286dd787b951ffa953987fdf6a7
+'http://archive.ubuntu.com/ubuntu/pool/main/j/jbigkit/libjbig0_2.1-3.1build1_amd64.deb' libjbig0_2.1-3.1build1_amd64.deb 26696 MD5Sum:738719aadee1da8a2c13ecadd59fc043
+'http://archive.ubuntu.com/ubuntu/pool/main/t/tiff/libtiff5_4.0.9-5ubuntu0.3_amd64.deb' libtiff5_4.0.9-5ubuntu0.3_amd64.deb 152740 MD5Sum:4de3b476af6b40c40991a9fafbb10d82
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gdk-pixbuf/libgdk-pixbuf2.0-common_2.36.11-2_all.deb' libgdk-pixbuf2.0-common_2.36.11-2_all.deb 4536 MD5Sum:9527001dd5968fb7af2e3c6d132cfe65
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gdk-pixbuf/libgdk-pixbuf2.0-0_2.36.11-2_amd64.deb' libgdk-pixbuf2.0-0_2.36.11-2_amd64.deb 165488 MD5Sum:e58622ebf790c906f7b5995954af85ac
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gtk+3.0/gtk-update-icon-cache_3.22.30-1ubuntu4_amd64.deb' gtk-update-icon-cache_3.22.30-1ubuntu4_amd64.deb 28256 MD5Sum:a564623242cbad1b297e09ac30f8d724
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pixman/libpixman-1-0_0.34.0-2_amd64.deb' libpixman-1-0_0.34.0-2_amd64.deb 228516 MD5Sum:5904faeeb0da129c39e09cd11fbaa4f0
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-render0_1.13-2~ubuntu18.04_amd64.deb' libxcb-render0_1.13-2~ubuntu18.04_amd64.deb 14740 MD5Sum:59ca819d3d54cb92ddf290cdb372f41c
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-shm0_1.13-2~ubuntu18.04_amd64.deb' libxcb-shm0_1.13-2~ubuntu18.04_amd64.deb 5600 MD5Sum:c454dac33a814db5b338f5db35fd0c60
+'http://archive.ubuntu.com/ubuntu/pool/main/c/cairo/libcairo2_1.15.10-2ubuntu0.1_amd64.deb' libcairo2_1.15.10-2ubuntu0.1_amd64.deb 580212 MD5Sum:3fd945c2f4fb6c407caa4f251d914db2
+'http://archive.ubuntu.com/ubuntu/pool/main/libc/libcroco/libcroco3_0.6.12-2_amd64.deb' libcroco3_0.6.12-2_amd64.deb 81300 MD5Sum:575ce208fe0126bc5b71db9957e49131
+'http://archive.ubuntu.com/ubuntu/pool/main/libt/libthai/libthai-data_0.1.27-2_all.deb' libthai-data_0.1.27-2_all.deb 132844 MD5Sum:64b93d363a692c73b69e3b8061f6b10e
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdatrie/libdatrie1_0.2.10-7_amd64.deb' libdatrie1_0.2.10-7_amd64.deb 17828 MD5Sum:d025e7980c34b213ddd5576ebe5de7b7
+'http://archive.ubuntu.com/ubuntu/pool/main/libt/libthai/libthai0_0.1.27-2_amd64.deb' libthai0_0.1.27-2_amd64.deb 18000 MD5Sum:584933d08e26b3311c61007b0a1ecbc4
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pango1.0/libpango-1.0-0_1.40.14-1ubuntu0.1_amd64.deb' libpango-1.0-0_1.40.14-1ubuntu0.1_amd64.deb 152564 MD5Sum:d0057fcea7533bdf856b0ba18a2864f4
+'http://archive.ubuntu.com/ubuntu/pool/main/g/graphite2/libgraphite2-3_1.3.11-2_amd64.deb' libgraphite2-3_1.3.11-2_amd64.deb 78728 MD5Sum:4215fab7cd7d94ecdc27149c2f5d3a54
+'http://archive.ubuntu.com/ubuntu/pool/main/h/harfbuzz/libharfbuzz0b_1.7.2-1ubuntu1_amd64.deb' libharfbuzz0b_1.7.2-1ubuntu1_amd64.deb 231764 MD5Sum:f3bc4915854c652bbd01d1af8e54712c
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pango1.0/libpangoft2-1.0-0_1.40.14-1ubuntu0.1_amd64.deb' libpangoft2-1.0-0_1.40.14-1ubuntu0.1_amd64.deb 33152 MD5Sum:971d9893de13ccd85a47d629511f34eb
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pango1.0/libpangocairo-1.0-0_1.40.14-1ubuntu0.1_amd64.deb' libpangocairo-1.0-0_1.40.14-1ubuntu0.1_amd64.deb 20844 MD5Sum:e00d4db4edc6fe1f76b9812a9bb068aa
+'http://archive.ubuntu.com/ubuntu/pool/main/libr/librsvg/librsvg2-2_2.40.20-2ubuntu0.2_amd64.deb' librsvg2-2_2.40.20-2ubuntu0.2_amd64.deb 98556 MD5Sum:735dadca3abee7f0ecd67118e8945360
+'http://archive.ubuntu.com/ubuntu/pool/main/libr/librsvg/librsvg2-common_2.40.20-2ubuntu0.2_amd64.deb' librsvg2-common_2.40.20-2ubuntu0.2_amd64.deb 5064 MD5Sum:f43717244bb97b516665b1060284ae52
+'http://archive.ubuntu.com/ubuntu/pool/main/h/humanity-icon-theme/humanity-icon-theme_0.6.15_all.deb' humanity-icon-theme_0.6.15_all.deb 1250380 MD5Sum:21ae88ef79bde1fa1fb67b34e7a93c1a
+'http://archive.ubuntu.com/ubuntu/pool/main/u/ubuntu-themes/ubuntu-mono_16.10+18.04.20181005-0ubuntu1_all.deb' ubuntu-mono_16.10+18.04.20181005-0ubuntu1_all.deb 149012 MD5Sum:00d0a56c6340447251e7aa88d80c1ce8
+'http://archive.ubuntu.com/ubuntu/pool/main/a/adwaita-icon-theme/adwaita-icon-theme_3.28.0-1ubuntu1_all.deb' adwaita-icon-theme_3.28.0-1ubuntu1_all.deb 3305556 MD5Sum:dc44b80cf286fbf962d7b060ca585868
+'http://archive.ubuntu.com/ubuntu/pool/main/a/at-spi2-core/libatspi2.0-0_2.28.0-1_amd64.deb' libatspi2.0-0_2.28.0-1_amd64.deb 59588 MD5Sum:1e2dcdcb0466bc18bdc94e5f7e3558de
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxtst/libxtst6_1.2.3-1_amd64.deb' libxtst6_2%3a1.2.3-1_amd64.deb 12818 MD5Sum:4e23d404c7a5f8923536342681902331
+'http://archive.ubuntu.com/ubuntu/pool/main/a/at-spi2-core/at-spi2-core_2.28.0-1_amd64.deb' at-spi2-core_2.28.0-1_amd64.deb 47928 MD5Sum:3880aa45ec077eaafd2bc5cca5a92e39
+'http://archive.ubuntu.com/ubuntu/pool/main/libs/libsigsegv/libsigsegv2_2.12-1_amd64.deb' libsigsegv2_2.12-1_amd64.deb 14700 MD5Sum:3f96a32e77807c4782b0e4d2d5d69779
+'http://archive.ubuntu.com/ubuntu/pool/main/m/m4/m4_1.4.18-1_amd64.deb' m4_1.4.18-1_amd64.deb 197166 MD5Sum:e7b4552872d2f9b0d96346c93d4ce2ed
+'http://archive.ubuntu.com/ubuntu/pool/main/a/autoconf/autoconf_2.69-11_all.deb' autoconf_2.69-11_all.deb 321606 MD5Sum:cdc83879a8d31cfad4e37c345208ab62
+'http://archive.ubuntu.com/ubuntu/pool/main/a/autotools-dev/autotools-dev_20180224.1_all.deb' autotools-dev_20180224.1_all.deb 39640 MD5Sum:e1f07cbfa9b7eecce6eab5c4ee372cce
+'http://archive.ubuntu.com/ubuntu/pool/main/a/automake-1.15/automake_1.15.1-3ubuntu2_all.deb' automake_1%3a1.15.1-3ubuntu2_all.deb 509152 MD5Sum:8a007033d63a46befda40b5d0a027704
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gettext/autopoint_0.19.8.1-6ubuntu0.3_all.deb' autopoint_0.19.8.1-6ubuntu0.3_all.deb 425872 MD5Sum:23814481a5548cf60378b7e9ebfe2c2f
+'http://archive.ubuntu.com/ubuntu/pool/main/b/binfmt-support/binfmt-support_2.1.8-2_amd64.deb' binfmt-support_2.1.8-2_amd64.deb 51616 MD5Sum:10247ef47bf2149668e2e42319905a61
+'http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils-common_2.30-21ubuntu1~18.04.4_amd64.deb' binutils-common_2.30-21ubuntu1~18.04.4_amd64.deb 196472 MD5Sum:e760491afd358cd0760eef2debf3bdb3
+'http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/libbinutils_2.30-21ubuntu1~18.04.4_amd64.deb' libbinutils_2.30-21ubuntu1~18.04.4_amd64.deb 487604 MD5Sum:d985d8c918ae3cf23e2a6723b5e8f7c5
+'http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils-x86-64-linux-gnu_2.30-21ubuntu1~18.04.4_amd64.deb' binutils-x86-64-linux-gnu_2.30-21ubuntu1~18.04.4_amd64.deb 1839300 MD5Sum:bfadda26c8ed3bb7ccd626a5a4ec2856
+'http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils_2.30-21ubuntu1~18.04.4_amd64.deb' binutils_2.30-21ubuntu1~18.04.4_amd64.deb 3392 MD5Sum:872d521496645c10cb191a6ecd357641
+'http://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc-dev-bin_2.27-3ubuntu1.4_amd64.deb' libc-dev-bin_2.27-3ubuntu1.4_amd64.deb 71848 MD5Sum:b2d44c454d7d946baddfbb49c49b46aa
+'http://archive.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_4.15.0-128.131_amd64.deb' linux-libc-dev_4.15.0-128.131_amd64.deb 988832 MD5Sum:2be7238a8a340b7e785fdab0bcf2d419
+'http://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6-dev_2.27-3ubuntu1.4_amd64.deb' libc6-dev_2.27-3ubuntu1.4_amd64.deb 2584868 MD5Sum:0f19513e4ba46f4a83d205f90969dee2
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-7/gcc-7-base_7.5.0-3ubuntu1~18.04_amd64.deb' gcc-7-base_7.5.0-3ubuntu1~18.04_amd64.deb 18268 MD5Sum:d70b591fbcc9f78af9c30c2ef2a9847c
+'http://archive.ubuntu.com/ubuntu/pool/main/i/isl/libisl19_0.19-1_amd64.deb' libisl19_0.19-1_amd64.deb 551452 MD5Sum:27d5d5ed547d29270196f8c7f19c669d
+'http://archive.ubuntu.com/ubuntu/pool/main/m/mpfr4/libmpfr6_4.0.1-1_amd64.deb' libmpfr6_4.0.1-1_amd64.deb 242588 MD5Sum:6be5dbed25124c8174c8aa13932d8206
+'http://archive.ubuntu.com/ubuntu/pool/main/m/mpclib3/libmpc3_1.1.0-1_amd64.deb' libmpc3_1.1.0-1_amd64.deb 40784 MD5Sum:904f40b9d70151d42df9b826986a24d8
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-7/cpp-7_7.5.0-3ubuntu1~18.04_amd64.deb' cpp-7_7.5.0-3ubuntu1~18.04_amd64.deb 8591092 MD5Sum:745b2592a3bbfc2e05d03f2d4322d40b
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-defaults/cpp_7.4.0-1ubuntu2.3_amd64.deb' cpp_4%3a7.4.0-1ubuntu2.3_amd64.deb 27656 MD5Sum:9912f9cee4d862e921b3713e6de01048
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libcc1-0_8.4.0-1ubuntu1~18.04_amd64.deb' libcc1-0_8.4.0-1ubuntu1~18.04_amd64.deb 39384 MD5Sum:c9368cda19a3c9ac60144f3294ed0db3
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libgomp1_8.4.0-1ubuntu1~18.04_amd64.deb' libgomp1_8.4.0-1ubuntu1~18.04_amd64.deb 76452 MD5Sum:1c40eb599773d6685a69f5e1a0f25886
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libitm1_8.4.0-1ubuntu1~18.04_amd64.deb' libitm1_8.4.0-1ubuntu1~18.04_amd64.deb 27904 MD5Sum:c2fc7f895735cbec3991d769212165cb
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libatomic1_8.4.0-1ubuntu1~18.04_amd64.deb' libatomic1_8.4.0-1ubuntu1~18.04_amd64.deb 9192 MD5Sum:d275ac654e45cc0d92e89ff8acc0a720
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-7/libasan4_7.5.0-3ubuntu1~18.04_amd64.deb' libasan4_7.5.0-3ubuntu1~18.04_amd64.deb 358376 MD5Sum:a05e4ed2dc7902261af486645ce19ec2
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/liblsan0_8.4.0-1ubuntu1~18.04_amd64.deb' liblsan0_8.4.0-1ubuntu1~18.04_amd64.deb 132688 MD5Sum:4036c9968d703655e5c98fae18a4a534
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libtsan0_8.4.0-1ubuntu1~18.04_amd64.deb' libtsan0_8.4.0-1ubuntu1~18.04_amd64.deb 288108 MD5Sum:2439bf0c82a6a9e404e0e1b03ec1fbae
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-7/libubsan0_7.5.0-3ubuntu1~18.04_amd64.deb' libubsan0_7.5.0-3ubuntu1~18.04_amd64.deb 126228 MD5Sum:361d1aca8f4cef7b9af694e3c3905b30
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-7/libcilkrts5_7.5.0-3ubuntu1~18.04_amd64.deb' libcilkrts5_7.5.0-3ubuntu1~18.04_amd64.deb 42464 MD5Sum:06a36f37873f3023977065208446dff0
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libmpx2_8.4.0-1ubuntu1~18.04_amd64.deb' libmpx2_8.4.0-1ubuntu1~18.04_amd64.deb 11636 MD5Sum:fab170b18c6f3c3781b76af20ed331ae
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libquadmath0_8.4.0-1ubuntu1~18.04_amd64.deb' libquadmath0_8.4.0-1ubuntu1~18.04_amd64.deb 133600 MD5Sum:4108418a6ea1e3d1aad8216ca0f1a9f7
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-7/libgcc-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb' libgcc-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb 2378308 MD5Sum:2808f772bab783fde404d3dd55af1e00
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-7/gcc-7_7.5.0-3ubuntu1~18.04_amd64.deb' gcc-7_7.5.0-3ubuntu1~18.04_amd64.deb 9381188 MD5Sum:f30d7be636a20b5b4e55636847641509
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-defaults/gcc_7.4.0-1ubuntu2.3_amd64.deb' gcc_4%3a7.4.0-1ubuntu2.3_amd64.deb 5184 MD5Sum:2d45412bd51748985b4a9dcb51f8243f
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-7/libstdc++-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb' libstdc++-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb 1471256 MD5Sum:05ed76a322d7d6a4e06c88f5a1c2f72b
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-7/g++-7_7.5.0-3ubuntu1~18.04_amd64.deb' g++-7_7.5.0-3ubuntu1~18.04_amd64.deb 9697404 MD5Sum:bf22ac74d6078e9277c56ad4c61a4afd
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-defaults/g++_7.4.0-1ubuntu2.3_amd64.deb' g++_4%3a7.4.0-1ubuntu2.3_amd64.deb 1568 MD5Sum:7545b3902fd42dcb4cba6bcd1347cfd4
+'http://archive.ubuntu.com/ubuntu/pool/main/m/make-dfsg/make_4.1-9.1ubuntu1_amd64.deb' make_4.1-9.1ubuntu1_amd64.deb 153924 MD5Sum:6c90a5c6b1822f5723f82787c004aea2
+'http://archive.ubuntu.com/ubuntu/pool/main/d/dpkg/libdpkg-perl_1.19.0.5ubuntu2.3_all.deb' libdpkg-perl_1.19.0.5ubuntu2.3_all.deb 211116 MD5Sum:2458515e8c84ec66b9fff16ff04a10be
+'http://archive.ubuntu.com/ubuntu/pool/main/p/patch/patch_2.7.6-2ubuntu1.1_amd64.deb' patch_2.7.6-2ubuntu1.1_amd64.deb 101856 MD5Sum:9082d955b541993a6ef6bb464b9a3874
+'http://archive.ubuntu.com/ubuntu/pool/main/d/dpkg/dpkg-dev_1.19.0.5ubuntu2.3_all.deb' dpkg-dev_1.19.0.5ubuntu2.3_all.deb 606952 MD5Sum:d7415ae1ec42db5f44e4ad0ceebf877e
+'http://archive.ubuntu.com/ubuntu/pool/main/b/build-essential/build-essential_12.4ubuntu1_amd64.deb' build-essential_12.4ubuntu1_amd64.deb 4758 MD5Sum:4a579fdac0b67fa8acba7d458c7e2af2
+'http://archive.ubuntu.com/ubuntu/pool/main/libj/libjsoncpp/libjsoncpp1_1.7.4-3_amd64.deb' libjsoncpp1_1.7.4-3_amd64.deb 73556 MD5Sum:ccd2bc1a737d16737ba6597eddf9c863
+'http://archive.ubuntu.com/ubuntu/pool/main/l/llvm-toolchain-6.0/libllvm6.0_6.0-1ubuntu2_amd64.deb' libllvm6.0_1%3a6.0-1ubuntu2_amd64.deb 14540872 MD5Sum:b102f58543ec09cef3cea3c888a812f1
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libgc/libgc1c2_7.4.2-8ubuntu1_amd64.deb' libgc1c2_1%3a7.4.2-8ubuntu1_amd64.deb 81772 MD5Sum:33707a52e703eeb3309b5df28a7b375f
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libobjc4_8.4.0-1ubuntu1~18.04_amd64.deb' libobjc4_8.4.0-1ubuntu1~18.04_amd64.deb 52556 MD5Sum:18b771494db1f0d85cd9f9a4908c1a5c
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-7/libobjc-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb' libobjc-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb 206000 MD5Sum:f7ecba12e748698279e011ca26908700
+'http://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6-i386_2.27-3ubuntu1.4_amd64.deb' libc6-i386_2.27-3ubuntu1.4_amd64.deb 2649676 MD5Sum:832b82dd44cfadf8612c9fd3b1b493ab
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/lib32gcc1_8.4.0-1ubuntu1~18.04_amd64.deb' lib32gcc1_1%3a8.4.0-1ubuntu1~18.04_amd64.deb 48092 MD5Sum:84e010eb31b2cb0d9f42e38146ed75ab
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/lib32stdc++6_8.4.0-1ubuntu1~18.04_amd64.deb' lib32stdc++6_8.4.0-1ubuntu1~18.04_amd64.deb 415056 MD5Sum:d453cc680572b7b598afe198e9cf18f2
+'http://archive.ubuntu.com/ubuntu/pool/universe/l/llvm-toolchain-6.0/libclang-common-6.0-dev_6.0-1ubuntu2_amd64.deb' libclang-common-6.0-dev_1%3a6.0-1ubuntu2_amd64.deb 3078400 MD5Sum:19242e1aaee49e60bc3d7006ef0b6e08
+'http://archive.ubuntu.com/ubuntu/pool/main/l/llvm-toolchain-6.0/libclang1-6.0_6.0-1ubuntu2_amd64.deb' libclang1-6.0_1%3a6.0-1ubuntu2_amd64.deb 7066544 MD5Sum:5bad2beafbc335a0b596aa7fa97c5a34
+'http://archive.ubuntu.com/ubuntu/pool/universe/l/llvm-toolchain-6.0/clang-6.0_6.0-1ubuntu2_amd64.deb' clang-6.0_1%3a6.0-1ubuntu2_amd64.deb 9291904 MD5Sum:1f68fdadf8f8c10b9ee0bc45567a00bf
+'http://archive.ubuntu.com/ubuntu/pool/universe/l/llvm-defaults/clang_6.0-41~exp5~ubuntu1_amd64.deb' clang_1%3a6.0-41~exp5~ubuntu1_amd64.deb 3216 MD5Sum:b195af46c117df77552434136403e2dd
+'http://archive.ubuntu.com/ubuntu/pool/main/h/heimdal/libroken18-heimdal_7.5.0+dfsg-1_amd64.deb' libroken18-heimdal_7.5.0+dfsg-1_amd64.deb 41280 MD5Sum:8c54137c5b10dbd713a94930050de88f
+'http://archive.ubuntu.com/ubuntu/pool/main/h/heimdal/libasn1-8-heimdal_7.5.0+dfsg-1_amd64.deb' libasn1-8-heimdal_7.5.0+dfsg-1_amd64.deb 174512 MD5Sum:d8e70adbe1c8ee781b8c8a22484987f1
+'http://archive.ubuntu.com/ubuntu/pool/main/h/heimdal/libheimbase1-heimdal_7.5.0+dfsg-1_amd64.deb' libheimbase1-heimdal_7.5.0+dfsg-1_amd64.deb 29276 MD5Sum:5e11815cadfbf1eb147584892c1cb58e
+'http://archive.ubuntu.com/ubuntu/pool/main/h/heimdal/libhcrypto4-heimdal_7.5.0+dfsg-1_amd64.deb' libhcrypto4-heimdal_7.5.0+dfsg-1_amd64.deb 85896 MD5Sum:560862e54631fe1f2c5696cbc73d61ba
+'http://archive.ubuntu.com/ubuntu/pool/main/h/heimdal/libwind0-heimdal_7.5.0+dfsg-1_amd64.deb' libwind0-heimdal_7.5.0+dfsg-1_amd64.deb 47816 MD5Sum:d6f9f2e9603af92a202abc571dab5367
+'http://archive.ubuntu.com/ubuntu/pool/main/h/heimdal/libhx509-5-heimdal_7.5.0+dfsg-1_amd64.deb' libhx509-5-heimdal_7.5.0+dfsg-1_amd64.deb 107228 MD5Sum:bec5f6092880251d4698e1069f6fa5ed
+'http://archive.ubuntu.com/ubuntu/pool/main/h/heimdal/libkrb5-26-heimdal_7.5.0+dfsg-1_amd64.deb' libkrb5-26-heimdal_7.5.0+dfsg-1_amd64.deb 206212 MD5Sum:b762da5ba1568677127bb2454c278590
+'http://archive.ubuntu.com/ubuntu/pool/main/h/heimdal/libheimntlm0-heimdal_7.5.0+dfsg-1_amd64.deb' libheimntlm0-heimdal_7.5.0+dfsg-1_amd64.deb 14756 MD5Sum:be528e056bcadae125ebadf8a10623b2
+'http://archive.ubuntu.com/ubuntu/pool/main/h/heimdal/libgssapi3-heimdal_7.5.0+dfsg-1_amd64.deb' libgssapi3-heimdal_7.5.0+dfsg-1_amd64.deb 96492 MD5Sum:d8862b220eb325ce827337c5afc07f26
+'http://archive.ubuntu.com/ubuntu/pool/main/c/cyrus-sasl2/libsasl2-modules-db_2.1.27~101-g0780600+dfsg-3ubuntu2.1_amd64.deb' libsasl2-modules-db_2.1.27~101-g0780600+dfsg-3ubuntu2.1_amd64.deb 14832 MD5Sum:3b482c4203e82223aad463c1b7dadada
+'http://archive.ubuntu.com/ubuntu/pool/main/c/cyrus-sasl2/libsasl2-2_2.1.27~101-g0780600+dfsg-3ubuntu2.1_amd64.deb' libsasl2-2_2.1.27~101-g0780600+dfsg-3ubuntu2.1_amd64.deb 49188 MD5Sum:f70eb3064f3286bb71288718e25032cf
+'http://archive.ubuntu.com/ubuntu/pool/main/o/openldap/libldap-common_2.4.45+dfsg-1ubuntu1.8_all.deb' libldap-common_2.4.45+dfsg-1ubuntu1.8_all.deb 17032 MD5Sum:06bc8255e47b4dbcc090a7cf3d5cf681
+'http://archive.ubuntu.com/ubuntu/pool/main/o/openldap/libldap-2.4-2_2.4.45+dfsg-1ubuntu1.8_amd64.deb' libldap-2.4-2_2.4.45+dfsg-1ubuntu1.8_amd64.deb 155412 MD5Sum:d447a2d6d7aca42e742c34d3186b5660
+'http://archive.ubuntu.com/ubuntu/pool/main/n/nghttp2/libnghttp2-14_1.30.0-1ubuntu1_amd64.deb' libnghttp2-14_1.30.0-1ubuntu1_amd64.deb 77784 MD5Sum:732fe477ac4eeeb7a39d531b1c556d03
+'http://archive.ubuntu.com/ubuntu/pool/main/r/rtmpdump/librtmp1_2.4+20151223.gitfa8646d.1-1_amd64.deb' librtmp1_2.4+20151223.gitfa8646d.1-1_amd64.deb 54182 MD5Sum:d7845f30d089d3319eb2fdc867f1b71b
+'http://archive.ubuntu.com/ubuntu/pool/main/c/curl/libcurl4_7.58.0-2ubuntu3.12_amd64.deb' libcurl4_7.58.0-2ubuntu3.12_amd64.deb 214324 MD5Sum:d47b9162e9f41b09b1ab9eff8eef94f5
+'http://archive.ubuntu.com/ubuntu/pool/main/c/curl/curl_7.58.0-2ubuntu3.12_amd64.deb' curl_7.58.0-2ubuntu3.12_amd64.deb 158956 MD5Sum:ff72e0f33209bd54807651daad67142a
+'http://archive.ubuntu.com/ubuntu/pool/main/d/d-conf/libdconf1_0.26.0-2ubuntu3_amd64.deb' libdconf1_0.26.0-2ubuntu3_amd64.deb 33136 MD5Sum:1ce64ff25b87d1d2a014463fd9690e15
+'http://archive.ubuntu.com/ubuntu/pool/main/d/d-conf/dconf-service_0.26.0-2ubuntu3_amd64.deb' dconf-service_0.26.0-2ubuntu3_amd64.deb 28364 MD5Sum:e95d9c3ef7686afcfe3ca01f2cdfe7bf
+'http://archive.ubuntu.com/ubuntu/pool/main/d/d-conf/dconf-gsettings-backend_0.26.0-2ubuntu3_amd64.deb' dconf-gsettings-backend_0.26.0-2ubuntu3_amd64.deb 20008 MD5Sum:037c3c7d2e9fc53ad855ec18a8de256c
+'http://archive.ubuntu.com/ubuntu/pool/main/libt/libtool/libtool_2.4.6-2_all.deb' libtool_2.4.6-2_all.deb 193888 MD5Sum:a2c0eeab7ccc2661572b39b308447620
+'http://archive.ubuntu.com/ubuntu/pool/main/d/dh-autoreconf/dh-autoreconf_17_all.deb' dh-autoreconf_17_all.deb 15836 MD5Sum:b4a77f46982db29c83ecc3edb857042b
+'http://archive.ubuntu.com/ubuntu/pool/main/liba/libarchive-zip-perl/libarchive-zip-perl_1.60-1ubuntu0.1_all.deb' libarchive-zip-perl_1.60-1ubuntu0.1_all.deb 84604 MD5Sum:307390e97151678c2cb36af3c3dc7c75
+'http://archive.ubuntu.com/ubuntu/pool/main/s/strip-nondeterminism/libfile-stripnondeterminism-perl_0.040-1.1~build1_all.deb' libfile-stripnondeterminism-perl_0.040-1.1~build1_all.deb 13828 MD5Sum:3206e54c009c8b68fd6abedabecfe1c5
+'http://archive.ubuntu.com/ubuntu/pool/main/libt/libtimedate-perl/libtimedate-perl_2.3000-2_all.deb' libtimedate-perl_2.3000-2_all.deb 37492 MD5Sum:709c24baede0981e7f3cfb96e8ee0229
+'http://archive.ubuntu.com/ubuntu/pool/main/s/strip-nondeterminism/dh-strip-nondeterminism_0.040-1.1~build1_all.deb' dh-strip-nondeterminism_0.040-1.1~build1_all.deb 5208 MD5Sum:e8b815743e3b7797845df8c5f988d17c
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gettext/gettext_0.19.8.1-6ubuntu0.3_amd64.deb' gettext_0.19.8.1-6ubuntu0.3_amd64.deb 1292996 MD5Sum:86837b4522863f0350ecf49f1df0a750
+'http://archive.ubuntu.com/ubuntu/pool/main/i/intltool-debian/intltool-debian_0.35.0+20060710.4_all.deb' intltool-debian_0.35.0+20060710.4_all.deb 24898 MD5Sum:e4e124ae0c819baafde959a3ba43b34f
+'http://archive.ubuntu.com/ubuntu/pool/main/p/po-debconf/po-debconf_1.0.20_all.deb' po-debconf_1.0.20_all.deb 232262 MD5Sum:5467076c4f6bba634b981ed2cdcca6a0
+'http://archive.ubuntu.com/ubuntu/pool/main/d/debhelper/debhelper_11.1.6ubuntu2_all.deb' debhelper_11.1.6ubuntu2_all.deb 901948 MD5Sum:3d5111c44208bc002c9d1f67258a84e9
+'http://archive.ubuntu.com/ubuntu/pool/main/liba/libassuan/libassuan0_2.5.1-2_amd64.deb' libassuan0_2.5.1-2_amd64.deb 35024 MD5Sum:12d93e0c66dbf5750ef9a8655638c6d6
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gnupg2/gpgconf_2.2.4-1ubuntu1.3_amd64.deb' gpgconf_2.2.4-1ubuntu1.3_amd64.deb 123132 MD5Sum:5e2d5fd94cc66d8b73dfae8572519f13
+'http://archive.ubuntu.com/ubuntu/pool/main/libk/libksba/libksba8_1.3.5-2_amd64.deb' libksba8_1.3.5-2_amd64.deb 92566 MD5Sum:bedf6e7e476dedc7f973f9660511456b
+'http://archive.ubuntu.com/ubuntu/pool/main/n/npth/libnpth0_1.5-3_amd64.deb' libnpth0_1.5-3_amd64.deb 7668 MD5Sum:702404fb5693c64611d390343ea6a732
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gnupg2/dirmngr_2.2.4-1ubuntu1.3_amd64.deb' dirmngr_2.2.4-1ubuntu1.3_amd64.deb 316232 MD5Sum:853685f8b66c5365e945a7e068983e57
+'http://archive.ubuntu.com/ubuntu/pool/main/f/fakeroot/libfakeroot_1.22-2ubuntu1_amd64.deb' libfakeroot_1.22-2ubuntu1_amd64.deb 25940 MD5Sum:e6979aab35c88d982ca4508accc76b29
+'http://archive.ubuntu.com/ubuntu/pool/main/f/fakeroot/fakeroot_1.22-2ubuntu1_amd64.deb' fakeroot_1.22-2ubuntu1_amd64.deb 62348 MD5Sum:846055f9488b063bab9194976b6767fd
+'http://archive.ubuntu.com/ubuntu/pool/universe/g/gcc-6/gcc-6-base_6.5.0-2ubuntu1~18.04_amd64.deb' gcc-6-base_6.5.0-2ubuntu1~18.04_amd64.deb 16720 MD5Sum:78b437fd197d49aad967ea4ae907d5f2
+'http://archive.ubuntu.com/ubuntu/pool/main/a/atk1.0/libatk1.0-data_2.28.1-1_all.deb' libatk1.0-data_2.28.1-1_all.deb 2992 MD5Sum:278819e368ed03ce8423558bc166d54f
+'http://archive.ubuntu.com/ubuntu/pool/main/a/atk1.0/libatk1.0-0_2.28.1-1_amd64.deb' libatk1.0-0_2.28.1-1_amd64.deb 43928 MD5Sum:555f29ac580770ee9c481f874ddfc0d0
+'http://archive.ubuntu.com/ubuntu/pool/main/a/atk1.0/gir1.2-atk-1.0_2.28.1-1_amd64.deb' gir1.2-atk-1.0_2.28.1-1_amd64.deb 17772 MD5Sum:cd7726bc56ea76d633f81bfb9fb853f3
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gobject-introspection/gir1.2-freedesktop_1.56.1-1_amd64.deb' gir1.2-freedesktop_1.56.1-1_amd64.deb 9080 MD5Sum:2b29790dd518948dbd6113b6e6a6e98b
+'http://archive.ubuntu.com/ubuntu/pool/main/a/at-spi2-core/gir1.2-atspi-2.0_2.28.0-1_amd64.deb' gir1.2-atspi-2.0_2.28.0-1_amd64.deb 14564 MD5Sum:c23bf67c28f662d3b82ddc3d81ab2e1a
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gdk-pixbuf/gir1.2-gdkpixbuf-2.0_2.36.11-2_amd64.deb' gir1.2-gdkpixbuf-2.0_2.36.11-2_amd64.deb 7748 MD5Sum:978f449e2c1e19698008a0732fb7d220
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gtk+3.0/libgtk-3-common_3.22.30-1ubuntu4_all.deb' libgtk-3-common_3.22.30-1ubuntu4_all.deb 228512 MD5Sum:ef950340f0b0c39ddf06d18fc76e87a1
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pango1.0/libpangoxft-1.0-0_1.40.14-1ubuntu0.1_amd64.deb' libpangoxft-1.0-0_1.40.14-1ubuntu0.1_amd64.deb 15004 MD5Sum:c59cb464506958b151bc3bb43cbda716
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pango1.0/gir1.2-pango-1.0_1.40.14-1ubuntu0.1_amd64.deb' gir1.2-pango-1.0_1.40.14-1ubuntu0.1_amd64.deb 21608 MD5Sum:602200d6f8a100306fca30415cacf24c
+'http://archive.ubuntu.com/ubuntu/pool/main/a/at-spi2-atk/libatk-bridge2.0-0_2.26.2-1_amd64.deb' libatk-bridge2.0-0_2.26.2-1_amd64.deb 57276 MD5Sum:92719e741d44684ff9aefe973c3254e2
+'http://archive.ubuntu.com/ubuntu/pool/main/c/cairo/libcairo-gobject2_1.15.10-2ubuntu0.1_amd64.deb' libcairo-gobject2_1.15.10-2ubuntu0.1_amd64.deb 17136 MD5Sum:06f19ac5ea39e382441cb0fb4c434bc7
+'http://archive.ubuntu.com/ubuntu/pool/main/l/lcms2/liblcms2-2_2.9-1ubuntu0.1_amd64.deb' liblcms2-2_2.9-1ubuntu0.1_amd64.deb 138856 MD5Sum:1ed472b31cffe0642be7b7432ea944de
+'http://archive.ubuntu.com/ubuntu/pool/main/c/colord/libcolord2_1.3.3-2build1_amd64.deb' libcolord2_1.3.3-2build1_amd64.deb 107066 MD5Sum:5500e0b5b5a5e156fee5f31c4ecb2825
+'http://archive.ubuntu.com/ubuntu/pool/main/a/avahi/libavahi-common-data_0.7-3.1ubuntu1.2_amd64.deb' libavahi-common-data_0.7-3.1ubuntu1.2_amd64.deb 22136 MD5Sum:70d3e5601e27e9207e3a19535401bed5
+'http://archive.ubuntu.com/ubuntu/pool/main/a/avahi/libavahi-common3_0.7-3.1ubuntu1.2_amd64.deb' libavahi-common3_0.7-3.1ubuntu1.2_amd64.deb 21624 MD5Sum:93148fea59f2df3b8b3453197dbcade8
+'http://archive.ubuntu.com/ubuntu/pool/main/a/avahi/libavahi-client3_0.7-3.1ubuntu1.2_amd64.deb' libavahi-client3_0.7-3.1ubuntu1.2_amd64.deb 25236 MD5Sum:fd789591cf6aa39ab83e932616b5d99a
+'http://archive.ubuntu.com/ubuntu/pool/main/c/cups/libcups2_2.2.7-1ubuntu2.8_amd64.deb' libcups2_2.2.7-1ubuntu2.8_amd64.deb 210800 MD5Sum:f6fd9060acf83bfefda8764730c3e1fc
+'http://archive.ubuntu.com/ubuntu/pool/main/libe/libepoxy/libepoxy0_1.4.3-1_amd64.deb' libepoxy0_1.4.3-1_amd64.deb 181040 MD5Sum:e37ecd27a725d994e35ab4bfc349720d
+'http://archive.ubuntu.com/ubuntu/pool/main/j/json-glib/libjson-glib-1.0-common_1.4.2-3ubuntu0.18.04.1_all.deb' libjson-glib-1.0-common_1.4.2-3ubuntu0.18.04.1_all.deb 3480 MD5Sum:2eff97d3780e433abc67d40c6c1548d3
+'http://archive.ubuntu.com/ubuntu/pool/main/j/json-glib/libjson-glib-1.0-0_1.4.2-3ubuntu0.18.04.1_amd64.deb' libjson-glib-1.0-0_1.4.2-3ubuntu0.18.04.1_amd64.deb 58368 MD5Sum:0258ab6f96b562d7096d6f63fa12cc87
+'http://archive.ubuntu.com/ubuntu/pool/main/libp/libproxy/libproxy1v5_0.4.15-1ubuntu0.1_amd64.deb' libproxy1v5_0.4.15-1ubuntu0.1_amd64.deb 48272 MD5Sum:619cdbbe3e7be53d1c5c4045e238a034
+'http://archive.ubuntu.com/ubuntu/pool/main/g/glib-networking/glib-networking-common_2.56.0-1ubuntu0.1_all.deb' glib-networking-common_2.56.0-1ubuntu0.1_all.deb 3476 MD5Sum:e8930fda6b1edc25d206c43e4db1ed88
+'http://archive.ubuntu.com/ubuntu/pool/main/g/glib-networking/glib-networking-services_2.56.0-1ubuntu0.1_amd64.deb' glib-networking-services_2.56.0-1ubuntu0.1_amd64.deb 8632 MD5Sum:dc4223d453c042e4c76e8b0a3e5df0bd
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gsettings-desktop-schemas/gsettings-desktop-schemas_3.28.0-1ubuntu1_all.deb' gsettings-desktop-schemas_3.28.0-1ubuntu1_all.deb 27836 MD5Sum:623f0ddaf701a1e91a3460ea13c59202
+'http://archive.ubuntu.com/ubuntu/pool/main/g/glib-networking/glib-networking_2.56.0-1ubuntu0.1_amd64.deb' glib-networking_2.56.0-1ubuntu0.1_amd64.deb 56668 MD5Sum:0b971450088cac051cd6d6d8bb7e2938
+'http://archive.ubuntu.com/ubuntu/pool/main/libs/libsoup2.4/libsoup2.4-1_2.62.1-1ubuntu0.4_amd64.deb' libsoup2.4-1_2.62.1-1ubuntu0.4_amd64.deb 292468 MD5Sum:ad3253d4aaa5370d0029551d2698696c
+'http://archive.ubuntu.com/ubuntu/pool/main/libs/libsoup2.4/libsoup-gnome2.4-1_2.62.1-1ubuntu0.4_amd64.deb' libsoup-gnome2.4-1_2.62.1-1ubuntu0.4_amd64.deb 5088 MD5Sum:68a7475ed88fdc05cec1edce6dc3d2a4
+'http://archive.ubuntu.com/ubuntu/pool/main/libr/librest/librest-0.7-0_0.8.0-2_amd64.deb' librest-0.7-0_0.8.0-2_amd64.deb 31800 MD5Sum:7fcc2881fa608227ef98247b27f31b66
+'http://archive.ubuntu.com/ubuntu/pool/main/w/wayland/libwayland-client0_1.16.0-1ubuntu1.1~18.04.3_amd64.deb' libwayland-client0_1.16.0-1ubuntu1.1~18.04.3_amd64.deb 23584 MD5Sum:cf81f611c2ee0fe377ed6e06b1eae637
+'http://archive.ubuntu.com/ubuntu/pool/main/w/wayland/libwayland-cursor0_1.16.0-1ubuntu1.1~18.04.3_amd64.deb' libwayland-cursor0_1.16.0-1ubuntu1.1~18.04.3_amd64.deb 10140 MD5Sum:b5e02f9af7d134916a12fdd9b274708f
+'http://archive.ubuntu.com/ubuntu/pool/main/w/wayland/libwayland-egl1_1.16.0-1ubuntu1.1~18.04.3_amd64.deb' libwayland-egl1_1.16.0-1ubuntu1.1~18.04.3_amd64.deb 5464 MD5Sum:3f5a63839ef8baf97e5bfcd3e6d72a6f
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcomposite/libxcomposite1_0.4.4-2_amd64.deb' libxcomposite1_1%3a0.4.4-2_amd64.deb 6988 MD5Sum:9dd6ae2b3be015c1d2bdff84726083a8
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxfixes/libxfixes3_5.0.3-1_amd64.deb' libxfixes3_1%3a5.0.3-1_amd64.deb 10772 MD5Sum:aa8e4cb21423ffd8f64d4f248559be21
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcursor/libxcursor1_1.1.15-1_amd64.deb' libxcursor1_1%3a1.1.15-1_amd64.deb 19756 MD5Sum:7fd4ec015662028a91dead92dd571300
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxdamage/libxdamage1_1.1.4-3_amd64.deb' libxdamage1_1%3a1.1.4-3_amd64.deb 6934 MD5Sum:33d2af86a68f2c1b701ac41fd709e68f
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxi/libxi6_1.7.9-1_amd64.deb' libxi6_2%3a1.7.9-1_amd64.deb 29170 MD5Sum:55cbf65ae5a3130130275df3cc0c5756
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxkbcommon/libxkbcommon0_0.8.2-1~ubuntu18.04.1_amd64.deb' libxkbcommon0_0.8.2-1~ubuntu18.04.1_amd64.deb 97776 MD5Sum:a889729fadfd40f8f87e5ecfbd895c34
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxrandr/libxrandr2_1.5.1-1_amd64.deb' libxrandr2_2%3a1.5.1-1_amd64.deb 18130 MD5Sum:5df01ca6b5ca6275f0e2c7a0d207cd1b
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gtk+3.0/libgtk-3-0_3.22.30-1ubuntu4_amd64.deb' libgtk-3-0_3.22.30-1ubuntu4_amd64.deb 2502900 MD5Sum:ff1df7cdf55691836c82583bbe32d964
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gtk+3.0/gir1.2-gtk-3.0_3.22.30-1ubuntu4_amd64.deb' gir1.2-gtk-3.0_3.22.30-1ubuntu4_amd64.deb 193868 MD5Sum:268a190296d3be882b982f714e253b90
+'http://archive.ubuntu.com/ubuntu/pool/main/h/harfbuzz/gir1.2-harfbuzz-0.0_1.7.2-1ubuntu1_amd64.deb' gir1.2-harfbuzz-0.0_1.7.2-1ubuntu1_amd64.deb 18552 MD5Sum:d51d9efccc5ec89e71f7997f274d35b3
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gnupg2/gnupg-l10n_2.2.4-1ubuntu1.3_all.deb' gnupg-l10n_2.2.4-1ubuntu1.3_all.deb 49732 MD5Sum:f8ea112cc05b2544337f0acd88b1c29e
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gnupg2/gnupg-utils_2.2.4-1ubuntu1.3_amd64.deb' gnupg-utils_2.2.4-1ubuntu1.3_amd64.deb 127400 MD5Sum:8dae9b4f6d873015c2373fde8162f453
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gnupg2/gpg_2.2.4-1ubuntu1.3_amd64.deb' gpg_2.2.4-1ubuntu1.3_amd64.deb 467260 MD5Sum:3b43ee5639e1b9ae27608e41f47f1c44
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pinentry/pinentry-curses_1.1.0-1_amd64.deb' pinentry-curses_1.1.0-1_amd64.deb 35792 MD5Sum:ee95f6b91de2825adabb7bac465acda5
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gnupg2/gpg-agent_2.2.4-1ubuntu1.3_amd64.deb' gpg-agent_2.2.4-1ubuntu1.3_amd64.deb 227292 MD5Sum:97227da4eaf4ef60faa9dc6e7205ff82
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gnupg2/gpg-wks-client_2.2.4-1ubuntu1.3_amd64.deb' gpg-wks-client_2.2.4-1ubuntu1.3_amd64.deb 91824 MD5Sum:814d891be72bc15ac75e19b340c915a0
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gnupg2/gpg-wks-server_2.2.4-1ubuntu1.3_amd64.deb' gpg-wks-server_2.2.4-1ubuntu1.3_amd64.deb 84956 MD5Sum:6146f14c4e4a10b0ed53dd2d8bcb24f3
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gnupg2/gpgsm_2.2.4-1ubuntu1.3_amd64.deb' gpgsm_2.2.4-1ubuntu1.3_amd64.deb 214836 MD5Sum:83d50fc2c5b3e077f673982c284ef6d8
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gnupg2/gnupg_2.2.4-1ubuntu1.3_amd64.deb' gnupg_2.2.4-1ubuntu1.3_amd64.deb 249168 MD5Sum:03bd8298f5ded8813aee40c0098c2bb9
+'http://archive.ubuntu.com/ubuntu/pool/main/i/icu/icu-devtools_60.2-3ubuntu3.1_amd64.deb' icu-devtools_60.2-3ubuntu3.1_amd64.deb 178720 MD5Sum:7739971daa99806aaa72d3aa08a05ed5
+'http://archive.ubuntu.com/ubuntu/pool/main/liba/libalgorithm-diff-perl/libalgorithm-diff-perl_1.19.03-1_all.deb' libalgorithm-diff-perl_1.19.03-1_all.deb 47622 MD5Sum:3d6f7b46454ff0b8589904fc4f8dd602
+'http://archive.ubuntu.com/ubuntu/pool/main/liba/libalgorithm-diff-xs-perl/libalgorithm-diff-xs-perl_0.04-5_amd64.deb' libalgorithm-diff-xs-perl_0.04-5_amd64.deb 11144 MD5Sum:21703dc09e53f4e885be7440983ea0c2
+'http://archive.ubuntu.com/ubuntu/pool/main/liba/libalgorithm-merge-perl/libalgorithm-merge-perl_0.08-3_all.deb' libalgorithm-merge-perl_0.08-3_all.deb 11992 MD5Sum:6b456963b6629af0514be1b8ccbaa7fc
+'http://archive.ubuntu.com/ubuntu/pool/main/liba/libarchive-cpio-perl/libarchive-cpio-perl_0.10-1_all.deb' libarchive-cpio-perl_0.10-1_all.deb 9644 MD5Sum:6db100b4716ffd6e40d7cb8fca9d7372
+'http://archive.ubuntu.com/ubuntu/pool/universe/g/gcc-6/libasan3_6.5.0-2ubuntu1~18.04_amd64.deb' libasan3_6.5.0-2ubuntu1~18.04_amd64.deb 313432 MD5Sum:c6103270e52fdb1f5267ff7b8fd1d63b
+'http://archive.ubuntu.com/ubuntu/pool/main/g/glib2.0/libglib2.0-bin_2.56.4-0ubuntu0.18.04.6_amd64.deb' libglib2.0-bin_2.56.4-0ubuntu0.18.04.6_amd64.deb 68776 MD5Sum:050e3048cd6090d1e0e3832dfa61a8c0
+'http://archive.ubuntu.com/ubuntu/pool/main/p/python3-stdlib-extensions/python3-lib2to3_3.6.9-1~18.04_all.deb' python3-lib2to3_3.6.9-1~18.04_all.deb 77444 MD5Sum:b8ebba802e69071e59df767190950593
+'http://archive.ubuntu.com/ubuntu/pool/main/p/python3-stdlib-extensions/python3-distutils_3.6.9-1~18.04_all.deb' python3-distutils_3.6.9-1~18.04_all.deb 144176 MD5Sum:6c0883472d914aa90f0d0e49099d0f39
+'http://archive.ubuntu.com/ubuntu/pool/main/g/glib2.0/libglib2.0-dev-bin_2.56.4-0ubuntu0.18.04.6_amd64.deb' libglib2.0-dev-bin_2.56.4-0ubuntu0.18.04.6_amd64.deb 101848 MD5Sum:8de83e098978d042ae2e8e1986704d46
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pcre3/libpcre16-3_8.39-9_amd64.deb' libpcre16-3_2%3a8.39-9_amd64.deb 147096 MD5Sum:891af39b368ccfe3ebf937ebda31a0bd
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pcre3/libpcre32-3_8.39-9_amd64.deb' libpcre32-3_2%3a8.39-9_amd64.deb 137816 MD5Sum:2b2a63e523322ec9c781b08461718a6a
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pcre3/libpcrecpp0v5_8.39-9_amd64.deb' libpcrecpp0v5_2%3a8.39-9_amd64.deb 15264 MD5Sum:9b2fd0a4edf7d8daa1efd807ea808e8f
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pcre3/libpcre3-dev_8.39-9_amd64.deb' libpcre3-dev_2%3a8.39-9_amd64.deb 536580 MD5Sum:d871e322dfe0d59c787d8283af3299b1
+'http://archive.ubuntu.com/ubuntu/pool/universe/p/pkgconf/pkgconf_0.9.12-6_amd64.deb' pkgconf_0.9.12-6_amd64.deb 31722 MD5Sum:b9493e3323845e56ef54b8eea9086f80
+'http://archive.ubuntu.com/ubuntu/pool/main/z/zlib/zlib1g-dev_1.2.11.dfsg-0ubuntu2_amd64.deb' zlib1g-dev_1%3a1.2.11.dfsg-0ubuntu2_amd64.deb 175500 MD5Sum:f4cc00164855f0065818aaeab66d2aaa
+'http://archive.ubuntu.com/ubuntu/pool/main/g/glib2.0/libglib2.0-dev_2.56.4-0ubuntu0.18.04.6_amd64.deb' libglib2.0-dev_2.56.4-0ubuntu0.18.04.6_amd64.deb 1384944 MD5Sum:215cf64bca6dc9a7b9bef43f47c5ad45
+'http://archive.ubuntu.com/ubuntu/pool/main/d/dbus/libdbus-1-dev_1.12.2-1ubuntu1.2_amd64.deb' libdbus-1-dev_1.12.2-1ubuntu1.2_amd64.deb 165412 MD5Sum:0219b890dab796741db8e5cea748bfe0
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorg-sgml-doctools/xorg-sgml-doctools_1.11-1_all.deb' xorg-sgml-doctools_1%3a1.11-1_all.deb 12926 MD5Sum:50af86828f27de21901ac305fcbcd97a
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-dev_2018.4-4_all.deb' x11proto-dev_2018.4-4_all.deb 250872 MD5Sum:1ae702d30ee651a034046af3cb70465b
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-core-dev_2018.4-4_all.deb' x11proto-core-dev_2018.4-4_all.deb 2620 MD5Sum:b24bd22dd114ca44e989a57f29733426
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxau/libxau-dev_1.0.8-1ubuntu1_amd64.deb' libxau-dev_1%3a1.0.8-1ubuntu1_amd64.deb 9476 MD5Sum:210932a21e922a55c6e663211d96c8b4
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxdmcp/libxdmcp-dev_1.1.2-3_amd64.deb' libxdmcp-dev_1%3a1.1.2-3_amd64.deb 25062 MD5Sum:222c56691e10742d16e181527b8e4dc5
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-input-dev_2018.4-4_all.deb' x11proto-input-dev_2018.4-4_all.deb 2620 MD5Sum:95ded5bbddd17ac82d5bab9777dd7945
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xtrans/xtrans-dev_1.3.5-1_all.deb' xtrans-dev_1.3.5-1_all.deb 70516 MD5Sum:307b4043a431a1904e6f4759150a15e1
+'http://archive.ubuntu.com/ubuntu/pool/main/libp/libpthread-stubs/libpthread-stubs0-dev_0.3-4_amd64.deb' libpthread-stubs0-dev_0.3-4_amd64.deb 4068 MD5Sum:72d8c78edd40a66deffe3cf0d2678a2e
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb1-dev_1.13-2~ubuntu18.04_amd64.deb' libxcb1-dev_1.13-2~ubuntu18.04_amd64.deb 79972 MD5Sum:6752f850629f26593b5d860d6ce9e6c5
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libx11/libx11-dev_1.6.4-3ubuntu0.3_amd64.deb' libx11-dev_2%3a1.6.4-3ubuntu0.3_amd64.deb 642696 MD5Sum:cc2b7ba9e097f40ac6e0965753e3bef7
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-xext-dev_2018.4-4_all.deb' x11proto-xext-dev_2018.4-4_all.deb 2620 MD5Sum:cf02a2b6eed7560ea828fe46d98b7500
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxext/libxext-dev_1.3.3-1_amd64.deb' libxext-dev_2%3a1.3.3-1_amd64.deb 82090 MD5Sum:d6a59c746e9ee089d301a1eb8a1202c6
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-fixes-dev_2018.4-4_all.deb' x11proto-fixes-dev_1%3a2018.4-4_all.deb 2620 MD5Sum:d67574b07b28d60f696cf541d556f4b7
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxfixes/libxfixes-dev_5.0.3-1_amd64.deb' libxfixes-dev_1%3a5.0.3-1_amd64.deb 11034 MD5Sum:c5bb7c646e3a6cad328799ad06a0d044
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxi/libxi-dev_1.7.9-1_amd64.deb' libxi-dev_2%3a1.7.9-1_amd64.deb 185662 MD5Sum:f6de3aa6354b815997d9ebf08c56a982
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-record-dev_2018.4-4_all.deb' x11proto-record-dev_2018.4-4_all.deb 2620 MD5Sum:253b4ab60550091d4b391ef2358fbd1a
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxtst/libxtst-dev_1.2.3-1_amd64.deb' libxtst-dev_2%3a1.2.3-1_amd64.deb 15222 MD5Sum:34f50675c7e76821f371b0be34f844f8
+'http://archive.ubuntu.com/ubuntu/pool/main/a/at-spi2-core/libatspi2.0-dev_2.28.0-1_amd64.deb' libatspi2.0-dev_2.28.0-1_amd64.deb 57336 MD5Sum:6558979640a06728a9d6c1356f2141c5
+'http://archive.ubuntu.com/ubuntu/pool/main/a/at-spi2-atk/libatk-bridge2.0-dev_2.26.2-1_amd64.deb' libatk-bridge2.0-dev_2.26.2-1_amd64.deb 3816 MD5Sum:f6d1bacd31773c06bddcd82b9f9e94c1
+'http://archive.ubuntu.com/ubuntu/pool/main/a/atk1.0/libatk1.0-dev_2.28.1-1_amd64.deb' libatk1.0-dev_2.28.1-1_amd64.deb 79924 MD5Sum:96e0149855c56ebc1e8e0c10305ca15a
+'http://archive.ubuntu.com/ubuntu/pool/main/c/cairo/libcairo-script-interpreter2_1.15.10-2ubuntu0.1_amd64.deb' libcairo-script-interpreter2_1.15.10-2ubuntu0.1_amd64.deb 53484 MD5Sum:c3cafcbaf3014430c92c4430a5f8feb3
+'http://archive.ubuntu.com/ubuntu/pool/main/e/expat/libexpat1-dev_2.2.5-3ubuntu0.2_amd64.deb' libexpat1-dev_2.2.5-3ubuntu0.2_amd64.deb 122392 MD5Sum:771fd01f6b12cec56bf281cc65adcc6c
+'http://archive.ubuntu.com/ubuntu/pool/main/libp/libpng1.6/libpng-dev_1.6.34-1ubuntu0.18.04.2_amd64.deb' libpng-dev_1.6.34-1ubuntu0.18.04.2_amd64.deb 176824 MD5Sum:d0195678bfd4aaccc774951f5f2b8934
+'http://archive.ubuntu.com/ubuntu/pool/main/f/freetype/libfreetype6-dev_2.8.1-2ubuntu2.1_amd64.deb' libfreetype6-dev_2.8.1-2ubuntu2.1_amd64.deb 2539412 MD5Sum:d4dabdf419391557b66ca72eb89ad538
+'http://archive.ubuntu.com/ubuntu/pool/main/f/fontconfig/libfontconfig1-dev_2.12.6-0ubuntu2_amd64.deb' libfontconfig1-dev_2.12.6-0ubuntu2_amd64.deb 688928 MD5Sum:f78bb317aaa30e95d0739e7925fe7edb
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxrender/libxrender-dev_0.9.10-1_amd64.deb' libxrender-dev_1%3a0.9.10-1_amd64.deb 24904 MD5Sum:7d1fcf4b3dbc3e813e150eeeec04a312
+'http://archive.ubuntu.com/ubuntu/pool/main/libi/libice/libice-dev_1.0.9-2_amd64.deb' libice-dev_2%3a1.0.9-2_amd64.deb 46754 MD5Sum:4e61454fde01378988ccbd29e2e47f86
+'http://archive.ubuntu.com/ubuntu/pool/main/libs/libsm/libsm-dev_1.2.2-1_amd64.deb' libsm-dev_2%3a1.2.2-1_amd64.deb 16188 MD5Sum:858c96db7d09d2bd5466f3e7d262d04f
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pixman/libpixman-1-dev_0.34.0-2_amd64.deb' libpixman-1-dev_0.34.0-2_amd64.deb 244168 MD5Sum:03398181d117d37250615d9503990d25
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-render0-dev_1.13-2~ubuntu18.04_amd64.deb' libxcb-render0-dev_1.13-2~ubuntu18.04_amd64.deb 18440 MD5Sum:704c0813132ba1a1524fe4f5512494d8
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-shm0-dev_1.13-2~ubuntu18.04_amd64.deb' libxcb-shm0-dev_1.13-2~ubuntu18.04_amd64.deb 6684 MD5Sum:0e4de3a0e2f4affcf99bc26f1ecc62b2
+'http://archive.ubuntu.com/ubuntu/pool/main/c/cairo/libcairo2-dev_1.15.10-2ubuntu0.1_amd64.deb' libcairo2-dev_1.15.10-2ubuntu0.1_amd64.deb 626140 MD5Sum:16a7d3fa52e2e16827cc8dbaf1bdc893
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-amdgpu1_2.4.101-2~18.04.1_amd64.deb' libdrm-amdgpu1_2.4.101-2~18.04.1_amd64.deb 18168 MD5Sum:d7eb9fec6a2ab5c2944978aa1d07b0a7
+'http://archive.ubuntu.com/ubuntu/pool/main/libp/libpciaccess/libpciaccess0_0.14-1_amd64.deb' libpciaccess0_0.14-1_amd64.deb 17908 MD5Sum:bacde3aa1e064b2fc472d45eb7e869d9
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-intel1_2.4.101-2~18.04.1_amd64.deb' libdrm-intel1_2.4.101-2~18.04.1_amd64.deb 59984 MD5Sum:331116aa33b0d83a2a2a5877318a5e6c
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-radeon1_2.4.101-2~18.04.1_amd64.deb' libdrm-radeon1_2.4.101-2~18.04.1_amd64.deb 21736 MD5Sum:d0004c91353a64d2e7e1a15dfc2f6abe
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-nouveau2_2.4.101-2~18.04.1_amd64.deb' libdrm-nouveau2_2.4.101-2~18.04.1_amd64.deb 16480 MD5Sum:23d1af3e454f7a3fa24c8e544cb9f301
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-dev_2.4.101-2~18.04.1_amd64.deb' libdrm-dev_2.4.101-2~18.04.1_amd64.deb 125680 MD5Sum:d03bf76c9b79ec88a355bbc1df66a43f
+'http://archive.ubuntu.com/ubuntu/pool/main/w/wayland/libwayland-server0_1.16.0-1ubuntu1.1~18.04.3_amd64.deb' libwayland-server0_1.16.0-1ubuntu1.1~18.04.3_amd64.deb 29572 MD5Sum:4c5a8c92bb50f0ae87e6b39c0d472491
+'http://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libgbm1_20.0.8-0ubuntu1~18.04.1_amd64.deb' libgbm1_20.0.8-0ubuntu1~18.04.1_amd64.deb 27620 MD5Sum:f6d934c92aa875c77949bc31dd74382a
+'http://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libglapi-mesa_20.0.8-0ubuntu1~18.04.1_amd64.deb' libglapi-mesa_20.0.8-0ubuntu1~18.04.1_amd64.deb 26640 MD5Sum:707f27153fea69d3296d28cb4592344b
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libx11/libx11-xcb1_1.6.4-3ubuntu0.3_amd64.deb' libx11-xcb1_2%3a1.6.4-3ubuntu0.3_amd64.deb 9628 MD5Sum:3da7d6d6cf9ddc02b321663fbe47fa47
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-dri2-0_1.13-2~ubuntu18.04_amd64.deb' libxcb-dri2-0_1.13-2~ubuntu18.04_amd64.deb 6920 MD5Sum:82e16ba0f75eb4491000b95973b2b009
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-dri3-0_1.13-2~ubuntu18.04_amd64.deb' libxcb-dri3-0_1.13-2~ubuntu18.04_amd64.deb 6568 MD5Sum:e5165092e67707d6d47816fb907660c9
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-present0_1.13-2~ubuntu18.04_amd64.deb' libxcb-present0_1.13-2~ubuntu18.04_amd64.deb 5552 MD5Sum:2cf5fe77d26d7dc41e160d8b93ea3cb6
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-sync1_1.13-2~ubuntu18.04_amd64.deb' libxcb-sync1_1.13-2~ubuntu18.04_amd64.deb 8808 MD5Sum:f96a5e594080f7a4be93f6a097f1a250
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-xfixes0_1.13-2~ubuntu18.04_amd64.deb' libxcb-xfixes0_1.13-2~ubuntu18.04_amd64.deb 9352 MD5Sum:68e0eca65888d64823ce8b29ab7dbb46
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxshmfence/libxshmfence1_1.3-1_amd64.deb' libxshmfence1_1.3-1_amd64.deb 5028 MD5Sum:a1c78ef4800af78dc9fe806a9716455c
+'http://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libegl-mesa0_20.0.8-0ubuntu1~18.04.1_amd64.deb' libegl-mesa0_20.0.8-0ubuntu1~18.04.1_amd64.deb 96280 MD5Sum:8a6fb88e8b05d5dd96a6cd6e150783da
+'http://archive.ubuntu.com/ubuntu/pool/main/m/mesa/mesa-common-dev_20.0.8-0ubuntu1~18.04.1_amd64.deb' mesa-common-dev_20.0.8-0ubuntu1~18.04.1_amd64.deb 741364 MD5Sum:c6bd64623a615e09894d5ac730b43ec0
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libglvnd0_1.0.0-2ubuntu2.3_amd64.deb' libglvnd0_1.0.0-2ubuntu2.3_amd64.deb 46972 MD5Sum:2c38131ecd23d7a7e4bdc6d8f74b88d3
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libglvnd-core-dev_1.0.0-2ubuntu2.3_amd64.deb' libglvnd-core-dev_1.0.0-2ubuntu2.3_amd64.deb 12800 MD5Sum:8021a6b69b08ac45b55bbac926a210d4
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libegl1_1.0.0-2ubuntu2.3_amd64.deb' libegl1_1.0.0-2ubuntu2.3_amd64.deb 31976 MD5Sum:2610286b223ff7cd1de9bfdd137ddf61
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libgles1_1.0.0-2ubuntu2.3_amd64.deb' libgles1_1.0.0-2ubuntu2.3_amd64.deb 11184 MD5Sum:a0ea9f1081f5bb5a6cc5ac15fc9796f9
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libgles2_1.0.0-2ubuntu2.3_amd64.deb' libgles2_1.0.0-2ubuntu2.3_amd64.deb 17336 MD5Sum:7d79cf8fce9de2131d39a2f63ec4de8d
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-glx0_1.13-2~ubuntu18.04_amd64.deb' libxcb-glx0_1.13-2~ubuntu18.04_amd64.deb 22104 MD5Sum:8b978bf7aed933d271a17e6717064323
+'http://archive.ubuntu.com/ubuntu/pool/main/l/llvm-toolchain-10/libllvm10_10.0.0-4ubuntu1~18.04.2_amd64.deb' libllvm10_1%3a10.0.0-4ubuntu1~18.04.2_amd64.deb 15373740 MD5Sum:326e432711d6c6d5dbd8fe37b9a5566f
+'http://archive.ubuntu.com/ubuntu/pool/main/l/lm-sensors/libsensors4_3.4.0-4_amd64.deb' libsensors4_1%3a3.4.0-4_amd64.deb 28772 MD5Sum:cfe56f691a17a659a1360ce448a05f03
+'http://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libgl1-mesa-dri_20.0.8-0ubuntu1~18.04.1_amd64.deb' libgl1-mesa-dri_20.0.8-0ubuntu1~18.04.1_amd64.deb 9332984 MD5Sum:d2e13caddb7c5c316ad9014cdb27ed93
+'http://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libglx-mesa0_20.0.8-0ubuntu1~18.04.1_amd64.deb' libglx-mesa0_20.0.8-0ubuntu1~18.04.1_amd64.deb 139008 MD5Sum:6d2468b52fc4f9eb0db3b14303e89c1e
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libglx0_1.0.0-2ubuntu2.3_amd64.deb' libglx0_1.0.0-2ubuntu2.3_amd64.deb 28088 MD5Sum:312d48ae120aeba38800cf0eba14d139
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libgl1_1.0.0-2ubuntu2.3_amd64.deb' libgl1_1.0.0-2ubuntu2.3_amd64.deb 86168 MD5Sum:df5e31a3cb4692b20400b14a68c1034c
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libopengl0_1.0.0-2ubuntu2.3_amd64.deb' libopengl0_1.0.0-2ubuntu2.3_amd64.deb 31284 MD5Sum:8db2b01375e162d5ecf767ca54d05a82
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libglvnd-dev_1.0.0-2ubuntu2.3_amd64.deb' libglvnd-dev_1.0.0-2ubuntu2.3_amd64.deb 3416 MD5Sum:47a685b272f9dd4e3f129fd580bed63e
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-xf86vidmode-dev_2018.4-4_all.deb' x11proto-xf86vidmode-dev_2018.4-4_all.deb 2632 MD5Sum:00ec52db3ccb854fe818643d7c862b1d
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxxf86vm/libxxf86vm-dev_1.1.4-1_amd64.deb' libxxf86vm-dev_1%3a1.1.4-1_amd64.deb 13302 MD5Sum:91acef3e7b3cb014f4d015886504efe7
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-damage-dev_2018.4-4_all.deb' x11proto-damage-dev_1%3a2018.4-4_all.deb 2620 MD5Sum:01d16131b4234b5076891a358345a512
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxdamage/libxdamage-dev_1.1.4-3_amd64.deb' libxdamage-dev_1%3a1.1.4-3_amd64.deb 5028 MD5Sum:d865ee974319f91693bc241e3d327a6a
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-glx0-dev_1.13-2~ubuntu18.04_amd64.deb' libxcb-glx0-dev_1.13-2~ubuntu18.04_amd64.deb 27884 MD5Sum:bfe4401867a2fb4e1021406e2c374aed
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-dri2-0-dev_1.13-2~ubuntu18.04_amd64.deb' libxcb-dri2-0-dev_1.13-2~ubuntu18.04_amd64.deb 8472 MD5Sum:e3a1120dfa4d3ed3c90c9f87612d39da
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-dri3-dev_1.13-2~ubuntu18.04_amd64.deb' libxcb-dri3-dev_1.13-2~ubuntu18.04_amd64.deb 7384 MD5Sum:db832dc7c6f6c7835057e7a5016187a8
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-randr0_1.13-2~ubuntu18.04_amd64.deb' libxcb-randr0_1.13-2~ubuntu18.04_amd64.deb 16412 MD5Sum:6a86e89429399e2b17d40ba28572c36c
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-randr0-dev_1.13-2~ubuntu18.04_amd64.deb' libxcb-randr0-dev_1.13-2~ubuntu18.04_amd64.deb 20444 MD5Sum:cb66bfb9122eca011999582998136c14
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-shape0_1.13-2~ubuntu18.04_amd64.deb' libxcb-shape0_1.13-2~ubuntu18.04_amd64.deb 5972 MD5Sum:21a39a531b5892172baa47b84d484180
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-shape0-dev_1.13-2~ubuntu18.04_amd64.deb' libxcb-shape0-dev_1.13-2~ubuntu18.04_amd64.deb 7144 MD5Sum:e747fb606c087a994196cd9fe2929261
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-xfixes0-dev_1.13-2~ubuntu18.04_amd64.deb' libxcb-xfixes0-dev_1.13-2~ubuntu18.04_amd64.deb 11692 MD5Sum:41c9dc023b707616a2183604c8b81014
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-sync-dev_1.13-2~ubuntu18.04_amd64.deb' libxcb-sync-dev_1.13-2~ubuntu18.04_amd64.deb 10600 MD5Sum:e9b402742305cecfb654db6d6b0d218c
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-present-dev_1.13-2~ubuntu18.04_amd64.deb' libxcb-present-dev_1.13-2~ubuntu18.04_amd64.deb 6972 MD5Sum:a187399d8ec401ff35e8d575a4487ac0
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxshmfence/libxshmfence-dev_1.3-1_amd64.deb' libxshmfence-dev_1.3-1_amd64.deb 3692 MD5Sum:7e082f51d0f4bbe511b6e767f2e43ac2
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libx11/libx11-xcb-dev_1.6.4-3ubuntu0.3_amd64.deb' libx11-xcb-dev_2%3a1.6.4-3ubuntu0.3_amd64.deb 9760 MD5Sum:715d17dba21a253115864bff52884704
+'http://archive.ubuntu.com/ubuntu/pool/main/w/wayland/libwayland-bin_1.16.0-1ubuntu1.1~18.04.3_amd64.deb' libwayland-bin_1.16.0-1ubuntu1.1~18.04.3_amd64.deb 19828 MD5Sum:77594592313679213de1486a9c658060
+'http://archive.ubuntu.com/ubuntu/pool/main/w/wayland/libwayland-dev_1.16.0-1ubuntu1.1~18.04.3_amd64.deb' libwayland-dev_1.16.0-1ubuntu1.1~18.04.3_amd64.deb 62820 MD5Sum:4526fef5ee37ac6ea622e6fb68d8c205
+'http://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libegl1-mesa-dev_20.0.8-0ubuntu1~18.04.1_amd64.deb' libegl1-mesa-dev_20.0.8-0ubuntu1~18.04.1_amd64.deb 20528 MD5Sum:aa6605e25d9d6b2d92f8a4d3d0668213
+'http://archive.ubuntu.com/ubuntu/pool/main/libe/libepoxy/libepoxy-dev_1.4.3-1_amd64.deb' libepoxy-dev_1.4.3-1_amd64.deb 118716 MD5Sum:a1e95b19090fe2fa87fc12474badabdf
+'http://archive.ubuntu.com/ubuntu/pool/main/libf/libfile-fcntllock-perl/libfile-fcntllock-perl_0.22-3build2_amd64.deb' libfile-fcntllock-perl_0.22-3build2_amd64.deb 33158 MD5Sum:42f312820f66cfae442b1912e9995315
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gtk+2.0/libgtk2.0-common_2.24.32-1ubuntu1_all.deb' libgtk2.0-common_2.24.32-1ubuntu1_all.deb 125188 MD5Sum:31ad46932ec0cc64f3a64ed563911546
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gtk+2.0/libgtk2.0-0_2.24.32-1ubuntu1_amd64.deb' libgtk2.0-0_2.24.32-1ubuntu1_amd64.deb 1769188 MD5Sum:7970fd5e756428c6322c72ee91248adc
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gtk+2.0/libgail18_2.24.32-1ubuntu1_amd64.deb' libgail18_2.24.32-1ubuntu1_amd64.deb 14224 MD5Sum:57a6d3bc13f705076f3a377bdb550422
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gtk+2.0/libgail-common_2.24.32-1ubuntu1_amd64.deb' libgail-common_2.24.32-1ubuntu1_amd64.deb 112272 MD5Sum:534196ae67fb770abf849e2a743fcfa1
+'http://archive.ubuntu.com/ubuntu/pool/universe/g/gcc-6/libgcc-6-dev_6.5.0-2ubuntu1~18.04_amd64.deb' libgcc-6-dev_6.5.0-2ubuntu1~18.04_amd64.deb 2307996 MD5Sum:de03f453c32ec14868b409658469a1b3
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gdk-pixbuf/libgdk-pixbuf2.0-bin_2.36.11-2_amd64.deb' libgdk-pixbuf2.0-bin_2.36.11-2_amd64.deb 7864 MD5Sum:922006633adf28f0607d10417dbbaf43
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gdk-pixbuf/libgdk-pixbuf2.0-dev_2.36.11-2_amd64.deb' libgdk-pixbuf2.0-dev_2.36.11-2_amd64.deb 46808 MD5Sum:d816ae1afd7f1d2d95042883654799a2
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libglu/libglu1-mesa_9.0.0-2.1build1_amd64.deb' libglu1-mesa_9.0.0-2.1build1_amd64.deb 167912 MD5Sum:13c5a2364ed14d4957eff0185ef9da68
+'http://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libgl1-mesa-dev_20.0.8-0ubuntu1~18.04.1_amd64.deb' libgl1-mesa-dev_20.0.8-0ubuntu1~18.04.1_amd64.deb 6180 MD5Sum:0b49b7c8c057a58d76044a3bf3aa6af6
+'http://archive.ubuntu.com/ubuntu/pool/main/libg/libglu/libglu1-mesa-dev_9.0.0-2.1build1_amd64.deb' libglu1-mesa-dev_9.0.0-2.1build1_amd64.deb 205588 MD5Sum:2f9b74ec708160922b9075d4b9fc768c
+'http://archive.ubuntu.com/ubuntu/pool/main/g/graphite2/libgraphite2-dev_1.3.11-2_amd64.deb' libgraphite2-dev_1.3.11-2_amd64.deb 14528 MD5Sum:75195daa4c222fd0543957c145aaf368
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gtk+3.0/libgtk-3-bin_3.22.30-1ubuntu4_amd64.deb' libgtk-3-bin_3.22.30-1ubuntu4_amd64.deb 57440 MD5Sum:04974e4202f1ae7ea629ef407e098910
+'http://archive.ubuntu.com/ubuntu/pool/main/h/harfbuzz/libharfbuzz-icu0_1.7.2-1ubuntu1_amd64.deb' libharfbuzz-icu0_1.7.2-1ubuntu1_amd64.deb 5604 MD5Sum:8b189a6988153119fb1e4bca0106d400
+'http://archive.ubuntu.com/ubuntu/pool/main/h/harfbuzz/libharfbuzz-gobject0_1.7.2-1ubuntu1_amd64.deb' libharfbuzz-gobject0_1.7.2-1ubuntu1_amd64.deb 13376 MD5Sum:dd8eafd4185fc17ed46807fae07e6cb3
+'http://archive.ubuntu.com/ubuntu/pool/main/i/icu-le-hb/libicu-le-hb0_1.0.3+git161113-4_amd64.deb' libicu-le-hb0_1.0.3+git161113-4_amd64.deb 14328 MD5Sum:5111ebc3b8508a331ccb179ea0b73663
+'http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libiculx60_60.2-3ubuntu3.1_amd64.deb' libiculx60_60.2-3ubuntu3.1_amd64.deb 18968 MD5Sum:02b71e46a9f3d8b0a227b1141ad5becd
+'http://archive.ubuntu.com/ubuntu/pool/main/i/icu-le-hb/libicu-le-hb-dev_1.0.3+git161113-4_amd64.deb' libicu-le-hb-dev_1.0.3+git161113-4_amd64.deb 29496 MD5Sum:c2132ba1c478d1c46aa585e76b9a66fe
+'http://archive.ubuntu.com/ubuntu/pool/universe/g/gcc-6/libstdc++-6-dev_6.5.0-2ubuntu1~18.04_amd64.deb' libstdc++-6-dev_6.5.0-2ubuntu1~18.04_amd64.deb 1436672 MD5Sum:d6d5ca66b828497bc2f900e3f4d35384
+'http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu-dev_60.2-3ubuntu3.1_amd64.deb' libicu-dev_60.2-3ubuntu3.1_amd64.deb 8888712 MD5Sum:6a3bfb4966c010f98dde559f04e8dd7a
+'http://archive.ubuntu.com/ubuntu/pool/main/h/harfbuzz/libharfbuzz-dev_1.7.2-1ubuntu1_amd64.deb' libharfbuzz-dev_1.7.2-1ubuntu1_amd64.deb 302156 MD5Sum:efef5814b49a8936bd70c8da8de5c08d
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xft/libxft-dev_2.3.2-1_amd64.deb' libxft-dev_2.3.2-1_amd64.deb 45694 MD5Sum:6d5a45b82095f1adf535a29fcd8df7a0
+'http://archive.ubuntu.com/ubuntu/pool/main/p/pango1.0/libpango1.0-dev_1.40.14-1ubuntu0.1_amd64.deb' libpango1.0-dev_1.40.14-1ubuntu0.1_amd64.deb 288008 MD5Sum:8cf813a01654f3e21541bc7e8049bc02
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-xinerama-dev_2018.4-4_all.deb' x11proto-xinerama-dev_2018.4-4_all.deb 2628 MD5Sum:58a3cbbc8b964fdf9eaecb68bf9f3e2e
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxinerama/libxinerama-dev_1.1.3-1_amd64.deb' libxinerama-dev_2%3a1.1.3-1_amd64.deb 8404 MD5Sum:1ae3c59dab94b1579df89043418302f7
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-randr-dev_2018.4-4_all.deb' x11proto-randr-dev_2018.4-4_all.deb 2620 MD5Sum:f7438881d78771ea1abadc0e75da46c2
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxrandr/libxrandr-dev_1.5.1-1_amd64.deb' libxrandr-dev_2%3a1.5.1-1_amd64.deb 24038 MD5Sum:4aa78d1f30bfe8409be2fa2cc8815a2e
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcursor/libxcursor-dev_1.1.15-1_amd64.deb' libxcursor-dev_1%3a1.1.15-1_amd64.deb 26496 MD5Sum:cfb5f34466a674dd8a12ebed8962cb05
+'http://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-composite-dev_2018.4-4_all.deb' x11proto-composite-dev_1%3a2018.4-4_all.deb 2620 MD5Sum:ac104cd2e05185e0935ac9de9d0299d1
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxcomposite/libxcomposite-dev_0.4.4-2_amd64.deb' libxcomposite-dev_1%3a0.4.4-2_amd64.deb 9136 MD5Sum:e81c1e8cc34f773b4c3f48be01005638
+'http://archive.ubuntu.com/ubuntu/pool/main/w/wayland-protocols/wayland-protocols_1.13-1_all.deb' wayland-protocols_1.13-1_all.deb 50456 MD5Sum:fb72d0b756b476afd030324fb6fb8fb4
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libxkbcommon/libxkbcommon-dev_0.8.2-1~ubuntu18.04.1_amd64.deb' libxkbcommon-dev_0.8.2-1~ubuntu18.04.1_amd64.deb 150152 MD5Sum:d509adaf3fa38c8d7b7e9d100c3ed8db
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gtk+3.0/libgtk-3-dev_3.22.30-1ubuntu4_amd64.deb' libgtk-3-dev_3.22.30-1ubuntu4_amd64.deb 896768 MD5Sum:8254c8f2fd9e2d9c3500418a2aada628
+'http://archive.ubuntu.com/ubuntu/pool/main/g/gtk+2.0/libgtk2.0-bin_2.24.32-1ubuntu1_amd64.deb' libgtk2.0-bin_2.24.32-1ubuntu1_amd64.deb 7536 MD5Sum:73a615ad614a682548dcafb3c80040d7
+'http://archive.ubuntu.com/ubuntu/pool/main/libt/libtool/libltdl7_2.4.6-2_amd64.deb' libltdl7_2.4.6-2_amd64.deb 38760 MD5Sum:cbde1aff8a89e6f869af9c04c01313ee
+'http://archive.ubuntu.com/ubuntu/pool/main/libt/libtool/libltdl-dev_2.4.6-2_amd64.deb' libltdl-dev_2.4.6-2_amd64.deb 161620 MD5Sum:a6125568056675f879b4be32622be13a
+'http://archive.ubuntu.com/ubuntu/pool/main/libs/libsys-hostname-long-perl/libsys-hostname-long-perl_1.5-1_all.deb' libsys-hostname-long-perl_1.5-1_all.deb 11716 MD5Sum:cde34d84d27c2ec6cc9dba9a2b0f8055
+'http://archive.ubuntu.com/ubuntu/pool/main/libm/libmail-sendmail-perl/libmail-sendmail-perl_0.80-1_all.deb' libmail-sendmail-perl_0.80-1_all.deb 22608 MD5Sum:0c911de42fd3600423ea874d03a418da
+'http://archive.ubuntu.com/ubuntu/pool/main/libn/libnotify/libnotify4_0.7.7-3_amd64.deb' libnotify4_0.7.7-3_amd64.deb 17320 MD5Sum:81052fd4814834260dacb155c3b7a4db
+'http://archive.ubuntu.com/ubuntu/pool/main/libp/libpng1.6/libpng-tools_1.6.34-1ubuntu0.18.04.2_amd64.deb' libpng-tools_1.6.34-1ubuntu0.18.04.2_amd64.deb 25580 MD5Sum:b2512fdc1b3de52a2a24ebc55be9b259
+'http://archive.ubuntu.com/ubuntu/pool/main/c/cyrus-sasl2/libsasl2-modules_2.1.27~101-g0780600+dfsg-3ubuntu2.1_amd64.deb' libsasl2-modules_2.1.27~101-g0780600+dfsg-3ubuntu2.1_amd64.deb 48788 MD5Sum:3eb4d826263aa243aa7f0addb22a4422
+'http://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/libtinfo-dev_6.1-1ubuntu1.18.04_amd64.deb' libtinfo-dev_6.1-1ubuntu1.18.04_amd64.deb 81264 MD5Sum:973ef5283fcbe958f5350e92a28e03a7
+'http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets3.0/libwxbase3.0-0v5_3.0.4+dfsg-3_amd64.deb' libwxbase3.0-0v5_3.0.4+dfsg-3_amd64.deb 953588 MD5Sum:a0ce62a84f9108c949cfbe8778b5ca51
+'http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets3.0/wx3.0-headers_3.0.4+dfsg-3_all.deb' wx3.0-headers_3.0.4+dfsg-3_all.deb 1020816 MD5Sum:3d7b78f5ec66736719c13f80f110666d
+'http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets3.0/libwxbase3.0-dev_3.0.4+dfsg-3_amd64.deb' libwxbase3.0-dev_3.0.4+dfsg-3_amd64.deb 29452 MD5Sum:54344b9eda62591d84a500314a6555df
+'http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets3.0/libwxgtk3.0-0v5_3.0.4+dfsg-3_amd64.deb' libwxgtk3.0-0v5_3.0.4+dfsg-3_amd64.deb 4182296 MD5Sum:641da237cffeac50365dc97dfbe2bd83
+'http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets3.0/wx-common_3.0.4+dfsg-3_amd64.deb' wx-common_3.0.4+dfsg-3_amd64.deb 67548 MD5Sum:15bddebda2fa9f847f6667a95cb249ac
+'http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets3.0/libwxgtk3.0-dev_3.0.4+dfsg-3_amd64.deb' libwxgtk3.0-dev_3.0.4+dfsg-3_amd64.deb 29616 MD5Sum:a0105668ccbd6b6a0e9bee1ab3683258
+'http://archive.ubuntu.com/ubuntu/pool/main/libx/libx11/libx11-doc_1.6.4-3ubuntu0.3_all.deb' libx11-doc_2%3a1.6.4-3ubuntu0.3_all.deb 2065348 MD5Sum:71c05b4f338c575aece189239b0690b5
+'http://archive.ubuntu.com/ubuntu/pool/main/libf/libffi/libffi-dev_3.2.1-8_amd64.deb' libffi-dev_3.2.1-8_amd64.deb 156164 MD5Sum:0fc5b5d0c336998461034426992dc10b
+'http://archive.ubuntu.com/ubuntu/pool/main/l/llvm-toolchain-6.0/llvm-6.0-runtime_6.0-1ubuntu2_amd64.deb' llvm-6.0-runtime_1%3a6.0-1ubuntu2_amd64.deb 199796 MD5Sum:5aac126ab00a1a65982dfb9ea94d9656
+'http://archive.ubuntu.com/ubuntu/pool/main/l/llvm-toolchain-6.0/llvm-6.0_6.0-1ubuntu2_amd64.deb' llvm-6.0_1%3a6.0-1ubuntu2_amd64.deb 4838204 MD5Sum:e4a90979de11af3d6964f051326e0ba4
+'http://archive.ubuntu.com/ubuntu/pool/main/l/llvm-toolchain-6.0/llvm-6.0-dev_6.0-1ubuntu2_amd64.deb' llvm-6.0-dev_1%3a6.0-1ubuntu2_amd64.deb 23003476 MD5Sum:5dbe91b0841657e8937d43300869efdc
+'http://archive.ubuntu.com/ubuntu/pool/main/l/llvm-toolchain-6.0/lld-6.0_6.0-1ubuntu2_amd64.deb' lld-6.0_1%3a6.0-1ubuntu2_amd64.deb 825668 MD5Sum:7e8eeb36d9ee4f4e0527b169ba985993
+'http://archive.ubuntu.com/ubuntu/pool/universe/l/llvm-defaults/lld_6.0-41~exp5~ubuntu1_amd64.deb' lld_1%3a6.0-41~exp5~ubuntu1_amd64.deb 2812 MD5Sum:c65d6de6f26a38e281f16c661081f81f
+'http://archive.ubuntu.com/ubuntu/pool/main/m/manpages/manpages-dev_4.15-1_all.deb' manpages-dev_4.15-1_all.deb 2216684 MD5Sum:521a670106221f75f4105d4dc08f3539
+'http://archive.ubuntu.com/ubuntu/pool/main/n/notification-daemon/notification-daemon_3.20.0-3_amd64.deb' notification-daemon_3.20.0-3_amd64.deb 36888 MD5Sum:a90170943917ae640184f88815475ff3
+'http://archive.ubuntu.com/ubuntu/pool/main/u/unzip/unzip_6.0-21ubuntu1.1_amd64.deb' unzip_6.0-21ubuntu1.1_amd64.deb 167988 MD5Sum:d4b0b36433369a140057cb0c907d2687
+'http://archive.ubuntu.com/ubuntu/pool/main/z/zip/zip_3.0-11build1_amd64.deb' zip_3.0-11build1_amd64.deb 167182 MD5Sum:59d9a848586c8be70c266b3eeadda32f
+'http://archive.ubuntu.com/ubuntu/pool/universe/o/openmprtl/libomp5_5.0.1-1_amd64.deb' libomp5_5.0.1-1_amd64.deb 234200 MD5Sum:ae293ce5f4fb763c28e3f3c0a9830b97
+'http://archive.ubuntu.com/ubuntu/pool/universe/o/openmprtl/libomp-dev_5.0.1-1_amd64.deb' libomp-dev_5.0.1-1_amd64.deb 5088 MD5Sum:491a0fa46b1bd458d88ba03a89ef3279
