@@ -43,3 +43,74 @@ linux container setup:
   lxc-attach -n llvm-compiler-amd64
   su -
   apt install nano less patch make clang lld libwxgtk3.0-dev libfuse2 pkgconf libgdk-pixbuf2.0-dev libgtk-3-dev
+
+i686 ubuntu bionic linux container does compile project, however, need to install libfuse2:i386 in host eOS
+  lxc-create -t download -n llvm-compiler-i686 -- -d ubuntu -r bionic -a i386
+  ~/.local/share/lxc/llvm-compiler-i686/config
+    lxc.mount.entry = /dev/fuse dev/fuse none bind,create=file,rw,uid=xxxx,gid=xxxx 0 0
+  *** errors, most likely missing i686 libs on eOS host (libsvg for icon?)
+
+armhf ubuntu bionic linux container does not compile project, because networking does not work to install
+  new packages;  look for armhf binary debs from website
+  lxc-create -t download -n llvm-compiler-armhf -- -d ubuntu -r bionic -a armhf
+  ~/.local/share/lxc/llvm-compiler-armhf/config
+    lxc.mount.entry = /dev/fuse dev/fuse none bind,create=file,rw,uid=xxxx,gid=xxxx 0 0
+  sudo cp /usr/bin/qemu-arm-static ~/.local/share/lxc/llvm-compiler-armhf/rootfs/usr/bin
+  sudo chown xxxx:xxxx ~/.local/share/lxc/llvm-compiler-armhf/rootfs/usr/bin/qemu-arm-static
+
+  Find packages on https://ubuntu.pkgs.org (18.04 bionic beaver main when available)
+
+  ## nano
+  wget http://ports.ubuntu.com/pool/main/n/ncurses/libtinfo5_6.1-1ubuntu1_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/n/ncurses/libncursesw5_6.1-1ubuntu1_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-8/gcc-8-base_8-20180414-1ubuntu2_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-8/libgcc1_8-20180414-1ubuntu2_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/glibc/libc6_2.27-3ubuntu1_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/n/nano/nano_2.9.3-2_armhf.deb
+
+  ## less
+  wget http://ports.ubuntu.com/pool/main/d/debianutils/debianutils_4.8.4_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/l/less/less_487-0.1_armhf.deb
+
+  ## patch
+  wget http://ports.ubuntu.com/pool/main/p/patch/patch_2.7.6-2ubuntu1_armhf.deb
+
+  ## make
+  wget http://ports.ubuntu.com/pool/main/m/make-dfsg/make_4.1-9.1ubuntu1_armhf.deb
+
+  ## clang
+  wget http://ports.ubuntu.com/pool/main/g/gcc-7/libstdc++-7-dev_7.3.0-16ubuntu3_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/libg/libgc/libgc1c2_7.4.2-8ubuntu1_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-8/libobjc4_8-20180414-1ubuntu2_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-7/libobjc-7-dev_7.3.0-16ubuntu3_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/l/llvm-toolchain-6.0/libllvm6.0_6.0-1ubuntu2_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/libj/libjsoncpp/libjsoncpp1_1.7.4-3_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-7/libubsan0_7.3.0-16ubuntu3_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-8/libgomp1_8-20180414-1ubuntu2_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-7/libcilkrts5_7.3.0-16ubuntu3_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-8/libatomic1_8-20180414-1ubuntu2_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-7/libasan4_7.3.0-16ubuntu3_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-7/gcc-7-base_7.3.0-16ubuntu3_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-7/libgcc-7-dev_7.3.0-16ubuntu3_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/l/llvm-toolchain-6.0/libclang1-6.0_6.0-1ubuntu2_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/gcc-8/libstdc++6_8-20180414-1ubuntu2_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/libf/libffi/libffi6_3.2.1-8_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/libe/libedit/libedit2_3.1-20170329-1_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/l/llvm-toolchain-6.0/libllvm6.0_6.0-1ubuntu2_armhf.deb
+  wget http://ports.ubuntu.com/pool/universe/l/llvm-toolchain-6.0/libclang-common-6.0-dev_6.0-1ubuntu2_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/l/linux/linux-libc-dev_4.15.0-20.21_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/glibc/libc-dev-bin_2.27-3ubuntu1_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/g/glibc/libc6-dev_2.27-3ubuntu1_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/z/zlib/zlib1g_1.2.11.dfsg-0ubuntu2_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/b/binutils/libbinutils_2.30-15ubuntu1_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/b/binutils/binutils-common_2.30-15ubuntu1_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/b/binutils/binutils-arm-linux-gnueabihf_2.30-15ubuntu1_armhf.deb
+  wget http://ports.ubuntu.com/pool/main/b/binutils/binutils_2.30-15ubuntu1_armhf.deb
+  wget http://ports.ubuntu.com/pool/universe/l/llvm-toolchain-6.0/clang-6.0_6.0-1ubuntu2_armhf.deb
+
+  ## lld
+  ## libwxgtk3.0-dev
+  ## libfuse2
+  ## pkgconf
+  ## libgdk-pixbuf2.0-dev
+  ## libgtk-3-dev
