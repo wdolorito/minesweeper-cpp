@@ -50,6 +50,9 @@ i686 ubuntu bionic linux container does compile project, however, need to instal
     lxc.mount.entry = /dev/fuse dev/fuse none bind,create=file,rw,uid=xxxx,gid=xxxx 0 0
   *** errors, most likely missing i686 libs on eOS host (libsvg for icon?)
 
+
+ARMHF container (broken):
+
 armhf ubuntu bionic linux container does not compile project, because networking does not work to install
   new packages;  look for armhf binary debs from website
   lxc-create -t download -n llvm-compiler-armhf -- -d ubuntu -r bionic -a armhf
@@ -59,10 +62,10 @@ armhf ubuntu bionic linux container does not compile project, because networking
   sudo chown xxxx:xxxx ~/.local/share/lxc/llvm-compiler-armhf/rootfs/usr/bin/qemu-arm-static
 
   Wasted some time searching through a package archive.
-    on brand new other ubuntu container, run:
+    on new armhf ubuntu container, run:
       apt -y install --print-uris nano less patch make clang lld libwxgtk3.0-dev libfuse2 pkgconf libgdk-pixbuf2.0-dev libgtk-3-dev > all\ debs
       cp all\ debs /tmp
-      on host,
+      on host,lxc.mount.entry = /dev/fuse dev/fuse none bind,create=file,rw,uid=xxxx,gid=xxxx 0 0
         cat all\ debs | grep 'MD5' | tr -d \' | awk '{print$1}' > just\ debs
         then sed "s/_amd64/_armhf/g" just\ debs > armhf\ debs\ raw
         sed "s/archive\.ubuntu.com\/ubuntu/ports.ubuntu.com/g" armhf\ debs\ raw > armhf\ debs
