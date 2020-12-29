@@ -60,3 +60,17 @@ if [ -d "${HOME}/${LOCAL}/info" ]; then
 fi
 //end
 make -f Makefile.msw
+
+
+
+for compiling in a linux container (i686 tested for WinXP):
+  lxc-create -t download -n mingw-w64-compiler -- -d debian -r buster -a amd64
+  apt install nano make less bzip2 g++-mingw-w64-i686 p7zip-full dos2unix
+
+  configure for wxWidgets 3.0.3:
+  ../wxWidgets-3.0.3/configure --prefix=$HOME/local-i686 --enable-stl --disable-threads --host=i686-w64-mingw32 --with-msw
+  make BUILD=release
+  make install
+
+  build project:
+  PATH=~/local-i686/bin:$PATH make -f Makefile.mswx release (for i686)
