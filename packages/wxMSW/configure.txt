@@ -1,18 +1,28 @@
 https://www.msys2.org/
-  msys2 <== update pacman -Syuu until nothing to be done
+  msys2 <== update pacman -Syu until nothing to be done
   pacman -S nano
   pacman -S git
   pacman -S base-devel
-  pacman -S mingw-w64-x86_64-toolchain (64 bit)
+  pacman -S msys2-devel (not necessary for build)
   pacman -S mingw-w64-i686-toolchain (32 bit)
-  pacman -S mingw-w64-x86_64-ntldd-git
-  pacman -S mingw-w64-i686-ntldd-git
+  pacman -S mingw-w64-x86_64-toolchain (64 bit)
+  pacman -S mingw-w64-ucrt-toolchain (64 bit)
+  pacman -S mingw-w64-clang-toolchain (64 bit)
+  pacman -S mingw-w64-i686-ntldd-git (32 bit)
+  pacman -S mingw-w64-x86_64-ntldd-git (64 bit)
+  pacman -S mingw-w64-ucrt-ntldd-git (64 bit)
+  pacman -S mingw-w64-clang-ntldd-git (64 bit)
   pacman -S p7zip
 
 git config --global core.editor "nano"
 
 MSYS2 gcc  9.3.0 successful
 MSYS2 gcc 10.1.0 UNSUCCESSFUL (narrorwing error)
+
+MSYS2 mingw32 11.2.0 good
+MSYS2 mingw64 11.2.0 good
+MSYS2 clang64 13.0.0 bad (seems to be ld link error)
+MSYS2 ucrt64 11.2.0 good
 
 for gcc 10.1.0 add CXXFLAGS=-Wno-narrowing to configure:
 CXXFLAGS=-Wno-narrowing ~/local/src/wxWidgets-3.0.3/configure --prefix=$HOME/local{32,64} --enable-stl --disable-threads
@@ -21,8 +31,8 @@ windres icon sizes:
   https://www.creativefreedom.co.uk/icon-designers-blog/windows-7-icon-sizes/
 
 configure:
-~/local/src/wxWidgets-3.0.3/configure --prefix=$HOME/local{32,64} --enable-stl --disable-threads
-make BUILD=debug
+~/local/src/wxWidgets-3.0.3/configure --prefix=$HOME/$LOCAL --enable-stl --disable-threads --disable-mediactrl
+make
 
 building project:
 add to .bash_profile:

@@ -36,4 +36,4 @@ done
 
 echo "Creating zip archive"
 touch $APP/built-on-$(date +%s)
-${ZIP} a -sdel -tzip $APP.zip $APP/
+${ZIP} a -sdel -tzip release/$APP.zip $APP/
