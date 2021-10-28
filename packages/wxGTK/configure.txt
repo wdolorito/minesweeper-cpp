@@ -75,3 +75,21 @@ armhf ubuntu bionic linux container does not compile project, because networking
       wget -i armhf\ debs
       cp debs to container
       dpkg -i *.deb
+
+
+ARMHF chroot: (broken)
+
+  as root, debian bullseye (11) host:
+    cd
+    apt install qemu-user-static debootstrap
+    mkdir armhf-chroot
+    cd armhf-chroot
+    debootstrap --arch=armhf buster .
+    mount -o bind /dev dev
+    mount -t proc proc proc
+    mount -t sysfs sys sys
+    cp /usr/bin/qemu-arm-static usr/bin
+    cp -r <path-to-project> root
+    chroot .
+    su -
+    apt -y install nano less patch make clang lld libwxgtk3.0-dev libfuse2 pkgconf libgdk-pixbuf2.0-dev libgtk-3-dev

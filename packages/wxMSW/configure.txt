@@ -73,14 +73,35 @@ make -f Makefile.msw
 
 
 
-for compiling in a linux container (i686 tested for WinXP):
-  lxc-create -t download -n mingw-w64-compiler -- -d debian -r buster -a amd64
-  apt install nano make less bzip2 g++-mingw-w64-i686 p7zip-full dos2unix
+for compiling in an unprivileged linux container (i686 tested for WinXP):
+  <on host>
+    lxc-create -t download -n mingw-w64-compiler -- -d debian -r buster -a amd64
+  <in container>
+    apt install nano make less bzip2 g++-mingw-w64-i686 g++-mingw-w64-x86-64 p7zip-full dos2unix
+
+  copy project to container:
+  <on host>
+    cp <path-to-project> ~/.local/share/lxc/mingw-w64-compiler/rootfs/tmp
+    lxc-unpriv-attach -n mingw-w64-compiler
+  <in container>
+    cd
+    cp -r /tmp/minesweeper-cpp .
+    mkdir -p local/src
+    cd local/src
+    tar xf ~/minesweeper-cpp/packages/wxWidgets-3.0.3.tar.bz2
+    mkdir wxWidgets-3.0.3-configure
+    cd wxWidgets-3.0.3-configure
 
   configure for wxWidgets 3.0.3:
-  ../wxWidgets-3.0.3/configure --prefix=$HOME/local-i686 --enable-stl --disable-threads --host=i686-w64-mingw32 --with-msw
-  make BUILD=release
-  make install
+    <i686>
+      ../wxWidgets-3.0.3/configure --prefix=$HOME/local-i686 --enable-stl --disable-threads --host=i686-w64-mingw32 --with-msw
+    <x86_64>
+      ../wxWidgets-3.0.3/configure --prefix=$HOME/local-x86_64 --enable-stl --disable-threads --host=x86_64-w64-mingw32 --with-msw
+    make
+    make install
 
   build project:
-  PATH=~/local-i686/bin:$PATH make -f Makefile.mswx release (for i686)
+  <i686>
+    PATH=~/local-i686/bin:$PATH BUILD=32 make -f Makefile.mswx release
+  <x86_64>
+    PATH=~/local-x86_64/bin:$PATH BUILD=64 make -f Makefile.mswx release

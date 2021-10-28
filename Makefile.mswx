@@ -1,5 +1,10 @@
 $(shell if [ ! -d bin ]; then mkdir bin; fi)
-PREFIX=i686-w64-mingw32-
+TYPE = $(BUILD)
+ifeq ($(TYPE), 32)
+PREFIX = i686-w64-mingw32-
+else
+PREFIX = x86_64-w64-mingw32-
+endif
 CXX = g++
 WINDRES = windres
 DEBUG_FLAGS = -g

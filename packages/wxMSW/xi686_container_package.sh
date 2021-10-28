@@ -1,6 +1,4 @@
 #!/bin/bash
-PREFIX=i686-w64-mingw32
-APP=Minesweep.$PREFIX
 BINDIR=../../bin
 EXE=minesweeper.exe
 ASSETDIR=../../assets
@@ -13,6 +11,14 @@ if [ ! -f "$BINDIR/$EXE" ]; then
 	echo -e "\texiting"
 	exit
 fi
+
+TYPE=$(file $BINDIR/$EXE | cut -d ' ' -f 5)
+if [ $TYPE = "x86-64" ]; then
+	PREFIX=x86_64-w64-mingw32
+else
+	PREFIX=i686-w64-mingw32
+fi
+APP=Minesweep.$PREFIX
 
 if [ -d ./$APP ]; then
 	rm -rf ./$APP
