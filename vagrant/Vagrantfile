@@ -2,6 +2,7 @@ ENV["LC_ALL"] = "en_US.UTF-8"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "2048"
     vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
@@ -13,7 +14,6 @@ Vagrant.configure("2") do |config|
     end
     native_x86_64.vm.synced_folder "../", "/home/vagrant/project"
     native_x86_64.vm.hostname = "ubuntu-bionic64-native"
-    native_x86_64.vm.network "private_network", ip: "192.168.10.200"
     native_x86_64.vm.provision "file", source: "native-build-project.sh", destination: "/tmp/build-project.sh"
     native_x86_64.vm.provision "file", source: "native-build-wxWidgets.sh", destination: "/tmp/build-wxWidgets.sh"
     native_x86_64.vm.provision "shell", path: "native-install-tools.sh"
@@ -25,11 +25,11 @@ Vagrant.configure("2") do |config|
     end
     armhf_cross.vm.synced_folder "../", "/home/vagrant/project"
     armhf_cross.vm.hostname = "ubuntu-bionic64-armhf-cross"
-    armhf_cross.vm.network "private_network", ip: "192.168.10.210"
     armhf_cross.vm.provision "file", source: "arm-cross-build-project.sh", destination: "/tmp/build-project.sh"
     armhf_cross.vm.provision "file", source: "arm-cross-build-wxWidgets.sh", destination: "/tmp/build-wxWidgets.sh"
     armhf_cross.vm.provision "file", source: "arm-cross-build-chroot.sh", destination: "/tmp/build-chroot.sh"
     armhf_cross.vm.provision "file", source: "arm-cross-enter-chroot.sh", destination: "/tmp/enter-chroot.sh"
+    armhf_cross.vm.provision "file", source: "arm-cross-cleanup-chroot.sh", destination: "/tmp/cleanup-chroot.sh"
     armhf_cross.vm.provision "shell", path: "arm-cross-install-tools.sh"
   end
 
@@ -39,7 +39,6 @@ Vagrant.configure("2") do |config|
     end
     mingw_cross.vm.synced_folder "../", "/home/vagrant/project"
     mingw_cross.vm.hostname = "ubuntu-bionic64-mingw-cross"
-    mingw_cross.vm.network "private_network", ip: "192.168.10.220"
     mingw_cross.vm.provision "file", source: "mingw-cross-build-project.sh", destination: "/tmp/build-project.sh"
     mingw_cross.vm.provision "file", source: "mingw-cross-build-wxWidgets.sh", destination: "/tmp/build-wxWidgets.sh"
     mingw_cross.vm.provision "shell", path: "mingw-cross-install-tools.sh"
