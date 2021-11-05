@@ -1,6 +1,41 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/macos,linux,windows,vagrant
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,windows,vagrant
+# Created by https://www.toptal.com/developers/gitignore/api/linux,macos,windows,vagrant,c++
+# Edit at https://www.toptal.com/developers/gitignore?templates=linux,macos,windows,vagrant,c++
+
+### C++ ###
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.res
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
 
 ### Linux ###
 *~
@@ -82,4 +117,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,vagrant
+# End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows,vagrant,c++
