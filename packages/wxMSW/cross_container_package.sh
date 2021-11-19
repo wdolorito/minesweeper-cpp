@@ -15,8 +15,12 @@ fi
 TYPE=$(file $BINDIR/$EXE | cut -d ' ' -f 5)
 if [ $TYPE = "x86-64" ]; then
 	PREFIX=x86_64-w64-mingw32
+	NP1="*i686*"
+	NP2="*config*32*"
 else
 	PREFIX=i686-w64-mingw32
+	NP1="*x86_64*"
+	NP2="*config*64*"
 fi
 APP=Minesweep.$PREFIX
 
@@ -37,7 +41,7 @@ cp $BINDIR/$EXE $APP/
 echo "Copying dynamic libraries"
 for lib in $LIBS
 do
-  find / -not -path "*posix/*" -name $lib -exec cp {} $APP \; 2>/dev/null
+  find / -not -path "*posix/*" -not -path $NP1 -not -path $NP2 -name $lib -exec cp {} $APP \; -exec echo {} \; 2>/dev/null
 done
 
 echo "Creating zip archive"

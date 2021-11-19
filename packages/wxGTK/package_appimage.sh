@@ -44,7 +44,7 @@ echo "Copying executable"
 cp $BINDIR/$EXE $APPBINDIR
 
 echo "Copying shared libraries"
-LIBS=`ldd $APPBINDIR/$EXE | cut -d " " -f 3`
+LIBS=`LD_LIBRARY_PATH=$(wx-config --prefix)/lib ldd $APPBINDIR/$EXE | cut -d " " -f 3`
 for lib in $LIBS
 do
 	cp $lib $APPLIBDIR
