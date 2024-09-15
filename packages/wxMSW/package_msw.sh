@@ -1,10 +1,20 @@
 #!/bin/bash
-APP=Minesweep.$MSYSTEM
-BINDIR=../../bin
-EXE=minesweeper.exe
-ASSETDIR=../../assets
-FIND=find
-ZIP=7z
+APP="Minesweep.$MSYSTEM"
+BINDIR="../../bin"
+EXE="minesweeper.exe"
+ASSETDIR="../../assets"
+LIBSFILE="libs.$MSYSTEM"
+ZIP="7z"
+
+walk_libs() {
+    OPS="$(ntldd.exe "$1" | grep -v -i 'windows' | awk '{print $1}')"
+    for lib in $OPS
+    do
+        OPLIB="$(which $lib)"
+        echo "$OPLIB" >> "$LIBSFILE"
+        walk_libs "$OPLIB"
+    done 
+}
 
 if [ ! -f "$BINDIR/$EXE" ]; then
 	echo -e "\t$BINDIR/$EXE doesn't exist!"
@@ -13,37 +23,34 @@ if [ ! -f "$BINDIR/$EXE" ]; then
 	exit
 fi
 
-if [ -d ./$APP ]; then
-	rm -rf ./$APP
+if [ -d ./"$APP" ]
+then
+	rm -rf ./"$APP"
 fi
 
-mkdir $APP
-
-WXLIBS=`ntldd ../../bin/minesweeper.exe | grep -v -i "windows" | cut -d " " -f 1 | cut -d $'\t' -f 2`
+mkdir "$APP"
 
 echo "Copying resources"
-cp -r $ASSETDIR $APP
+cp -r $ASSETDIR "$APP"
 
 echo "Copying executable"
-cp $BINDIR/$EXE $APP/
+cp $BINDIR/$EXE "$APP"/
 
 echo "Copying dynamic libraries"
-CMP="*wx*"
-for lib in $WXLIBS
+
+if [ -f "$LIBSFILE" ]
+then
+    rm -rf "$LIBSFILE"
+fi
+
+walk_libs "$BINDIR/$EXE"
+sort -u "$LIBSFILE" -o "$LIBSFILE"
+for F in $(cat "$LIBSFILE")
 do
-    DLL=`which $lib`
-	echo -e "\t=>  $(basename $DLL)"
-	cp -f $DLL $APP/
-
-    LIBDLLS=`ntldd $DLL | grep -v -i "windows" | cut -d " " -f 1 | cut -d $'\t' -f 2`
-
-    for libdll in $LIBDLLS
-    do
-        echo -e "\t\t$libdll"
-        cp -f `which $libdll` $APP/
-    done
+    cp "$F" "$APP"/
 done
+rm -rf "$LIBSFILE"
 
 echo "Creating zip archive"
-touch $APP/built-on-$(date +%s)
-${ZIP} a -sdel -tzip release/$APP.zip $APP/
+touch "$APP"/built-on-"$(date +%s)"
+${ZIP} a -sdel -tzip release/"$APP".zip "$APP"/
